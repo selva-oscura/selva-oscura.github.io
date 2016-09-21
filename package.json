@@ -1,0 +1,27 @@
+{
+  "name": "selva-oscura.github.io",
+  "version": "1.0.0",
+  "description": "playing with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selva-oscura/selva-oscura.github.io.git"
+  },
+  "keywords": [
+    "react.js",
+    "github"
+  ],
+  "author": "selva-oscura (Carol  St. Louis, stlouis_c@yahoo.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selva-oscura/selva-oscura.github.io/issues"
+  },
+  "homepage": "https://github.com/selva-oscura/selva-oscura.github.io#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
