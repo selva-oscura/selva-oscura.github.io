@@ -1,27 +1,86 @@
 <html>
 	<head>
 		<title>Portfolio | Carol  St. Louis</title>
+		<style type="text/css">
+			body{
+				color:black;
+			}
+			nav{
+				display: inline-block;
+				width: 100%;
+			}
+			nav ul{
+				list-style: none;
+				float:right;
+			}
+			nav ul li{
+				padding-left: 2em;
+				display:inline;
+			}
+			nav ul li a{
+				text-decoration: none;
+			}
+			section {
+				min-height: 100vh;
+				margin:0px;
+			}
+			.container{
+				width: 960px;
+				min-width: 80vw;
+				margin: 0px auto;
+			}
+			#home{
+				background-color:black;
+				color:white;
+			}
+			#about{
+				background-color:grey;
+			}
+			#portfolio{
+				background-color: silver;
+			}
+			#contact{
+				background-color: white;
+			}
+			.card{
+				width: 100%;
+			}
+			.card img{
+				width: 20%;
+				overflow:hidden;
+			}
+		</style>
 	</head>
 	<body>
 		<nav>
-			<ul>
-				<li class="home">Home</li>
-				<li class="about">About</li>
-				<li class="portfolio">Portfolio</li>
-				<li class="container">Contact</li>
-			</ul>
+			<div class="container">
+				<ul>
+					<li class="home">Home</li>
+					<li class="about">About</li>
+					<li class="portfolio">Portfolio</li>
+					<li class="container">Contact</li>
+				</ul>
+			</div>
 		</nav>
 		<section id="home">
-			<h2>Home</h2>
+			<div class="container">
+				<h2>Home</h2>
+			</div>
 		</section>
 		<section id="about">
-			<h2>About</h2>
+			<div class="container">
+				<h2>About</h2>
+			</div>
 		</section>
 		<section id="portfolio">
-			<h2>Portfolio</h2>
+			<div class="container">
+				<h2>Portfolio</h2>
+			</div>
 		</section>
 		<section id="contact">
-			<h2>Container</h2>
+			<div class="container">
+				<h2>Container</h2>
+			</div>
 		</section>
 	</body>
 </html>
