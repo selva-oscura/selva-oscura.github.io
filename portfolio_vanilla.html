@@ -1,13 +1,21 @@
 <html>
 	<head>
 		<title>Portfolio | Carol  St. Louis</title>
+		<link rel="stylesheet" href="./public/normalize.css">
 		<style type="text/css">
 			body{
 				color:black;
+				box-sizing: border-box;
 			}
 			nav{
 				display: inline-block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1000;
 				width: 100%;
+				height: 50px;
+				background-color: #00a087;
 			}
 			nav ul{
 				list-style: none;
@@ -21,25 +29,29 @@
 				text-decoration: none;
 			}
 			section {
+				width: 100%;
 				min-height: 100vh;
 				margin:0px;
+				padding-top:2em;
 			}
 			.container{
-				width: 960px;
-				min-width: 80vw;
+				max-width: 960px;
+				width: 80%;
 				margin: 0px auto;
+				overflow:auto;
 			}
-			#home{
+			.home{
+				padding-top:50px;
 				background-color:black;
 				color:white;
 			}
-			#about{
+			.about{
 				background-color:grey;
 			}
-			#portfolio{
+			.portfolio{
 				background-color: silver;
 			}
-			#contact{
+			.contact{
 				background-color: white;
 			}
 			.card{
@@ -50,34 +62,44 @@
 				overflow:hidden;
 			}
 		</style>
+		<script src="./public/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){			
+				$('.navscroll').click(function(e){
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-49 }, 500);
+				});
+			})
+		</script>
 	</head>
 	<body>
 		<nav>
 			<div class="container">
 				<ul>
-					<li class="home">Home</li>
-					<li class="about">About</li>
-					<li class="portfolio">Portfolio</li>
-					<li class="container">Contact</li>
+					<li><a class="navscroll" id="home">Home</a></li>
+					<li><a class="navscroll" id="about">About</a></li>
+					<li><a class="navscroll" id="portfolio">Portfolio</a></li>
+					<li><a class="navscroll" id="contact">Contact</a></li>
 				</ul>
 			</div>
 		</nav>
-		<section id="home">
+		<section class="home">
 			<div class="container">
 				<h2>Home</h2>
 			</div>
 		</section>
-		<section id="about">
+		<section class="about">
 			<div class="container">
 				<h2>About</h2>
+				<p>Full-stack web development freelancer with 3 years experience with HTML5, CSS3, full-stack JavaScript development (Meteor and MEAN), PHP, and MySQL. I have a passion for learning, strong analytical and problem-solving skills, and I'm looking for new and exciting opportunities to learn in a dynamic, collaborative environment.</p>
 			</div>
 		</section>
-		<section id="portfolio">
+		<section class="portfolio">
 			<div class="container">
 				<h2>Portfolio</h2>
 			</div>
 		</section>
-		<section id="contact">
+		<section class="contact">
 			<div class="container">
 				<h2>Container</h2>
 			</div>
