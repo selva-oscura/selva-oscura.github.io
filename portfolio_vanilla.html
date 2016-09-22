@@ -27,6 +27,14 @@
 			}
 			nav ul li a{
 				text-decoration: none;
+				padding:.8em;
+				border-top:4px transparent;
+				border-bottom:4px transparent;
+			}
+			nav ul li a.active{
+				color:white;
+				border-top:4px solid white;
+				border-bottom:4px solid white;
 			}
 			section {
 				width: 100%;
@@ -66,7 +74,10 @@
 		<script type="text/javascript">
 			$(document).ready(function(){			
 				$('.navscroll').click(function(e){
-					e.preventDefault();
+					$('.navscroll').each(function(link){
+						$(document).find("#"+this.id).removeClass('active');
+					})
+					$('#'+this.id).addClass('active');
 					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-49 }, 500);
 				});
 			})
@@ -76,7 +87,7 @@
 		<nav>
 			<div class="container">
 				<ul>
-					<li><a class="navscroll" id="home">Home</a></li>
+					<li><a class="navscroll active" id="home">Home</a></li>
 					<li><a class="navscroll" id="about">About</a></li>
 					<li><a class="navscroll" id="portfolio">Portfolio</a></li>
 					<li><a class="navscroll" id="contact">Contact</a></li>
@@ -86,6 +97,10 @@
 		<section class="home">
 			<div class="container">
 				<h2>Home</h2>
+				<div class="social">
+					<button>Github</button>
+					<button>Twitter</button>
+				</div>
 			</div>
 		</section>
 		<section class="about">
@@ -101,7 +116,7 @@
 		</section>
 		<section class="contact">
 			<div class="container">
-				<h2>Container</h2>
+				<h2>Contact</h2>
 			</div>
 		</section>
 	</body>
