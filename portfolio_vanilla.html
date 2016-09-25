@@ -1,11 +1,39 @@
 <html>
 	<head>
 		<title>Portfolio | Carol  St. Louis</title>
-		<link rel="stylesheet" href="./public/normalize.css">
+		<link rel="stylesheet" href="./public/stylesheets/normalize.css">
+		<link rel="stylesheet" href="./public/stylesheets/technology-icons.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet">
 		<style type="text/css">
-			body{
-				color:black;
-				box-sizing: border-box;
+			*{
+				box-sizing:border-box;
+			}
+			html { font-size: 1.5em; }
+			h1, h2, h3, h4{
+				font-family: 'Tangerine', cursive;
+				font-weight: normal;
+			}
+			p, h5, h6, label, li{
+				font-family: 'Open Sans', sans-serif;
+			}
+
+			h1 { font-size: 3.3em; }
+
+			h2 { font-size: 2.7em; }
+
+			h3 { font-size: 2.2em; }
+
+			h4 { font-size: 1.8em; }
+			h5 { font-size: .8em; }
+
+			h6 { font-size: .6em; }
+			p,a { font-size: .8em; }
+
+			em { font-size: 1.2em; }
+
+			.meteorIcon{
+				height: 1.5em;
+				width: 1.5em;	
 			}
 			nav{
 				display: inline-block;
@@ -14,65 +42,151 @@
 				left: 0;
 				z-index: 1000;
 				width: 100%;
-				height: 50px;
-				background-color: #00a087;
+				height: 3em;
+				background-color: #193D5A;
 			}
 			nav ul{
 				list-style: none;
 				float:right;
+				overflow: hidden;
 			}
 			nav ul li{
 				padding-left: 2em;
 				display:inline;
 			}
 			nav ul li a{
+				color:white;
 				text-decoration: none;
-				padding:.8em;
+				padding:.75em;
 				border-top:4px transparent;
 				border-bottom:4px transparent;
 			}
 			nav ul li a.active{
-				color:white;
-				border-top:4px solid white;
-				border-bottom:4px solid white;
+				color:#FFDEB1;
+				/*border-top:2px solid white;*/
+				border-bottom:3px solid #FFDEB1;
+			}
+			.spacing{
+				height:3em;
 			}
 			section {
 				width: 100%;
 				min-height: 100vh;
-				margin:0px;
-				padding-top:2em;
+				padding-top:1em;
 			}
 			.container{
-				max-width: 960px;
-				width: 80%;
+				/*max-width: 1280px;*/
+				width: 85%;
 				margin: 0px auto;
-				overflow:auto;
 			}
 			.home{
-				padding-top:50px;
-				background-color:black;
-				color:white;
+				background-color: #80C6E7;
+				color:#193D5A;
+			}
+			.social p{
+				margin: 0em 12%;
+			}
+			.social p a{
+				text-decoration: none;
+				text-align: center;
+				display:inline-block;
+				width: 25%;
+				padding: 1em 0em;
+				margin: 1em 12%;
+				background-color: white;
+				color:#193D5A;
 			}
 			.about{
-				background-color:grey;
+				background-color: #FFDEB1;
+				/*color:white;*/
+				color: #193D5A;
+			}
+			.about h3{
+				color: #193D5A;
+				padding:1em 0em 0em 0em;
+				margin:.5em 0em .5em 1em;
+			}
+			.about ul{
+				list-style: none;
+			}
+			.about li{
+				line-height: 1.5em;
+			}
+			.about ul, .about li{
+				margin:0;
+				margin-left:1em;
+				padding:0;
 			}
 			.portfolio{
-				background-color: silver;
-			}
-			.contact{
 				background-color: white;
+				color:#193D5A;
+			}
+			.portfolio h3{
+				line-height: 3em;
+				margin-top: 0em;
+				margin-bottom:0em;
+				padding:0em .5em;
+			}
+			.portfolio h3 a{
+				color:#193D5A;
+				text-decoration: none;
+			}
+
+			.contact{
+				background-color:#740000;
+				color:white;
+			}
+			.contact input, .contact textarea{
+				background-color: white;
+				color: #193D5A;
 			}
 			.card{
 				width: 100%;
+				overflow:hidden;
+				margin-top:2em;
+				max-height: 400px;
+			}
+			.card:last-child{
+				padding-bottom: 1em;
 			}
 			.card img{
 				width: 33%;
-				overflow:hidden;
 				display: inline-block;
+				vertical-align: top;
 			}
 			.card div{
 				width: 66%;
-				display: inline;
+				display: inline-block;
+				vertical-align: top;
+				padding-top: 0em;
+			}
+			.half{
+				display:inline-block;
+				width:49%;
+				vertical-align: top;
+				padding:1em 0em;
+			}
+			.onethird{
+				display:inline-block;
+				width:50px;
+				vertical-align: top;
+				padding:.2em;
+				text-align: center
+			}
+			.twoThird{
+				display:inline-block;
+				width:69%;
+				vertical-align: top;
+				padding:.2em;
+			}
+			label{
+				display: inline-block;
+				width: 100%;
+				/*font-size: 2em;*/
+				margin-top: 1em;
+			}
+			input, textarea{
+				width: 100%;
 			}
 		</style>
 		<script src="./public/jquery-3.1.0.min.js"></script>
@@ -83,7 +197,7 @@
 						$(document).find("#"+this.id).removeClass('active');
 					})
 					$('#'+this.id).addClass('active');
-					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-49 }, 500);
+					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-71 }, 500);
 				});
 			})
 		</script>
@@ -99,31 +213,102 @@
 				</ul>
 			</div>
 		</nav>
+<!-- 	 -->
 		<section class="home">
 			<div class="container">
-				<h2>Home</h2>
+				<!-- <h2>Home</h2> -->
+				<h2>&nbsp;</h2>
 				<div class="social">
-					<a href="https://github.com/selva-oscura" target="github">Github</a>
-					<a href="https://linkedin.com/in/stlouisc" target="linkedin">LinkedIn</a>
+					<p>
+						<a href="https://github.com/selva-oscura" target="github">Github</a>
+						<a href="https://linkedin.com/in/stlouisc" target="linkedin">LinkedIn</a>
+					</p>
 				</div>
 			</div>
 		</section>
 		<section class="about">
 			<div class="container">
-				<h2>About</h2>
+				<!-- <h2>About</h2> -->
+				<h2>&nbsp;</h2>
 				<p>Full-stack web development freelancer with 3 years experience with HTML5, CSS3, full-stack JavaScript development (Meteor, MEAN (MongoDB, Express, Angular.js, Node.js), and React), PHP, and MySQL. I have a passion for learning, strong analytical and problem-solving skills, and enjoy writing software with an eye to clean and maintainable code. I'm looking for new and exciting opportunities to thrive in a dynamic, collaborative environment.</p>
+				<div class="half">
+					<h3>Front-end</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-html5"></em></span><span class="twothird"> HTML5</span></li>
+						<li><span class="onethird"><em class="icon-css3"></em></span><span class="twothird"> CSS3</span></li>
+						<li><span class="onethird"><em class="icon-bootstrap"></em></span><span class="twothird"> Bootstrap</span></li>
+						<li><span class="onethird">&nbsp;</span><span class="twoThird"> Materialize</span></li>
+						<li><span class="onethird"><em class="icon-d3"></em></span><span class="twothird"> D3.js</span></li>
+						<li><span class="onethird"><em class="icon-jquery"></em></span><span class="twothird"> jQuery</span></li>
+					</ul>
+					<h3>Databases</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+						
+						<li><span class="onethird"><em class="icon-mysql"></em></span><span class="twothird"> MySQL</span></li>
+					</ul>
+					<h3>PaaS &amp; DBaaS:</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-heroku"></em></span><span class="twothird"> Heroku</span></li>
+						<li><span class="onethird">&nbsp;</span><span class="twothird">Galaxy</span></li>
+						<li><span class="onethird">&nbsp;</span><span class="twothird">mLab</span></li>
+					</ul>
+					<h3>Version Control:</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-github-circle"></em></span><span class="twothird"> GitHub</span></li>
+						<li><span class="onethird">&nbsp;</span><span class="twothird">BitBucket</span></li>
+					</ul>
+
+				</div>
+				<div class="half">
+					<h3>Languages</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-js"></em></span><span class="twothird">Javascript / ES6</span>
+							</span></li>
+						<li><span class="onethird"><em class="icon-php-alt"></em></span><span class="twothird"> PHP</span></li>
+						<li><span class="onethird"><em class="icon-python"></em></span><span class="twothird"> Python</span></li>
+						<li><span class="onethird"><em class="icon-ruby"></em></span><span class="twothird"> Ruby</span></li>
+					</ul>
+					<h3>JavaScript Frameworks</h3>
+					<ul>
+						<li><span class="onethird"><img class="meteorIcon" src="./public/img/meteor.png" /></span><span class="twoThird">Meteor</span>
+							<ul>
+								<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+								<li><span class="onethird"><em class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
+								<li><span class="onethird">&nbsp;</span><span class="twothird">Blaze</span></li>
+								<li><span class="onethird">&nbsp;</span><span class="twothird">Spacebars</span></li>
+							</ul>
+						</span></li>
+						<li><span class="onethird"><em class="icon-react"></em></span><span class="twothird"> React</span></li>
+						<li><span class="onethird">&nbsp;</span><span class="twoThird">MEAN
+							<ul>
+								<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+								<li><span class="onethird"><em class="icon-express"></em></span><span class="twothird"> Express</span></li>
+								<li><span class="onethird"><em class="icon-angular"></em></span><span class="twothird"> Angular.js</span></li>
+								<li><span class="onethird"><em class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
+							</ul>
+						</span></li>
+					</ul>
+					<h3>Operating Systems</h3>
+					<ul>
+						<li><span class="onethird"><em class="icon-ubuntu"></em></span><span class="twothird"> Ubuntu</span></li>
+					</ul>
+					<ul>
+						<li><span class="onethird"></span><span class="twothird"> Windows</span></li>
+					</ul>
+				</div>
 			</div>
 		</section>
 		<section class="portfolio">
 			<div class="container">
-				<h2>Portfolio</h2>
-
+				<!-- <h2>Portfolio</h2> -->
+				<h2>&nbsp;</h2>
 				<div class="card">
 					<img src="public/img/shines.png" alt="Door-to-Door Shines screenshot" />
 					<div>
 						<h3><a href="https://doortodoorshines.com" target="shines">Door-to-Door Shines</a></h3>
 						<p>Door-to-Door Shines is an app to help busy people in the San Francisco Area with on-demand shoe shine and repair services.  Select the services you want, schedule pick-up and return times that are convenient for you, pay, and cross one more errand off your list!</p>
-						<p>As the sole developer for Door-to-Door Shines, I built (1) the interfaces the user sees as s/he orders shine &amp; repair services, schedules pick-up and delivery times, pays with Stripe, leaves comments or asks questions, (2) the admin dashboard, displaying pending and completed orders, user feedback, and customer information, scheduling of delivery times, analytics on orders and revenue, and (3) the internals, including the database and the cron jobs that remind the admins to update the delivery schedule and clean up incomplete orders in order to prevent abandoned orders from taking up value booking timeslots.</p>
+						<p>As sole developer for Door-to-Door Shines, I built (1) the interfaces the user sees as s/he orders shine &amp; repair services, schedules pick-up &amp; delivery times, pays, leaves comments or asks questions; (2) the admin dashboard, displaying pending &amp; completed orders, user feedback, &amp; customer information, scheduling of delivery times, analytics on orders and revenue; and (3) the internals, including database and cron jobs.</p>
 						<p><strong>Technologies:</strong> Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript, jQuery, HTML5, CSS3, Materialize.css, Stripe API</p>
 					</div>
 				</div>
@@ -132,7 +317,7 @@
 					<div>
 						<h3><a href="https://zyrl.meteorapp.com/" target="zyrl">Zyrl</a></h3>
 						<p>Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.</p>
-						<p>As a freelancer for the start-up Zyrl, I rebuilt the back-end for the app (sign-up and communications for influencers, merchants, and potential employees, arranged site and database hosting), managed the Facebook and Instagram permissions process, designed and developed the internal APIs and the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of the data from influencers' Facebook and Instagram profiles and posts.</p>
+						<p>As a freelancer for Zyrl, I rebuilt the app's back-end (sign-up and communications for influencers, merchants, and potential employees), arranged site and database hosting, managed the Facebook and Instagram permissions process, designed and developed the internal APIs and the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data.</p>
 						<p><strong>Technologies:</strong> Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API</p>
 					</div>
 				</div>
@@ -156,7 +341,7 @@
 					<img src="public/img/booksmart.png" alt="Booksmart screenshot" />
 					<div>
 						<h3><a href="http://booksmartapp.com" target="booksmart">Booksmart</a></h3>
-						<p></p>
+						<p>Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted.</p>
 						<p><strong>Technologies:</strong> HTM5, CSS3, Bootstrap, PHP, MySQL, Javascript, AJAX, jQuery, Campusbooks API</p>
 					</div>
 				</div>
@@ -168,27 +353,48 @@
 						<p><strong>Technologies:</strong> HTM5, CSS3, PHP, Javascript, AJAX, jQuery</p>
 					</div>
 				</div>
-				<div class="card">
+<!-- 				<div class="card">
 					<img src=""/>
 					<div>
 						<h3><a href="" target=""></a></h3>
 						<p></p>
 						<p><strong>Technologies:</strong></p>
 					</div>
-				</div>
-				<div class="card">
+				</div> -->
+<!-- 				<div class="card">
 					<img src=""/>
 					<div>
 						<h3><a href="" target=""></a></h3>
 						<p></p>
 						<p><strong>Technologies:</strong></p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</section>
 		<section class="contact">
 			<div class="container">
-				<h2>Contact</h2>
+				<!-- <h2>Contact</h2> -->
+				<h2>&nbsp;</h2>
+				<div class="half">
+					<form>
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name">
+						<label for="email">Email Address</label>
+						<input type="text" name="name" id="email">
+						<label for="phone">Phone Number</label>
+						<input type="tel" name="phone" id="phone">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" value="" autocomplete="off" required ></textarea>
+					</form>
+				</div>
+				<div class="half">
+					<div class="onethird">
+						<p>&nbsp;</p>
+					</div>
+					<div class="twothird">
+						<p>Want to get in touch with me? Be it to request more info about me and my experience or to ask for my resume, just drop me a line.<br />I promise to reply A.S.A.P.</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</body>
