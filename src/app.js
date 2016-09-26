@@ -53,7 +53,25 @@ var PageComponent = (
 				)
 			)			
 		),
-		SectionFactory({className:'home'}),
+		section({className:'home'},
+			div({className:'container'},
+				div({
+					className: 'social',
+					style: {paddingTop: '66vh'}
+				},
+					p(null,
+						a({
+							href:'https://github.com/selva-oscura',
+							target: 'github'
+						}, "GitHub"),
+						a({
+							href:'https://linkedin.com/in/stlouisc',
+							target: 'LinkedIn'
+						}, "LinkedIn")
+					)
+				)
+			)
+		),
 		SectionFactory({className:'about'}),
 		SectionFactory({className:'portfolio'}),
 		SectionFactory({className:'contact'})
