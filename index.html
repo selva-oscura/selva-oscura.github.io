@@ -1,6 +1,22 @@
 <html>
 	<head>
 		<title>Playing with React</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet">
+		<link rel="stylesheet" href="./public/stylesheets/normalize.css">
+		<link rel="stylesheet" href="./public/stylesheets/technology-icons.css">
+		<link rel="stylesheet" href="./public/stylesheets/profile.css">
+		<script src="./public/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){			
+				$('.navscroll').click(function(e){
+					$('.navscroll').each(function(link){
+						$(document).find("#"+this.id).removeClass('active');
+					})
+					$('#'+this.id).addClass('active');
+					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-71 }, 500);
+				});
+			})
+		</script>
 	</head>
 	<body>
 		<div id="app"></div>
