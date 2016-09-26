@@ -478,7 +478,66 @@ var PageComponent = (
 				)
 			)
 		),
-		section({className:'contact'},'CONTACT')
+		section({className:'contact'},
+			div({className:'container'},
+				div({className:'half'},
+					form(null,
+						label({
+							htmlFor:'Name'
+						}, 'Name'),
+						input({
+							type: 'text',
+							name: 'name',
+							id: 'name',
+							required:'required'
+						}),
+						label({
+							htmlFor:'email'
+						}, 'E-mail Address'),
+						input({
+							type: 'email',
+							name: 'email',
+							id: 'email',
+							required:'required'
+						}),
+						label({
+							htmlFor:'Phone'
+						}, 'Telephone Number'),
+						input({
+							type: 'tel',
+							name: 'phone',
+							id: 'phone',
+							required:'required'
+						}),
+						label({
+							htmlFor:'Message'
+						}, 'Message'),
+						textarea({
+							type: 'text',
+							name: 'message',
+							id: 'message',
+							value: '',
+							required:'required'
+						}),
+						input({
+							type: 'submit',
+							value: 'SUBMIT',
+							id: 'submit'
+						})
+					)
+				),
+				div({className:'half'},
+					div({className:'onethird'},
+						p(null," ")
+					),
+					div({className:'twothird'},
+						p(null,"Want to get in touch with me? Be it to request more info about me and my experience or to ask for my resume, just drop me a line."
+						),
+						p(null, "I'll reply ASAP")
+					)
+				)
+			)
+		)
 	)
 );
 ReactDOM.render(PageComponent, document.getElementById('app'));
