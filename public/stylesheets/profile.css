@@ -3,11 +3,11 @@
 }
 html { font-size: 1.5em; }
 h1, h2, h3, h4{
-	font-family: 'Tangerine', cursive;
+	font-family: 'Oswald', sans-serif;
 	font-weight: normal;
 }
 p, h5, h6, label, li{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 h1 { font-size: 3.3em; }
@@ -20,9 +20,9 @@ h4 { font-size: 1.8em; }
 h5 { font-size: .8em; }
 
 h6 { font-size: .6em; }
-p,a { font-size: .8em; }
+p,a { font-size: 1em; }
 
-em { font-size: 1.2em; }
+em { font-size: 1.5em; }
 
 .meteorIcon{
 	height: 1.5em;
@@ -115,14 +115,17 @@ section {
 	color:#193D5A;
 }
 .portfolio h3{
-	line-height: 3em;
+	line-height: 1.5em;
 	margin-top: 0em;
 	margin-bottom:0em;
-	padding:0em .5em;
+	padding:0em 36px;
 }
 .portfolio h3 a{
 	color:#193D5A;
 	text-decoration: none;
+}
+.portfolio p{
+	padding: 0em 36px;
 }
 
 .contact{
@@ -133,11 +136,20 @@ section {
 	background-color: white;
 	color: #193D5A;
 }
+
+.contact input{
+	height: 48px;
+}
+.contact textarea{
+	height: 96px;
+	margin-bottom: 48px;
+}
+
 .card{
 	width: 100%;
 	overflow:hidden;
 	margin-top:2em;
-	max-height: 400px;
+	max-height: 500px;
 }
 .card:last-child{
 	padding-bottom: 1em;
