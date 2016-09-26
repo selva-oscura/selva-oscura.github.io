@@ -55,7 +55,7 @@
 	var div = React.DOM.div;
 	var h1 = React.DOM.h1;
 	var h2 = React.DOM.h2;
-	var h3 = React.DOM.h2;
+	var h3 = React.DOM.h3;
 	var p = React.DOM.p;
 	var a = React.DOM.a;
 	var em = React.DOM.em;
