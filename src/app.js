@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 // var MyTitle = require('./MyTitle.js');
 // import { MyTitle } from './MyTitle.js';
+var NavBar = require('./NavBar.js');
 var Section = require('./Section.js');
 
 var section = React.DOM.section;
@@ -30,42 +31,7 @@ var SectionFactory = React.createFactory(Section);
 
 var PageComponent = (
 	div(null,
-		nav(null, 
-			div({className:'container'},
-				ul(null,
-					li(null,
-						a({
-							className:'navscroll active',
-							id: 'home', 
-						}, 'HOME')
-					),
-					li(null,
-						a({
-							className:'navscroll',
-							id: 'about', 
-						}, 'ABOUT')
-					),
-					li(null,
-						a({
-							className:'navscroll',
-							id: 'portfolio', 
-						}, 'PORTFOLIO')
-					),
-					li(null,
-						a({
-							className:'navscroll',
-							id: 'contact', 
-						}, 'CONTACT')
-					),
-					li(null, 
-						a({
-							className:'navScroll',
-							id: 'tribute'
-						}, 'TRIBUTE')
-					)
-				)
-			)			
-		),
+		React.createElement(NavBar, null),
 		section({className:'home'},
 			div({className:'container'},
 				div({
