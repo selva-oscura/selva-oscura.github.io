@@ -1,7 +1,7 @@
 var React = require('react');
 var img = React.DOM.img;
 
-var CardImage = React.createClass({
+var PortfolioCardImage = React.createClass({
 	render(){
 		return(
 			img({
@@ -12,4 +12,4 @@ var CardImage = React.createClass({
 	}
 });
 
-module.exports = CardImage;
+module.exports = PortfolioCardImage;

@@ -6,7 +6,7 @@ var a = React.DOM.a;
 var strong = React.DOM.strong;
 // var CardPara = require('./CardPara.js');
 
-var CardText = React.createClass({
+var PortfolioCardText = React.createClass({
 	render(){
 		var target = this.props.target
 		return(
@@ -29,4 +29,4 @@ var CardText = React.createClass({
 	}
 });
 
-module.exports = CardText;
+module.exports = PortfolioCardText;

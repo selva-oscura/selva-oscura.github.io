@@ -5,18 +5,18 @@ var h3 = React.DOM.h3;
 var p = React.DOM.p;
 var strong = React.DOM.strong;
 
-var CardImage = require('./CardImage.js');
-var CardText = require('./CardText.js');
+var PortfolioCardImage = require('./PortfolioCardImage.js');
+var PortfolioCardText = require('./PortfolioCardText.js');
 
-var Card = React.createClass({
+var PortfolioCard = React.createClass({
 	render(){
 		return(
 			div({className: 'card'},
-				React.createElement(CardImage, {
+				React.createElement(PortfolioCardImage, {
 					src:this.props.src,
 					name:this.props.name
 				}),
-				React.createElement(CardText,{					
+				React.createElement(PortfolioCardText,{					
 					href: this.props.href,
 					target: this.props.target,
 					name:this.props.name,
@@ -28,4 +28,4 @@ var Card = React.createClass({
 	}
 });
 
-module.exports = Card;
+module.exports = PortfolioCard;
