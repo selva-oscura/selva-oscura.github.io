@@ -46,12 +46,10 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
-	// var MyTitle = require('./MyTitle.js');
-	// import { MyTitle } from './MyTitle.js';
+
 	var NavBar = __webpack_require__(172);
-	// var Section = require('./Section.js');
-	var Portfolio = __webpack_require__(174);
-	// var Card = require('./Card.js');
+	var Home = __webpack_require__(174);
+	var Portfolio = __webpack_require__(175);
 
 	var section = React.DOM.section;
 	var nav = React.DOM.nav;
@@ -80,25 +78,26 @@
 	var PageComponent = (
 		div(null,
 			React.createElement(NavBar, null),
-			section({className:'home'},
-				div({className:'container'},
-					div({
-						className: 'social',
-						style: {paddingTop: '66vh'}
-					},
-						p(null,
-							a({
-								href:'https://github.com/selva-oscura',
-								target: 'github'
-							}, "GitHub"),
-							a({
-								href:'https://linkedin.com/in/stlouisc',
-								target: 'LinkedIn'
-							}, "LinkedIn")
-						)
-					)
-				)
-			),
+			React.createElement(Home, null),
+			// section({className:'home'},
+			// 	div({className:'container'},
+			// 		div({
+			// 			className: 'social',
+			// 			style: {paddingTop: '66vh'}
+			// 		},
+			// 			p(null,
+			// 				a({
+			// 					href:'https://github.com/selva-oscura',
+			// 					target: 'github'
+			// 				}, "GitHub"),
+			// 				a({
+			// 					href:'https://linkedin.com/in/stlouisc',
+			// 					target: 'LinkedIn'
+			// 				}, "LinkedIn")
+			// 			)
+			// 		)
+			// 	)
+			// ),
 			section({className:'about'},
 				div({className:'container'},
 					p({style: {paddingTop: "2em"}},"Full-stack web development freelancer with 3 years experience with HTML5, CSS3, full-stack JavaScript development (Meteor, MEAN (MongoDB, Express, Angular.js, Node.js), and React), PHP, and MySQL. I have a passion for learning, strong analytical and problem-solving skills, and enjoy writing software with an eye to clean and maintainable code. I\'m looking for new and exciting opportunities to thrive in a dynamic, collaborative environment."
@@ -22055,8 +22054,48 @@
 	var React = __webpack_require__(1);
 	var section = React.DOM.section;
 	var div = React.DOM.div;
+	var p = React.DOM.p;
+	var a = React.DOM.a;
 
-	var Card = __webpack_require__(175);
+
+	var Home = React.createClass({
+		render(){
+			return(
+				section({className:'home'},
+					div({className:'container'},
+						div({
+							className: 'social',
+							style: {paddingTop: '66vh'}
+						},
+							p(null,
+								a({
+									href:'https://github.com/selva-oscura',
+									target: 'github'
+								}, "GitHub"),
+								a({
+									href:'https://linkedin.com/in/stlouisc',
+									target: 'LinkedIn'
+								}, "LinkedIn")
+							)
+						)
+					)
+				)
+			)
+		}
+	});
+
+
+	module.exports = Home;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var section = React.DOM.section;
+	var div = React.DOM.div;
+
+	var Card = __webpack_require__(176);
 
 	var Portfolio = React.createClass({
 		render(){
@@ -22120,7 +22159,7 @@
 	module.exports = Portfolio;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -22130,8 +22169,8 @@
 	var p = React.DOM.p;
 	var strong = React.DOM.strong;
 
-	var CardImage = __webpack_require__(176);
-	var CardText = __webpack_require__(177);
+	var CardImage = __webpack_require__(177);
+	var CardText = __webpack_require__(178);
 
 	var Card = React.createClass({
 		render(){
@@ -22156,7 +22195,7 @@
 	module.exports = Card;
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -22176,7 +22215,7 @@
 	module.exports = CardImage;
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
