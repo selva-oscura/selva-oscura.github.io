@@ -643,10 +643,72 @@ var PageComponent = (
 							href:"https://www.ubuntu.com/", 
 							target:"_new"
 						},"Ubuntu")
+					),
+					li(null,
+						"Browsers: ",
+						a({
+							href:"https://www.mozilla.org/firefox", 
+							target:"_new"
+						},"Mozilla Firefox"),
+						" and ",
+						a({
+							href:"https://www.chromium.org/getting-involved/download-chromium", 
+							target:"_new"							
+						},"Chromium")
+					),
+					li(null,
+						"FTP: ",
+						a({
+							href:"https://filezilla-project.org/", 
+							target:"_new"
+						},"FileZilla")
+					),
+					li(null,
+						"SSH and telnet client: ",
+						a({
+							href:"https://www.chiark.greenend.org.uk/~sgtatham/putty", 
+							target:"_new"
+						},"PuTTY")
+					),
+					li(null,
+						"Version Control: ",
+						a({
+							href:"https://git-scm.com/downloads", 
+							target:"_new"
+						},"Git")
+					),
+					li(null,
+						"Office Suite: ",
+						a({
+							href:"https://www.libreoffice.org/", 
+							target:"_new"
+						},"LibreOffice")
+					),
+					li(null,
+						"Graphics Editor: ",
+						a({
+							href:"https://www.gimp.org/", 
+							target:"_new"
+						},"GIMP")
+					),
+					li(null,
+						"Media Player: ",
+						a({
+							href:"https://www.videolan.org/vlc/index.html", 
+							target:"_new"
+						},"VLC Media Player")
+					),
+					li(null,
+						"E-book management and converter: ",
+						a({
+							href:"https://calibre-ebook.com/", 
+							target:"_new"
+						},"Calibre")
 					)
 				)
 			)
 		)
 	)
 );
+
 ReactDOM.render(PageComponent, document.getElementById('app'));
