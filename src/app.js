@@ -1,11 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-// var MyTitle = require('./MyTitle.js');
-// import { MyTitle } from './MyTitle.js';
+
 var NavBar = require('./NavBar.js');
-// var Section = require('./Section.js');
+var Home = require('./Home.js');
 var Portfolio = require('./Portfolio.js');
-// var Card = require('./Card.js');
 
 var section = React.DOM.section;
 var nav = React.DOM.nav;
@@ -34,25 +32,26 @@ var textarea = React.DOM.textarea;
 var PageComponent = (
 	div(null,
 		React.createElement(NavBar, null),
-		section({className:'home'},
-			div({className:'container'},
-				div({
-					className: 'social',
-					style: {paddingTop: '66vh'}
-				},
-					p(null,
-						a({
-							href:'https://github.com/selva-oscura',
-							target: 'github'
-						}, "GitHub"),
-						a({
-							href:'https://linkedin.com/in/stlouisc',
-							target: 'LinkedIn'
-						}, "LinkedIn")
-					)
-				)
-			)
-		),
+		React.createElement(Home, null),
+		// section({className:'home'},
+		// 	div({className:'container'},
+		// 		div({
+		// 			className: 'social',
+		// 			style: {paddingTop: '66vh'}
+		// 		},
+		// 			p(null,
+		// 				a({
+		// 					href:'https://github.com/selva-oscura',
+		// 					target: 'github'
+		// 				}, "GitHub"),
+		// 				a({
+		// 					href:'https://linkedin.com/in/stlouisc',
+		// 					target: 'LinkedIn'
+		// 				}, "LinkedIn")
+		// 			)
+		// 		)
+		// 	)
+		// ),
 		section({className:'about'},
 			div({className:'container'},
 				p({style: {paddingTop: "2em"}},"Full-stack web development freelancer with 3 years experience with HTML5, CSS3, full-stack JavaScript development (Meteor, MEAN (MongoDB, Express, Angular.js, Node.js), and React), PHP, and MySQL. I have a passion for learning, strong analytical and problem-solving skills, and enjoy writing software with an eye to clean and maintainable code. I\'m looking for new and exciting opportunities to thrive in a dynamic, collaborative environment."
