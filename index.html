@@ -11,11 +11,11 @@
 				$('.navscroll').click(function(e){
 					$('.navscroll').each(function(link){
 						$(document).find("#"+this.id).removeClass('active');
-					})
+					});
 					$('#'+this.id).addClass('active');
 					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-60 }, 500);
 				});
-			})
+			});
 		</script>
 	</head>
 	<body>
