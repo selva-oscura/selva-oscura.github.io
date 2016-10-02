@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 const NavBar = require('./NavBar.js');
-// var Home = require('./Home.js');
+const Home = require('./Home.js');
 // var Portfolio = require('./Portfolio.js');
 // var About = require('./About.js');
 // var section = React.DOM.section;
@@ -27,7 +27,10 @@ const NavBar = require('./NavBar.js');
 // var textarea = React.DOM.textarea;
 
 const PageComponent = () => (
-	<NavBar />
+	<div>
+		<NavBar />
+		<Home />
+	</div>
 )
 // var PageComponent = (
 // 	div(null,

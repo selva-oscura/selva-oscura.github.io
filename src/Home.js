@@ -1,35 +1,16 @@
-var React = require('react');
-var section = React.DOM.section;
-var div = React.DOM.div;
-var p = React.DOM.p;
-var a = React.DOM.a;
+const React = require('react');
 
-
-var Home = React.createClass({
-	render(){
-		return(
-			section({className:'home'},
-				div({className:'container'},
-					div({
-						className: 'social',
-						style: {paddingTop: '66vh'}
-					},
-						p(null,
-							a({
-								href:'https://github.com/selva-oscura',
-								target: 'github'
-							}, "GitHub"),
-							a({
-								href:'https://linkedin.com/in/stlouisc',
-								target: 'LinkedIn'
-							}, "LinkedIn")
-						)
-					)
-				)
-			)
-		)
-	}
-});
-
+const Home = () => (
+	<section className='home'>
+		<div className='container'>
+			<div className='social' style={{paddingTop: '66vh'}}>
+				<p>
+					<a href='https://github.com/selva-oscura' target='github'>GitHub</a>
+					<a href='https://linkedin.com/in/stlouisc' target='linkedIn'>LinkedIn</a>
+				</p>
+			</div>
+		</div>
+	</section>
+)
 
 module.exports = Home;
