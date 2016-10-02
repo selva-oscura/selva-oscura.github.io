@@ -50,7 +50,7 @@
 	var ReactDOM = __webpack_require__(158);
 
 	var NavBar = __webpack_require__(159);
-	// var Home = require('./Home.js');
+	var Home = __webpack_require__(161);
 	// var Portfolio = require('./Portfolio.js');
 	// var About = require('./About.js');
 	// var section = React.DOM.section;
@@ -75,7 +75,12 @@
 	// var textarea = React.DOM.textarea;
 
 	var PageComponent = function PageComponent() {
-		return React.createElement(NavBar, null);
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(NavBar, null),
+			React.createElement(Home, null)
+		);
 	};
 	// var PageComponent = (
 	// 	div(null,
@@ -20105,6 +20110,76 @@
 	};
 
 	module.exports = NavLink;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	// var section = React.DOM.section;
+	// var div = React.DOM.div;
+	// var p = React.DOM.p;
+	// var a = React.DOM.a;
+
+	var Home = function Home() {
+		return React.createElement(
+			'section',
+			{ className: 'home' },
+			React.createElement(
+				'div',
+				{ className: 'container' },
+				React.createElement(
+					'div',
+					{ className: 'social', style: { paddingTop: '66vh' } },
+					React.createElement(
+						'p',
+						null,
+						React.createElement(
+							'a',
+							{ href: 'https://github.com/selva-oscura', target: 'github' },
+							'GitHub'
+						),
+						React.createElement(
+							'a',
+							{ href: 'https://linkedin.com/in/stlouisc', target: 'linkedIn' },
+							'LinkedIn'
+						)
+					)
+				)
+			)
+		);
+	};
+
+	// var Home = React.createClass({
+	// 	render(){
+	// 		return(
+	// 			section({className:'home'},
+	// 				div({className:'container'},
+	// 					div({
+	// 						className: 'social',
+	// 						style: {paddingTop: '66vh'}
+	// 					},
+	// 						p(null,
+	// 							a({
+	// 								href:'https://github.com/selva-oscura',
+	// 								target: 'github'
+	// 							}, "GitHub"),
+	// 							a({
+	// 								href:'https://linkedin.com/in/stlouisc',
+	// 								target: 'LinkedIn'
+	// 							}, "LinkedIn")
+	// 						)
+	// 					)
+	// 				)
+	// 			)
+	// 		)
+	// 	}
+	// });
+
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);
