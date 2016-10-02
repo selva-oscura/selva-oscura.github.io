@@ -13,15 +13,11 @@ var AboutTechnicalSkills = React.createClass({
 	render(){
 		// console.log('this',this,'this.props', this.props, this.props.children)
 		var target = "topic"+this.props.children
-		// console.log("target", target)
-		// console.log('topic',this.props.topic)
 		return(
 			div(null,
 				h3({key:target}, this.props.topic),
 				ul({key:'ul'+target},
 					this.props.skills.map(function(skill, index){
-						console.log('skill'+target+index);
-						console.log("skill",skill);
 						return li({key: 'skill'+target+index},
 							( skill.icon ?
 								span({key: 'iconspan'+target+index, className: 'onethird'},
