@@ -19,8 +19,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        query: {compact: false}
+        loader: 'babel-loader'
       }
     ]
   }
