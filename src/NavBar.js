@@ -1,46 +1,18 @@
-var React = require('react')
-var nav = React.DOM.nav;
-var div = React.DOM.div;
-var ul = React.DOM.ul;
-var NavLink = require('./NavLink.js');
+const React = require('react')
+const NavLink = require('./NavLink.js');
 
-var NavBar = React.createClass({
-	render(){
-		return (
-			nav(null,
-				div({className:'container'},
-					ul(null,					
-						React.createElement(NavLink, {
-							className:"navscroll active", 
-							id: "home",
-							text: "HOME"
-						}),
-						React.createElement(NavLink, {
-							className:"navscroll", 
-							id: "about",
-							text: "ABOUT"
-						}),
-						React.createElement(NavLink, {
-							className:"navscroll", 
-							id: "portfolio",
-							text: "PORTFOLIO"
-						}),
-						React.createElement(NavLink, {
-							className:"navscroll", 
-							id: "contact",
-							text: "CONTACT"
-						}),
-						React.createElement(NavLink, {
-							className:"navscroll", 
-							id: "tribute",
-							href: "tribute",
-							text: "TRIBUTE"
-						})
-					)
-				)
-			)
-		)
-	}
-});
+const NavBar = () => (
+	<nav>
+		<div className='container'>
+			<ul>
+				<NavLink className='navscroll active' id='home' text='HOME' />
+				<NavLink className='navscroll' id='about' text='ABOUT' />
+				<NavLink className='navscroll' id='portfolio' text='PORTFOLIO' />
+				<NavLink className='navscroll' id='contact' text='CONTACT' />
+				<NavLink className='navscroll' id='tribute' text='TRIBUTE' />
+			</ul>
+		</div>
+	</nav>
+)
 
-module.exports = NavBar
+module.exports = NavBar;

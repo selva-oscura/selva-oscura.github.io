@@ -1,19 +1,11 @@
-var React = require('react');
-var li = React.DOM.li;
-var a = React.DOM.a;
+const React = require('react');
 
+const NavLink = props => (
+	<li>
+		<a className={props.className} id={props.id}>
+			{props.text}
+		</a>
+	</li>
+)
 
-var NavLink = React.createClass({
-	render(){
-		return (
-			li(null, 
-				a({
-					className: this.props.className,
-					id: this.props.id
-				}, this.props.text)
-			)
-		)
-	}
-});
-
-module.exports = NavLink
+module.exports = NavLink;
