@@ -4,12 +4,13 @@ const ReactDOM = require('react-dom');
 const NavBar = require('./NavBar.js');
 const Home = require('./Home.js');
 const Portfolio = require('./Portfolio.js');
-// var About = require('./About.js');
+const About = require('./About.js');
 
 const PageComponent = () => (
 	<div>
 		<NavBar />
 		<Home />
+		<About />
 		<Portfolio />
 	</div>
 )
