@@ -1,6 +1,4 @@
 const React = require('react');
-// var section = React.DOM.section;
-// var div = React.DOM.div;
 
 const PortfolioCard = require('./PortfolioCard.js');
 
