@@ -1,77 +1,79 @@
-var React = require('react');
-var div = React.DOM.div;
-var h3 = React.DOM.h3;
-var p = React.DOM.p;
-var a = React.DOM.a;
-var ul = React.DOM.ul;
-var li = React.DOM.li;
-var em = React.DOM.em;
-var span = React.DOM.span;
-var img = React.DOM.img;
+const React = require('react');
 
-var AboutTechnicalSkills = React.createClass({
-	render(){
-		// console.log('this',this,'this.props', this.props, this.props.children)
-		var target = "topic"+this.props.children
-		return(
-			div(null,
-				h3({key:target}, this.props.topic),
-				ul({key:'ul'+target},
-					this.props.skills.map(function(skill, index){
-						return li({key: 'skill'+target+index},
-							( skill.icon ?
-								span({key: 'iconspan'+target+index, className: 'onethird'},
-									em({
-										className: skill.icon,
-										style: {color: skill.color}
-									})
-								)
-							:
-								span({key: 'iconspan'+target+index, className: 'onethird'},
-									img({
-										className: skill.className, 
-										src:skill.img, 
-										alt: skill.text
-									})
-								)
-							),
-							span({key: 'textspan'+target+index, className: 'twothird'},
-								skill.text
-							),
-							(skill.subSkills ? 
-								ul({key:'subskillsUl'+target+index},
-									skill.subSkills.map(function(subSkill, index){
-										return li(null,
-											( subSkill.icon ?
-												span({className: 'onethird'},
-													em({
-														className: subSkill.icon,
-														style: {color: subSkill.color}
-													})
-												)
-											:
-												span({className: 'onethird'},
-													img({
-														className: subSkill.className, 
-														src:subSkill.img, 
-														alt: subSkill.text
-													})
-												)							
-											),
-											span({className: 'twothird'},
-												subSkill.text
-											)
-										)
-									})
-								)
-							: null
-							)
-						)
-					})
-				)
+const AboutTechnicalSkills = function(props){
+	var props = props.props;
+	var skills = [];
+	props.skills.forEach(function(skill, i){
+		var subSkillUl;
+		if(skill.subSkills){
+			var subSkills = [];
+			skill.subSkills.forEach(function(subSkill, i){
+				if(subSkill.icon){
+					var subSkillItem = (
+						<li key={i}>
+							<span className='onethird'>
+								<em className={subSkill.icon} style={{color: subSkill.color}}></em>
+							</span>
+							<span className='twothird'>
+								{subSkill.text}
+							</span>
+						</li>
+					)
+				}else{
+					var subSkillItem = (
+						<li key={i}>
+							<span className='onethird'>
+								<img className={subSkill.className} src={subSkill.img} alt={subSkill.text} />
+								<em className={subSkill.icon} style={{color: subSkill.color}}></em>
+							</span>
+							<span className='twothird'>
+								{subSkill.text}
+							</span>
+						</li>
+					)
+				}
+				subSkills.push(subSkillItem);
+			});
+			subSkillUl = (
+				<ul>{subSkills}</ul>
 			)
-		)
-	}
-})
+		}
+		if(skill.icon){
+			var skillItem = (
+				<li key={i}>
+					<span className='onethird'>
+						<em className={skill.icon} style={{color: skill.color}}></em>
+					</span>
+					<span className='twothird'>
+						{skill.text}
+					</span>
+					{subSkillUl}
+				</li>
+			)
+		}else{
+			var skillItem = (
+				<li key={i}>
+					<span className='onethird'>
+						<img className={skill.className} src={skill.img} alt={skill.text} />
+						<em className={skill.icon} style={{color: skill.color}}></em>
+					</span>
+					<span className='twothird'>
+						{skill.text}
+					</span>
+					{subSkillUl}
+				</li>
+			)
+		}
+		skills.push(skillItem)
+	})
+	return (
+		<div>
+			<h3>{props.topic}</h3>
+			<ul>
+				{skills}
+			</ul>
+		</div>
+	)
+}
 
 module.exports = AboutTechnicalSkills;
