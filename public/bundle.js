@@ -53,6 +53,8 @@
 	var Home = __webpack_require__(161);
 	var Portfolio = __webpack_require__(162);
 	var About = __webpack_require__(166);
+	var Contact = __webpack_require__(168);
+	var Tribute = __webpack_require__(169);
 
 	var PageComponent = function PageComponent() {
 		return React.createElement(
@@ -61,7 +63,9 @@
 			React.createElement(NavBar, null),
 			React.createElement(Home, null),
 			React.createElement(About, null),
-			React.createElement(Portfolio, null)
+			React.createElement(Portfolio, null),
+			React.createElement(Contact, null),
+			React.createElement(Tribute, null)
 		);
 	};
 	// var PageComponent = (
@@ -20485,7 +20489,6 @@
 	var React = __webpack_require__(1);
 
 	var AboutTechnicalSkills = function AboutTechnicalSkills(props) {
-		console.log('props', props.props);
 		var props = props.props;
 		var skills = [];
 		props.skills.forEach(function (skill, i) {
@@ -20586,6 +20589,58 @@
 	};
 
 	module.exports = AboutTechnicalSkills;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Contact = function Contact() {
+		return React.createElement(
+			'section',
+			{ className: 'contact' },
+			React.createElement(
+				'div',
+				{ className: 'container' },
+				React.createElement(
+					'p',
+					null,
+					'Contact here'
+				)
+			)
+		);
+	};
+
+	module.exports = Contact;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Tribute = function Tribute() {
+		return React.createElement(
+			'section',
+			{ className: 'tribute' },
+			React.createElement(
+				'div',
+				{ className: 'container' },
+				React.createElement(
+					'p',
+					null,
+					'Tribute page here'
+				)
+			)
+		);
+	};
+
+	module.exports = Tribute;
 
 /***/ }
 /******/ ]);

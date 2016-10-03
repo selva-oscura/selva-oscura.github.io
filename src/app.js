@@ -5,6 +5,8 @@ const NavBar = require('./NavBar.js');
 const Home = require('./Home.js');
 const Portfolio = require('./Portfolio.js');
 const About = require('./About.js');
+const Contact = require('./Contact.js');
+const Tribute = require('./Tribute.js');
 
 const PageComponent = () => (
 	<div>
@@ -12,6 +14,8 @@ const PageComponent = () => (
 		<Home />
 		<About />
 		<Portfolio />
+		<Contact />
+		<Tribute />
 	</div>
 )
 // var PageComponent = (
