@@ -51,35 +51,16 @@
 
 	var NavBar = __webpack_require__(159);
 	var Home = __webpack_require__(161);
-	// var Portfolio = require('./Portfolio.js');
+	var Portfolio = __webpack_require__(162);
 	// var About = require('./About.js');
-	// var section = React.DOM.section;
-	// var nav = React.DOM.nav;
-	// var div = React.DOM.div;
-	// var h1 = React.DOM.h1;
-	// var h2 = React.DOM.h2;
-	// var h3 = React.DOM.h3;
-	// var h4 = React.DOM.h4;
-	// var h6 = React.DOM.h6;
-	// var p = React.DOM.p;
-	// var a = React.DOM.a;
-	// var em = React.DOM.em;
-	// var span = React.DOM.span;
-	// var ul = React.DOM.ul;
-	// var li = React.DOM.li;
-	// var img = React.DOM.img;
-	// var strong = React.DOM.strong;
-	// var form = React.DOM.form;
-	// var label = React.DOM.label;
-	// var input = React.DOM.input;
-	// var textarea = React.DOM.textarea;
 
 	var PageComponent = function PageComponent() {
 		return React.createElement(
 			'div',
 			null,
 			React.createElement(NavBar, null),
-			React.createElement(Home, null)
+			React.createElement(Home, null),
+			React.createElement(Portfolio, null)
 		);
 	};
 	// var PageComponent = (
@@ -20118,10 +20099,6 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	// var section = React.DOM.section;
-	// var div = React.DOM.div;
-	// var p = React.DOM.p;
-	// var a = React.DOM.a;
 
 	var Home = function Home() {
 		return React.createElement(
@@ -20152,34 +20129,164 @@
 		);
 	};
 
-	// var Home = React.createClass({
-	// 	render(){
-	// 		return(
-	// 			section({className:'home'},
-	// 				div({className:'container'},
-	// 					div({
-	// 						className: 'social',
-	// 						style: {paddingTop: '66vh'}
-	// 					},
-	// 						p(null,
-	// 							a({
-	// 								href:'https://github.com/selva-oscura',
-	// 								target: 'github'
-	// 							}, "GitHub"),
-	// 							a({
-	// 								href:'https://linkedin.com/in/stlouisc',
-	// 								target: 'LinkedIn'
-	// 							}, "LinkedIn")
-	// 						)
-	// 					)
-	// 				)
-	// 			)
-	// 		)
-	// 	}
-	// });
-
-
 	module.exports = Home;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	// var section = React.DOM.section;
+	// var div = React.DOM.div;
+
+	var PortfolioCard = __webpack_require__(163);
+
+	var Portfolio = React.createClass({
+		displayName: 'Portfolio',
+
+		render: function render() {
+			var projects = [{
+				src: "public/img/shines.png",
+				name: "Door-to-Door Shines",
+				href: 'https://doortodoorshines.com',
+				target: 'shines',
+				text: ["Door-to-Door Shines is an app to help busy people in the San Francisco Area with on-demand shoe shine and repair services.  Select the services you want, schedule pick-up and return times that are convenient for you, pay, and cross one more errand off your list!", "As sole developer for Door-to-Door Shines, I built (1) the interfaces the user sees as s/he orders shine & repair services, schedules pick-up & delivery times, pays, leaves comments or asks questions; (2) the admin dashboard, displaying pending & completed orders, user feedback, & customer information, scheduling of delivery times, analytics on orders and revenue; and (3) the internals, including database and cron jobs."],
+				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript, jQuery, HTML5, CSS3, Materialize.css, Stripe API"
+			}, {
+				src: "public/img/zyrl.png",
+				name: "Zyrl",
+				href: 'https://zyrl.meteorapp.com',
+				target: 'zyrl',
+				text: ["Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.", "As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilding the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranging site and database hosting. I then managed the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."],
+				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
+			}, {
+				src: 'public/img/portcal.jpg',
+				name: 'PoRTCal',
+				href: 'https://github.com/selva-oscura/poRTCal',
+				target: 'portcal',
+				text: ["PoRTCal is a WebRTC app inspired by the game Portal. The project was an entry into the October 2015 Meteor hackathon competition. Users could videoconference with each other by logging in to the app."],
+				technologies: 'Meteor.js (Blaze, Spacebars, MongoDB, Node.js), HTML5, CSS3, Materialize.css, Javascript/ES6, WebRTC using the PeerJS library'
+			}, {
+				src: "public/img/animal_rescue.png",
+				name: "Animal Rescue",
+				href: 'https://github.com/selva-oscura/meteor_animal_rescue',
+				target: 'animal_rescue',
+				text: ["Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap. This project was developed and won 2nd place at the Women Who Code Silicon Valley hackathon at Paypal in April 2015."],
+				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
+			}, {
+				src: "public/img/booksmart.png",
+				name: "Booksmart",
+				href: 'http://booksmartapp.com',
+				target: 'booksmart',
+				text: ["Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted."],
+				technologies: "HTM5, CSS3, Bootstrap, PHP, MySQL, Javascript, AJAX, jQuery, Campusbooks API"
+			}, {
+				src: "public/img/aloha_fun_zone.png",
+				name: "Aloha Fun Zone",
+				href: 'http://alohafunzone.com',
+				target: 'aloha',
+				text: ["Sole developer and maintainer of Aloha Fun Zone website, which displays the tours available from the company."],
+				technologies: "HTM5, CSS3, PHP, Javascript, AJAX, jQuery"
+			}];
+			var cards = [];
+			projects.forEach(function (project) {
+				cards.push(React.createElement(PortfolioCard, { src: project.src, name: project.name, href: project.href, target: project.target, text: project.text, technologies: project.technologies, key: project.target }));
+			});
+			return React.createElement(
+				'section',
+				{ className: 'portfolio' },
+				React.createElement(
+					'div',
+					{ className: 'container' },
+					cards
+				)
+			);
+		}
+	});
+
+	module.exports = Portfolio;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var PortfolioCardImage = __webpack_require__(164);
+	var PortfolioCardText = __webpack_require__(165);
+
+	var PortfolioCard = function PortfolioCard(props) {
+		return React.createElement(
+			'div',
+			{ className: 'card' },
+			React.createElement(PortfolioCardImage, { src: props.src, name: props.name }),
+			React.createElement(PortfolioCardText, { href: props.href, target: props.target, name: props.name, text: props.text, technologies: props.technologies })
+		);
+	};
+
+	module.exports = PortfolioCard;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var PortfolioCardImage = function PortfolioCardImage(props) {
+		return React.createElement('img', { src: props.src, alt: props.name });
+	};
+
+	module.exports = PortfolioCardImage;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var PortfolioCardText = function PortfolioCardText(props) {
+		var text = [];
+		props.text.forEach(function (para, i) {
+			text.push(React.createElement(
+				'p',
+				{ key: i },
+				para
+			));
+		});
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'h3',
+				null,
+				React.createElement(
+					'a',
+					{ href: props.href, target: props.target },
+					props.name
+				)
+			),
+			text,
+			React.createElement(
+				'p',
+				null,
+				React.createElement(
+					'strong',
+					null,
+					'Technologies: '
+				),
+				props.technologies
+			)
+		);
+	};
+
+	module.exports = PortfolioCardText;
 
 /***/ }
 /******/ ]);
