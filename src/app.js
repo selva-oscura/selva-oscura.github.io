@@ -3,33 +3,14 @@ const ReactDOM = require('react-dom');
 
 const NavBar = require('./NavBar.js');
 const Home = require('./Home.js');
-// var Portfolio = require('./Portfolio.js');
+const Portfolio = require('./Portfolio.js');
 // var About = require('./About.js');
-// var section = React.DOM.section;
-// var nav = React.DOM.nav;
-// var div = React.DOM.div;
-// var h1 = React.DOM.h1;
-// var h2 = React.DOM.h2;
-// var h3 = React.DOM.h3;
-// var h4 = React.DOM.h4;
-// var h6 = React.DOM.h6;
-// var p = React.DOM.p;
-// var a = React.DOM.a;
-// var em = React.DOM.em;
-// var span = React.DOM.span;
-// var ul = React.DOM.ul;
-// var li = React.DOM.li;
-// var img = React.DOM.img;
-// var strong = React.DOM.strong;
-// var form = React.DOM.form;
-// var label = React.DOM.label;
-// var input = React.DOM.input;
-// var textarea = React.DOM.textarea;
 
 const PageComponent = () => (
 	<div>
 		<NavBar />
 		<Home />
+		<Portfolio />
 	</div>
 )
 // var PageComponent = (
