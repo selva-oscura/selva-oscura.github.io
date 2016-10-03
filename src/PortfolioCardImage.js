@@ -1,15 +1,7 @@
-var React = require('react');
-var img = React.DOM.img;
+const React = require('react');
 
-var PortfolioCardImage = React.createClass({
-	render(){
-		return(
-			img({
-				src: this.props.src,
-				alt: "screenshot of " + this.props.name
-			})
-		)
-	}
-});
+const PortfolioCardImage = (props) => (
+	<img src={props.src} alt={props.name} />
+)
 
 module.exports = PortfolioCardImage;
