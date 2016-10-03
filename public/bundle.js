@@ -52,7 +52,7 @@
 	var NavBar = __webpack_require__(159);
 	var Home = __webpack_require__(161);
 	var Portfolio = __webpack_require__(162);
-	// var About = require('./About.js');
+	var About = __webpack_require__(166);
 
 	var PageComponent = function PageComponent() {
 		return React.createElement(
@@ -60,6 +60,7 @@
 			null,
 			React.createElement(NavBar, null),
 			React.createElement(Home, null),
+			React.createElement(About, null),
 			React.createElement(Portfolio, null)
 		);
 	};
@@ -20138,8 +20139,6 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	// var section = React.DOM.section;
-	// var div = React.DOM.div;
 
 	var PortfolioCard = __webpack_require__(163);
 
@@ -20287,6 +20286,306 @@
 	};
 
 	module.exports = PortfolioCardText;
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var AboutTechnicalSkills = __webpack_require__(167);
+
+	var About = React.createClass({
+		displayName: 'About',
+
+		render: function render() {
+			var technicalSkills = [{
+				topic: 'Front-end',
+				loc: 'left',
+				skills: [{
+					icon: 'icon-html5',
+					color: '#E95528',
+					text: 'HTML5'
+				}, {
+					icon: 'icon-css3',
+					color: '#2277FF',
+					text: 'CSS3'
+				}, {
+					icon: 'icon-bootstrap',
+					color: '#563B7E',
+					text: 'Bootstrap'
+				}, {
+					img: './public/img/d3.png',
+					className: 'imgIcon',
+					text: 'D3.js'
+				}, {
+					icon: 'icon-jquery',
+					color: '#0868AB',
+					text: 'jQuery'
+				}]
+			}, {
+				topic: 'Databases',
+				loc: 'left',
+				skills: [{
+					icon: 'icon-mongodb',
+					color: '#419E39',
+					text: 'MongoDB'
+				}, {
+					icon: 'icon-mysql',
+					color: '#425174',
+					text: 'MySQL'
+				}]
+			}, {
+				topic: 'PaaS & DBaaS',
+				loc: 'left',
+				skills: [{
+					icon: 'icon-heroku',
+					color: '#6762A6',
+					text: 'Heroku'
+				}, {
+					img: './public/img/meteor.png',
+					className: 'imgIcon',
+
+					text: 'Galaxy'
+				}, {
+					img: './public/img/mlab.png',
+					className: 'imgIcon',
+					text: 'mLab'
+				}]
+			}, {
+				topic: 'Version Control',
+				loc: 'left',
+				skills: [{
+					icon: 'icon-github-circle',
+					color: '#171515',
+					text: 'GitHub'
+				}, {
+					img: './public/img/bitbucket.png',
+					className: 'imgIcon',
+					text: 'BitBucket'
+				}]
+			}, {
+				topic: 'Languages',
+				loc: 'right',
+				skills: [{
+					icon: 'icon-js',
+					color: '#F1BF26',
+					text: 'JavaScript / ES6'
+				}, {
+					icon: 'icon-php',
+					color: '#5A68A5',
+					text: 'PHP'
+				}, {
+					img: './public/img/python.png',
+					className: 'imgIcon',
+					text: 'Python'
+				}, {
+					icon: 'icon-ruby',
+					color: '#BD1E12',
+					text: 'Ruby'
+				}]
+			}, {
+				topic: 'JavaScript Frameworks',
+				loc: 'right',
+				skills: [{
+					img: './public/img/meteor.png',
+					className: 'imgIcon',
+					text: 'Meteor',
+					subSkills: [{
+						icon: 'icon-mongodb',
+						color: '#419E39',
+						text: 'MongoDB'
+					}, {
+						icon: 'icon-nodejs',
+						color: '#539E43',
+						text: 'Node.js'
+					}, {
+						img: './public/img/blaze.png',
+						className: 'imgIcon',
+						text: 'Blaze / Spacebars'
+					}]
+				}, {
+					icon: 'icon-react',
+					text: 'React.js'
+				}, {
+					img: './public/img/mean.png',
+					className: 'imgIcon',
+					text: 'MEAN',
+					subSkills: [{
+						icon: 'icon-mongodb',
+						color: '#419E39',
+						text: 'MongoDB'
+					}, {
+						icon: 'icon-express',
+						color: 'black',
+						text: 'Express.js'
+					}, {
+						icon: 'icon-angular',
+						color: '#DD1B16',
+						text: 'Angular.js'
+					}, {
+						icon: 'icon-nodejs',
+						color: '#539E43',
+						text: 'Node.js'
+					}]
+				}]
+			}, {
+				topic: 'Operating Systems',
+				loc: 'right',
+				skills: [{
+					icon: 'icon-ubuntu',
+					color: '#DD4814',
+					text: 'Ubuntu'
+				}, {
+					img: './public/img/windows.png',
+					className: 'imgIcon',
+					text: 'Windows'
+				}]
+			}];
+			var left = [];
+			var right = [];
+			technicalSkills.forEach(function (skillsArea, i) {
+				if (skillsArea.loc === "left") {
+					left.push(React.createElement(AboutTechnicalSkills, { props: skillsArea, key: i }));
+				} else {
+					right.push(React.createElement(AboutTechnicalSkills, { props: skillsArea, key: i }));
+				}
+			});
+
+			return React.createElement(
+				'section',
+				{ className: 'about' },
+				React.createElement(
+					'div',
+					{ className: 'container' },
+					React.createElement(
+						'div',
+						{ className: 'half' },
+						left
+					),
+					React.createElement(
+						'div',
+						{ className: 'half' },
+						right
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = About;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var AboutTechnicalSkills = function AboutTechnicalSkills(props) {
+		console.log('props', props.props);
+		var props = props.props;
+		var skills = [];
+		props.skills.forEach(function (skill, i) {
+			var subSkillUl;
+			if (skill.subSkills) {
+				var subSkills = [];
+				skill.subSkills.forEach(function (subSkill, i) {
+					if (subSkill.icon) {
+						var subSkillItem = React.createElement(
+							'li',
+							{ key: i },
+							React.createElement(
+								'span',
+								{ className: 'onethird' },
+								React.createElement('em', { className: subSkill.icon, style: { color: subSkill.color } })
+							),
+							React.createElement(
+								'span',
+								{ className: 'twothird' },
+								subSkill.text
+							)
+						);
+					} else {
+						var subSkillItem = React.createElement(
+							'li',
+							{ key: i },
+							React.createElement(
+								'span',
+								{ className: 'onethird' },
+								React.createElement('img', { className: subSkill.className, src: subSkill.img, alt: subSkill.text }),
+								React.createElement('em', { className: subSkill.icon, style: { color: subSkill.color } })
+							),
+							React.createElement(
+								'span',
+								{ className: 'twothird' },
+								subSkill.text
+							)
+						);
+					}
+					subSkills.push(subSkillItem);
+				});
+				subSkillUl = React.createElement(
+					'ul',
+					null,
+					subSkills
+				);
+			}
+			if (skill.icon) {
+				var skillItem = React.createElement(
+					'li',
+					{ key: i },
+					React.createElement(
+						'span',
+						{ className: 'onethird' },
+						React.createElement('em', { className: skill.icon, style: { color: skill.color } })
+					),
+					React.createElement(
+						'span',
+						{ className: 'twothird' },
+						skill.text
+					),
+					subSkillUl
+				);
+			} else {
+				var skillItem = React.createElement(
+					'li',
+					{ key: i },
+					React.createElement(
+						'span',
+						{ className: 'onethird' },
+						React.createElement('img', { className: skill.className, src: skill.img, alt: skill.text }),
+						React.createElement('em', { className: skill.icon, style: { color: skill.color } })
+					),
+					React.createElement(
+						'span',
+						{ className: 'twothird' },
+						skill.text
+					),
+					subSkillUl
+				);
+			}
+			skills.push(skillItem);
+		});
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'h3',
+				null,
+				props.topic
+			),
+			React.createElement(
+				'ul',
+				null,
+				skills
+			)
+		);
+	};
+
+	module.exports = AboutTechnicalSkills;
 
 /***/ }
 /******/ ]);
