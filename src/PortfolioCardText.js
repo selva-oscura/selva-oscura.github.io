@@ -1,32 +1,22 @@
-var React = require('react');
-var div = React.DOM.div;
-var h3 = React.DOM.h3;
-var p = React.DOM.p;
-var a = React.DOM.a;
-var strong = React.DOM.strong;
-// var CardPara = require('./CardPara.js');
+const React = require('react');
 
-var PortfolioCardText = React.createClass({
-	render(){
-		var target = this.props.target
-		return(
-			div(null,
-				h3(null,
-					a({
-						href: this.props.href,
-						target: this.props.target,
-					}, this.props.name)
-				),
-				this.props.text.map(function(para, index){
-					return p({key:target+index}, para)
-				}),
-				p(null,
-					strong(null, "Technologies: "),
-					this.props.technologies
-				)
-			)
-		)
-	}
-});
+const PortfolioCardText = function(props){
+	var text = [];
+	props.text.forEach(function(para,i){
+		text.push(<p key={i}>{para}</p>)
+	})
+	return (
+		<div>
+			<h3>
+				<a href={props.href} target={props.target}>{props.name}</a>
+			</h3>
+			{text}
+			<p>
+				<strong>Technologies: </strong>
+				{props.technologies}
+			</p>
+		</div>
+	)
+}
 
 module.exports = PortfolioCardText;
