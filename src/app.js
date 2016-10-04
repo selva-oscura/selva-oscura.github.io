@@ -29,7 +29,7 @@ const PageComponent = () => (
 // 				div({className:'half'},
 // 					form(null,
 // 						label({
-// 							htmlFor:'Name'
+// 							htmlFor:'name'
 // 						}, 'Name'),
 // 						input({
 // 							type: 'text',
@@ -47,7 +47,7 @@ const PageComponent = () => (
 // 							required:'required'
 // 						}),
 // 						label({
-// 							htmlFor:'Phone'
+// 							htmlFor:'phone'
 // 						}, 'Telephone Number'),
 // 						input({
 // 							type: 'tel',
@@ -56,7 +56,7 @@ const PageComponent = () => (
 // 							required:'required'
 // 						}),
 // 						label({
-// 							htmlFor:'Message'
+// 							htmlFor:'message'
 // 						}, 'Message'),
 // 						textarea({
 // 							type: 'text',
