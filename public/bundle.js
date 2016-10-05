@@ -54,7 +54,7 @@
 	var Portfolio = __webpack_require__(162);
 	var About = __webpack_require__(166);
 	var Contact = __webpack_require__(168);
-	var Tribute = __webpack_require__(169);
+	var Tribute = __webpack_require__(170);
 
 	var PageComponent = function PageComponent() {
 		return React.createElement(
@@ -79,7 +79,7 @@
 	// 				div({className:'half'},
 	// 					form(null,
 	// 						label({
-	// 							htmlFor:'Name'
+	// 							htmlFor:'name'
 	// 						}, 'Name'),
 	// 						input({
 	// 							type: 'text',
@@ -97,7 +97,7 @@
 	// 							required:'required'
 	// 						}),
 	// 						label({
-	// 							htmlFor:'Phone'
+	// 							htmlFor:'phone'
 	// 						}, 'Telephone Number'),
 	// 						input({
 	// 							type: 'tel',
@@ -106,7 +106,7 @@
 	// 							required:'required'
 	// 						}),
 	// 						label({
-	// 							htmlFor:'Message'
+	// 							htmlFor:'message'
 	// 						}, 'Message'),
 	// 						textarea({
 	// 							type: 'text',
@@ -20597,27 +20597,109 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var FormInput = __webpack_require__(169);
 
-	var Contact = function Contact() {
-		return React.createElement(
-			'section',
-			{ className: 'contact' },
-			React.createElement(
-				'div',
-				{ className: 'container' },
+	var Contact = React.createClass({
+		displayName: 'Contact',
+
+		render: function render() {
+			var formFields = [{
+				type: 'text',
+				text: 'Name',
+				name: 'name'
+			}, {
+				type: 'email',
+				text: 'E-Mail Address',
+				name: 'email'
+			}, {
+				type: 'tel',
+				text: 'Telephone Number',
+				name: 'phone'
+			}, {
+				type: 'textarea',
+				text: 'Message',
+				name: 'message'
+			}, {
+				type: 'submit',
+				text: 'SUBMIT',
+				name: 'submit'
+			}];
+			var form = [];
+			formFields.forEach(function (field, i) {
+				form.push(React.createElement(FormInput, { key: i, type: field.type, name: field.name, text: field.text }));
+			});
+			return React.createElement(
+				'section',
+				{ className: 'contact' },
 				React.createElement(
-					'p',
-					null,
-					'Contact here'
+					'div',
+					{ className: 'container' },
+					React.createElement(
+						'div',
+						{ className: 'half' },
+						React.createElement(
+							'form',
+							null,
+							form
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'half', style: { paddingLeft: '36px' } },
+						React.createElement(
+							'p',
+							null,
+							'Want to get in touch with me? Be it to request more info about me and my experience or to ask for my resume, just drop me a line.'
+						),
+						React.createElement(
+							'p',
+							null,
+							'I\'ll reply ASAP'
+						)
+					)
 				)
-			)
-		);
-	};
+			);
+		}
+	});
 
 	module.exports = Contact;
 
 /***/ },
 /* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var FormInput = function FormInput(props) {
+		if (props.type === 'submit') {
+			return React.createElement('input', { type: 'submit', value: props.text, id: props.name });
+		} else if (props.type === 'textarea') {
+			return React.createElement(
+				'label',
+				{ htmlFor: props.name },
+				props.text,
+				React.createElement(
+					'textarea',
+					{ name: props.name, id: props.name, required: true },
+					props.value
+				)
+			);
+		} else {
+			return React.createElement(
+				'label',
+				{ htmlFor: props.name },
+				props.text,
+				React.createElement('input', { name: props.name, id: props.name, type: props.type, required: true })
+			);
+		}
+	};
+
+	module.exports = FormInput;
+
+/***/ },
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
