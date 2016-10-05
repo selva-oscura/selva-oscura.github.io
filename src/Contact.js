@@ -36,6 +36,10 @@ const Contact = React.createClass({
 					<div className='half'>
 						<form>{form}</form>
 					</div>
+					<div className='half' style={{paddingLeft:'36px'}}>
+						<p>Want to get in touch with me? Be it to request more info about me and my experience or to ask for my resume, just drop me a line.</p>
+						<p>I'll reply ASAP</p>
+					</div>
 				</div>
 			</section>
 		)		
