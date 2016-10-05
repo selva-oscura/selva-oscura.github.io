@@ -27,8 +27,8 @@ const Contact = React.createClass({
 			}
 		]
 		const form = [];
-		formFields.forEach(function(field){
-			form.push(<FormInput type={field.type} name={field.name} text={field.text} />);
+		formFields.forEach(function(field, i){
+			form.push(<FormInput key={i} type={field.type} name={field.name} text={field.text} />);
 		});
 		return (
 			<section className='contact'>
