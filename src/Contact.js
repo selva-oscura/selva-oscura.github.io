@@ -1,4 +1,5 @@
 const React = require('react');
+const FormInput = require('./FormInput.js');
 
 const Contact = React.createClass({
 	render: function(){
@@ -6,37 +7,34 @@ const Contact = React.createClass({
 			{
 				type: 'text',
 				text: 'Name',
-				name: 'name',
-				required: true
-			},			{
+				name: 'name'
+			},{
 				type: 'email',
 				text: 'E-Mail Address',
-				name: 'email',
-				required: true
-			},			{
+				name: 'email'
+			}, {
 				type: 'tel',
 				text: 'Telephone Number',
-				name: 'phone',
-				required: true
-			},			{
+				name: 'phone'
+			},{
 				type: 'textarea',
 				text: 'Message',
-				name: 'message',
-				required: true
-			},			{
+				name: 'message'
+			},{
 				type: 'submit',
 				text: 'SUBMIT',
-				name: 'submit',
-				required: 
+				name: 'submit'
 			}
 		]
+		const form = [];
+		formFields.forEach(function(field){
+			form.push(<FormInput type={field.type} name={field.name} text={field.text} />);
+		});
 		return (
 			<section className='contact'>
 				<div className='container'>
 					<div className='half'>
-						<form></form>
-					</div>
-					<div className='half'>
+						<form>{form}</form>
 					</div>
 				</div>
 			</section>
