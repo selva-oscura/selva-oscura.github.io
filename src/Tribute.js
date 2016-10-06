@@ -6,7 +6,7 @@ const Tribute = React.createClass({
 		var data = [
 			{
 				format: 'h2',
-				text: 'OPEN SOURCE SOFTWARE PROBESKDKLHSDFJDSFGLKJSDGFLJAHDGFAJHKSDGASJKHDGASJKHD'
+				text: 'OPEN SOURCE SOFTWARE'
 			},{
 				format: 'h6',
 				text: 'Gratuitously cribbed from Wikipedia'
