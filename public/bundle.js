@@ -20302,7 +20302,6 @@
 
 	var About = React.createClass({
 		displayName: 'About',
-
 		render: function render() {
 			var technicalSkills = [{
 				topic: 'Front-end',
@@ -20705,12 +20704,7 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var BaseP = __webpack_require__(171);
-	var BaseH2 = __webpack_require__(172);
-	var BaseH3 = __webpack_require__(173);
-	var BaseH4 = __webpack_require__(174);
-	var BaseH6 = __webpack_require__(175);
-	var BaseUl = __webpack_require__(176);
+	var Base = __webpack_require__(171);
 
 	var Tribute = React.createClass({
 		displayName: 'Tribute',
@@ -20749,19 +20743,7 @@
 			}];
 			var content = [];
 			data.forEach(function (datum, i) {
-				if (datum.format === 'p') {
-					content.push(React.createElement(BaseP, { key: i, text: datum.text }));
-				} else if (datum.format === 'h2') {
-					content.push(React.createElement(BaseH2, { key: i, text: datum.text }));
-				} else if (datum.format === 'h3') {
-					content.push(React.createElement(BaseH3, { key: i, text: datum.text }));
-				} else if (datum.format === 'h4') {
-					content.push(React.createElement(BaseH4, { key: i, text: datum.text }));
-				} else if (datum.format === 'h6') {
-					content.push(React.createElement(BaseH6, { key: i, text: datum.text }));
-				} else if (datum.format === 'ul') {
-					content.push(React.createElement(BaseUl, { key: i, items: datum.items }));
-				}
+				content.push(React.createElement(Base, { key: i, text: datum.text, format: datum.format, items: datum.items }));
 			});
 			return React.createElement(
 				'section',
@@ -20784,113 +20766,67 @@
 
 	var React = __webpack_require__(1);
 
-	var BaseP = function BaseP(props) {
-		return React.createElement(
-			'p',
-			{ className: props.className },
-			props.text
-		);
+	var Base = function Base(props) {
+		if (props.format === 'p') {
+			return React.createElement(
+				'p',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h1') {
+			return React.createElement(
+				'h1',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h2') {
+			return React.createElement(
+				'h2',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h3') {
+			return React.createElement(
+				'h3',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h4') {
+			return React.createElement(
+				'h4',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h5') {
+			return React.createElement(
+				'h5',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'h6') {
+			return React.createElement(
+				'h6',
+				{ className: props.className },
+				props.text
+			);
+		} else if (props.format === 'ul') {
+			var listItems = [];
+			props.items.forEach(function (item, i) {
+				listItems.push(React.createElement(
+					'li',
+					{ key: i },
+					item
+				));
+			});
+			return React.createElement(
+				'ul',
+				{ className: props.className },
+				listItems
+			);
+		}
 	};
 
-	module.exports = BaseP;
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var BaseH2 = function BaseH2(props) {
-		return React.createElement(
-			'h2',
-			{ className: props.className },
-			props.text
-		);
-	};
-
-	module.exports = BaseH2;
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var BaseH3 = function BaseH3(props) {
-		return React.createElement(
-			'h3',
-			{ className: props.className },
-			props.text
-		);
-	};
-
-	module.exports = BaseH3;
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var BaseH4 = function BaseH4(props) {
-		return React.createElement(
-			'h4',
-			{ className: props.className },
-			props.text
-		);
-	};
-
-	module.exports = BaseH4;
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var BaseH6 = function BaseH6(props) {
-		return React.createElement(
-			'h6',
-			{ className: props.className },
-			props.text
-		);
-	};
-
-	module.exports = BaseH6;
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var BaseUl = function BaseUl(props) {
-		var listItems = [];
-		props.items.forEach(function (item, i) {
-			listItems.push(React.createElement(
-				'li',
-				{ key: i },
-				item
-			));
-		});
-		return React.createElement(
-			'ul',
-			{ className: props.className },
-			listItems
-		);
-	};
-
-	module.exports = BaseUl;
+	module.exports = Base;
 
 /***/ }
 /******/ ]);
