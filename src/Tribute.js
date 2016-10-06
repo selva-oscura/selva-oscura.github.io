@@ -1,17 +1,12 @@
 const React = require('react');
-const BaseP = require('./BaseP.js');
-const BaseH2 = require('./BaseH2.js');
-const BaseH3 = require('./BaseH3.js');
-const BaseH4 = require('./BaseH4.js');
-const BaseH6 = require('./BaseH6.js');
-const BaseUl = require('./BaseUl.js');
+const Base = require('./Base.js');
 
 const Tribute = React.createClass({
 	render: function(){
 		var data = [
 			{
 				format: 'h2',
-				text: 'OPEN SOURCE SOFTWARE'
+				text: 'OPEN SOURCE SOFTWARE PROBESKDKLHSDFJDSFGLKJSDGFLJAHDGFAJHKSDGASJKHDGASJKHD'
 			},{
 				format: 'h6',
 				text: 'Gratuitously cribbed from Wikipedia'
@@ -44,24 +39,12 @@ const Tribute = React.createClass({
 		]
 		const content = [];
 		data.forEach(function(datum, i){
-			if(datum.format==='p'){
-				content.push(<BaseP key={i} text={datum.text} />)
-			}else if(datum.format==='h2'){
-				content.push(<BaseH2 key={i} text={datum.text} />)
-			}else if(datum.format==='h3'){
-				content.push(<BaseH3 key={i} text={datum.text} />)
-			}else if(datum.format==='h4'){
-				content.push(<BaseH4 key={i} text={datum.text} />)
-			}else if(datum.format==='h6'){
-				content.push(<BaseH6 key={i} text={datum.text} />)
-			}else if(datum.format==='ul'){
-				content.push(<BaseUl key={i} items={datum.items} />)
-			}
+			content.push(<Base key={i} text={datum.text} format={datum.format} items={datum.items} />)
 		});
 		return(
 			<section className='tribute'>
 				<div className='container'>
-					{content}
+					{content} 
 				</div>
 			</section>
 		)
