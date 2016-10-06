@@ -1,6 +1,6 @@
 const React = require('react');
 
-const FormInput = function(props){
+const FormInput = (props) => {
 	if(props.type==='submit'){
 		return(
 			<input type='submit' value={props.text} id={props.name} />

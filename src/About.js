@@ -2,7 +2,7 @@ const React = require('react');
 const AboutTechnicalSkills = require('./AboutTechnicalSkills.js');
 
 const About = React.createClass({
-	render: function(){
+	render(){
 		const technicalSkills = [{
 			topic: 'Front-end',
 			loc: 'left',

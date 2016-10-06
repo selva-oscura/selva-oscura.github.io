@@ -1,6 +1,6 @@
 const React = require('react');
 
-const AboutTechnicalSkills = function(props){
+const AboutTechnicalSkills = (props) => {
 	var props = props.props;
 	var skills = [];
 	props.skills.forEach(function(skill, i){

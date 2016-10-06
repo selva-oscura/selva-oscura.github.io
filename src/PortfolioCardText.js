@@ -1,6 +1,6 @@
 const React = require('react');
 
-const PortfolioCardText = function(props){
+const PortfolioCardText = (props) => {
 	var text = [];
 	props.text.forEach(function(para,i){
 		text.push(<p key={i}>{para}</p>)
