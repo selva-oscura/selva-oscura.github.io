@@ -25,6 +25,34 @@ const Base = (props) => {
 				{listItems}
 			</ul>
 		)
+	}else if(props.format==='ullia'){
+		var listItems = [];
+		props.items.forEach(function(item, i){
+			listItems.push(<li key={i}><a href={item.url} target='_new'>{item.text}</a></li>)
+		});
+		return (
+			<ul className={props.className}>
+				{listItems}
+			</ul>
+		)
+	}else if(props.format==='ulliaMulti'){
+		var listItems = [];
+		props.items.forEach(function(item, i){
+			var links = [];
+			var linkCount = item.links.length;
+			item.links.forEach(function(link,i){
+				links.push(<a key={i} href={link.url} target='_new'>{link.text}</a>)
+				if(linkCount>1 && i<linkCount-1){
+					links.push(<span>, </span>);
+				}
+			});
+			listItems.push(<li key={i}>{item.text}: {links}</li>)
+		});
+		return (
+			<ul clasName={props.className}>
+				{listItems}
+			</ul>
+		)
 	}
 }
 
