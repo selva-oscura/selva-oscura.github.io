@@ -1,2 +1,2 @@
 # selva-oscura.github.io
-playing with react
+Portfolio site for Carol St.Louis (selva-oscura), using React.js. 
