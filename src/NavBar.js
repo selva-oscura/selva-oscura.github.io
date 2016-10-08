@@ -5,11 +5,11 @@ const NavBar = () => (
 	<nav>
 		<div className='container'>
 			<ul>
-				<NavLink className='navscroll active' id='home' text='HOME' />
-				<NavLink className='navscroll' id='about' text='ABOUT' />
-				<NavLink className='navscroll' id='portfolio' text='PORTFOLIO' />
-				<NavLink className='navscroll' id='contact' text='CONTACT' />
-				<NavLink className='navscroll' id='tribute' text='TRIBUTE' />
+				<NavLink className='navscroll active' id='home' href='/' text='HOME' />
+				<NavLink className='navscroll' id='about' href='/' text='ABOUT' />
+				<NavLink className='navscroll' id='portfolio' href='/' text='PORTFOLIO' />
+				<NavLink className='navscroll' id='contact' href='/' text='CONTACT' />
+				<NavLink className='navscroll' id='tribute' href='/tribute' text='TRIBUTE' />
 			</ul>
 		</div>
 	</nav>
