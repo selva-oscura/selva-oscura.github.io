@@ -1,23 +1,22 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const ReactRouter = require('react-router');
+const { Router, Route, hashHistory } = ReactRouter;
 
 const NavBar = require('./NavBar.js');
-const Home = require('./Home.js');
-const Portfolio = require('./Portfolio.js');
-const About = require('./About.js');
-const Contact = require('./Contact.js');
-const Tribute = require('./Tribute.js');
+const IndexPage = require('./IndexPage.js')
+const TributePage = require('./TributePage.js');
 
-const PageComponent = () => (
-	<div>
-		<NavBar />
-		<Home />
-		<About />
-		<Portfolio />
-		<Contact />
-		<Tribute />
-	</div>
+const App = () => (
+
+  <Router history={hashHistory}>
+    <Route path='/' component={IndexPage} />
+    <Route path='/tribute' component={TributePage} />
+  </Router>
 )
+
+ReactDOM.render(<App />, document.getElementById('app'))
+
 // var PageComponent = (
 // 	div(null,
 // 		React.createElement(NavBar, null),
@@ -250,4 +249,4 @@ const PageComponent = () => (
 // 	)
 // );
 
-ReactDOM.render(<PageComponent />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

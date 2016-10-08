@@ -9,6 +9,7 @@
 		<script type="text/javascript">
 			$(document).ready(function(){			
 				$('.navscroll').click(function(e){
+					console.log('e',e);
 					$('.navscroll').each(function(link){
 						$(document).find("#"+this.id).removeClass('active');
 					});
