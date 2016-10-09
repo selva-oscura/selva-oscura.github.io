@@ -43,7 +43,7 @@ const Base = (props) => {
 			item.links.forEach(function(link,i){
 				links.push(<a key={i} href={link.url} target='_new'>{link.text}</a>)
 				if(linkCount>1 && i<linkCount-1){
-					links.push(<span>, </span>);
+					links.push(<span key={'comma'+i}>, </span>);
 				}
 			});
 			listItems.push(<li key={i}>{item.text}: {links}</li>)
