@@ -1,7 +1,10 @@
 *{
 	box-sizing:border-box;
 }
-html { font-size: 1.25em; }
+html { 
+	font-size: 1.25em; 
+	overflow-y: scroll;
+}
 h1, h2, h3, h4{
 	font-family: 'Oswald', sans-serif;
 	font-weight: normal;
@@ -74,8 +77,13 @@ section {
 	margin: 0px auto;
 }
 .home{
-	background-color: #80C6E7;
-	color:#193D5A;
+	background-image: url('../img/code-circle-zero-numbers-binary.jpg');
+	background-size: cover;
+/*	background-color: #80C6E7;*/
+/*	color:#193D5A;*/
+	font-weight: bold;
+/*	text-shadow: 0px 0px 2px white;
+	text-shadow: 0px 0px 1px black;*/
 }
 .social p{
 	margin: 0em 12%;
@@ -84,11 +92,22 @@ section {
 	text-decoration: none;
 	text-align: center;
 	display:inline-block;
-	width: 25%;
+	width: 180px;
 	padding: 1em 0em;
-	margin: 1em 12%;
+	margin: 1em auto;
+	background-color: rgba(255,255,255,.95);
+	text-shadow: 0px 0px 48px rgba(97,254,6,.6);
+	border:2px solid black;
+	color: black;
+	box-shadow: 0px 0px 2px black;
+    -webkit-transition: all 1s; /* Safari 3.1 to 6.0 */
+    transition: all 1s;
+	/*color:#193D5A;*/
+}
+.social p a:hover{
 	background-color: white;
-	color:#193D5A;
+	text-shadow: 0px 0px 64px rgba(97,254,6,.9);
+	box-shadow: 0px 0px 16px black;
 }
 .about{
 	background-color: #FFDEB1;
