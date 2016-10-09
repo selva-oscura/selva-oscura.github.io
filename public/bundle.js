@@ -25748,7 +25748,9 @@
 	var React = __webpack_require__(1);
 	var NavLink = __webpack_require__(223);
 
-	var NavBar = function NavBar() {
+	var NavBar = function NavBar(props) {
+		console.log('this', this);
+		console.log('props', props);
 		return React.createElement(
 			'nav',
 			null,
@@ -26915,7 +26917,7 @@
 					if (linkCount > 1 && i < linkCount - 1) {
 						links.push(React.createElement(
 							'span',
-							null,
+							{ key: 'comma' + i },
 							', '
 						));
 					}
