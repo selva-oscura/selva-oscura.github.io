@@ -39,7 +39,8 @@ nav{
 	z-index: 1000;
 	width: 100%;
 	height: 3em;
-	background-color: #193D5A;
+	background-color: rgba(0,0,0,.85);
+/*	background-color: #193D5A;*/
 }
 nav ul{
 	list-style: none;
@@ -56,10 +57,10 @@ nav ul li a{
 	padding:.75em;
 	border-top:4px transparent;
 	border-bottom:4px transparent;
+	text-shadow: 0px 0px 4px black;
 }
 nav ul li a.active{
 	color:#FFDEB1;
-	/*border-top:2px solid white;*/
 	border-bottom:3px solid #FFDEB1;
 }
 .spacing{
@@ -68,23 +69,59 @@ nav ul li a.active{
 section {
 	width: 100%;
 	min-height: 100vh;
-	padding-top:3em;
-	/*margin-top: 1em;*/
+}
+.dark-band{
+	width: 100%;
+	height:3em;
+	background-color: black;
 }
 .container{
-	/*max-width: 1280px;*/
 	width: 85%;
 	margin: 0px auto;
 }
 .home{
-	background-image: url('../img/code-circle-zero-numbers-binary.jpg');
-	background-size: cover;
-/*	background-color: #80C6E7;*/
-/*	color:#193D5A;*/
+	position:relative;
 	font-weight: bold;
-/*	text-shadow: 0px 0px 2px white;
-	text-shadow: 0px 0px 1px black;*/
+    overflow:hidden;
 }
+.home:before{
+	content:"";
+	position:absolute;
+	width:250%;
+	height:350%;
+	top: -87%;
+	left: -70%;
+	z-index:-1;
+	background-image: url('../img/code-circle-zero-numbers-binary.jpg');
+	background-size: cover;	
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 2000s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 2000s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 2000s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+}
+@-moz-keyframes spin {
+    from {
+     -moz-transform: rotate(0deg); 
+    }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
 .social p{
 	margin: 0em 12%;
 }
@@ -189,7 +226,7 @@ section {
 	display:inline-block;
 	width:49%;
 	vertical-align: top;
-	padding:1em 0em;
+	/*padding:1em 0em;*/
 }
 .onethird{
 	display:inline-block;
