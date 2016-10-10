@@ -7,7 +7,7 @@ const Tribute = require('./Tribute.js');
 
 const TributePage = () => (
 	<div>
-		<NavBar />
+		<NavBar active="tribute" />
 		<Tribute />
 	</div>
 );

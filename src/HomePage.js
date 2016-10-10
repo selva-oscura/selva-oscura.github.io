@@ -7,7 +7,7 @@ const Home = require('./Home.js');
 
 const HomePage = () => (
 	<div>	
-		<NavBar />
+		<NavBar active="home" />
 		<Home />
 	</div>
 )

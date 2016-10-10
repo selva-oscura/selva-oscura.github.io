@@ -7,7 +7,7 @@ const About = require('./About.js');
 
 const AboutPage = () => (
 	<div>	
-		<NavBar />
+		<NavBar active="about" />
 		<About />
 	</div>
 )

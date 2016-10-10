@@ -7,7 +7,7 @@ const Portfolio = require('./Portfolio.js');
 
 const PortfolioPage = () => (
 	<div>	
-		<NavBar />
+		<NavBar active="portfolio" />
 		<Portfolio />
 	</div>
 )

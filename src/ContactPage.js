@@ -7,7 +7,7 @@ const Contact = require('./Contact.js');
 
 const ContactPage = () => (
 	<div>	
-		<NavBar />
+		<NavBar active="contact" />
 		<Contact />
 	</div>
 )
