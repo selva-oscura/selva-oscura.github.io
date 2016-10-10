@@ -11,7 +11,6 @@ const ContactPage = require('./ContactPage.js')
 const TributePage = require('./TributePage.js');
 
 const App = () => (
-
   <Router history={hashHistory}>
     <Route path='/' component={HomePage} />
     <Route path='/about' component={AboutPage} />
