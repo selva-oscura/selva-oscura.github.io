@@ -176,6 +176,7 @@ const About = React.createClass({
 
 		return (
 			<section className='about'>
+				<div className='dark-band'></div>
 				<div className='container'>
 					<div className='half'>
 						{left}

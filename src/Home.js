@@ -2,6 +2,7 @@ const React = require('react');
 
 const Home = () => (
 	<section className='home'>
+		<div className='dark-band'></div>
 		<div className='container'>
 			<div className='half'>
 				<div className='social' style={{paddingTop: '50vh'}}>

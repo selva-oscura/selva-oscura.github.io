@@ -302,6 +302,7 @@ const Tribute = React.createClass({
 		});
 		return(
 			<section className='tribute'>
+				<div className='dark-band'></div>
 				<div className='container'>
 					{content} 
 				</div>

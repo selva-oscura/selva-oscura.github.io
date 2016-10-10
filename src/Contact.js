@@ -32,6 +32,7 @@ const Contact = React.createClass({
 		});
 		return (
 			<section className='contact'>
+				<div className='dark-band'></div>
 				<div className='container'>
 					<div className='half'>
 						<form>{form}</form>

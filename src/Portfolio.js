@@ -54,6 +54,7 @@ const Portfolio = React.createClass({
 		});
 		return (
 			<section className='portfolio'>
+				<div className='dark-band'></div>
 				<div className='container'>
 					{cards}
 				</div>
