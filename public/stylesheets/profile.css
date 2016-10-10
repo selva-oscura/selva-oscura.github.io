@@ -40,29 +40,42 @@ nav{
 	width: 100%;
 	height: 3em;
 	background-color: rgba(0,0,0,.85);
-/*	background-color: #193D5A;*/
+/*	background-color: #111111;*/
 }
 nav ul{
 	list-style: none;
 	float:right;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 nav ul li{
 	padding-left: 2em;
 	display:inline;
 }
 nav ul li a{
-	color:white;
+	color:rgba(255,255,255,.75);
 	text-decoration: none;
+	font-weight: bold;
 	padding:.75em;
 	border-top:4px transparent;
 	border-bottom:4px transparent;
-	text-shadow: 0px 0px 4px black;
+    -webkit-transition: color 1s; /* Safari 3.1 to 6.0 */
+    transition: color 1s;
+}
+nav ul li a:hover{
+	color:rgba(255,255,255,1);
 }
 nav ul li a.active{
-	color:#FFDEB1;
-	border-bottom:3px solid #FFDEB1;
+	color: rgba(97, 255, 6,.8);
+	/*color:black;*/
+	border-bottom:3px solid rgba(97, 255, 6,1);
+	border-top:3px solid rgba(97, 255, 6,1);
+    -webkit-transition: all 1s; /* Safari 3.1 to 6.0 */
+    transition: all 1s;
 }
+nav ul li a.active:hover{
+	color: rgba(97, 255, 6,1);
+}
+
 .spacing{
 	height:3em;
 }
@@ -79,12 +92,37 @@ section {
 	width: 85%;
 	margin: 0px auto;
 }
-.home{
+section.home{
 	position:relative;
 	font-weight: bold;
     overflow:hidden;
+    background-color: rgba(0,0,0,1);
+    /*opacity:1;*/
+/*    -webkit-animation: fadeIn 40s;
+    -moz-animation: fadeIn 40s;
+    -ms-animation: fadeIn 40s;*/
+	z-index:2;
+    -webkit-transition: 10s; /* Safari 3.1 to 6.0 */
+    transition: 5s;
 }
-.home:before{
+section.home:hover{
+	background-color: rgba(0,0,0,0);
+	/*opacity:0;*/
+}
+@-moz-keyframes fadeIn {
+    from { background-color: rgba(0,0,0,1); }
+    to { background-color: rgba(0,0,0,0); }
+}
+@-webkit-keyframes fadeIn {
+    from { background-color: rgba(0,0,0,1); }
+    to { background-color: rgba(0,0,0,0); }
+}
+@keyframes fadeIn {
+    from { background-color: rgba(0,0,0,1); }
+    to { background-color: rgba(0,0,0,0); }
+}
+
+section.home::after{
 	content:"";
 	position:absolute;
 	width:250%;
@@ -94,23 +132,12 @@ section {
 	z-index:-1;
 	background-image: url('../img/code-circle-zero-numbers-binary.jpg');
 	background-size: cover;	
-    -webkit-animation-name: spin;
-    -webkit-animation-duration: 2000s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: spin;
-    -moz-animation-duration: 2000s;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-    -ms-animation-name: spin;
-    -ms-animation-duration: 2000s;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;
+    -webkit-animation: spin 1000s infinite linear;
+    -moz-animation: spin 1000s infinite linear;
+    -ms-animation: spin 1000s infinite linear;
 }
 @-moz-keyframes spin {
-    from {
-     -moz-transform: rotate(0deg); 
-    }
+    from { -moz-transform: rotate(0deg); }
     to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
@@ -121,6 +148,7 @@ section {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
 }
+
 
 .social p{
 	margin: 0em 12%;
@@ -139,20 +167,20 @@ section {
 	box-shadow: 0px 0px 2px black;
     -webkit-transition: all 1s; /* Safari 3.1 to 6.0 */
     transition: all 1s;
-	/*color:#193D5A;*/
+	/*color:#111111;*/
 }
 .social p a:hover{
 	background-color: white;
 	text-shadow: 0px 0px 64px rgba(97,254,6,.9);
 	box-shadow: 0px 0px 16px black;
 }
-.about{
+section.about{
 	background-color: #FFDEB1;
 	/*color:white;*/
-	color: #193D5A;
+	color: #111111;
 }
 .about h3{
-	color: #193D5A;
+	color: #111111;
 	padding:1em 0em 0em 0em;
 	margin:.5em 0em .5em 1em;
 }
@@ -167,9 +195,9 @@ section {
 	margin-left:1em;
 	padding:0;
 }
-.portfolio{
+section.portfolio{
 	background-color: white;
-	color:#193D5A;
+	color:#111111;
 }
 .portfolio h3{
 	line-height: 1.5em;
@@ -178,20 +206,20 @@ section {
 	padding:0em 36px;
 }
 .portfolio h3 a{
-	color:#193D5A;
+	color:#111111;
 	text-decoration: none;
 }
 .portfolio p{
 	padding: 0em 36px;
 }
 
-.contact{
+section.contact{
 	background-color:#740000;
 	color:white;
 }
 .contact input, .contact textarea{
 	background-color: white;
-	color: #193D5A;
+	color: #111111;
 }
 
 .contact input{
@@ -244,13 +272,12 @@ section {
 label{
 	display: inline-block;
 	width: 100%;
-	/*font-size: 2em;*/
 	margin-top: 1em;
 }
 input, textarea{
 	width: 100%;
 }
 
-.tribute{
+section.tribute{
 	background-color: mintcream;
 }
