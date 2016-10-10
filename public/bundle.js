@@ -25749,8 +25749,17 @@
 	var NavLink = __webpack_require__(223);
 
 	var NavBar = function NavBar(props) {
-		console.log('this', this);
-		console.log('props', props);
+		var links = [{ id: 'home', href: '/', text: 'HOME' }, { id: 'about', href: '/about', text: 'ABOUT' }, { id: 'portfolio', href: '/portfolio', text: 'PORTFOLIO' }, { id: 'contact', href: '/contact', text: 'CONTACT' }, { id: 'tribute', href: '/tribute', text: 'TRIBUTE' }];
+		var linkList = [];
+		links.forEach(function (link, i) {
+			var className;
+			console.log('props.active', props.active);
+			if (link.id === props.active) {
+				className = "active " + props.active;
+			}
+			console.log('className', className);
+			linkList.push(React.createElement(NavLink, { key: i, id: link.id, href: link.href, text: link.text, className: className }));
+		});
 		return React.createElement(
 			'nav',
 			null,
@@ -25760,16 +25769,11 @@
 				React.createElement(
 					'ul',
 					null,
-					React.createElement(NavLink, { className: 'navscroll active', id: 'home', href: '/', text: 'HOME' }),
-					React.createElement(NavLink, { className: 'navscroll', id: 'about', href: '/about', text: 'ABOUT' }),
-					React.createElement(NavLink, { className: 'navscroll', id: 'portfolio', href: '/portfolio', text: 'PORTFOLIO' }),
-					React.createElement(NavLink, { className: 'navscroll', id: 'contact', href: '/contact', text: 'CONTACT' }),
-					React.createElement(NavLink, { className: 'navscroll', id: 'tribute', href: '/tribute', text: 'TRIBUTE' })
+					linkList
 				)
 			)
 		);
 	};
-
 	module.exports = NavBar;
 
 /***/ },
@@ -25786,7 +25790,7 @@
 	var NavLink = function NavLink(props) {
 		return React.createElement(
 			'li',
-			null,
+			{ link: props.key },
 			React.createElement(
 				Link,
 				{ className: props.className, id: props.id, to: props.href },
@@ -25815,7 +25819,7 @@
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(NavBar, null),
+			React.createElement(NavBar, { active: 'home' }),
 			React.createElement(Home, null)
 		);
 	};
@@ -25834,24 +25838,33 @@
 		return React.createElement(
 			'section',
 			{ className: 'home' },
+			React.createElement('div', { className: 'dark-band' }),
 			React.createElement(
 				'div',
 				{ className: 'container' },
 				React.createElement(
 					'div',
-					{ className: 'social', style: { paddingTop: '66vh' } },
+					{ className: 'half' },
 					React.createElement(
-						'p',
-						null,
+						'div',
+						{ className: 'social', style: { paddingTop: '50vh' } },
 						React.createElement(
-							'a',
-							{ href: 'https://github.com/selva-oscura', target: 'github' },
-							'GitHub'
+							'p',
+							null,
+							React.createElement(
+								'a',
+								{ href: 'https://github.com/selva-oscura', target: 'github' },
+								'GitHub'
+							)
 						),
 						React.createElement(
-							'a',
-							{ href: 'https://linkedin.com/in/stlouisc', target: 'linkedIn' },
-							'LinkedIn'
+							'p',
+							null,
+							React.createElement(
+								'a',
+								{ href: 'https://linkedin.com/in/stlouisc', target: 'linkedIn' },
+								'LinkedIn'
+							)
 						)
 					)
 				)
@@ -25879,7 +25892,7 @@
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(NavBar, null),
+			React.createElement(NavBar, { active: 'about' }),
 			React.createElement(About, null)
 		);
 	};
@@ -26054,6 +26067,7 @@
 			return React.createElement(
 				'section',
 				{ className: 'about' },
+				React.createElement('div', { className: 'dark-band' }),
 				React.createElement(
 					'div',
 					{ className: 'container' },
@@ -26202,7 +26216,7 @@
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(NavBar, null),
+			React.createElement(NavBar, { active: 'portfolio' }),
 			React.createElement(Portfolio, null)
 		);
 	};
@@ -26273,6 +26287,7 @@
 			return React.createElement(
 				'section',
 				{ className: 'portfolio' },
+				React.createElement('div', { className: 'dark-band' }),
 				React.createElement(
 					'div',
 					{ className: 'container' },
@@ -26382,7 +26397,7 @@
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(NavBar, null),
+			React.createElement(NavBar, { active: 'contact' }),
 			React.createElement(Contact, null)
 		);
 	};
@@ -26430,6 +26445,7 @@
 			return React.createElement(
 				'section',
 				{ className: 'contact' },
+				React.createElement('div', { className: 'dark-band' }),
 				React.createElement(
 					'div',
 					{ className: 'container' },
@@ -26515,7 +26531,7 @@
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(NavBar, null),
+			React.createElement(NavBar, { active: 'tribute' }),
 			React.createElement(Tribute, null)
 		);
 	};
@@ -26810,6 +26826,7 @@
 			return React.createElement(
 				'section',
 				{ className: 'tribute' },
+				React.createElement('div', { className: 'dark-band' }),
 				React.createElement(
 					'div',
 					{ className: 'container' },
