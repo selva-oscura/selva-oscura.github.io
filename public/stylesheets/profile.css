@@ -97,52 +97,59 @@ section.home{
 	font-weight: bold;
     overflow:hidden;
     background-color: rgba(0,0,0,1);
-    /*opacity:1;*/
-/*    -webkit-animation: fadeIn 40s;
-    -moz-animation: fadeIn 40s;
-    -ms-animation: fadeIn 40s;*/
+/*    -webkit-animation: fadeIn 12s;
+    -moz-animation: fadeIn 12s;
+    -ms-animation: fadeIn 12s;
+    animation: fadeIn 12s;*/
 	z-index:2;
-    -webkit-transition: 10s; /* Safari 3.1 to 6.0 */
-    transition: 5s;
 }
-section.home:hover{
-	background-color: rgba(0,0,0,0);
-	/*opacity:0;*/
+/*@-webkit-keyframes fadeIn {
+    from { background-color: rgba(255,0,0,1); }
+    to { background-color: rgba(0,255,0,1); }
 }
 @-moz-keyframes fadeIn {
-    from { background-color: rgba(0,0,0,1); }
-    to { background-color: rgba(0,0,0,0); }
+    from { background-color: rgba(255,0,0,1); }
+    to { background-color: rgba(0,255,0,1); }
 }
-@-webkit-keyframes fadeIn {
-    from { background-color: rgba(0,0,0,1); }
-    to { background-color: rgba(0,0,0,0); }
+@-ms-keyframes fadeIn {
+    from { background-color: rgba(255,0,0,1); }
+    to { background-color: rgba(0,255,0,1); }
 }
-@keyframes fadeIn {
-    from { background-color: rgba(0,0,0,1); }
-    to { background-color: rgba(0,0,0,0); }
+@-o-keyframes fadeIn {
+    from { background-color: rgba(255,0,0,1); }
+    to { background-color: rgba(0,255,0,1); }
+}*/
+/*@keyframes fadeIn {
+    0% { background-color: rgba(255,0,0,1); }
+    100% { background-color: rgba(0,255,0,1); }
 }
-
+*/
 section.home::after{
 	content:"";
 	position:absolute;
-	width:250%;
-	height:350%;
-	top: -87%;
-	left: -70%;
+	width:250vw;
+	height:300vh;
+	left: -60vw;
+	top: -75vh;
 	z-index:-1;
 	background-image: url('../img/code-circle-zero-numbers-binary.jpg');
 	background-size: cover;	
     -webkit-animation: spin 1000s infinite linear;
     -moz-animation: spin 1000s infinite linear;
     -ms-animation: spin 1000s infinite linear;
+    animation: spin 1000s infinite linear;
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
 }
 @-moz-keyframes spin {
     from { -moz-transform: rotate(0deg); }
     to { -moz-transform: rotate(360deg); }
 }
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+@-ms-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
 }
 @keyframes spin {
     from {transform:rotate(0deg);}
