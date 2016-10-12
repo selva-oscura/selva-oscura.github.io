@@ -1,7 +1,7 @@
-const React = require('react');
+// const React = require('react');
 
-const PortfolioCardImage = (props) => (
-	<img src={props.src} alt={props.name} />
-)
+// const PortfolioCardImage = (props) => (
+// 	<img src={props.src} alt={props.name} />
+// )
 
-module.exports = PortfolioCardImage;
+// module.exports = PortfolioCardImage;
