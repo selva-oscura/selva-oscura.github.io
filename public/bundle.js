@@ -58,8 +58,8 @@
 	var HomePage = __webpack_require__(224);
 	var AboutPage = __webpack_require__(226);
 	var PortfolioPage = __webpack_require__(229);
-	var ContactPage = __webpack_require__(234);
-	var TributePage = __webpack_require__(237);
+	var ContactPage = __webpack_require__(232);
+	var TributePage = __webpack_require__(235);
 
 	var App = function App() {
 	  return React.createElement(
@@ -25753,11 +25753,9 @@
 		var linkList = [];
 		links.forEach(function (link, i) {
 			var className;
-			console.log('props.active', props.active);
 			if (link.id === props.active) {
-				className = "active " + props.active;
+				className = "active";
 			}
-			console.log('className', className);
 			linkList.push(React.createElement(NavLink, { key: i, id: link.id, href: link.href, text: link.text, className: className }));
 		});
 		return React.createElement(
@@ -26243,28 +26241,28 @@
 				href: 'https://doortodoorshines.com',
 				target: 'shines',
 				text: ["Door-to-Door Shines is an app to help busy people in the San Francisco Area with on-demand shoe shine and repair services.  Select the services you want, schedule pick-up and return times that are convenient for you, pay, and cross one more errand off your list!", "As sole developer for Door-to-Door Shines, I built (1) the interfaces the user sees as s/he orders shine & repair services, schedules pick-up & delivery times, pays, leaves comments or asks questions; (2) the admin dashboard, displaying pending & completed orders, user feedback, & customer information, scheduling of delivery times, analytics on orders and revenue; and (3) the internals, including database and cron jobs."],
-				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript, jQuery, HTML5, CSS3, Materialize.css, Stripe API"
+				technologies: "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Materialize.css, Stripe API"
 			}, {
 				src: "public/img/zyrl.png",
 				name: "Zyrl",
 				href: 'https://zyrl.meteorapp.com',
 				target: 'zyrl',
 				text: ["Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.", "As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilding the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranging site and database hosting. I then managed the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."],
-				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
+				technologies: "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
 			}, {
 				src: 'public/img/portcal.jpg',
 				name: 'PoRTCal',
 				href: 'https://github.com/selva-oscura/poRTCal',
 				target: 'portcal',
 				text: ["PoRTCal is a WebRTC app inspired by the game Portal. The project was an entry into the October 2015 Meteor hackathon competition. Users could videoconference with each other by logging in to the app."],
-				technologies: 'Meteor.js (Blaze, Spacebars, MongoDB, Node.js), HTML5, CSS3, Materialize.css, Javascript/ES6, WebRTC using the PeerJS library'
+				technologies: 'Meteor.js, MongoDB, Node.js, HTML5, CSS3, Materialize.css, Javascript/ES6, WebRTC using the PeerJS library'
 			}, {
 				src: "public/img/animal_rescue.png",
 				name: "Animal Rescue",
 				href: 'https://github.com/selva-oscura/meteor_animal_rescue',
 				target: 'animal_rescue',
 				text: ["Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap. This project was developed and won 2nd place at the Women Who Code Silicon Valley hackathon at Paypal in April 2015."],
-				technologies: "Meteor.js (Blaze, Spacebars, MongoDB, Node.js), HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
+				technologies: "Meteor.js, MongoDB, Node.js, HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
 			}, {
 				src: "public/img/booksmart.png",
 				name: "Booksmart",
@@ -26303,18 +26301,44 @@
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
-	var PortfolioCardImage = __webpack_require__(232);
-	var PortfolioCardText = __webpack_require__(233);
+	// const PortfolioCardImage = require('./PortfolioCardImage.js');
+	// const PortfolioCardText = require('./PortfolioCardText.js');
 
 	var PortfolioCard = function PortfolioCard(props) {
 		return React.createElement(
-			'div',
-			{ className: 'card' },
-			React.createElement(PortfolioCardImage, { src: props.src, name: props.name }),
-			React.createElement(PortfolioCardText, { href: props.href, target: props.target, name: props.name, text: props.text, technologies: props.technologies })
+			"div",
+			{ className: "card-container xs1 s2 m3 l4" },
+			React.createElement(
+				"div",
+				{ className: "card cardModalTrigger", id: props.target },
+				React.createElement("img", { src: props.src, className: "card-image", alt: props.name }),
+				React.createElement(
+					"div",
+					{ className: "card-text-space" },
+					React.createElement(
+						"h4",
+						null,
+						React.createElement(
+							"b",
+							null,
+							props.name
+						)
+					),
+					React.createElement(
+						"p",
+						null,
+						React.createElement(
+							"strong",
+							null,
+							"Technologies: "
+						),
+						props.technologies
+					)
+				)
+			)
 		);
 	};
 
@@ -26327,71 +26351,12 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-
-	var PortfolioCardImage = function PortfolioCardImage(props) {
-		return React.createElement('img', { src: props.src, alt: props.name });
-	};
-
-	module.exports = PortfolioCardImage;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var PortfolioCardText = function PortfolioCardText(props) {
-		var text = [];
-		props.text.forEach(function (para, i) {
-			text.push(React.createElement(
-				'p',
-				{ key: i },
-				para
-			));
-		});
-		return React.createElement(
-			'div',
-			null,
-			React.createElement(
-				'h3',
-				null,
-				React.createElement(
-					'a',
-					{ href: props.href, target: props.target },
-					props.name
-				)
-			),
-			text,
-			React.createElement(
-				'p',
-				null,
-				React.createElement(
-					'strong',
-					null,
-					'Technologies: '
-				),
-				props.technologies
-			)
-		);
-	};
-
-	module.exports = PortfolioCardText;
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
 	var ReactRouter = __webpack_require__(159);
 	var Link = ReactRouter.Link;
 
 
 	var NavBar = __webpack_require__(222);
-	var Contact = __webpack_require__(235);
+	var Contact = __webpack_require__(233);
 
 	var ContactPage = function ContactPage() {
 		return React.createElement(
@@ -26405,13 +26370,13 @@
 	module.exports = ContactPage;
 
 /***/ },
-/* 235 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var FormInput = __webpack_require__(236);
+	var FormInput = __webpack_require__(234);
 
 	var Contact = React.createClass({
 		displayName: 'Contact',
@@ -26480,7 +26445,7 @@
 	module.exports = Contact;
 
 /***/ },
-/* 236 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26514,7 +26479,7 @@
 	module.exports = FormInput;
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26525,7 +26490,7 @@
 
 
 	var NavBar = __webpack_require__(222);
-	var Tribute = __webpack_require__(238);
+	var Tribute = __webpack_require__(236);
 
 	var TributePage = function TributePage() {
 		return React.createElement(
@@ -26539,13 +26504,13 @@
 	module.exports = TributePage;
 
 /***/ },
-/* 238 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Base = __webpack_require__(239);
+	var Base = __webpack_require__(237);
 
 	var Tribute = React.createClass({
 		displayName: 'Tribute',
@@ -26838,7 +26803,7 @@
 	module.exports = Tribute;
 
 /***/ },
-/* 239 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
