@@ -1,4 +1,4 @@
-/*Site-wide Basics*/
+Site-wide Basics*/
 *{
 	box-sizing:border-box;
 }
@@ -301,12 +301,42 @@ section.portfolio{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 /* Modal Content/Box */
-.portfolio-modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+/*.modal-content {*/
+/*    background-color: #fefefe;
+    margin: 15% auto; */
+    /* 15% from the top and centered */
+/*    padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; */
+    /* Could be more or less, depending on screen size */
+}
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
 }
 /* The Close Button */
 .modal-close {
@@ -321,7 +351,16 @@ section.portfolio{
     text-decoration: none;
     cursor: pointer;
 }
-/*End of Portfolio Modal*/
+/* Modal Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}/*End of Portfolio Modal*/
 
 /*End of Portfolio Page*/
 
@@ -376,4 +415,4 @@ section.tribute{
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
 }
-/*End of Animations*/
+/*End of Animations
