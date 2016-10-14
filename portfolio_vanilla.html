@@ -4,7 +4,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet">
 		<link rel="stylesheet" href="./public/stylesheets/normalize.css">
 		<link rel="stylesheet" href="./public/stylesheets/technology-icons.css">
-		<link rel="stylesheet" href="./public/stylesheets/profile.css">
+		<link rel="stylesheet" href="./public/stylesheets/vanilla.css">
 		<script src="./public/jquery-3.1.0.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){			
@@ -12,8 +12,8 @@
 					$('.navscroll').each(function(link){
 						$(document).find("#"+this.id).removeClass('active');
 					})
-					$('#'+this.id).addClass('active');
-					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-71 }, 500);
+					$('#'+this.id).addClass('acive');
+					$('html, body').animate({ scrollTop: $(String("."+this.id)).offset().top-58 }, 500);
 				});
 			})
 		</script>
@@ -49,67 +49,66 @@
 				<div class="half">
 					<h3>Front-end</h3>
 					<ul>
-						<li><span class="onethird"><em class="icon-html5"></em></span><span class="twothird"> HTML5</span></li>
-						<li><span class="onethird"><em class="icon-css3"></em></span><span class="twothird"> CSS3</span></li>
+						<li><span class="onethird"><em style="color: #E95528;" class="icon-html5"></em></span><span class="twothird"> HTML5</span></li>
+						<li><span class="onethird"><em style="color: #2277FF;" class="icon-css3"></em></span><span class="twothird"> CSS3</span></li>
 						<li><span class="onethird"><em class="icon-bootstrap"></em></span><span class="twothird"> Bootstrap</span></li>
-						<li><span class="onethird">&nbsp;</span><span class="twoThird"> Materialize</span></li>
-						<li><span class="onethird"><em class="icon-d3"></em></span><span class="twothird"> D3.js</span></li>
+						<li><span class="onethird"><img class="imgIcon" src="./public/img/materialize.svg" /></span><span class="twoThird"> Materialize</span></li>
+						<li><span class="onethird"><img class="imgIcon" alt="d3" src="./public/img/d3.png" /></span><span class="twothird"> D3.js</span></li>
 						<li><span class="onethird"><em class="icon-jquery"></em></span><span class="twothird"> jQuery</span></li>
 					</ul>
 					<h3>Databases</h3>
 					<ul>
-						<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+						<li><span class="onethird"><em style="color:#419E39" class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
 						
-						<li><span class="onethird"><em class="icon-mysql"></em></span><span class="twothird"> MySQL</span></li>
+						<li><span style="color: #425174;" class="onethird"><em class="icon-mysql"></em></span><span class="twothird"> MySQL</span></li>
 					</ul>
 					<h3>PaaS &amp; DBaaS:</h3>
 					<ul>
 						<li><span class="onethird"><em class="icon-heroku"></em></span><span class="twothird"> Heroku</span></li>
-						<li><span class="onethird">&nbsp;</span><span class="twothird">Galaxy</span></li>
-						<li><span class="onethird">&nbsp;</span><span class="twothird">mLab</span></li>
+						<li><span class="onethird"><img class="imgIcon" alt='galaxy' src="./public/img/meteor.png" /></span><span class="twothird">Galaxy</span></li>
+						<li><span class="onethird"><img class="imgIcon" alt="mlab" src="./public/img/mlab.png" /></span><span class="twothird">mLab</span></li>
 					</ul>
 					<h3>Version Control:</h3>
 					<ul>
 						<li><span class="onethird"><em class="icon-github-circle"></em></span><span class="twothird"> GitHub</span></li>
-						<li><span class="onethird">&nbsp;</span><span class="twothird">BitBucket</span></li>
+						<li><span class="onethird"><img class="imgIcon" alt="bitbucket" src="./public/img/bitbucket.png" /></span><span class="twothird">BitBucket</span></li>
 					</ul>
 
 				</div>
 				<div class="half">
 					<h3>Languages</h3>
 					<ul>
-						<li><span class="onethird"><em class="icon-js"></em></span><span class="twothird">Javascript / ES6</span>
+						<li><span class="onethird"><em style="color: #F1BF26;" class="icon-js"></em></span><span class="twothird">Javascript / ES6</span>
 							</span></li>
-						<li><span class="onethird"><em class="icon-php-alt"></em></span><span class="twothird"> PHP</span></li>
-						<li><span class="onethird"><em class="icon-python"></em></span><span class="twothird"> Python</span></li>
-						<li><span class="onethird"><em class="icon-ruby"></em></span><span class="twothird"> Ruby</span></li>
+						<li><span class="onethird"><em style="color: #5A68A5;" class="icon-php-alt"></em></span><span class="twothird"> PHP</span></li>
+						<li><span class="onethird"><img class="imgIcon" alt='galaxy' src="./public/img/python.png" /></span><span class="twothird"> Python</span></li>
+						<li><span class="onethird"><em style="color: #BD1E12;" class="icon-ruby"></em></span><span class="twothird"> Ruby</span></li>
 					</ul>
 					<h3>JavaScript Frameworks</h3>
 					<ul>
-						<li><span class="onethird"><img class="meteorIcon" src="./public/img/meteor.png" /></span><span class="twoThird">Meteor</span>
+						<li><span class="onethird"><img class="imgIcon" src="./public/img/meteor.png" /></span><span class="twoThird">Meteor</span>
 							<ul>
-								<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
-								<li><span class="onethird"><em class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
-								<li><span class="onethird">&nbsp;</span><span class="twothird">Blaze</span></li>
-								<li><span class="onethird">&nbsp;</span><span class="twothird">Spacebars</span></li>
+								<li><span class="onethird"><em style="color:#419E39;" class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+								<li><span class="onethird"><em style="color: #539E43;" class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
+								<li><span class="onethird"><img class="imgIcon" src="./public/img/blaze.png" /></span><span class="twothird">Blaze / Spacebars</span></li>
 							</ul>
 						</span></li>
-						<li><span class="onethird"><em class="icon-react"></em></span><span class="twothird"> React</span></li>
-						<li><span class="onethird">&nbsp;</span><span class="twoThird">MEAN
+						<li><span class="onethird"><em style="color: #61DAFB;" class="icon-react"></em></span><span class="twothird"> React</span></li>
+						<li><span class="onethird"><img class="imgIcon" src="./public/img/mean.png" /></span><span class="twoThird">MEAN
 							<ul>
-								<li><span class="onethird"><em class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
+								<li><span class="onethird"><em style="color:#419E39;" class="icon-mongodb"></em></span><span class="twothird"> MongoDB</span></li>
 								<li><span class="onethird"><em class="icon-express"></em></span><span class="twothird"> Express</span></li>
-								<li><span class="onethird"><em class="icon-angular"></em></span><span class="twothird"> Angular.js</span></li>
-								<li><span class="onethird"><em class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
+								<li><span class="onethird"><em style="color: #DD1B16;"  class="icon-angular"></em></span><span class="twothird"> Angular.js</span></li>
+								<li><span class="onethird"><em  style="color: #	;" class="icon-nodejs"></em></span><span class="twothird"> Node.js</span></li>
 							</ul>
 						</span></li>
 					</ul>
 					<h3>Operating Systems</h3>
 					<ul>
-						<li><span class="onethird"><em class="icon-ubuntu"></em></span><span class="twothird"> Ubuntu</span></li>
+						<li><span class="onethird"><em  style="color: #DD4814;" class="icon-ubuntu"></em></span><span class="twothird"> Ubuntu</span></li>
 					</ul>
 					<ul>
-						<li><span class="onethird"></span><span class="twothird"> Windows</span></li>
+						<li><span class="onethird"><img class="imgIcon" src="./public/img/windows.png" /></span><span class="twothird"> Windows</span></li>
 					</ul>
 				</div>
 			</div>
