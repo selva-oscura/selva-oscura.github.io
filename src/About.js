@@ -123,6 +123,7 @@ const About = React.createClass({
 					]
 				},{
 					icon: 'icon-react',
+					color: '61DAFB'
 					text: 'React.js'
 				},{
 					img:  './public/img/mean.png',
