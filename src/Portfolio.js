@@ -1,15 +1,7 @@
 const React = require('react');
 
 const PortfolioCard = require('./PortfolioCard.js');
-				<div class="card">
-					<img src="public/img/portfolio.png" alt="Aloha Fun Zone screenshot" />
-					<div>
-						<h3><a href="http://https://selva-oscura.github.io/" target="aloha">Portfolio Project</a></h3>
-						<p></p>
-						<p><strong>Technologies:</strong> React.js, JavaScript / ES6, jQuery, HTML5, CSS3, normalize.css</p>
-					</div>
-				</div>
-
+const PortfolioModal = require('./PortfolioModal.js');
 
 const Portfolio = React.createClass({
 	render: function(){
@@ -31,7 +23,7 @@ const Portfolio = React.createClass({
 			src: 'public/img/portfolio.png',
 			name: 'Portfolio Page',
 			git: 'https://github.com/selva-oscura/selva-oscura',
-			web: 'https://selva-oscura.github.io/'
+			web: 'https://selva-oscura.github.io/',
 			target: 'portfolio',
 			text: ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progressing, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
 			technologies: 'React.js, JavaScript / ES6, jQuery, HTML5, CSS3, normalize.css'
@@ -65,14 +57,17 @@ const Portfolio = React.createClass({
 			technologies: "HTM5, CSS3, PHP, Javascript, AJAX, jQuery"
 		}];
 		const cards = [];
+		const modals = [];
 		projects.forEach(function(project){
 			cards.push(<PortfolioCard src={project.src} name={project.name} href={project.href} target={project.target} text={project.text} technologies={project.technologies} key={project.target} />);
+			modals.push(<PortfolioModal name={project.name} web={project.web} repo={project.git} target={project.target} text={project.text} technologies={project.technologies} key={project.target+'_modal'} />);
 		});
 		return (
 			<section className='portfolio'>
 				<div className='dark-band'></div>
 				<div className='container'>
 					{cards}
+					{modals}
 				</div>
 			</section>
 		)
