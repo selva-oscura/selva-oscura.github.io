@@ -1,3 +1,5 @@
+/*downloaded from http://websiddu.github.io/technology-icons/*/
+
 @font-face {
     font-family:"technology-icons";
     src:url("../fonts/technology-icons.eot");
@@ -491,4 +493,3 @@
 .icon-js:before {
 	content:"\f173";
 }
-
