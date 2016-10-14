@@ -20,6 +20,10 @@ const About = React.createClass({
 					color: '#563B7E',
 					text: 'Bootstrap'
 				},{
+					img: './public/img/materialize.svg',
+					className: 'imgIcon',
+					text: 'Materialize.css'
+				},{
 					img: './public/img/d3.png',
 					className: 'imgIcon',
 					text: 'D3.js'
@@ -54,7 +58,6 @@ const About = React.createClass({
 				},{
 					img: './public/img/meteor.png',
 					className: 'imgIcon',
-
 					text: 'Galaxy'
 				},{
 					img: './public/img/mlab.png',
