@@ -26320,43 +26320,49 @@
 	"use strict";
 
 	var React = __webpack_require__(1);
-	// const PortfolioCardImage = require('./PortfolioCardImage.js');
-	// const PortfolioCardText = require('./PortfolioCardText.js');
 
-	var PortfolioCard = function PortfolioCard(props) {
-		return React.createElement(
-			"div",
-			{ className: "card-container xs1 s2 m3 l4" },
-			React.createElement(
+	var PortfolioCard = React.createClass({
+		displayName: "PortfolioCard",
+
+		showModal: function showModal(target) {
+			var targeted = document.getElementById(target);
+			targeted.style.display = "block";
+		},
+		render: function render() {
+			return React.createElement(
 				"div",
-				{ className: "card cardModalTrigger", id: props.target },
-				React.createElement("img", { src: props.src, alt: props.name }),
+				{ className: "card-container xs1 s2 m3 l4", onClick: this.showModal.bind(this, this.props.target) },
 				React.createElement(
 					"div",
-					{ className: "card-text-space" },
+					{ className: "card" },
+					React.createElement("img", { src: this.props.src, alt: this.props.name }),
 					React.createElement(
-						"h4",
-						null,
+						"div",
+						{ className: "card-text-space" },
 						React.createElement(
-							"b",
+							"h4",
 							null,
-							props.name
-						)
-					),
-					React.createElement(
-						"p",
-						null,
-						React.createElement(
-							"strong",
-							null,
-							"Technologies: "
+							React.createElement(
+								"b",
+								null,
+								this.props.name
+							)
 						),
-						props.technologies
+						React.createElement(
+							"p",
+							null,
+							React.createElement(
+								"strong",
+								null,
+								"Technologies: "
+							),
+							this.props.technologies
+						)
 					)
 				)
-			)
-		);
-	};
+			);
+		}
+	});
 
 	module.exports = PortfolioCard;
 
@@ -26367,75 +26373,82 @@
 	"use strict";
 
 	var React = __webpack_require__(1);
-	// const PortfolioCardImage = require('./PortfolioCardImage.js');
-	// const PortfolioCardText = require('./PortfolioCardText.js');
 
-	var PortfolioModal = function PortfolioModal(props) {
-		var modalClass = "modal " + props.target;
-		return React.createElement(
-			"div",
-			{ className: "modal-content" },
-			React.createElement(
+	var PortfolioModal = React.createClass({
+		displayName: "PortfolioModal",
+
+		hideModal: function hideModal(target) {
+			var targeted = document.getElementById(target);
+			targeted.style.display = "none";
+		},
+		render: function render() {
+			return React.createElement(
 				"div",
-				{ className: "modal-header" },
+				{ className: "modal", id: this.props.target },
 				React.createElement(
-					"span",
-					{ className: "close" },
-					"x"
-				),
-				React.createElement(
-					"h2",
-					null,
-					props.name
-				)
-			),
-			React.createElement(
-				"div",
-				{ className: "modal-body" },
-				React.createElement(
-					"p",
-					null,
-					props.text
-				),
-				React.createElement(
-					"p",
-					null,
+					"div",
+					{ className: "modal-content" },
 					React.createElement(
-						"strong",
-						null,
-						"Technologies: "
+						"div",
+						{ className: "modal-header" },
+						React.createElement(
+							"span",
+							{ className: "modal-close", onClick: this.hideModal.bind(this, this.props.target) },
+							"x"
+						),
+						React.createElement(
+							"h2",
+							null,
+							this.props.name
+						)
 					),
-					props.technologies
+					React.createElement(
+						"div",
+						{ className: "modal-body" },
+						React.createElement(
+							"p",
+							null,
+							this.props.text
+						),
+						React.createElement(
+							"p",
+							null,
+							React.createElement(
+								"strong",
+								null,
+								"Technologies: "
+							),
+							this.props.technologies
+						)
+					),
+					React.createElement(
+						"div",
+						{ className: "modal-footer" },
+						React.createElement(
+							"div",
+							{ className: "half" },
+							this.props.web ? React.createElement(
+								"a",
+								{ href: this.props.web, target: this.props.target },
+								"Project Website"
+							) : " "
+						),
+						React.createElement(
+							"div",
+							{ className: "half text-right" },
+							this.props.repo ? React.createElement(
+								"a",
+								{ href: this.props.repo, target: this.props.target },
+								"Project Repo"
+							) : " "
+						)
+					)
 				)
-			),
-			React.createElement(
-				"div",
-				{ className: "modal-footer" },
-				React.createElement(
-					"div",
-					{ className: "half" },
-					props.web ? React.createElement(
-						"a",
-						{ href: props.web, target: props.target },
-						"Project Website"
-					) : " "
-				),
-				React.createElement(
-					"div",
-					{ className: "half text-right" },
-					props.repo ? React.createElement(
-						"a",
-						{ href: props.repo, target: props.target },
-						"Project Repo"
-					) : " "
-				)
-			)
-		);
-	};
+			);
+		}
+	});
 
 	module.exports = PortfolioModal;
-	// <div className={modalClass}>
-	// </div>
 
 /***/ },
 /* 233 */
