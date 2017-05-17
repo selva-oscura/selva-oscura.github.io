@@ -75,7 +75,6 @@
 			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 			_this.state = {};
-			console.log('kilroy here');
 			return _this;
 		}
 	
@@ -83,14 +82,778 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_index.Header, null),
-					_react2.default.createElement(_index.Main, null),
-					_react2.default.createElement(_index.Portfolio, null),
-					_react2.default.createElement(_index.Contact, null),
-					_react2.default.createElement(_index.Footer, null),
-					_react2.default.createElement(_index.ProjectModals, null)
+					'body',
+					{ className: 'index' },
+					_react2.default.createElement(
+						'div',
+						{ id: 'page-wrapper' },
+						_react2.default.createElement(_index.Header, null),
+						_react2.default.createElement(_index.Main, null),
+						_react2.default.createElement(_index.Portfolio, null),
+						_react2.default.createElement(_index.Contact, null),
+						_react2.default.createElement(_index.Footer, null),
+						_react2.default.createElement(_index.ProjectModals, null),
+						_react2.default.createElement(
+							'header',
+							{ id: 'header', className: 'alt' },
+							_react2.default.createElement(
+								'h1',
+								{ id: 'logo' },
+								_react2.default.createElement(
+									'a',
+									{ href: 'index.html' },
+									'Twenty ',
+									_react2.default.createElement(
+										'span',
+										null,
+										'by HTML5 UP'
+									)
+								)
+							),
+							_react2.default.createElement(
+								'nav',
+								{ id: 'nav' },
+								_react2.default.createElement(
+									'ul',
+									null,
+									_react2.default.createElement(
+										'li',
+										{ className: 'current' },
+										_react2.default.createElement(
+											'a',
+											{ href: 'index.html' },
+											'Welcome'
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										{ className: 'submenu' },
+										_react2.default.createElement(
+											'a',
+											{ href: '#' },
+											'Layouts'
+										),
+										_react2.default.createElement(
+											'ul',
+											null,
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'a',
+													{ href: 'left-sidebar.html' },
+													'Left Sidebar'
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'a',
+													{ href: 'right-sidebar.html' },
+													'Right Sidebar'
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'a',
+													{ href: 'no-sidebar.html' },
+													'No Sidebar'
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'a',
+													{ href: 'contact.html' },
+													'Contact'
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												{ className: 'submenu' },
+												_react2.default.createElement(
+													'a',
+													{ href: '#' },
+													'Submenu'
+												),
+												_react2.default.createElement(
+													'ul',
+													null,
+													_react2.default.createElement(
+														'li',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'Dolore Sed'
+														)
+													),
+													_react2.default.createElement(
+														'li',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'Consequat'
+														)
+													),
+													_react2.default.createElement(
+														'li',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'Lorem Magna'
+														)
+													),
+													_react2.default.createElement(
+														'li',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'Sed Magna'
+														)
+													),
+													_react2.default.createElement(
+														'li',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'Ipsum Nisl'
+														)
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											'a',
+											{ href: '#', className: 'button special' },
+											'Sign Up'
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'section',
+							{ id: 'banner' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'inner' },
+								_react2.default.createElement(
+									'header',
+									null,
+									_react2.default.createElement(
+										'h2',
+										null,
+										'TWENTY'
+									)
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'This is ',
+									_react2.default.createElement(
+										'strong',
+										null,
+										'Twenty'
+									),
+									', a free',
+									_react2.default.createElement('br', null),
+									'responsive template',
+									_react2.default.createElement('br', null),
+									'by ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'http://html5up.net' },
+										'HTML5 UP'
+									),
+									'.'
+								),
+								_react2.default.createElement(
+									'footer',
+									null,
+									_react2.default.createElement(
+										'ul',
+										{ className: 'buttons vertical' },
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#main', className: 'button fit scrolly' },
+												'Tell Me More'
+											)
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'article',
+							{ id: 'main' },
+							_react2.default.createElement(
+								'header',
+								{ className: 'special container' },
+								_react2.default.createElement('span', { className: 'icon fa-bar-chart-o' }),
+								_react2.default.createElement(
+									'h2',
+									null,
+									'As this is my ',
+									_react2.default.createElement(
+										'strong',
+										null,
+										'twentieth'
+									),
+									' freebie for HTML5 UP',
+									_react2.default.createElement('br', null),
+									'I decided to give it a really creative name.'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'Turns out ',
+									_react2.default.createElement(
+										'strong',
+										null,
+										'Twenty'
+									),
+									' was the best I could come up with. Anyway, lame name aside,',
+									_react2.default.createElement('br', null),
+									'it\'s minimally designed, fully responsive, built on HTML5/CSS3/',
+									_react2.default.createElement(
+										'strong',
+										null,
+										'skel'
+									),
+									', and, like all my stuff,',
+									_react2.default.createElement('br', null),
+									'released for free under the ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'http://html5up.net/license' },
+										'Creative Commons Attribution 3.0'
+									),
+									' license. Have fun!'
+								)
+							),
+							_react2.default.createElement(
+								'section',
+								{ className: 'wrapper style2 container special-alt' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'row 50%' },
+									_react2.default.createElement(
+										'div',
+										{ className: '8u 12u(narrower)' },
+										_react2.default.createElement(
+											'header',
+											null,
+											_react2.default.createElement(
+												'h2',
+												null,
+												'Behold the ',
+												_react2.default.createElement(
+													'strong',
+													null,
+													'icons'
+												),
+												' that visualize what you\u2019re all about. or just take up space. your call bro.'
+											)
+										),
+										_react2.default.createElement(
+											'p',
+											null,
+											'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.'
+										),
+										_react2.default.createElement(
+											'footer',
+											null,
+											_react2.default.createElement(
+												'ul',
+												{ className: 'buttons' },
+												_react2.default.createElement(
+													'li',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#', className: 'button' },
+														'Find Out More'
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: '4u 12u(narrower) important(narrower)' },
+										_react2.default.createElement(
+											'ul',
+											{ className: 'featured-icons' },
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-clock-o' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 1'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-volume-up' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 2'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-laptop' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 3'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-inbox' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 4'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-lock' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 5'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'li',
+												null,
+												_react2.default.createElement(
+													'span',
+													{ className: 'icon fa-cog' },
+													_react2.default.createElement(
+														'span',
+														{ className: 'label' },
+														'Feature 6'
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'section',
+								{ className: 'wrapper style1 container special' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: '4u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement('span', { className: 'icon featured fa-check' }),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'This is Something'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: '4u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement('span', { className: 'icon featured fa-check' }),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'Also Something'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: '4u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement('span', { className: 'icon featured fa-check' }),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'Probably Something'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
+											)
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'section',
+								{ className: 'wrapper style3 container special' },
+								_react2.default.createElement(
+									'header',
+									{ className: 'major' },
+									_react2.default.createElement(
+										'h2',
+										null,
+										'Next look at this ',
+										_react2.default.createElement(
+											'strong',
+											null,
+											'cool stuff'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: '6u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#', className: 'image featured' },
+												_react2.default.createElement('img', { src: './public/images//pic01.jpg', alt: '' })
+											),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'A Really Fast Train'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: '6u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#', className: 'image featured' },
+												_react2.default.createElement('img', { src: './public/images//pic02.jpg', alt: '' })
+											),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'An Airport Terminal'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
+											)
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: '6u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#', className: 'image featured' },
+												_react2.default.createElement('img', { src: './public/images//pic03.jpg', alt: '' })
+											),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'Hyperspace Travel'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: '6u 12u(narrower)' },
+										_react2.default.createElement(
+											'section',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#', className: 'image featured' },
+												_react2.default.createElement('img', { src: './public/images//pic04.jpg', alt: '' })
+											),
+											_react2.default.createElement(
+												'header',
+												null,
+												_react2.default.createElement(
+													'h3',
+													null,
+													'And Another Train'
+												)
+											),
+											_react2.default.createElement(
+												'p',
+												null,
+												'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
+											)
+										)
+									)
+								),
+								_react2.default.createElement(
+									'footer',
+									{ className: 'major' },
+									_react2.default.createElement(
+										'ul',
+										{ className: 'buttons' },
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												'a',
+												{ href: '#', className: 'button' },
+												'See More'
+											)
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'section',
+							{ id: 'cta' },
+							_react2.default.createElement(
+								'header',
+								null,
+								_react2.default.createElement(
+									'h2',
+									null,
+									'Ready to do ',
+									_react2.default.createElement(
+										'strong',
+										null,
+										'something'
+									),
+									'?'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.'
+								)
+							),
+							_react2.default.createElement(
+								'footer',
+								null,
+								_react2.default.createElement(
+									'ul',
+									{ className: 'buttons' },
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											'a',
+											{ href: '#', className: 'button special' },
+											'Take My Money'
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											'a',
+											{ href: '#', className: 'button' },
+											'LOL Wut'
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'footer',
+							{ id: 'footer' },
+							_react2.default.createElement(
+								'ul',
+								{ className: 'icons' },
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#', className: 'icon circle fa-twitter' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label' },
+											'Twitter'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#', className: 'icon circle fa-facebook' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label' },
+											'Facebook'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#', className: 'icon circle fa-google-plus' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label' },
+											'Google+'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#', className: 'icon circle fa-github' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label' },
+											'Github'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#', className: 'icon circle fa-dribbble' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label' },
+											'Dribbble'
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'ul',
+								{ className: 'copyright' },
+								_react2.default.createElement(
+									'li',
+									null,
+									'\xA9 Untitled'
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									'Design: ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'http://html5up.net' },
+										'HTML5 UP'
+									)
+								)
+							)
+						)
+					)
 				);
 			}
 		}]);
