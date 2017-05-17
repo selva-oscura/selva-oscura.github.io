@@ -1,12 +1,12 @@
 const path = require('path')
 
 module.exports = {
-  context: __dirname,
-  entry: './src/app.js',
+  entry: './src/App.js',
   output: {
-    path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    filename: 'public/build/bundle.js',
+    sourceMapFilename: 'public/build/bundle.map'
   },
+  devtool: '#source-map',
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
   },
