@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
 	return (
-		<section className="wrapper style4 special container 75%">
+		<section className="wrapper style3 special container">
 
 				<div className="content">
 					<form>
