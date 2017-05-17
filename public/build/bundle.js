@@ -56,6 +56,8 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _index = __webpack_require__(159);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -83,11 +85,12 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(
-						'h1',
-						null,
-						'APP IS HERE!'
-					)
+					_react2.default.createElement(_index.Header, null),
+					_react2.default.createElement(_index.Main, null),
+					_react2.default.createElement(_index.Portfolio, null),
+					_react2.default.createElement(_index.Contact, null),
+					_react2.default.createElement(_index.Footer, null),
+					_react2.default.createElement(_index.ProjectModals, null)
 				);
 			}
 		}]);
@@ -19838,6 +19841,236 @@
 	'use strict';
 	
 	module.exports = __webpack_require__(3);
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.ProjectModals = exports.Portfolio = exports.Main = exports.Header = exports.Footer = exports.Contact = undefined;
+	
+	var _Contact = __webpack_require__(160);
+	
+	var _Contact2 = _interopRequireDefault(_Contact);
+	
+	var _Footer = __webpack_require__(161);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _Header = __webpack_require__(162);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _Main = __webpack_require__(163);
+	
+	var _Main2 = _interopRequireDefault(_Main);
+	
+	var _Portfolio = __webpack_require__(164);
+	
+	var _Portfolio2 = _interopRequireDefault(_Portfolio);
+	
+	var _Project = __webpack_require__(165);
+	
+	var _Project2 = _interopRequireDefault(_Project);
+	
+	var _ProjectModals = __webpack_require__(166);
+	
+	var _ProjectModals2 = _interopRequireDefault(_ProjectModals);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Contact = _Contact2.default;
+	exports.Footer = _Footer2.default;
+	exports.Header = _Header2.default;
+	exports.Main = _Main2.default;
+	exports.Portfolio = _Portfolio2.default;
+	exports.ProjectModals = _ProjectModals2.default;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Contact = function Contact() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Contact'
+		);
+	};
+	
+	exports.default = Contact;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Footer'
+		);
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Header'
+		);
+	};
+	
+	exports.default = Header;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Main = function Main() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Main'
+		);
+	};
+	
+	exports.default = Main;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Portfolio = function Portfolio() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Portfolio'
+		);
+	};
+	
+	exports.default = Portfolio;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Project = function Project() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'Project'
+		);
+	};
+	
+	exports.default = Project;
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ProjectModals = function ProjectModals() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'ProjectModals'
+		);
+	};
+	
+	exports.default = ProjectModals;
 
 /***/ }
 /******/ ]);
