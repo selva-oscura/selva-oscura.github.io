@@ -88,62 +88,7 @@
 						'div',
 						{ id: 'page-wrapper' },
 						_react2.default.createElement(_index.Header, null),
-						_react2.default.createElement(
-							'section',
-							{ id: 'banner' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'inner' },
-								_react2.default.createElement(
-									'header',
-									null,
-									_react2.default.createElement(
-										'h2',
-										null,
-										'TWENTY'
-									)
-								),
-								_react2.default.createElement(
-									'p',
-									null,
-									'This is ',
-									_react2.default.createElement(
-										'strong',
-										null,
-										'Twenty'
-									),
-									', a free',
-									_react2.default.createElement('br', null),
-									'responsive template',
-									_react2.default.createElement('br', null),
-									'by ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'http://html5up.net' },
-										'HTML5 UP'
-									),
-									'.'
-								),
-								_react2.default.createElement(
-									'footer',
-									null,
-									_react2.default.createElement(
-										'ul',
-										{ className: 'buttons vertical' },
-										_react2.default.createElement(
-											'li',
-											null,
-											_react2.default.createElement(
-												'a',
-												{ href: '#main', className: 'button fit scrolly' },
-												'Tell Me More'
-											)
-										)
-									)
-								)
-							)
-						),
-						_react2.default.createElement(_index.Header, null),
+						_react2.default.createElement(_index.Banner, null),
 						_react2.default.createElement(_index.Main, null),
 						_react2.default.createElement(_index.Portfolio, null),
 						_react2.default.createElement(_index.Contact, null),
@@ -20464,38 +20409,43 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.ProjectModals = exports.Portfolio = exports.Main = exports.Header = exports.Footer = exports.Contact = undefined;
+	exports.ProjectModals = exports.Portfolio = exports.Main = exports.Header = exports.Footer = exports.Contact = exports.Banner = undefined;
 	
-	var _Contact = __webpack_require__(160);
+	var _Banner = __webpack_require__(160);
+	
+	var _Banner2 = _interopRequireDefault(_Banner);
+	
+	var _Contact = __webpack_require__(161);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _Footer = __webpack_require__(161);
+	var _Footer = __webpack_require__(162);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _Header = __webpack_require__(162);
+	var _Header = __webpack_require__(163);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Main = __webpack_require__(163);
+	var _Main = __webpack_require__(164);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Portfolio = __webpack_require__(164);
+	var _Portfolio = __webpack_require__(165);
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Project = __webpack_require__(165);
+	var _Project = __webpack_require__(166);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
-	var _ProjectModals = __webpack_require__(166);
+	var _ProjectModals = __webpack_require__(167);
 	
 	var _ProjectModals2 = _interopRequireDefault(_ProjectModals);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	exports.Banner = _Banner2.default;
 	exports.Contact = _Contact2.default;
 	exports.Footer = _Footer2.default;
 	exports.Header = _Header2.default;
@@ -20505,6 +20455,82 @@
 
 /***/ },
 /* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Banner = function Banner() {
+		return _react2.default.createElement(
+			"section",
+			{ id: "banner" },
+			_react2.default.createElement(
+				"div",
+				{ className: "inner" },
+				_react2.default.createElement(
+					"header",
+					null,
+					_react2.default.createElement(
+						"h2",
+						null,
+						"Banner"
+					)
+				),
+				_react2.default.createElement(
+					"p",
+					null,
+					"This is ",
+					_react2.default.createElement(
+						"strong",
+						null,
+						"Twenty"
+					),
+					", a free",
+					_react2.default.createElement("br", null),
+					"responsive template",
+					_react2.default.createElement("br", null),
+					"by ",
+					_react2.default.createElement(
+						"a",
+						{ href: "http://html5up.net" },
+						"HTML5 UP"
+					),
+					"."
+				),
+				_react2.default.createElement(
+					"footer",
+					null,
+					_react2.default.createElement(
+						"ul",
+						{ className: "buttons vertical" },
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#main", className: "button fit scrolly" },
+								"Tell Me More"
+							)
+						)
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Banner;
+
+/***/ },
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20530,7 +20556,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20556,7 +20582,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20728,7 +20754,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20754,7 +20780,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20780,7 +20806,7 @@
 	exports.default = Portfolio;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20806,7 +20832,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

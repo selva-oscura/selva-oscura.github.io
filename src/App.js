@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Contact, Footer, Header, Main, Portfolio, ProjectModals} from './components/index';
+import {Banner, Contact, Footer, Header, Main, Portfolio, ProjectModals} from './components/index';
 
 class App extends Component {
 	constructor(props){
@@ -12,28 +12,7 @@ class App extends Component {
 			<body className="index">
 				<div id="page-wrapper">
 					<Header />
-					<section id="banner">
-						<div className="inner">
-
-							<header>
-								<h2>TWENTY</h2>
-							</header>
-							<p>This is <strong>Twenty</strong>, a free
-							<br />
-							responsive template
-							<br />
-							by <a href="http://html5up.net">HTML5 UP</a>.</p>
-							<footer>
-								<ul className="buttons vertical">
-									<li><a href="#main" className="button fit scrolly">Tell Me More</a></li>
-								</ul>
-							</footer>
-
-						</div>
-
-					</section>
-
-					<Header />
+					<Banner />
 					<Main />
 					<Portfolio />
 					<Contact />
@@ -204,20 +183,6 @@ class App extends Component {
 
 					</section>
 
-					<footer id="footer">
-
-						<ul className="icons">
-							<li><a href="#" className="icon circle fa-twitter"><span className="label">Twitter</span></a></li>
-							<li><a href="#" className="icon circle fa-facebook"><span className="label">Facebook</span></a></li>
-							<li><a href="#" className="icon circle fa-google-plus"><span className="label">Google+</span></a></li>
-							<li><a href="#" className="icon circle fa-github"><span className="label">Github</span></a></li>
-							<li><a href="#" className="icon circle fa-dribbble"><span className="label">Dribbble</span></a></li>
-						</ul>
-
-						<ul className="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
 				</div>
 			</body>
 
