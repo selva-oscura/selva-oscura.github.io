@@ -88,162 +88,6 @@
 						'div',
 						{ id: 'page-wrapper' },
 						_react2.default.createElement(_index.Header, null),
-						_react2.default.createElement(_index.Main, null),
-						_react2.default.createElement(_index.Portfolio, null),
-						_react2.default.createElement(_index.Contact, null),
-						_react2.default.createElement(_index.Footer, null),
-						_react2.default.createElement(_index.ProjectModals, null),
-						_react2.default.createElement(
-							'header',
-							{ id: 'header', className: 'alt' },
-							_react2.default.createElement(
-								'h1',
-								{ id: 'logo' },
-								_react2.default.createElement(
-									'a',
-									{ href: 'index.html' },
-									'Twenty ',
-									_react2.default.createElement(
-										'span',
-										null,
-										'by HTML5 UP'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'nav',
-								{ id: 'nav' },
-								_react2.default.createElement(
-									'ul',
-									null,
-									_react2.default.createElement(
-										'li',
-										{ className: 'current' },
-										_react2.default.createElement(
-											'a',
-											{ href: 'index.html' },
-											'Welcome'
-										)
-									),
-									_react2.default.createElement(
-										'li',
-										{ className: 'submenu' },
-										_react2.default.createElement(
-											'a',
-											{ href: '#' },
-											'Layouts'
-										),
-										_react2.default.createElement(
-											'ul',
-											null,
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													'a',
-													{ href: 'left-sidebar.html' },
-													'Left Sidebar'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													'a',
-													{ href: 'right-sidebar.html' },
-													'Right Sidebar'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													'a',
-													{ href: 'no-sidebar.html' },
-													'No Sidebar'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													'a',
-													{ href: 'contact.html' },
-													'Contact'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												{ className: 'submenu' },
-												_react2.default.createElement(
-													'a',
-													{ href: '#' },
-													'Submenu'
-												),
-												_react2.default.createElement(
-													'ul',
-													null,
-													_react2.default.createElement(
-														'li',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'Dolore Sed'
-														)
-													),
-													_react2.default.createElement(
-														'li',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'Consequat'
-														)
-													),
-													_react2.default.createElement(
-														'li',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'Lorem Magna'
-														)
-													),
-													_react2.default.createElement(
-														'li',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'Sed Magna'
-														)
-													),
-													_react2.default.createElement(
-														'li',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'Ipsum Nisl'
-														)
-													)
-												)
-											)
-										)
-									),
-									_react2.default.createElement(
-										'li',
-										null,
-										_react2.default.createElement(
-											'a',
-											{ href: '#', className: 'button special' },
-											'Sign Up'
-										)
-									)
-								)
-							)
-						),
 						_react2.default.createElement(
 							'section',
 							{ id: 'banner' },
@@ -299,6 +143,12 @@
 								)
 							)
 						),
+						_react2.default.createElement(_index.Header, null),
+						_react2.default.createElement(_index.Main, null),
+						_react2.default.createElement(_index.Portfolio, null),
+						_react2.default.createElement(_index.Contact, null),
+						_react2.default.createElement(_index.Footer, null),
+						_react2.default.createElement(_index.ProjectModals, null),
 						_react2.default.createElement(
 							'article',
 							{ id: 'main' },
@@ -20709,7 +20559,7 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20723,9 +20573,155 @@
 	
 	var Header = function Header() {
 		return _react2.default.createElement(
-			'div',
-			null,
-			'Header'
+			"header",
+			{ id: "header", className: "alt" },
+			_react2.default.createElement(
+				"h1",
+				{ id: "logo" },
+				_react2.default.createElement(
+					"a",
+					{ href: "index.html" },
+					"Twenty ",
+					_react2.default.createElement(
+						"span",
+						null,
+						"by HTML5 UP"
+					)
+				)
+			),
+			_react2.default.createElement(
+				"nav",
+				{ id: "nav" },
+				_react2.default.createElement(
+					"ul",
+					null,
+					_react2.default.createElement(
+						"li",
+						{ className: "current" },
+						_react2.default.createElement(
+							"a",
+							{ href: "index.html" },
+							"Welcome"
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						{ className: "submenu" },
+						_react2.default.createElement(
+							"a",
+							{ href: "#" },
+							"Layouts"
+						),
+						_react2.default.createElement(
+							"ul",
+							null,
+							_react2.default.createElement(
+								"li",
+								null,
+								_react2.default.createElement(
+									"a",
+									{ href: "left-sidebar.html" },
+									"Left Sidebar"
+								)
+							),
+							_react2.default.createElement(
+								"li",
+								null,
+								_react2.default.createElement(
+									"a",
+									{ href: "right-sidebar.html" },
+									"Right Sidebar"
+								)
+							),
+							_react2.default.createElement(
+								"li",
+								null,
+								_react2.default.createElement(
+									"a",
+									{ href: "no-sidebar.html" },
+									"No Sidebar"
+								)
+							),
+							_react2.default.createElement(
+								"li",
+								null,
+								_react2.default.createElement(
+									"a",
+									{ href: "contact.html" },
+									"Contact"
+								)
+							),
+							_react2.default.createElement(
+								"li",
+								{ className: "submenu" },
+								_react2.default.createElement(
+									"a",
+									{ href: "#" },
+									"Submenu"
+								),
+								_react2.default.createElement(
+									"ul",
+									null,
+									_react2.default.createElement(
+										"li",
+										null,
+										_react2.default.createElement(
+											"a",
+											{ href: "#" },
+											"Dolore Sed"
+										)
+									),
+									_react2.default.createElement(
+										"li",
+										null,
+										_react2.default.createElement(
+											"a",
+											{ href: "#" },
+											"Consequat"
+										)
+									),
+									_react2.default.createElement(
+										"li",
+										null,
+										_react2.default.createElement(
+											"a",
+											{ href: "#" },
+											"Lorem Magna"
+										)
+									),
+									_react2.default.createElement(
+										"li",
+										null,
+										_react2.default.createElement(
+											"a",
+											{ href: "#" },
+											"Sed Magna"
+										)
+									),
+									_react2.default.createElement(
+										"li",
+										null,
+										_react2.default.createElement(
+											"a",
+											{ href: "#" },
+											"Ipsum Nisl"
+										)
+									)
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "#", className: "button special" },
+							"Sign Up"
+						)
+					)
+				)
+			)
 		);
 	};
 	
