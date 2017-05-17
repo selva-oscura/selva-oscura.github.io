@@ -1,3 +1,4 @@
+import Banner from './Banner';
 import Contact from './Contact';
 import Footer from './Footer';
 import Header from './Header';
@@ -7,6 +8,7 @@ import Project from './Project';
 import ProjectModals from './ProjectModals';
 
 export {
+	Banner,
 	Contact,
 	Footer,
 	Header,
