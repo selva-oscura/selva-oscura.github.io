@@ -2,7 +2,7 @@
   "name": "selva-oscura.github.io",
   "version": "1.0.0",
   "description": "Portfolio site for Carol St.Louis (selva-oscura), using React.js, vanilla JS, HTML5, and CSS3.",
-  "main": "app.js",
+  "main": "App.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
