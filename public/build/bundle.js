@@ -91,8 +91,6 @@
 						_react2.default.createElement(_index.Banner, null),
 						_react2.default.createElement(_index.Main, null),
 						_react2.default.createElement(_index.Portfolio, null),
-						_react2.default.createElement(_index.Contact, null),
-						_react2.default.createElement(_index.Footer, null),
 						_react2.default.createElement(_index.ProjectModals, null),
 						_react2.default.createElement(
 							'article',
@@ -556,98 +554,8 @@
 								)
 							)
 						),
-						_react2.default.createElement(
-							'footer',
-							{ id: 'footer' },
-							_react2.default.createElement(
-								'ul',
-								{ className: 'icons' },
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'icon circle fa-twitter' },
-										_react2.default.createElement(
-											'span',
-											{ className: 'label' },
-											'Twitter'
-										)
-									)
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'icon circle fa-facebook' },
-										_react2.default.createElement(
-											'span',
-											{ className: 'label' },
-											'Facebook'
-										)
-									)
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'icon circle fa-google-plus' },
-										_react2.default.createElement(
-											'span',
-											{ className: 'label' },
-											'Google+'
-										)
-									)
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'icon circle fa-github' },
-										_react2.default.createElement(
-											'span',
-											{ className: 'label' },
-											'Github'
-										)
-									)
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'icon circle fa-dribbble' },
-										_react2.default.createElement(
-											'span',
-											{ className: 'label' },
-											'Dribbble'
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'ul',
-								{ className: 'copyright' },
-								_react2.default.createElement(
-									'li',
-									null,
-									'\xA9 Untitled'
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									'Design: ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'http://html5up.net' },
-										'HTML5 UP'
-									)
-								)
-							)
-						)
+						_react2.default.createElement(_index.Contact, null),
+						_react2.default.createElement(_index.Footer, null)
 					)
 				);
 			}
@@ -20533,7 +20441,7 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20547,9 +20455,85 @@
 	
 	var Contact = function Contact() {
 		return _react2.default.createElement(
-			'div',
-			null,
-			'Contact'
+			"section",
+			{ className: "wrapper style4 special container 75%" },
+			_react2.default.createElement(
+				"div",
+				{ className: "content" },
+				_react2.default.createElement(
+					"form",
+					null,
+					_react2.default.createElement(
+						"div",
+						{ className: "row 50%" },
+						_react2.default.createElement(
+							"div",
+							{ className: "6u 12u(mobile)" },
+							_react2.default.createElement(
+								"label",
+								{ forHtml: "name" },
+								"Name"
+							),
+							_react2.default.createElement("input", { type: "text", name: "name", placeholder: "Name", id: "name" })
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "6u 12u(mobile)" },
+							_react2.default.createElement(
+								"label",
+								{ forHtml: "email" },
+								"E-Mail"
+							),
+							_react2.default.createElement("input", { type: "email", name: "email", placeholder: "Email", id: "email" })
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row 50%" },
+						_react2.default.createElement(
+							"div",
+							{ className: "12u" },
+							_react2.default.createElement(
+								"label",
+								{ forHtml: "subject" },
+								"Subject"
+							),
+							_react2.default.createElement("input", { type: "text", name: "subject", placeholder: "Subject", id: "subject" })
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row 50%" },
+						_react2.default.createElement(
+							"div",
+							{ className: "12u" },
+							_react2.default.createElement(
+								"label",
+								{ forHtml: "message" },
+								"Message"
+							),
+							_react2.default.createElement("textarea", { name: "message", placeholder: "Message", rows: "7", id: "message" })
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "12u" },
+							_react2.default.createElement(
+								"ul",
+								{ className: "buttons" },
+								_react2.default.createElement(
+									"li",
+									null,
+									_react2.default.createElement("input", { type: "submit", className: "special", value: "Send Message" })
+								)
+							)
+						)
+					)
+				)
+			)
 		);
 	};
 	
@@ -20559,7 +20543,7 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20573,9 +20557,96 @@
 	
 	var Footer = function Footer() {
 		return _react2.default.createElement(
-			'div',
-			null,
-			'Footer'
+			"footer",
+			{ id: "footer" },
+			_react2.default.createElement(
+				"ul",
+				{ className: "icons" },
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#", className: "icon circle fa-twitter" },
+						_react2.default.createElement(
+							"span",
+							{ className: "label" },
+							"Twitter"
+						)
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#", className: "icon circle fa-facebook" },
+						_react2.default.createElement(
+							"span",
+							{ className: "label" },
+							"Facebook"
+						)
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#", className: "icon circle fa-google-plus" },
+						_react2.default.createElement(
+							"span",
+							{ className: "label" },
+							"Google+"
+						)
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#", className: "icon circle fa-github" },
+						_react2.default.createElement(
+							"span",
+							{ className: "label" },
+							"Github"
+						)
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#", className: "icon circle fa-dribbble" },
+						_react2.default.createElement(
+							"span",
+							{ className: "label" },
+							"Dribbble"
+						)
+					)
+				)
+			),
+			_react2.default.createElement(
+				"ul",
+				{ className: "copyright" },
+				_react2.default.createElement(
+					"li",
+					null,
+					"\xA9 Untitled"
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					"Design: ",
+					_react2.default.createElement(
+						"a",
+						{ href: "http://html5up.net" },
+						"HTML5 UP"
+					)
+				)
+			)
 		);
 	};
 	

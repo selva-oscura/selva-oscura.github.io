@@ -15,7 +15,6 @@ class App extends Component {
 					<Banner />
 					<Main />
 					<Portfolio />
-					<Contact />
 					<ProjectModals />
 
 					<article id="main">
@@ -182,8 +181,9 @@ class App extends Component {
 
 					</section>
 
+					<Contact />
 					<Footer />
-					
+
 				</div>
 			</body>
 
