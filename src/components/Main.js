@@ -86,70 +86,7 @@ const Main = () => {
 					</div>
 				</div>
 			</section>
-
-			<section className="wrapper style3 container special">
-
-				<header className="major">
-					<h2>Next look at this <strong>cool stuff</strong></h2>
-				</header>
-
-				<div className="row">
-					<div className="6u 12u(narrower)">
-
-						<section>
-							<a href="#" className="image featured"><img src="./public/images//pic01.jpg" alt="" /></a>
-							<header>
-								<h3>A Really Fast Train</h3>
-							</header>
-							<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-						</section>
-
-					</div>
-					<div className="6u 12u(narrower)">
-
-						<section>
-							<a href="#" className="image featured"><img src="./public/images//pic02.jpg" alt="" /></a>
-							<header>
-								<h3>An Airport Terminal</h3>
-							</header>
-							<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-						</section>
-
-					</div>
-				</div>
-				<div className="row">
-					<div className="6u 12u(narrower)">
-
-						<section>
-							<a href="#" className="image featured"><img src="./public/images//pic03.jpg" alt="" /></a>
-							<header>
-								<h3>Hyperspace Travel</h3>
-							</header>
-							<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-						</section>
-
-					</div>
-					<div className="6u 12u(narrower)">
-
-						<section>
-							<a href="#" className="image featured"><img src="./public/images//pic04.jpg" alt="" /></a>
-							<header>
-								<h3>And Another Train</h3>
-							</header>
-							<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-						</section>
-
-					</div>
-				</div>
-
-				<footer className="major">
-					<ul className="buttons">
-						<li><a href="#" className="button">See More</a></li>
-					</ul>
-				</footer>
-
-			</section>
-
+			<Portfolio />
 		</article>
 	)
 }
