@@ -20688,157 +20688,7 @@
 					)
 				)
 			),
-			_react2.default.createElement(
-				'section',
-				{ className: 'wrapper style3 container special' },
-				_react2.default.createElement(
-					'header',
-					{ className: 'major' },
-					_react2.default.createElement(
-						'h2',
-						null,
-						'Next look at this ',
-						_react2.default.createElement(
-							'strong',
-							null,
-							'cool stuff'
-						)
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: '6u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', className: 'image featured' },
-								_react2.default.createElement('img', { src: './public/images//pic01.jpg', alt: '' })
-							),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'A Really Fast Train'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: '6u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', className: 'image featured' },
-								_react2.default.createElement('img', { src: './public/images//pic02.jpg', alt: '' })
-							),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'An Airport Terminal'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
-							)
-						)
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: '6u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', className: 'image featured' },
-								_react2.default.createElement('img', { src: './public/images//pic03.jpg', alt: '' })
-							),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'Hyperspace Travel'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: '6u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', className: 'image featured' },
-								_react2.default.createElement('img', { src: './public/images//pic04.jpg', alt: '' })
-							),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'And Another Train'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.'
-							)
-						)
-					)
-				),
-				_react2.default.createElement(
-					'footer',
-					{ className: 'major' },
-					_react2.default.createElement(
-						'ul',
-						{ className: 'buttons' },
-						_react2.default.createElement(
-							'li',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: '#', className: 'button' },
-								'See More'
-							)
-						)
-					)
-				)
-			)
+			_react2.default.createElement(_Portfolio2.default, null)
 		);
 	};
 	
@@ -20858,13 +20708,66 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Project = __webpack_require__(166);
+	
+	var _Project2 = _interopRequireDefault(_Project);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Portfolio = function Portfolio() {
+		var projects = [{
+			name: "A Really Fast Train",
+			img: "pic01",
+			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
+		}, {
+			name: "An Airport Terminal",
+			img: "pic02",
+			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
+		}, {
+			name: "Hyperspace Travel",
+			img: "pic03",
+			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
+		}, {
+			name: "An Airport Terminal",
+			img: "pic04",
+			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
+		}];
 		return _react2.default.createElement(
-			'div',
-			null,
-			'Portfolio'
+			'section',
+			{ className: 'wrapper style3 container special' },
+			_react2.default.createElement(
+				'header',
+				{ className: 'major' },
+				_react2.default.createElement(
+					'h2',
+					null,
+					'Projects'
+				)
+			),
+			_react2.default.createElement(
+				'div',
+				{ className: 'row' },
+				projects.map(function (project, i) {
+					return _react2.default.createElement(_Project2.default, { key: i, name: project.name, img: project.img, description: project.description });
+				})
+			),
+			_react2.default.createElement(
+				'footer',
+				{ className: 'major' },
+				_react2.default.createElement(
+					'ul',
+					{ className: 'buttons' },
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: '#', className: 'button' },
+							'See More'
+						)
+					)
+				)
+			)
 		);
 	};
 	
@@ -20874,7 +20777,7 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20886,11 +20789,33 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Project = function Project() {
+	var Project = function Project(props) {
 		return _react2.default.createElement(
-			'div',
-			null,
-			'Project'
+			"div",
+			{ className: "6u 12u(narrower)" },
+			_react2.default.createElement(
+				"section",
+				null,
+				_react2.default.createElement(
+					"a",
+					{ href: "#", className: "image featured" },
+					_react2.default.createElement("img", { src: "./public/images/" + props.img + ".jpg", alt: "" })
+				),
+				_react2.default.createElement(
+					"header",
+					null,
+					_react2.default.createElement(
+						"h3",
+						null,
+						props.name
+					)
+				),
+				_react2.default.createElement(
+					"p",
+					null,
+					props.description
+				)
+			)
 		);
 	};
 	
