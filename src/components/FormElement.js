@@ -13,6 +13,9 @@ const FormElement = (props) => {
 						type={props.type}
 						name={props.id}
 						id={props.id}
+						placeholder={props.label}
+						onChange={props.updateFormState}
+						value={props.value}
 					/>
 				</div>
 			)
@@ -24,7 +27,10 @@ const FormElement = (props) => {
 					<textarea
 						name={props.id}
 						id={props.id}
+						placeholder={props.label}
 						rows={rows}
+						onChange={props.updateFormState}
+						value={props.value}
 					>
 					</textarea>
 				</div>
@@ -32,9 +38,16 @@ const FormElement = (props) => {
 		case "submit":
 			return (
 				<footer>
-					<ul className="buttons">
-						<li><p className="button special">{props.label}</p></li>
-					</ul>
+					<div className="buttons"
+					>
+						<div
+							id={props.id}
+							className="button special"
+							onClick={props.submitMailForm}
+						>
+							{props.label}
+						</div>
+					</div>
 				</footer>
 			)
 		case "radio":
@@ -43,8 +56,6 @@ const FormElement = (props) => {
 		case "color":
 		case "date":
 		case "datetime-local":
-		case "email":
-		case "email":
 		case "month":
 		case "number":
 		case "range":
@@ -54,7 +65,7 @@ const FormElement = (props) => {
 		case "url":
 		case "week":
 			return (
-				<div className={layout}>
+				<div className={props.layout}>
 					<p>time to get around to making the {props.type} element</p>
 				</div>
 			)
@@ -65,16 +76,3 @@ const FormElement = (props) => {
 }
 
 export default FormElement;
-
-
-				// <ul className="actions">
-				// 	<li>
-				// 		<div 
-				// 			id={props.id}
-				// 			className="button big wide"
-				// 			onClick={props.submitMailForm}
-				// 		>
-				// 			{props.text}
-				// 		</div>
-				// 	</li>
-				// </ul>
