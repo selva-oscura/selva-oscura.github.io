@@ -34,7 +34,7 @@ const Portfolio = () => {
 
 			<footer className="major">
 				<ul className="buttons">
-					<li><a href="#" className="button">See More</a></li>
+					<li><a href="https://github.com/selva-oscura/">See More -- add GitHub link?</a></li>
 				</ul>
 			</footer>
 
