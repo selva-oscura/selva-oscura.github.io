@@ -8,15 +8,10 @@ const Banner = () => {
 				<header>
 					<h2>Banner</h2>
 				</header>
-				<p>This is <strong>Twenty</strong>, a free
-				<br />
-				responsive template
-				<br />
+				<p>This is <strong>Twenty</strong>, a free responsive template <br />
 				by <a href="http://html5up.net">HTML5 UP</a>.</p>
 				<footer>
-					<ul className="buttons vertical">
-						<li><a href="#main" className="button fit scrolly">Tell Me More</a></li>
-					</ul>
+					<p>Need something here to fill up this space....</p>
 				</footer>
 
 			</div>
