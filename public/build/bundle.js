@@ -74,76 +74,135 @@
 	
 			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-			_this.state = {};
+			_this.state = {
+				form: {
+					name: "",
+					email: "",
+					subject: "",
+					message: "",
+					responses: [],
+					errors: []
+				}
+			};
+			_this.updateFormState = _this.updateFormState.bind(_this);
+			_this.submitMailForm = _this.submitMailForm.bind(_this);
 			return _this;
 		}
 	
 		_createClass(App, [{
+			key: 'updateFormState',
+			value: function updateFormState(e) {
+				var form = this.state.form;
+				if (e.target.type === "checkbox") {
+					form[e.target.id] = !form[e.target.id];
+				} else if (e.target.type === "radio") {
+					form[e.target.name] = e.target.id;
+				} else {
+					form[e.target.id] = e.target.value;
+				}
+				form.responses = [];
+				form.errors = [];
+				this.setState({ form: form });
+			}
+		}, {
+			key: 'submitMailForm',
+			value: function submitMailForm(e) {
+				e.preventDefault();
+				var form = this.state.form;
+				var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				if (form.name.length === 0) {
+					form.errors.push("Missing Name");
+				}
+				if (form.email.length === 0) {
+					form.errors.push("Missing E-Mail Address");
+				} else if (!form.email.match(emailRegex)) {
+					form.errors.push("Improperly-Formatted E-Mail Address");
+				}
+				if (form.subject.length === 0) {
+					form.errors.push("Missing Subject");
+				}
+				if (form.message.length === 0) {
+					form.errors.push("Missing Message");
+				}
+				if (form.errors.length === 0) {
+					form.errors = [];
+					form.responses.push("Submitting....");
+					form.responses.push('Name: ' + form.name);
+					form.responses.push('E-Mail: ' + form.email);
+					form.responses.push('Message: ' + form.message);
+					form.name = "";
+					form.email = "";
+					form.message = "";
+					form.subject = "";
+				} else {
+					if (form.errors.length === 1) {
+						form.errors.unshift("Can Not Submit the Form, Due to the Following Problem:");
+					} else {
+						form.errors.unshift("Can Not Submit the Form, Due to the Following Problems:");
+					}
+				}
+				this.setState({ form: form });
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'body',
-					{ className: 'index' },
+					'div',
+					{ id: 'page-wrapper' },
+					_react2.default.createElement(_index.Header, null),
+					_react2.default.createElement(_index.Banner, null),
+					_react2.default.createElement(_index.Main, null),
+					_react2.default.createElement(_index.ProjectModals, null),
 					_react2.default.createElement(
-						'div',
-						{ id: 'page-wrapper' },
-						_react2.default.createElement(_index.Header, null),
-						_react2.default.createElement(_index.Banner, null),
-						_react2.default.createElement(_index.Main, null),
-						_react2.default.createElement(_index.ProjectModals, null),
+						'section',
+						{ id: 'cta' },
 						_react2.default.createElement(
-							'section',
-							{ id: 'cta' },
+							'header',
+							null,
 							_react2.default.createElement(
-								'header',
+								'h2',
 								null,
-								_react2.default.createElement(
-									'h2',
-									null,
-									'Ready to do ',
-									_react2.default.createElement(
-										'strong',
-										null,
-										'something'
-									),
-									'?'
-								),
-								_react2.default.createElement(
-									'p',
-									null,
-									'Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.'
-								)
+								'Ready to do something or other?'
 							),
 							_react2.default.createElement(
-								'footer',
+								'p',
 								null,
+								'Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.'
+							)
+						),
+						_react2.default.createElement(
+							'footer',
+							null,
+							_react2.default.createElement(
+								'ul',
+								{ className: 'buttons' },
 								_react2.default.createElement(
-									'ul',
-									{ className: 'buttons' },
+									'li',
+									null,
 									_react2.default.createElement(
-										'li',
-										null,
-										_react2.default.createElement(
-											'a',
-											{ href: '#', className: 'button special' },
-											'Take My Money'
-										)
-									),
+										'a',
+										{ href: '#', className: 'button special' },
+										'Take My Money'
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
 									_react2.default.createElement(
-										'li',
-										null,
-										_react2.default.createElement(
-											'a',
-											{ href: '#', className: 'button' },
-											'LOL Wut'
-										)
+										'a',
+										{ href: '#', className: 'button' },
+										'LOL Wut'
 									)
 								)
 							)
-						),
-						_react2.default.createElement(_index.Contact, null),
-						_react2.default.createElement(_index.Footer, null)
-					)
+						)
+					),
+					_react2.default.createElement(_index.Contact, {
+						updateFormState: this.updateFormState,
+						submitMailForm: this.submitMailForm,
+						form: this.state.form
+					}),
+					_react2.default.createElement(_index.Footer, null)
 				);
 			}
 		}]);
@@ -19914,23 +19973,23 @@
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _Footer = __webpack_require__(162);
+	var _Footer = __webpack_require__(166);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _Header = __webpack_require__(163);
+	var _Header = __webpack_require__(167);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Main = __webpack_require__(164);
+	var _Main = __webpack_require__(168);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Project = __webpack_require__(166);
+	var _Project = __webpack_require__(170);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
-	var _ProjectModals = __webpack_require__(167);
+	var _ProjectModals = __webpack_require__(171);
 	
 	var _ProjectModals2 = _interopRequireDefault(_ProjectModals);
 	
@@ -19984,9 +20043,7 @@
 						null,
 						"Twenty"
 					),
-					", a free",
-					_react2.default.createElement("br", null),
-					"responsive template",
+					", a free responsive template ",
 					_react2.default.createElement("br", null),
 					"by ",
 					_react2.default.createElement(
@@ -20000,17 +20057,9 @@
 					"footer",
 					null,
 					_react2.default.createElement(
-						"ul",
-						{ className: "buttons vertical" },
-						_react2.default.createElement(
-							"li",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: "#main", className: "button fit scrolly" },
-								"Tell Me More"
-							)
-						)
+						"p",
+						null,
+						"Need something here to fill up this space...."
 					)
 				)
 			)
@@ -20021,6 +20070,113 @@
 
 /***/ },
 /* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _FormElement = __webpack_require__(162);
+	
+	var _FormElement2 = _interopRequireDefault(_FormElement);
+	
+	var _Errors = __webpack_require__(163);
+	
+	var _Errors2 = _interopRequireDefault(_Errors);
+	
+	var _Messages = __webpack_require__(165);
+	
+	var _Messages2 = _interopRequireDefault(_Messages);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Contact = function Contact(props) {
+		return _react2.default.createElement(
+			'section',
+			{ className: 'wrapper style3 special container' },
+			_react2.default.createElement(
+				'div',
+				{ className: 'content' },
+				_react2.default.createElement(
+					'form',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'row 50%' },
+						_react2.default.createElement(_FormElement2.default, {
+							type: 'text',
+							name: 'name',
+							id: 'name',
+							label: 'Name',
+							layout: '6u 12u(mobile)',
+							value: props.form.name,
+							updateFormState: props.updateFormState
+						}),
+						_react2.default.createElement(_FormElement2.default, {
+							type: 'email',
+							name: 'email',
+							id: 'email',
+							label: 'E-Mail',
+							layout: '6u 12u(mobile)',
+							value: props.form.email,
+							updateFormState: props.updateFormState
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'row 50%' },
+						_react2.default.createElement(_FormElement2.default, {
+							type: 'text',
+							name: 'subject',
+							id: 'subject',
+							label: 'Subject',
+							layout: '12u',
+							value: props.form.subject,
+							updateFormState: props.updateFormState
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'row 50%' },
+						_react2.default.createElement(_FormElement2.default, {
+							type: 'textarea',
+							name: 'message',
+							id: 'message',
+							label: 'Message',
+							layout: '12u',
+							rows: '7',
+							value: props.form.message,
+							updateFormState: props.updateFormState
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'row' },
+						_react2.default.createElement(_FormElement2.default, {
+							type: 'submit',
+							name: 'submit',
+							id: 'submit',
+							label: 'Send Message',
+							submitMailForm: props.submitMailForm
+						})
+					)
+				),
+				props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
+				props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses })
+			)
+		);
+	};
+	
+	exports.default = Contact;
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20035,94 +20191,201 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Contact = function Contact() {
-		return _react2.default.createElement(
-			"section",
-			{ className: "wrapper style3 special container" },
-			_react2.default.createElement(
-				"div",
-				{ className: "content" },
-				_react2.default.createElement(
-					"form",
+	var FormElement = function FormElement(props) {
+		switch (props.type) {
+			case "text":
+			case "number":
+			case "password":
+			case "email":
+				return _react2.default.createElement(
+					"div",
+					{ className: props.layout },
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: props.id },
+						props.label
+					),
+					_react2.default.createElement("input", {
+						type: props.type,
+						name: props.id,
+						id: props.id,
+						placeholder: props.label,
+						onChange: props.updateFormState,
+						value: props.value
+					})
+				);
+			case "textarea":
+				var rows = props.rows || 6;
+				return _react2.default.createElement(
+					"div",
+					{ className: props.layout },
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: props.id },
+						props.label
+					),
+					_react2.default.createElement("textarea", {
+						name: props.id,
+						id: props.id,
+						placeholder: props.label,
+						rows: rows,
+						onChange: props.updateFormState,
+						value: props.value
+					})
+				);
+			case "submit":
+				return _react2.default.createElement(
+					"footer",
 					null,
 					_react2.default.createElement(
 						"div",
-						{ className: "row 50%" },
+						{ className: "buttons"
+						},
 						_react2.default.createElement(
 							"div",
-							{ className: "6u 12u(mobile)" },
-							_react2.default.createElement(
-								"label",
-								{ forHtml: "name" },
-								"Name"
-							),
-							_react2.default.createElement("input", { type: "text", name: "name", placeholder: "Name", id: "name" })
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "6u 12u(mobile)" },
-							_react2.default.createElement(
-								"label",
-								{ forHtml: "email" },
-								"E-Mail"
-							),
-							_react2.default.createElement("input", { type: "email", name: "email", placeholder: "Email", id: "email" })
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "row 50%" },
-						_react2.default.createElement(
-							"div",
-							{ className: "12u" },
-							_react2.default.createElement(
-								"label",
-								{ forHtml: "subject" },
-								"Subject"
-							),
-							_react2.default.createElement("input", { type: "text", name: "subject", placeholder: "Subject", id: "subject" })
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "row 50%" },
-						_react2.default.createElement(
-							"div",
-							{ className: "12u" },
-							_react2.default.createElement(
-								"label",
-								{ forHtml: "message" },
-								"Message"
-							),
-							_react2.default.createElement("textarea", { name: "message", placeholder: "Message", rows: "7", id: "message" })
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "row" },
-						_react2.default.createElement(
-							"div",
-							{ className: "12u" },
-							_react2.default.createElement(
-								"ul",
-								{ className: "buttons" },
-								_react2.default.createElement(
-									"li",
-									null,
-									_react2.default.createElement("input", { type: "submit", className: "special", value: "Send Message" })
-								)
-							)
+							{
+								id: props.id,
+								className: "button special",
+								onClick: props.submitMailForm
+							},
+							props.label
 						)
 					)
-				)
+				);
+			case "radio":
+			case "checkbox":
+			case "select":
+			case "color":
+			case "date":
+			case "datetime-local":
+			case "month":
+			case "number":
+			case "range":
+			case "search":
+			case "tel":
+			case "time":
+			case "url":
+			case "week":
+				return _react2.default.createElement(
+					"div",
+					{ className: props.layout },
+					_react2.default.createElement(
+						"p",
+						null,
+						"time to get around to making the ",
+						props.type,
+						" element"
+					)
+				);
+			default:
+				console.log("ERROR ON FORM ELEMENT", props);
+				return null;
+		}
+	};
+	
+	exports.default = FormElement;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Message = __webpack_require__(164);
+	
+	var _Message2 = _interopRequireDefault(_Message);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Errors = function Errors(props) {
+		return _react2.default.createElement(
+			'div',
+			{ className: 'inner', style: { "color": "red" } },
+			_react2.default.createElement(
+				'p',
+				null,
+				props.errors.map(function (error, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: error });
+				})
 			)
 		);
 	};
 	
-	exports.default = Contact;
+	exports.default = Errors;
 
 /***/ },
-/* 162 */
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Message = function Message(props) {
+		return _react2.default.createElement(
+			'span',
+			null,
+			props.message,
+			_react2.default.createElement('br', null)
+		);
+	};
+	
+	exports.default = Message;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Message = __webpack_require__(164);
+	
+	var _Message2 = _interopRequireDefault(_Message);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Messages = function Messages(props) {
+		return _react2.default.createElement(
+			'div',
+			{ className: 'inner' },
+			_react2.default.createElement(
+				'p',
+				null,
+				props.messages.map(function (message, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: message });
+				})
+			)
+		);
+	};
+	
+	exports.default = Messages;
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20149,7 +20412,7 @@
 					null,
 					_react2.default.createElement(
 						"a",
-						{ href: "#", className: "icon circle fa-twitter" },
+						{ href: "https://must.be.filled.in", className: "icon circle fa-twitter" },
 						_react2.default.createElement(
 							"span",
 							{ className: "label" },
@@ -20162,7 +20425,7 @@
 					null,
 					_react2.default.createElement(
 						"a",
-						{ href: "#", className: "icon circle fa-facebook" },
+						{ href: "https://must.be.filled.in", className: "icon circle fa-facebook" },
 						_react2.default.createElement(
 							"span",
 							{ className: "label" },
@@ -20175,7 +20438,7 @@
 					null,
 					_react2.default.createElement(
 						"a",
-						{ href: "#", className: "icon circle fa-google-plus" },
+						{ href: "https://must.be.filled.in", className: "icon circle fa-google-plus" },
 						_react2.default.createElement(
 							"span",
 							{ className: "label" },
@@ -20188,7 +20451,7 @@
 					null,
 					_react2.default.createElement(
 						"a",
-						{ href: "#", className: "icon circle fa-github" },
+						{ href: "https://must.be.filled.in", className: "icon circle fa-github" },
 						_react2.default.createElement(
 							"span",
 							{ className: "label" },
@@ -20201,7 +20464,7 @@
 					null,
 					_react2.default.createElement(
 						"a",
-						{ href: "#", className: "icon circle fa-dribbble" },
+						{ href: "https://must.be.filled.in", className: "icon circle fa-dribbble" },
 						_react2.default.createElement(
 							"span",
 							{ className: "label" },
@@ -20235,7 +20498,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 163 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20288,7 +20551,7 @@
 						{ className: "submenu" },
 						_react2.default.createElement(
 							"a",
-							{ href: "#" },
+							{ href: "" },
 							"Layouts"
 						),
 						_react2.default.createElement(
@@ -20329,64 +20592,6 @@
 									{ href: "contact.html" },
 									"Contact"
 								)
-							),
-							_react2.default.createElement(
-								"li",
-								{ className: "submenu" },
-								_react2.default.createElement(
-									"a",
-									{ href: "#" },
-									"Submenu"
-								),
-								_react2.default.createElement(
-									"ul",
-									null,
-									_react2.default.createElement(
-										"li",
-										null,
-										_react2.default.createElement(
-											"a",
-											{ href: "#" },
-											"Dolore Sed"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										null,
-										_react2.default.createElement(
-											"a",
-											{ href: "#" },
-											"Consequat"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										null,
-										_react2.default.createElement(
-											"a",
-											{ href: "#" },
-											"Lorem Magna"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										null,
-										_react2.default.createElement(
-											"a",
-											{ href: "#" },
-											"Sed Magna"
-										)
-									),
-									_react2.default.createElement(
-										"li",
-										null,
-										_react2.default.createElement(
-											"a",
-											{ href: "#" },
-											"Ipsum Nisl"
-										)
-									)
-								)
 							)
 						)
 					),
@@ -20395,7 +20600,7 @@
 						null,
 						_react2.default.createElement(
 							"a",
-							{ href: "#", className: "button special" },
+							{ href: "", className: "button special" },
 							"Sign Up"
 						)
 					)
@@ -20407,7 +20612,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 164 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20420,7 +20625,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Portfolio = __webpack_require__(165);
+	var _Portfolio = __webpack_require__(169);
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
@@ -20505,23 +20710,7 @@
 							null,
 							'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.'
 						),
-						_react2.default.createElement(
-							'footer',
-							null,
-							_react2.default.createElement(
-								'ul',
-								{ className: 'buttons' },
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'button' },
-										'Find Out More'
-									)
-								)
-							)
-						)
+						_react2.default.createElement('footer', null)
 					),
 					_react2.default.createElement(
 						'div',
@@ -20695,7 +20884,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 165 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20708,7 +20897,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Project = __webpack_require__(166);
+	var _Project = __webpack_require__(170);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
@@ -20762,8 +20951,8 @@
 						null,
 						_react2.default.createElement(
 							'a',
-							{ href: '#', className: 'button' },
-							'See More'
+							{ href: 'https://github.com/selva-oscura/' },
+							'See More -- add GitHub link?'
 						)
 					)
 				)
@@ -20774,7 +20963,7 @@
 	exports.default = Portfolio;
 
 /***/ },
-/* 166 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20797,8 +20986,8 @@
 				"section",
 				null,
 				_react2.default.createElement(
-					"a",
-					{ href: "#", className: "image featured" },
+					"div",
+					{ className: "image featured" },
 					_react2.default.createElement("img", { src: "./public/images/" + props.img + ".jpg", alt: "" })
 				),
 				_react2.default.createElement(
@@ -20822,7 +21011,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 167 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
