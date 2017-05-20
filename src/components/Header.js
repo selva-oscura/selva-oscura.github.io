@@ -8,25 +8,15 @@ const Header = () => {
 				<ul>
 					<li className="current"><a href="index.html">Welcome</a></li>
 					<li className="submenu">
-						<a href="#">Layouts</a>
+						<a href="">Layouts</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
 							<li><a href="right-sidebar.html">Right Sidebar</a></li>
 							<li><a href="no-sidebar.html">No Sidebar</a></li>
 							<li><a href="contact.html">Contact</a></li>
-							<li className="submenu">
-								<a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Dolore Sed</a></li>
-									<li><a href="#">Consequat</a></li>
-									<li><a href="#">Lorem Magna</a></li>
-									<li><a href="#">Sed Magna</a></li>
-									<li><a href="#">Ipsum Nisl</a></li>
-								</ul>
-							</li>
 						</ul>
 					</li>
-					<li><a href="#" className="button special">Sign Up</a></li>
+					<li><a href="" className="button special">Sign Up</a></li>
 				</ul>
 			</nav>
 		</header>
