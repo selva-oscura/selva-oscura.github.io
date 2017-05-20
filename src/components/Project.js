@@ -5,7 +5,7 @@ const Project = (props) => {
 		<div className="6u 12u(narrower)">
 
 			<section>
-				<a href="#" className="image featured"><img src={`./public/images/${props.img}.jpg`} alt="" /></a>
+				<div className="image featured"><img src={`./public/images/${props.img}.jpg`} alt="" /></div>
 				<header>
 					<h3>{props.name}</h3>
 				</header>
