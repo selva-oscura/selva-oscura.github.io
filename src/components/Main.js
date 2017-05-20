@@ -28,9 +28,6 @@ const Main = () => {
 						</header>
 						<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p>
 						<footer>
-							<ul className="buttons">
-								<li><a href="#" className="button">Find Out More</a></li>
-							</ul>
 						</footer>
 
 					</div>
