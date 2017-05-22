@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
 	return (
 		<div className="wrapper style1 first">
-			<article className="container" id="top">
+			<article className="container" id="home">
 				<div className="row">
 					<div className="4u 12u(mobile)">
 						<span className="image fit"><img src="./public/images/pic00.jpg" alt="" /></span>
