@@ -3,7 +3,7 @@ import React from 'react';
 const Profile = () => {
 	return (
 		<div className="wrapper style2">
-			<article id="work">
+			<article id="profile">
 				<header>
 					<h2>Here's all the stuff I do.</h2>
 					<p>Odio turpis amet sed consequat eget posuere consequat.</p>
