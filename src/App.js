@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-// import {} from './components/index';
+import { Nav, Home } from './components/index';
 
 class App extends Component {
 	constructor(props){
@@ -73,32 +73,9 @@ class App extends Component {
 	render(){
 		return(
 			<div>
-				<nav id="nav">
-					<ul className="container">
-						<li><a href="#top">Top</a></li>
-						<li><a href="#work">Work</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</nav>
+				<Nav />
 
-				<div className="wrapper style1 first">
-					<article className="container" id="top">
-						<div className="row">
-							<div className="4u 12u(mobile)">
-								<span className="image fit"><img src="./public/images/pic00.jpg" alt="" /></span>
-							</div>
-							<div className="8u 12u(mobile)">
-								<header>
-									<h1>Hi. I'm <strong>Jane Doe</strong>.</h1>
-								</header>
-								<p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>
-								<a href="#work" className="button big scrolly">Learn about what I do</a>
-							</div>
-						</div>
-					</article>
-				</div>
-
+				<Home />
 
 				<div className="wrapper style2">
 					<article id="work">
@@ -271,3 +248,4 @@ class App extends Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('App'));
+ 
