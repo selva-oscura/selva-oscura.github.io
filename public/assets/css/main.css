@@ -1600,6 +1600,7 @@
 
 		.wrapper.first {
 			box-shadow: none;
+			min-height: 100vh;
 		}
 
 		.wrapper.style1 {
@@ -1657,6 +1658,7 @@
 
 		#nav ul {
 			margin-bottom: 0;
+			padding-right: 1em;
 		}
 
 		#nav li {
@@ -1690,15 +1692,15 @@
 
 /* Articles */
 
-	#top .image {
+	#home .image {
 		border-radius: 50%;
 	}
 
-		#top .image img {
+		#home .image img {
 			border-radius: 50%;
 		}
 
-	#top p a {
+	#home p a {
 		color: inherit;
 	}
 
@@ -1857,21 +1859,21 @@
 
 		/* Articles */
 
-			#top {
+			#home {
 				text-align: left;
 			}
 
-				#top .image {
+				#home .image {
 					width: 20em;
 					height: 20em;
 					margin: 0;
 				}
 
-				#top h1 {
+				#home h1 {
 					margin-top: 0.35em;
 				}
 
-				#top p {
+				#home p {
 					font-size: 1.5em;
 					line-height: 1.75em;
 				}
@@ -1941,7 +1943,7 @@
 
 		/* Articles */
 
-			#top .image {
+			#home .image {
 				width: 19.5em;
 				height: 19.5em;
 				margin: 0;
@@ -2083,7 +2085,7 @@
 
 		/* Articles */
 
-			#top .image {
+			#home .image {
 				width: 70%;
 				height: auto;
 				margin: 0 auto 1.75em auto;
