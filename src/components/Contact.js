@@ -1,5 +1,7 @@
 import React from 'react';
 import FormElement from './FormElement';
+import Messages from './Messages';
+import Errors from './Errors';
 import FindMe from './FindMe';
 import Copyright from './Copyright';
 
@@ -57,6 +59,8 @@ const Contact = (props) => {
 										updateFormState={props.updateFormState}
 									/>
 								</div>
+								{props.form.errors.length>0 && <Errors errors={props.form.errors} />}
+								{props.form.responses.length>0 && <Messages messages={props.form.responses} />}
 								<div className="row 200%">
 									<FormElement
 										layout="12u"
