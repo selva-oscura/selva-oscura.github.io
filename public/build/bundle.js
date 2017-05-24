@@ -81,7 +81,8 @@
 					subject: "",
 					message: "",
 					responses: [],
-					errors: []
+					errors: [],
+					submitting: false
 				}
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
@@ -92,6 +93,7 @@
 		_createClass(App, [{
 			key: 'updateFormState',
 			value: function updateFormState(e) {
+				console.log('change detected');
 				var form = this.state.form;
 				if (e.target.type === "checkbox") {
 					form[e.target.id] = !form[e.target.id];
@@ -103,12 +105,14 @@
 				form.responses = [];
 				form.errors = [];
 				this.setState({ form: form });
+				console.log(this.state.form);
 			}
 		}, {
 			key: 'submitMailForm',
 			value: function submitMailForm(e) {
 				e.preventDefault();
 				var form = this.state.form;
+				form.errors = [];
 				var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				if (form.name.length === 0) {
 					form.errors.push("Missing Name");
@@ -134,6 +138,7 @@
 					form.email = "";
 					form.message = "";
 					form.subject = "";
+					form.submitting = true;
 				} else {
 					if (form.errors.length === 1) {
 						form.errors.unshift("Can Not Submit the Form, Due to the Following Problem:");
@@ -142,67 +147,23 @@
 					}
 				}
 				this.setState({ form: form });
+				console.log(this.state.form);
 			}
 		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ id: 'page-wrapper' },
-					_react2.default.createElement(_index.Header, null),
-					_react2.default.createElement(_index.Banner, null),
-					_react2.default.createElement(_index.Main, null),
-					_react2.default.createElement(_index.ProjectModals, null),
-					_react2.default.createElement(
-						'section',
-						{ id: 'cta' },
-						_react2.default.createElement(
-							'header',
-							null,
-							_react2.default.createElement(
-								'h2',
-								null,
-								'Ready to do something or other?'
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.'
-							)
-						),
-						_react2.default.createElement(
-							'footer',
-							null,
-							_react2.default.createElement(
-								'ul',
-								{ className: 'buttons' },
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'button special' },
-										'Take My Money'
-									)
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									_react2.default.createElement(
-										'a',
-										{ href: '#', className: 'button' },
-										'LOL Wut'
-									)
-								)
-							)
-						)
-					),
+					null,
+					_react2.default.createElement(_index.Nav, null),
+					_react2.default.createElement(_index.Home, null),
+					_react2.default.createElement(_index.Profile, null),
+					_react2.default.createElement(_index.Portfolio, null),
 					_react2.default.createElement(_index.Contact, {
+						form: this.state.form,
 						updateFormState: this.updateFormState,
-						submitMailForm: this.submitMailForm,
-						form: this.state.form
-					}),
-					_react2.default.createElement(_index.Footer, null)
+						submitMailForm: this.submitMailForm
+					})
 				);
 			}
 		}]);
@@ -19963,44 +19924,35 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.ProjectModals = exports.Main = exports.Header = exports.Footer = exports.Contact = exports.Banner = undefined;
+	exports.Contact = exports.Portfolio = exports.Profile = exports.Home = exports.Nav = undefined;
 	
-	var _Banner = __webpack_require__(160);
+	var _Nav = __webpack_require__(160);
 	
-	var _Banner2 = _interopRequireDefault(_Banner);
+	var _Nav2 = _interopRequireDefault(_Nav);
 	
-	var _Contact = __webpack_require__(161);
+	var _Home = __webpack_require__(161);
+	
+	var _Home2 = _interopRequireDefault(_Home);
+	
+	var _Profile = __webpack_require__(162);
+	
+	var _Profile2 = _interopRequireDefault(_Profile);
+	
+	var _Portfolio = __webpack_require__(163);
+	
+	var _Portfolio2 = _interopRequireDefault(_Portfolio);
+	
+	var _Contact = __webpack_require__(164);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _Footer = __webpack_require__(166);
-	
-	var _Footer2 = _interopRequireDefault(_Footer);
-	
-	var _Header = __webpack_require__(167);
-	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	var _Main = __webpack_require__(168);
-	
-	var _Main2 = _interopRequireDefault(_Main);
-	
-	var _Project = __webpack_require__(170);
-	
-	var _Project2 = _interopRequireDefault(_Project);
-	
-	var _ProjectModals = __webpack_require__(171);
-	
-	var _ProjectModals2 = _interopRequireDefault(_ProjectModals);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.Banner = _Banner2.default;
+	exports.Nav = _Nav2.default;
+	exports.Home = _Home2.default;
+	exports.Profile = _Profile2.default;
+	exports.Portfolio = _Portfolio2.default;
 	exports.Contact = _Contact2.default;
-	exports.Footer = _Footer2.default;
-	exports.Header = _Header2.default;
-	exports.Main = _Main2.default;
-	exports.ProjectModals = _ProjectModals2.default;
 
 /***/ },
 /* 160 */
@@ -20018,40 +19970,251 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Banner = function Banner() {
+	var Nav = function Nav() {
 		return _react2.default.createElement(
-			"section",
-			{ id: "banner" },
+			"nav",
+			{ id: "nav" },
 			_react2.default.createElement(
-				"div",
-				{ className: "inner" },
+				"ul",
+				{ className: "container" },
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#home" },
+						"Home"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#profile" },
+						"Skills"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#portfolio" },
+						"Portfolio"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						"a",
+						{ href: "#contact" },
+						"Contact Me"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Nav;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Home = function Home() {
+		return _react2.default.createElement(
+			"div",
+			{ className: "wrapper style1 first" },
+			_react2.default.createElement(
+				"article",
+				{ className: "container", id: "home" },
+				_react2.default.createElement(
+					"div",
+					{ className: "row" },
+					_react2.default.createElement(
+						"div",
+						{ className: "4u 12u(mobile)" },
+						_react2.default.createElement(
+							"span",
+							{ className: "image fit" },
+							_react2.default.createElement("img", { src: "./public/images/pic00.jpg", alt: "" })
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "8u 12u(mobile)" },
+						_react2.default.createElement(
+							"header",
+							null,
+							_react2.default.createElement(
+								"h1",
+								null,
+								"Hi. I'm ",
+								_react2.default.createElement(
+									"strong",
+									null,
+									"Carol \xA0St. Louis"
+								),
+								"."
+							)
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							"And this is ",
+							_react2.default.createElement(
+								"strong",
+								null,
+								"Miniport"
+							),
+							", a free, fully responsive HTML5 site template designed by ",
+							_react2.default.createElement(
+								"a",
+								{ href: "http://twitter.com/ajlkn" },
+								"AJ"
+							),
+							" for ",
+							_react2.default.createElement(
+								"a",
+								{ href: "http://html5up.net" },
+								"HTML5 UP"
+							),
+							" & released under the ",
+							_react2.default.createElement(
+								"a",
+								{ href: "http://html5up.net/license" },
+								"CCA license"
+							),
+							"."
+						),
+						_react2.default.createElement(
+							"a",
+							{ href: "#profile", className: "button big scrolly" },
+							"Learn about what I do"
+						)
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Home;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Profile = function Profile() {
+		return _react2.default.createElement(
+			"div",
+			{ className: "wrapper style2" },
+			_react2.default.createElement(
+				"article",
+				{ id: "profile" },
 				_react2.default.createElement(
 					"header",
 					null,
 					_react2.default.createElement(
 						"h2",
 						null,
-						"Banner"
+						"Here's all the stuff I do."
+					),
+					_react2.default.createElement(
+						"p",
+						null,
+						"Odio turpis amet sed consequat eget posuere consequat."
 					)
 				),
 				_react2.default.createElement(
-					"p",
-					null,
-					"This is ",
+					"div",
+					{ className: "container" },
 					_react2.default.createElement(
-						"strong",
-						null,
-						"Twenty"
-					),
-					", a free responsive template ",
-					_react2.default.createElement("br", null),
-					"by ",
-					_react2.default.createElement(
-						"a",
-						{ href: "http://html5up.net" },
-						"HTML5 UP"
-					),
-					"."
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"section",
+								{ className: "box style1" },
+								_react2.default.createElement("span", { className: "icon featured fa-comments-o" }),
+								_react2.default.createElement(
+									"h3",
+									null,
+									"Consequat lorem"
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"section",
+								{ className: "box style1" },
+								_react2.default.createElement("span", { className: "icon featured fa-camera-retro" }),
+								_react2.default.createElement(
+									"h3",
+									null,
+									"Lorem dolor tempus"
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"section",
+								{ className: "box style1" },
+								_react2.default.createElement("span", { className: "icon featured fa-thumbs-o-up" }),
+								_react2.default.createElement(
+									"h3",
+									null,
+									"Feugiat posuere"
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+								)
+							)
+						)
+					)
 				),
 				_react2.default.createElement(
 					"footer",
@@ -20059,17 +20222,253 @@
 					_react2.default.createElement(
 						"p",
 						null,
-						"Need something here to fill up this space...."
+						"Lorem ipsum dolor sit sapien vestibulum ipsum primis?"
+					),
+					_react2.default.createElement(
+						"a",
+						{ href: "#portfolio", className: "button big scrolly" },
+						"See some of my recent work"
 					)
 				)
 			)
 		);
 	};
 	
-	exports.default = Banner;
+	exports.default = Profile;
 
 /***/ },
-/* 161 */
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Portfolio = function Portfolio() {
+		return _react2.default.createElement(
+			"div",
+			{ className: "wrapper style3" },
+			_react2.default.createElement(
+				"article",
+				{ id: "portfolio" },
+				_react2.default.createElement(
+					"header",
+					null,
+					_react2.default.createElement(
+						"h2",
+						null,
+						"Here\u2019s some stuff I made recently."
+					),
+					_react2.default.createElement(
+						"p",
+						null,
+						"Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore."
+					)
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic01.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Magna feugiat"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic02.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Veroeros primis"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic03.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Lorem ipsum"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic04.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Tempus dolore"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic05.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Feugiat aliquam"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "4u 12u(mobile)" },
+							_react2.default.createElement(
+								"article",
+								{ className: "box style2" },
+								_react2.default.createElement(
+									"a",
+									{ href: "blah", className: "image featured" },
+									_react2.default.createElement("img", { src: "./public/images/pic06.jpg", alt: "" })
+								),
+								_react2.default.createElement(
+									"h3",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ href: "blah" },
+										"Sed amet ornare"
+									)
+								),
+								_react2.default.createElement(
+									"p",
+									null,
+									"Ornare nulla proin odio consequat."
+								)
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					"footer",
+					null,
+					_react2.default.createElement(
+						"p",
+						null,
+						"Lorem ipsum dolor sit sapien vestibulum ipsum primis?"
+					),
+					_react2.default.createElement(
+						"a",
+						{ href: "#contact", className: "button big scrolly" },
+						"Get in touch with me"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Portfolio;
+
+/***/ },
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20082,101 +20481,138 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(162);
+	var _FormElement = __webpack_require__(165);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Errors = __webpack_require__(163);
+	var _Messages = __webpack_require__(168);
+	
+	var _Messages2 = _interopRequireDefault(_Messages);
+	
+	var _Errors = __webpack_require__(170);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _Messages = __webpack_require__(165);
+	var _FindMe = __webpack_require__(166);
 	
-	var _Messages2 = _interopRequireDefault(_Messages);
+	var _FindMe2 = _interopRequireDefault(_FindMe);
+	
+	var _Copyright = __webpack_require__(167);
+	
+	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Contact = function Contact(props) {
 		return _react2.default.createElement(
-			'section',
-			{ className: 'wrapper style3 special container' },
+			'div',
+			{ className: 'wrapper style4' },
 			_react2.default.createElement(
-				'div',
-				{ className: 'content' },
+				'article',
+				{ id: 'contact', className: 'container 75%' },
 				_react2.default.createElement(
-					'form',
+					'header',
 					null,
 					_react2.default.createElement(
-						'div',
-						{ className: 'row 50%' },
-						_react2.default.createElement(_FormElement2.default, {
-							type: 'text',
-							name: 'name',
-							id: 'name',
-							label: 'Name',
-							layout: '6u 12u(mobile)',
-							value: props.form.name,
-							updateFormState: props.updateFormState
-						}),
-						_react2.default.createElement(_FormElement2.default, {
-							type: 'email',
-							name: 'email',
-							id: 'email',
-							label: 'E-Mail',
-							layout: '6u 12u(mobile)',
-							value: props.form.email,
-							updateFormState: props.updateFormState
-						})
+						'h2',
+						null,
+						'Have me make stuff for you.'
 					),
 					_react2.default.createElement(
-						'div',
-						{ className: 'row 50%' },
-						_react2.default.createElement(_FormElement2.default, {
-							type: 'text',
-							name: 'subject',
-							id: 'subject',
-							label: 'Subject',
-							layout: '12u',
-							value: props.form.subject,
-							updateFormState: props.updateFormState
-						})
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row 50%' },
-						_react2.default.createElement(_FormElement2.default, {
-							type: 'textarea',
-							name: 'message',
-							id: 'message',
-							label: 'Message',
-							layout: '12u',
-							rows: '7',
-							value: props.form.message,
-							updateFormState: props.updateFormState
-						})
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(_FormElement2.default, {
-							type: 'submit',
-							name: 'submit',
-							id: 'submit',
-							label: 'Send Message',
-							submitMailForm: props.submitMailForm
-						})
+						'p',
+						null,
+						'Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.'
 					)
 				),
-				props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
-				props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses })
-			)
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: '12u' },
+						_react2.default.createElement(
+							'form',
+							{ method: 'post', action: '#' },
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(_FormElement2.default, {
+										layout: '6u 12u(mobile)',
+										type: 'text',
+										name: 'name',
+										id: 'name',
+										label: 'Name',
+										value: props.form.name,
+										updateFormState: props.updateFormState
+									}),
+									_react2.default.createElement(_FormElement2.default, {
+										layout: '6u 12u(mobile)',
+										type: 'email',
+										name: 'email',
+										id: 'email',
+										label: 'E-Mail',
+										value: props.form.email,
+										updateFormState: props.updateFormState
+									})
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(_FormElement2.default, {
+										layout: '12u',
+										type: 'text',
+										name: 'subject',
+										id: 'subject',
+										label: 'Subject',
+										value: props.form.subject,
+										updateFormState: props.updateFormState
+									})
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(_FormElement2.default, {
+										layout: '12u',
+										type: 'textarea',
+										name: 'message',
+										id: 'message',
+										label: 'Message',
+										value: props.form.message,
+										updateFormState: props.updateFormState
+									})
+								),
+								props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
+								props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses }),
+								_react2.default.createElement(
+									'div',
+									{ className: 'row 200%' },
+									_react2.default.createElement(_FormElement2.default, {
+										layout: '12u',
+										type: 'submit',
+										name: 'submit',
+										id: 'submit',
+										label: 'Send Message',
+										disabled: props.form.submitting,
+										submitMailForm: props.submitMailForm
+									})
+								)
+							)
+						)
+					)
+				),
+				_react2.default.createElement(_FindMe2.default, null)
+			),
+			_react2.default.createElement(_Copyright2.default, null)
 		);
 	};
 	
 	exports.default = Contact;
 
 /***/ },
-/* 162 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20234,23 +20670,18 @@
 					})
 				);
 			case "submit":
+				var label = void 0;
+				props.disabled ? label = 'Sending....' : label = props.label;
 				return _react2.default.createElement(
 					"footer",
 					null,
-					_react2.default.createElement(
-						"div",
-						{ className: "buttons"
-						},
-						_react2.default.createElement(
-							"div",
-							{
-								id: props.id,
-								className: "button special",
-								onClick: props.submitMailForm
-							},
-							props.label
-						)
-					)
+					_react2.default.createElement("input", {
+						type: props.type,
+						id: props.id,
+						className: "button big",
+						onClick: props.disabled ? null : props.submitMailForm,
+						value: label
+					})
 				);
 			case "radio":
 			case "checkbox":
@@ -20284,9 +20715,187 @@
 	};
 	
 	exports.default = FormElement;
+	// <div className="buttons"
+	// >
+	// </div>
 
 /***/ },
-/* 163 */
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var FindMe = function FindMe() {
+		return _react2.default.createElement(
+			"div",
+			{ className: "row" },
+			_react2.default.createElement(
+				"div",
+				{ className: "12u" },
+				_react2.default.createElement("hr", null),
+				_react2.default.createElement(
+					"h3",
+					null,
+					"Find me on ..."
+				),
+				_react2.default.createElement(
+					"ul",
+					{ className: "social" },
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-twitter" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Twitter"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-facebook" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Facebook"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-dribbble" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Dribbble"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-linkedin" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"LinkedIn"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-tumblr" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Tumblr"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-google-plus" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Google+"
+							)
+						)
+					),
+					_react2.default.createElement(
+						"li",
+						null,
+						_react2.default.createElement(
+							"a",
+							{ href: "blah", className: "icon fa-github" },
+							_react2.default.createElement(
+								"span",
+								{ className: "label" },
+								"Github"
+							)
+						)
+					)
+				),
+				_react2.default.createElement("hr", null)
+			)
+		);
+	};
+	
+	exports.default = FindMe;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Copyright = function Copyright() {
+		return _react2.default.createElement(
+			"footer",
+			null,
+			_react2.default.createElement(
+				"ul",
+				{ id: "copyright" },
+				_react2.default.createElement(
+					"li",
+					null,
+					"\xA9 Untitled. All rights reserved."
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					"Design: ",
+					_react2.default.createElement(
+						"a",
+						{ href: "http://html5up.net" },
+						"HTML5 UP"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Copyright;
+
+/***/ },
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20299,30 +20908,30 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(164);
+	var _Message = __webpack_require__(169);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Errors = function Errors(props) {
+	var Messages = function Messages(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'inner', style: { "color": "red" } },
+			{ className: 'inner row' },
 			_react2.default.createElement(
 				'p',
 				null,
-				props.errors.map(function (error, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: error });
+				props.messages.map(function (message, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: message });
 				})
 			)
 		);
 	};
 	
-	exports.default = Errors;
+	exports.default = Messages;
 
 /***/ },
-/* 164 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20349,7 +20958,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 165 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20362,679 +20971,27 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(164);
+	var _Message = __webpack_require__(169);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Messages = function Messages(props) {
+	var Errors = function Errors(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'inner' },
+			{ className: 'inner row', style: { "color": "red" } },
 			_react2.default.createElement(
 				'p',
 				null,
-				props.messages.map(function (message, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: message });
+				props.errors.map(function (error, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: error });
 				})
 			)
 		);
 	};
 	
-	exports.default = Messages;
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Footer = function Footer() {
-		return _react2.default.createElement(
-			"footer",
-			{ id: "footer" },
-			_react2.default.createElement(
-				"ul",
-				{ className: "icons" },
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "https://must.be.filled.in", className: "icon circle fa-twitter" },
-						_react2.default.createElement(
-							"span",
-							{ className: "label" },
-							"Twitter"
-						)
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "https://must.be.filled.in", className: "icon circle fa-facebook" },
-						_react2.default.createElement(
-							"span",
-							{ className: "label" },
-							"Facebook"
-						)
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "https://must.be.filled.in", className: "icon circle fa-google-plus" },
-						_react2.default.createElement(
-							"span",
-							{ className: "label" },
-							"Google+"
-						)
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "https://must.be.filled.in", className: "icon circle fa-github" },
-						_react2.default.createElement(
-							"span",
-							{ className: "label" },
-							"Github"
-						)
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "https://must.be.filled.in", className: "icon circle fa-dribbble" },
-						_react2.default.createElement(
-							"span",
-							{ className: "label" },
-							"Dribbble"
-						)
-					)
-				)
-			),
-			_react2.default.createElement(
-				"ul",
-				{ className: "copyright" },
-				_react2.default.createElement(
-					"li",
-					null,
-					"\xA9 Untitled"
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					"Design: ",
-					_react2.default.createElement(
-						"a",
-						{ href: "http://html5up.net" },
-						"HTML5 UP"
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Footer;
-
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Header = function Header() {
-		return _react2.default.createElement(
-			"header",
-			{ id: "header", className: "alt" },
-			_react2.default.createElement(
-				"h1",
-				{ id: "logo" },
-				_react2.default.createElement(
-					"a",
-					{ href: "index.html" },
-					"Twenty ",
-					_react2.default.createElement(
-						"span",
-						null,
-						"by HTML5 UP"
-					)
-				)
-			),
-			_react2.default.createElement(
-				"nav",
-				{ id: "nav" },
-				_react2.default.createElement(
-					"ul",
-					null,
-					_react2.default.createElement(
-						"li",
-						{ className: "current" },
-						_react2.default.createElement(
-							"a",
-							{ href: "index.html" },
-							"Welcome"
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						{ className: "submenu" },
-						_react2.default.createElement(
-							"a",
-							{ href: "" },
-							"Layouts"
-						),
-						_react2.default.createElement(
-							"ul",
-							null,
-							_react2.default.createElement(
-								"li",
-								null,
-								_react2.default.createElement(
-									"a",
-									{ href: "left-sidebar.html" },
-									"Left Sidebar"
-								)
-							),
-							_react2.default.createElement(
-								"li",
-								null,
-								_react2.default.createElement(
-									"a",
-									{ href: "right-sidebar.html" },
-									"Right Sidebar"
-								)
-							),
-							_react2.default.createElement(
-								"li",
-								null,
-								_react2.default.createElement(
-									"a",
-									{ href: "no-sidebar.html" },
-									"No Sidebar"
-								)
-							),
-							_react2.default.createElement(
-								"li",
-								null,
-								_react2.default.createElement(
-									"a",
-									{ href: "contact.html" },
-									"Contact"
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "", className: "button special" },
-							"Sign Up"
-						)
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Header;
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Portfolio = __webpack_require__(169);
-	
-	var _Portfolio2 = _interopRequireDefault(_Portfolio);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Main = function Main() {
-		return _react2.default.createElement(
-			'article',
-			{ id: 'main' },
-			_react2.default.createElement(
-				'header',
-				{ className: 'special container' },
-				_react2.default.createElement(_Portfolio2.default, null),
-				_react2.default.createElement('span', { className: 'icon fa-bar-chart-o' }),
-				_react2.default.createElement(
-					'h2',
-					null,
-					'As this is my ',
-					_react2.default.createElement(
-						'strong',
-						null,
-						'twentieth'
-					),
-					' freebie for HTML5 UP',
-					_react2.default.createElement('br', null),
-					'I decided to give it a really creative name.'
-				),
-				_react2.default.createElement(
-					'p',
-					null,
-					'Turns out ',
-					_react2.default.createElement(
-						'strong',
-						null,
-						'Twenty'
-					),
-					' was the best I could come up with. Anyway, lame name aside,',
-					_react2.default.createElement('br', null),
-					'it\'s minimally designed, fully responsive, built on HTML5/CSS3/',
-					_react2.default.createElement(
-						'strong',
-						null,
-						'skel'
-					),
-					', and, like all my stuff,',
-					_react2.default.createElement('br', null),
-					'released for free under the ',
-					_react2.default.createElement(
-						'a',
-						{ href: 'http://html5up.net/license' },
-						'Creative Commons Attribution 3.0'
-					),
-					' license. Have fun!'
-				)
-			),
-			_react2.default.createElement(
-				'section',
-				{ className: 'wrapper style2 container special-alt' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'row 50%' },
-					_react2.default.createElement(
-						'div',
-						{ className: '8u 12u(narrower)' },
-						_react2.default.createElement(
-							'header',
-							null,
-							_react2.default.createElement(
-								'h2',
-								null,
-								'Behold the ',
-								_react2.default.createElement(
-									'strong',
-									null,
-									'icons'
-								),
-								' that visualize what you\u2019re all about. or just take up space. your call bro.'
-							)
-						),
-						_react2.default.createElement(
-							'p',
-							null,
-							'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.'
-						),
-						_react2.default.createElement('footer', null)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: '4u 12u(narrower) important(narrower)' },
-						_react2.default.createElement(
-							'ul',
-							{ className: 'featured-icons' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-clock-o' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 1'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-volume-up' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 2'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-laptop' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 3'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-inbox' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 4'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-lock' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 5'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'span',
-									{ className: 'icon fa-cog' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Feature 6'
-									)
-								)
-							)
-						)
-					)
-				)
-			),
-			_react2.default.createElement(
-				'section',
-				{ className: 'wrapper style1 container special' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: '4u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement('span', { className: 'icon featured fa-check' }),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'This is Something'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: '4u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement('span', { className: 'icon featured fa-check' }),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'Also Something'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: '4u 12u(narrower)' },
-						_react2.default.createElement(
-							'section',
-							null,
-							_react2.default.createElement('span', { className: 'icon featured fa-check' }),
-							_react2.default.createElement(
-								'header',
-								null,
-								_react2.default.createElement(
-									'h3',
-									null,
-									'Probably Something'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.'
-							)
-						)
-					)
-				)
-			),
-			_react2.default.createElement(_Portfolio2.default, null)
-		);
-	};
-	
-	exports.default = Main;
-
-/***/ },
-/* 169 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Project = __webpack_require__(170);
-	
-	var _Project2 = _interopRequireDefault(_Project);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Portfolio = function Portfolio() {
-		var projects = [{
-			name: "A Really Fast Train",
-			img: "pic01",
-			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
-		}, {
-			name: "An Airport Terminal",
-			img: "pic02",
-			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
-		}, {
-			name: "Hyperspace Travel",
-			img: "pic03",
-			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
-		}, {
-			name: "An Airport Terminal",
-			img: "pic04",
-			description: "Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore."
-		}];
-		return _react2.default.createElement(
-			'section',
-			{ className: 'wrapper style3 container special' },
-			_react2.default.createElement(
-				'header',
-				{ className: 'major' },
-				_react2.default.createElement(
-					'h2',
-					null,
-					'Projects'
-				)
-			),
-			_react2.default.createElement(
-				'div',
-				{ className: 'row' },
-				projects.map(function (project, i) {
-					return _react2.default.createElement(_Project2.default, { key: i, name: project.name, img: project.img, description: project.description });
-				})
-			),
-			_react2.default.createElement(
-				'footer',
-				{ className: 'major' },
-				_react2.default.createElement(
-					'ul',
-					{ className: 'buttons' },
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'https://github.com/selva-oscura/' },
-							'See More -- add GitHub link?'
-						)
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Portfolio;
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Project = function Project(props) {
-		return _react2.default.createElement(
-			"div",
-			{ className: "6u 12u(narrower)" },
-			_react2.default.createElement(
-				"section",
-				null,
-				_react2.default.createElement(
-					"div",
-					{ className: "image featured" },
-					_react2.default.createElement("img", { src: "./public/images/" + props.img + ".jpg", alt: "" })
-				),
-				_react2.default.createElement(
-					"header",
-					null,
-					_react2.default.createElement(
-						"h3",
-						null,
-						props.name
-					)
-				),
-				_react2.default.createElement(
-					"p",
-					null,
-					props.description
-				)
-			)
-		);
-	};
-	
-	exports.default = Project;
-
-/***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var ProjectModals = function ProjectModals() {
-		return _react2.default.createElement(
-			'div',
-			null,
-			'ProjectModals'
-		);
-	};
-	
-	exports.default = ProjectModals;
+	exports.default = Errors;
 
 /***/ }
 /******/ ]);
