@@ -36,15 +36,17 @@ const FormElement = (props) => {
 				</div>
 			)
 		case "submit":
+			let label;
+			props.disabled ? label='Sending....' : label=props.label;
 			return (
 				<footer>
-						<div
+						<input
+							type={props.type}
 							id={props.id}
 							className="button big"
-							onClick={props.submitMailForm}
-						>
-							{props.label}
-						</div>
+							onClick={props.disabled ? null : props.submitMailForm}
+							value={label}
+						/>
 				</footer>
 			)
 		case "radio":
