@@ -1690,7 +1690,18 @@
 				border-top: solid 0.6em #282828;
 			}
 
+.wrapper.first{
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/banner.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  padding: 12em 0px 10em;
+  background-position: center center;
+  background-repeat: no-repeat;
+	}
+
 /* Articles */
+
 
 	#home .image {
 		border-radius: 50%;
@@ -1700,8 +1711,8 @@
 			border-radius: 50%;
 		}
 
-	#home p a {
-		color: inherit;
+	#home h1, #home p, #home h1 a , #home p a, strong {
+		color: #fff;
 	}
 
 /* Copyright */
