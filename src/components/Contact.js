@@ -1,8 +1,9 @@
 import React from 'react';
+import FormElement from './FormElement';
 import FindMe from './FindMe';
 import Copyright from './Copyright';
 
-const Contact = () => {
+const Contact = (props) => {
 	return (
 		<div className="wrapper style4">
 			<article id="contact" className="container 75%">
@@ -15,30 +16,57 @@ const Contact = () => {
 						<form method="post" action="#">
 							<div>
 								<div className="row">
-									<div className="6u 12u(mobile)">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div className="6u 12u(mobile)">
-										<input type="text" name="email" id="email" placeholder="Email" />
-									</div>
+									<FormElement
+										layout="6u 12u(mobile)"
+										type="text"
+										name="name"
+										id="name"
+										label="Name"
+										value={props.form.name}
+										updateFormState={props.updateFormState}
+									/>
+									<FormElement
+										layout="6u 12u(mobile)"
+										type="email"
+										name="email"
+										id="email"
+										label="E-Mail"
+										value={props.form.email}
+										updateFormState={props.updateFormState}
+									/>
 								</div>
 								<div className="row">
-									<div className="12u">
-										<input type="text" name="subject" id="subject" placeholder="Subject" />
-									</div>
+									<FormElement
+										layout="12u"
+										type="text"
+										name="subject"
+										id="subject"
+										label="Subject"
+										value={props.form.subject}
+										updateFormState={props.updateFormState}
+									/>
 								</div>
 								<div className="row">
-									<div className="12u">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
+									<FormElement
+										layout="12u"
+										type="textarea"
+										name="message"
+										id="message"
+										label="Message"
+										value={props.form.message}
+										updateFormState={props.updateFormState}
+									/>
 								</div>
 								<div className="row 200%">
-									<div className="12u">
-										<ul className="actions">
-											<li><input type="submit" value="Send Message" /></li>
-											<li><input type="reset" value="Clear Form" className="alt" /></li>
-										</ul>
-									</div>
+									<FormElement
+										layout="12u"
+										type="submit"
+										name="submit"
+										id="submit"
+										label="Send Message"
+										disabled={props.form.submitting}
+										submitMailForm={props.submitMailForm}
+									/>
 								</div>
 							</div>
 						</form>
