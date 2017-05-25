@@ -5,23 +5,23 @@ const Profile = () => {
 		<div className="wrapper style2">
 			<article id="profile">
 				<header>
-					<h2>Here's all the stuff I do.</h2>
-					<p>Odio turpis amet sed consequat eget posuere consequat.</p>
+					<h2>Skills &amp; Experience</h2>
+					<p>Most of my work is full-stack, .</p>
 				</header>
 				<div className="container">
 					<div className="row">
 						<div className="4u 12u(mobile)">
 							<section className="box style1">
 								<span className="icon featured fa-comments-o"></span>
-								<h3>Consequat lorem</h3>
-								<p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+								<h3>Front-End</h3>
+								<p>HTML5, CSS3, JavaScript / ES6, React</p>
 							</section>
 						</div>
 						<div className="4u 12u(mobile)">
 							<section className="box style1">
 								<span className="icon featured fa-camera-retro"></span>
-								<h3>Lorem dolor tempus</h3>
-								<p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+								<h3>Back-End</h3>
+								<p>Node.js, </p>
 							</section>
 						</div>
 						<div className="4u 12u(mobile)">
