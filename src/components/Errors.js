@@ -3,7 +3,7 @@ import Message from './Message';
 
 const Errors = (props) => {
 	return (
-		<div className="inner row" style={{"color": "red"}}>
+		<div style={{"color": "red"}}>
 			<p>
 				{props.errors.map((error, i) => (<Message key={i} message={error} />))}
 			</p>
