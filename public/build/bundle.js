@@ -20038,7 +20038,7 @@
 	var Home = function Home() {
 		return _react2.default.createElement(
 			"div",
-			{ className: "wrapper style1 first" },
+			{ className: "wrapper first" },
 			_react2.default.createElement(
 				"article",
 				{ className: "container", id: "home" },
@@ -20067,7 +20067,7 @@
 								_react2.default.createElement(
 									"strong",
 									null,
-									"Carol \xA0St. Louis"
+									" Carol\u2002St.\xA0Louis"
 								),
 								"."
 							)
@@ -20075,31 +20075,17 @@
 						_react2.default.createElement(
 							"p",
 							null,
-							"And this is ",
-							_react2.default.createElement(
-								"strong",
-								null,
-								"Miniport"
-							),
-							", a free, fully responsive HTML5 site template designed by ",
-							_react2.default.createElement(
-								"a",
-								{ href: "http://twitter.com/ajlkn" },
-								"AJ"
-							),
-							" for ",
-							_react2.default.createElement(
-								"a",
-								{ href: "http://html5up.net" },
-								"HTML5 UP"
-							),
-							" & released under the ",
-							_react2.default.createElement(
-								"a",
-								{ href: "http://html5up.net/license" },
-								"CCA license"
-							),
-							"."
+							"Freelance Full-Stack Web Developer, living in the San Francisco Bay Area"
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							"I've always pursued opportunities and challenges that have intrigued me. As a web developer, I use my obsessive attention to detail to create fast, beautiful, and intuitive websites."
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							"I want to build things that solve real problems and make the world a better place."
 						),
 						_react2.default.createElement(
 							"a",
@@ -20485,19 +20471,19 @@
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(168);
+	var _Messages = __webpack_require__(166);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(170);
+	var _Errors = __webpack_require__(168);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _FindMe = __webpack_require__(166);
+	var _FindMe = __webpack_require__(169);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
-	var _Copyright = __webpack_require__(167);
+	var _Copyright = __webpack_require__(170);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -20723,6 +20709,105 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Message = __webpack_require__(167);
+	
+	var _Message2 = _interopRequireDefault(_Message);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Messages = function Messages(props) {
+		return _react2.default.createElement(
+			'div',
+			{ className: 'inner row' },
+			_react2.default.createElement(
+				'p',
+				null,
+				props.messages.map(function (message, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: message });
+				})
+			)
+		);
+	};
+	
+	exports.default = Messages;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Message = function Message(props) {
+		return _react2.default.createElement(
+			'span',
+			null,
+			props.message,
+			_react2.default.createElement('br', null)
+		);
+	};
+	
+	exports.default = Message;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Message = __webpack_require__(167);
+	
+	var _Message2 = _interopRequireDefault(_Message);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Errors = function Errors(props) {
+		return _react2.default.createElement(
+			'div',
+			{ className: 'inner row', style: { "color": "red" } },
+			_react2.default.createElement(
+				'p',
+				null,
+				props.errors.map(function (error, i) {
+					return _react2.default.createElement(_Message2.default, { key: i, message: error });
+				})
+			)
+		);
+	};
+	
+	exports.default = Errors;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -20851,7 +20936,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 167 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20893,105 +20978,6 @@
 	};
 	
 	exports.default = Copyright;
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Message = __webpack_require__(169);
-	
-	var _Message2 = _interopRequireDefault(_Message);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Messages = function Messages(props) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'inner row' },
-			_react2.default.createElement(
-				'p',
-				null,
-				props.messages.map(function (message, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: message });
-				})
-			)
-		);
-	};
-	
-	exports.default = Messages;
-
-/***/ },
-/* 169 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Message = function Message(props) {
-		return _react2.default.createElement(
-			'span',
-			null,
-			props.message,
-			_react2.default.createElement('br', null)
-		);
-	};
-	
-	exports.default = Message;
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Message = __webpack_require__(169);
-	
-	var _Message2 = _interopRequireDefault(_Message);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Errors = function Errors(props) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'inner row', style: { "color": "red" } },
-			_react2.default.createElement(
-				'p',
-				null,
-				props.errors.map(function (error, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: error });
-				})
-			)
-		);
-	};
-	
-	exports.default = Errors;
 
 /***/ }
 /******/ ]);
