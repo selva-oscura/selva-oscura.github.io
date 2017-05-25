@@ -3,7 +3,7 @@ import Message from './Message';
 
 const Messages = (props) => {
 	return (
-		<div className="inner row">
+		<div>
 			<p>
 				{props.messages.map((message, i) => (<Message key={i} message={message} />))}
 			</p>
