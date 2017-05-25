@@ -20129,12 +20129,12 @@
 					_react2.default.createElement(
 						"h2",
 						null,
-						"Here's all the stuff I do."
+						"Skills & Experience"
 					),
 					_react2.default.createElement(
 						"p",
 						null,
-						"Odio turpis amet sed consequat eget posuere consequat."
+						"Most of my work is full-stack, ."
 					)
 				),
 				_react2.default.createElement(
@@ -20153,12 +20153,12 @@
 								_react2.default.createElement(
 									"h3",
 									null,
-									"Consequat lorem"
+									"Front-End"
 								),
 								_react2.default.createElement(
 									"p",
 									null,
-									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+									"HTML5, CSS3, JavaScript / ES6, React"
 								)
 							)
 						),
@@ -20172,12 +20172,12 @@
 								_react2.default.createElement(
 									"h3",
 									null,
-									"Lorem dolor tempus"
+									"Back-End"
 								),
 								_react2.default.createElement(
 									"p",
 									null,
-									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+									"Node.js, "
 								)
 							)
 						),
@@ -20728,7 +20728,7 @@
 	var Messages = function Messages(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'inner row' },
+			null,
 			_react2.default.createElement(
 				'p',
 				null,
@@ -20791,7 +20791,7 @@
 	var Errors = function Errors(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'inner row', style: { "color": "red" } },
+			{ style: { "color": "red" } },
 			_react2.default.createElement(
 				'p',
 				null,
