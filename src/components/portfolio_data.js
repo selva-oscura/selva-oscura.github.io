@@ -43,7 +43,37 @@
 		purpose: 'personal',
 		target: 'portfolio',
 		text: ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
-		technologies: 'React.js, JavaScript / ES6, jQuery, HTML5, CSS3, normalize.css'
+		technologies: 'React.js, JavaScript / ES6, jQuery, HTML5, CSS3, HTML5Up'
+	},{
+		src: 'public/img/sudoku.png',
+		name: 'Sudoku',
+		git: 'https://github.com/selva-oscura/react-sudoku',
+		web: 'https://selva-oscura.github.io/react-sudoku',
+		internalProject: false,
+		node: true,
+		meteor: false,
+		react: true,
+		pwa: true,
+		lamp: false,
+		purpose: 'personal',
+		target: 'sudoku',
+		text: ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+		technologies: 'React.js, JavaScript / ES6, Progressive Web App (PWA), Service Workers and local storage'
+	},{
+		src: 'public/img/hangman.png',
+		name: 'Hangman',
+		git: 'https://github.com/selva-oscura/react-hangman',
+		web: 'https://selva-oscura.github.io/react-hangman',
+		internalProject: false,
+		node: true,
+		meteor: false,
+		react: true,
+		pwa: true,
+		lamp: false,
+		purpose: 'personal',
+		target: 'hangman',
+		text: ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+		technologies: 'React.js, JavaScript / ES6, Progressive Web App (PWA), Service Workers and local storage'
 	},{
 		src: 'public/img/tic-tac-toe.png',
 		name: 'Tic-Tac-Toe',
@@ -58,7 +88,7 @@
 		purpose: 'personal',
 		target: 'tic-tac-toe',
 		text: ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
-		technologies: 'React.js, JavaScript / ES6, jQuery, HTML5, CSS3, normalize.css'
+		technologies: 'React.js, JavaScript / ES6, Progressive Web App (PWA), Service Workers and local storage'
 	},{
 		src: 'public/img/portcal.jpg',
 		name: 'PoRTCal',
