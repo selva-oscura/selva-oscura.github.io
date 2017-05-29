@@ -1,11 +1,18 @@
 import React from 'react';
+import data from '../../public/assets/data/portfolio_data.json';
+
+console.log('data', data);
 
 const Portfolio = () => {
+	const clientProjects = data.projects.filter((project) => {return project.purpose==="client"});
+	console.log('clientProjects', clientProjects);
+	const personalProjects = data.projects.filter((project) => {return project.purpose==="personal"});
+	console.log('personalProjects', personalProjects);
 	return (
 		<div className="wrapper style3">
 			<article id="portfolio">
 				<header>
-					<h2>Here’s some stuff I made recently.</h2>
+					<h2>Projects for clients</h2>
 					<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
 				</header>
 				<div className="container">
