@@ -6,8 +6,10 @@ import data from '../../public/assets/data/portfolio_data.json';
 
 
 const Portfolio = (props) => {
-	const clientProjects = data.projects.filter((project) => {return project.purpose==="client"});
-	const personalProjects = data.projects.filter((project) => {return project.purpose==="personal"});
+	let projects = data.projects;
+	props.projectFilters.forEach((projectFilter) => {
+		projects = projects.filter((project) => {return project[projectFilter]});
+	});
 	return (
 		<div className="wrapper style3">
 			<article id="portfolio">
@@ -21,7 +23,7 @@ const Portfolio = (props) => {
 				</header>
 				<div className="container">
 					<div className="row">
-						{data.projects.map((project, i) => (
+						{projects.map((project, i) => (
 							<Project
 								key={i}
 								project={project}
