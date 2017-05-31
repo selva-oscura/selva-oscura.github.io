@@ -83,10 +83,13 @@
 					responses: [],
 					errors: [],
 					submitting: false
-				}
+				},
+				selectedProject: ""
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
 			_this.submitMailForm = _this.submitMailForm.bind(_this);
+			_this.selectProject = _this.selectProject.bind(_this);
+			_this.unselectProject = _this.unselectProject.bind(_this);
 			return _this;
 		}
 	
@@ -150,6 +153,20 @@
 				console.log(this.state.form);
 			}
 		}, {
+			key: 'selectProject',
+			value: function selectProject(clickedProject) {
+				var selectedProject = this.state.selectedProject;
+				selectedProject = clickedProject;
+				this.setState({ selectedProject: selectedProject });
+			}
+		}, {
+			key: 'unselectProject',
+			value: function unselectProject() {
+				var selectedProject = this.state.selectedProject;
+				selectedProject = "";
+				this.setState({ selectedProject: selectedProject });
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
@@ -158,7 +175,11 @@
 					_react2.default.createElement(_index.Nav, null),
 					_react2.default.createElement(_index.Home, null),
 					_react2.default.createElement(_index.Profile, null),
-					_react2.default.createElement(_index.Portfolio, null),
+					_react2.default.createElement(_index.Portfolio, {
+						selectedProject: this.state.selectedProject,
+						selectProject: this.selectProject,
+						unselectProject: this.unselectProject
+					}),
 					_react2.default.createElement(_index.Contact, {
 						form: this.state.form,
 						updateFormState: this.updateFormState,
@@ -19942,7 +19963,7 @@
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Contact = __webpack_require__(164);
+	var _Contact = __webpack_require__(167);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
@@ -20090,7 +20111,7 @@
 						_react2.default.createElement(
 							"a",
 							{ href: "#profile", className: "button big scrolly" },
-							"Learn about what I do"
+							"Learn more about what I do"
 						)
 					)
 				)
@@ -20134,7 +20155,13 @@
 					_react2.default.createElement(
 						"p",
 						null,
-						"Most of my work is full-stack, ."
+						"My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).",
+						_react2.default.createElement("br", null),
+						"Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.",
+						_react2.default.createElement("br", null),
+						"Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).",
+						_react2.default.createElement("br", null),
+						"I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby."
 					)
 				),
 				_react2.default.createElement(
@@ -20158,7 +20185,17 @@
 								_react2.default.createElement(
 									"p",
 									null,
-									"HTML5, CSS3, JavaScript / ES6, React"
+									"HTML5,",
+									_react2.default.createElement("br", null),
+									"CSS3,",
+									_react2.default.createElement("br", null),
+									"JavaScript / ES6,",
+									_react2.default.createElement("br", null),
+									"jQuery,",
+									_react2.default.createElement("br", null),
+									"React,",
+									_react2.default.createElement("br", null),
+									"Bootstrap, Material Design"
 								)
 							)
 						),
@@ -20177,7 +20214,17 @@
 								_react2.default.createElement(
 									"p",
 									null,
-									"Node.js, "
+									"Node.js,",
+									_react2.default.createElement("br", null),
+									"Meteor.js",
+									_react2.default.createElement("br", null),
+									"Express,",
+									_react2.default.createElement("br", null),
+									"MongoDB, ",
+									_react2.default.createElement("br", null),
+									"PHP,",
+									_react2.default.createElement("br", null),
+									"MySQL"
 								)
 							)
 						),
@@ -20191,12 +20238,22 @@
 								_react2.default.createElement(
 									"h3",
 									null,
-									"Feugiat posuere"
+									"Sundry"
 								),
 								_react2.default.createElement(
 									"p",
 									null,
-									"Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore."
+									"Progressive Web Apps (PWAs),",
+									_react2.default.createElement("br", null),
+									"Version Control: Git,",
+									_react2.default.createElement("br", null),
+									"PaaS: Galaxy, Heroku, ",
+									_react2.default.createElement("br", null),
+									"DBaaS: mLab,",
+									_react2.default.createElement("br", null),
+									"APIs: Facebook, Instagram",
+									_react2.default.createElement("br", null),
+									"Wireframe: Balsamiq"
 								)
 							)
 						)
@@ -20226,7 +20283,7 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20236,215 +20293,83 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Project = __webpack_require__(164);
+	
+	var _Project2 = _interopRequireDefault(_Project);
+	
+	var _ProjectModal = __webpack_require__(165);
+	
+	var _ProjectModal2 = _interopRequireDefault(_ProjectModal);
+	
+	var _portfolio_data = __webpack_require__(166);
+	
+	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Portfolio = function Portfolio() {
+	var Portfolio = function Portfolio(props) {
+		var clientProjects = _portfolio_data2.default.projects.filter(function (project) {
+			return project.purpose === "client";
+		});
+		var personalProjects = _portfolio_data2.default.projects.filter(function (project) {
+			return project.purpose === "personal";
+		});
 		return _react2.default.createElement(
-			"div",
-			{ className: "wrapper style3" },
+			'div',
+			{ className: 'wrapper style3' },
 			_react2.default.createElement(
-				"article",
-				{ id: "portfolio" },
+				'article',
+				{ id: 'portfolio' },
 				_react2.default.createElement(
-					"header",
+					'header',
 					null,
 					_react2.default.createElement(
-						"h2",
+						'h2',
 						null,
-						"Here\u2019s some stuff I made recently."
+						'Projects'
 					),
 					_react2.default.createElement(
-						"p",
+						'p',
 						null,
-						"Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore."
+						'Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
 					)
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "container" },
+					'div',
+					{ className: 'container' },
 					_react2.default.createElement(
-						"div",
-						{ className: "row" },
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic01.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Magna feugiat"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic02.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Veroeros primis"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic03.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Lorem ipsum"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "row" },
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic04.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Tempus dolore"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic05.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Feugiat aliquam"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"article",
-								{ className: "box style2" },
-								_react2.default.createElement(
-									"a",
-									{ href: "blah", className: "image featured" },
-									_react2.default.createElement("img", { src: "./public/images/pic06.jpg", alt: "" })
-								),
-								_react2.default.createElement(
-									"h3",
-									null,
-									_react2.default.createElement(
-										"a",
-										{ href: "blah" },
-										"Sed amet ornare"
-									)
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Ornare nulla proin odio consequat."
-								)
-							)
-						)
+						'div',
+						{ className: 'row' },
+						_portfolio_data2.default.projects.map(function (project, i) {
+							return _react2.default.createElement(_Project2.default, {
+								key: i,
+								project: project,
+								num: i,
+								selectProject: props.selectProject
+							});
+						}),
+						_portfolio_data2.default.projects.map(function (project, i) {
+							return _react2.default.createElement(_ProjectModal2.default, {
+								key: i,
+								project: project,
+								selectedProject: props.selectedProject,
+								unselectProject: props.unselectProject
+							});
+						})
 					)
 				),
 				_react2.default.createElement(
-					"footer",
+					'footer',
 					null,
 					_react2.default.createElement(
-						"p",
+						'p',
 						null,
-						"Lorem ipsum dolor sit sapien vestibulum ipsum primis?"
+						'Lorem ipsum dolor sit sapien vestibulum ipsum primis?'
 					),
 					_react2.default.createElement(
-						"a",
-						{ href: "#contact", className: "button big scrolly" },
-						"Get in touch with me"
+						'a',
+						{ href: '#contact', className: 'button big scrolly' },
+						'Get in touch with me'
 					)
 				)
 			)
@@ -20457,6 +20382,339 @@
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Project = function Project(props) {
+		var handleClick = function handleClick() {
+			props.selectProject(props.project.target);
+		};
+		return _react2.default.createElement(
+			"div",
+			{ className: "4u 12u(mobile)" },
+			_react2.default.createElement(
+				"article",
+				{
+					className: "box style2",
+					onClick: handleClick
+				},
+				_react2.default.createElement(
+					"div",
+					{ className: "image featured" },
+					_react2.default.createElement("img", { src: "./public/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
+				),
+				_react2.default.createElement(
+					"h3",
+					null,
+					props.project.name
+				)
+			)
+		);
+	};
+	
+	exports.default = Project;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ProjectModal = function ProjectModal(props) {
+		var handleClick = function handleClick(e) {
+			if (e.target.className === "modal") {
+				props.unselectProject();
+			}
+		};
+		return _react2.default.createElement(
+			"div",
+			{
+				className: "modal",
+				id: props.project.target,
+				style: props.selectedProject === props.project.target ? { 'display': 'block' } : { 'display': 'none' },
+				onClick: handleClick
+			},
+			_react2.default.createElement(
+				"div",
+				{ className: "modal-content" },
+				_react2.default.createElement(
+					"div",
+					{ className: "modal-header" },
+					_react2.default.createElement(
+						"span",
+						{
+							className: "modal-close",
+							onClick: props.unselectProject
+						},
+						"x"
+					),
+					_react2.default.createElement(
+						"h2",
+						null,
+						props.project.name
+					)
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "modal-body" },
+					_react2.default.createElement(
+						"p",
+						null,
+						props.project.text
+					),
+					_react2.default.createElement(
+						"p",
+						null,
+						_react2.default.createElement(
+							"strong",
+							null,
+							"Technologies: "
+						),
+						props.project.technologies
+					)
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "modal-footer" },
+					_react2.default.createElement(
+						"div",
+						{ className: "half text-left" },
+						props.project.web ? _react2.default.createElement(
+							"a",
+							{ href: props.project.web, target: props.project.target },
+							"Project Website"
+						) : " "
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "half text-right" },
+						props.project.git ? _react2.default.createElement(
+							"a",
+							{ href: props.project.git, target: props.project.target },
+							"Project Repo"
+						) : " "
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = ProjectModal;
+
+/***/ },
+/* 166 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"projects": [
+			{
+				"src": "public/img/shines.png",
+				"name": "Door-to-Door Shines",
+				"web": "https://www.doortodoorshines.com",
+				"git": "",
+				"internalProject": false,
+				"node": true,
+				"meteor": true,
+				"react": false,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "client",
+				"target": "shines",
+				"text": [
+					"Door-to-Door Shines is an app to help busy people in the San Francisco Area with on-demand shoe shine and repair services.  Select the services you want, schedule pick-up and return times that are convenient for you, pay, and cross one more errand off your list!",
+					"As sole developer for Door-to-Door Shines, I built (1) the interfaces the user sees as s/he orders shine & repair services, schedules pick-up & delivery times, pays, leaves comments or asks questions; (2) the admin dashboard, displaying pending & completed orders, user feedback, & customer information, scheduling of delivery times, analytics on orders and revenue; and (3) the internals, including database and cron jobs."
+				],
+				"technologies": "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Materialize.css, moment.js, meteor-synced-cron, Stripe API"
+			},
+			{
+				"src": "public/img/zyrl.png",
+				"name": "Zyrl",
+				"web": "",
+				"git": "",
+				"internalProject": true,
+				"node": true,
+				"meteor": true,
+				"react": false,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "client",
+				"target": "zyrl",
+				"text": [
+					"Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.",
+					"As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilding the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranging site and database hosting. I then managed the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."
+				],
+				"technologies": "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
+			},
+			{
+				"src": "public/img/portfolio.png",
+				"name": "Portfolio Page",
+				"git": "https://github.com/selva-oscura/selva-oscura",
+				"web": "https://selva-oscura.github.io/",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "portfolio",
+				"text": [
+					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+				],
+				"technologies": "React.js, JavaScript/ES6, jQuery, HTML5, CSS3, HTML5Up"
+			},
+			{
+				"src": "public/img/sudoku.png",
+				"name": "Sudoku",
+				"git": "https://github.com/selva-oscura/react-sudoku",
+				"web": "https://selva-oscura.github.io/react-sudoku",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"pwa": true,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "sudoku",
+				"text": [
+					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+				],
+				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
+			},
+			{
+				"src": "public/img/hangman.png",
+				"name": "Hangman",
+				"git": "https://github.com/selva-oscura/react-hangman",
+				"web": "https://selva-oscura.github.io/react-hangman",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"pwa": true,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "hangman",
+				"text": [
+					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+				],
+				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
+			},
+			{
+				"src": "public/img/tic-tac-toe.png",
+				"name": "Tic-Tac-Toe",
+				"git": "https://github.com/selva-oscura/react-tic-tac-toe",
+				"web": "https://selva-oscura.github.io/react-tic-tac-toe",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"pwa": true,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "tic-tac-toe",
+				"text": [
+					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+				],
+				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
+			},
+			{
+				"src": "public/img/portcal.jpg",
+				"name": "PoRTCal",
+				"git": "https://github.com/selva-oscura/poRTCal",
+				"web": "",
+				"internalProject": false,
+				"node": true,
+				"meteor": true,
+				"react": false,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "portcal",
+				"text": [
+					"PoRTCal is a WebRTC app inspired by the game Portal. The project was an entry into the October 2015 Meteor hackathon competition. Users could videoconference with each other by logging in to the app."
+				],
+				"technologies": "Meteor.js, MongoDB, Node.js, HTML5, CSS3, Materialize.css, JavaScript/ES6, WebRTC using the PeerJS library"
+			},
+			{
+				"src": "public/img/animal_rescue.png",
+				"name": "Animal Rescue",
+				"git": "https://github.com/selva-oscura/meteor_animal_rescue",
+				"web": "",
+				"internalProject": false,
+				"node": true,
+				"meteor": true,
+				"react": false,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "animal_rescue",
+				"text": [
+					"Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap. This project was developed and won 2nd place at the Women Who Code Silicon Valley hackathon at Paypal in April 2015."
+				],
+				"technologies": "Meteor.js, MongoDB, Node.js, HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
+			},
+			{
+				"src": "public/img/booksmart.png",
+				"name": "Booksmart",
+				"git": "",
+				"web": "http://booksmartapp.com",
+				"internalProject": false,
+				"node": false,
+				"meteor": false,
+				"react": false,
+				"pwa": false,
+				"lamp": true,
+				"purpose": "client",
+				"target": "booksmart",
+				"text": [
+					"Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted."
+				],
+				"technologies": "HTM5, CSS3, Bootstrap, PHP, MySQL, JavaScript, AJAX, jQuery, Campusbooks API"
+			},
+			{
+				"src": "public/img/aloha_fun_zone.png",
+				"name": "Aloha Fun Zone",
+				"web": "http://alohafunzone.com",
+				"git": "",
+				"internalProject": false,
+				"node": false,
+				"meteor": false,
+				"react": false,
+				"pwa": false,
+				"lamp": true,
+				"purpose": "client",
+				"target": "aloha",
+				"text": [
+					"Sole developer and maintainer of Aloha Fun Zone website, which displays the tours available from the company."
+				],
+				"technologies": "HTM5, CSS3, PHP, JavaScript, AJAX, jQuery"
+			}
+		]
+	};
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -20467,23 +20725,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(165);
+	var _FormElement = __webpack_require__(168);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(166);
+	var _Messages = __webpack_require__(169);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(168);
+	var _Errors = __webpack_require__(171);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _FindMe = __webpack_require__(169);
+	var _FindMe = __webpack_require__(172);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
-	var _Copyright = __webpack_require__(170);
+	var _Copyright = __webpack_require__(173);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -20598,7 +20856,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 165 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20706,7 +20964,7 @@
 	// </div>
 
 /***/ },
-/* 166 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20719,7 +20977,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(167);
+	var _Message = __webpack_require__(170);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -20742,7 +21000,7 @@
 	exports.default = Messages;
 
 /***/ },
-/* 167 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20769,7 +21027,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 168 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20782,7 +21040,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(167);
+	var _Message = __webpack_require__(170);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -20805,7 +21063,7 @@
 	exports.default = Errors;
 
 /***/ },
-/* 169 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20936,7 +21194,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 170 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
