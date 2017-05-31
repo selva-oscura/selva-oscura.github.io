@@ -29,6 +29,7 @@ const Portfolio = (props) => {
 								key={i}
 								project={project}
 								selectedProject={props.selectedProject}
+								unselectProject={props.unselectProject}
 							/>
 						))}
 					</div>
