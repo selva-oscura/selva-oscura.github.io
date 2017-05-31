@@ -11,6 +11,7 @@ const ProjectModal = (props) => {
 				<div className="modal-header">
 					<span 
 						className="modal-close"
+						onClick={props.unselectProject}
 					>
 						x
 					</span>
