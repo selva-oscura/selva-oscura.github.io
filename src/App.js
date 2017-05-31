@@ -16,10 +16,12 @@ class App extends Component {
 				errors: [],
 				submitting: false,
 			},
+			projectFilters: [],
 			selectedProject: "",
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
+		this.setProjectFilters = this.setProjectFilters.bind(this);
 		this.selectProject = this.selectProject.bind(this);
 		this.unselectProject = this.unselectProject.bind(this);
 	}
@@ -78,6 +80,20 @@ class App extends Component {
 		this.setState({form});
 		console.log(this.state.form)
 	}
+	setProjectFilters(projectFilter){
+		let projectFilters = this.state.projectFilters;
+		console.log('projectFilter in setProjectFilters', projectFilter);
+		if(projectFilter[0]==="all"){
+			projectFilters = [];
+		}else{
+			if(projectFilters.includes(projectFilter[0])){
+				projectFilters = projectFilters.filter((filterInState) => ( filterInState !==projectFilter[0] ));
+			}else{
+				projectFilters.push(projectFilter[0])
+			}
+		}
+		this.setState({projectFilters});
+	}
 	selectProject(clickedProject){
 		let selectedProject = this.state.selectedProject;
 		selectedProject = clickedProject;
@@ -98,7 +114,9 @@ class App extends Component {
 
 				<Profile />
 
-				<Portfolio 
+				<Portfolio
+					projectFilters={this.state.projectFilters}
+					setProjectFilters={this.setProjectFilters}
 					selectedProject={this.state.selectedProject}
 					selectProject={this.selectProject}
 					unselectProject={this.unselectProject}
