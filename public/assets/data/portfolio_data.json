@@ -58,7 +58,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "sudoku",
-			"text": ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+			"text": ["Progressive Web App version of Sudoku.", "The game was built as a personal project while learning React, the joy of data structures and algorithms (delving into all of the wonderful logic of how to make a filled-out Sudoku board, scramble the numbers a bit, and remove numbers albeit only to the extent that they can be deduced without need to resort to guessing), Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 		},{
 			"src": "public/img/hangman.png",
@@ -73,7 +73,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "hangman",
-			"text": ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+			"text": ["Progressive Web App version of the familiar word game Hangman, albeit with SAT words.", "The game was built as a personal project while learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 		},{
 			"src": "public/img/tic-tac-toe.png",
@@ -88,7 +88,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "tic-tac-toe",
-			"text": ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+			"text": ["Progressive Web App version of Tic-Tac-Toe.", "The game was built as a personal project while playing with JavaScript logic, delving into ES6, and learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 		},{
 			"src": "public/img/portcal.jpg",
