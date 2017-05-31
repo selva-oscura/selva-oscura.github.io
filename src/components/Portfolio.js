@@ -24,6 +24,13 @@ const Portfolio = (props) => {
 								selectProject={props.selectProject}
 							/>
 						))}
+						{data.projects.map((project, i) => (
+							<ProjectModal
+								key={i}
+								project={project}
+								selectedProject={props.selectedProject}
+							/>
+						))}
 					</div>
 				</div>
 				<footer>
