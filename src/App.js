@@ -15,10 +15,12 @@ class App extends Component {
 				responses: [],
 				errors: [],
 				submitting: false,
-			}
+			},
+			selectedProject: "",
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
+		this.selectProject=this.selectProject.bind(this);
 	}
 	updateFormState(e){
 		console.log('change detected')
@@ -75,6 +77,13 @@ class App extends Component {
 		this.setState({form});
 		console.log(this.state.form)
 	}
+	selectProject(clickedProject){
+		console.log(clickedProject);
+		// let selectedProject = this.state.selectedProject;
+		// selectedProject = clickedProject;
+		// this.setState({selectedProject})
+		// console.log(this.state)
+	}
 	render(){
 		return(
 			<div>
@@ -85,7 +94,10 @@ class App extends Component {
 
 				<Profile />
 
-				<Portfolio />
+				<Portfolio 
+					selectProject={this.selectProject}
+					selectedProject={this.state.selectedProject}
+				/>
 
 				<Contact
 					form={this.state.form}
