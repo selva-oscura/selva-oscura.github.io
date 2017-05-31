@@ -20,7 +20,8 @@ class App extends Component {
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
-		this.selectProject=this.selectProject.bind(this);
+		this.selectProject = this.selectProject.bind(this);
+		this.unselectProject = this.unselectProject.bind(this);
 	}
 	updateFormState(e){
 		console.log('change detected')
@@ -82,6 +83,11 @@ class App extends Component {
 		selectedProject = clickedProject;
 		this.setState({selectedProject})
 	}
+	unselectProject(){
+		let selectedProject = this.state.selectedProject;
+		selectedProject = "";
+		this.setState({selectedProject})
+	}
 	render(){
 		return(
 			<div>
@@ -93,8 +99,9 @@ class App extends Component {
 				<Profile />
 
 				<Portfolio 
-					selectProject={this.selectProject}
 					selectedProject={this.state.selectedProject}
+					selectProject={this.selectProject}
+					unselectProject={this.unselectProject}
 				/>
 
 				<Contact
