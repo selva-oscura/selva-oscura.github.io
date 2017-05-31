@@ -78,11 +78,9 @@ class App extends Component {
 		console.log(this.state.form)
 	}
 	selectProject(clickedProject){
-		console.log(clickedProject);
-		// let selectedProject = this.state.selectedProject;
-		// selectedProject = clickedProject;
-		// this.setState({selectedProject})
-		// console.log(this.state)
+		let selectedProject = this.state.selectedProject;
+		selectedProject = clickedProject;
+		this.setState({selectedProject})
 	}
 	render(){
 		return(
