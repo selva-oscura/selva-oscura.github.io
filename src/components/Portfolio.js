@@ -14,7 +14,10 @@ const Portfolio = (props) => {
 				<header>
 					<h2>Projects</h2>
 					<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
-					<ProjectFilters />
+					<ProjectFilters 
+						projectFilters={props.projectFilters}
+						setProjectFilters={props.setProjectFilters}
+					/>
 				</header>
 				<div className="container">
 					<div className="row">

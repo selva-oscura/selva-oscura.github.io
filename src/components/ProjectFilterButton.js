@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProjectFilterButton = (props) => {
 	const handleClick = () => {
-		console.log(Object.keys(props.filter))
+		props.setProjectFilters(Object.keys(props.filter));
 	}
 	return (
 		<button

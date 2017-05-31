@@ -17,7 +17,8 @@ const ProjectFilters = (props) => {
 			{ filters.map((filter, i)=>(
 				<ProjectFilterButton 
 					key={i} 
-					filter={filter}
+					filter={filter} 
+					setProjectFilters={props.setProjectFilters}
 				/>
 				)) 
 			}
