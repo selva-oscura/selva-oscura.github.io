@@ -1,9 +1,10 @@
 import React from 'react';
 import Project from './Project';
+import ProjectModal from './ProjectModal';
 import data from '../../public/assets/data/portfolio_data.json';
 
 
-const Portfolio = () => {
+const Portfolio = (props) => {
 	const clientProjects = data.projects.filter((project) => {return project.purpose==="client"});
 	const personalProjects = data.projects.filter((project) => {return project.purpose==="personal"});
 	return (
@@ -15,7 +16,14 @@ const Portfolio = () => {
 				</header>
 				<div className="container">
 					<div className="row">
-						{data.projects.map((project, i) => (<Project key={i} project={project} num={i} />))}
+						{data.projects.map((project, i) => (
+							<Project
+								key={i}
+								project={project}
+								num={i}
+								selectProject={props.selectProject}
+							/>
+						))}
 					</div>
 				</div>
 				<footer>
