@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectFilters from './ProjectFilters';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
 import data from '../../public/assets/data/portfolio_data.json';
@@ -13,6 +14,7 @@ const Portfolio = (props) => {
 				<header>
 					<h2>Projects</h2>
 					<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
+					<ProjectFilters />
 				</header>
 				<div className="container">
 					<div className="row">
