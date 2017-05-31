@@ -15,7 +15,7 @@ const Home = () => {
 						<p>Freelance Full-Stack Web Developer, living in the San Francisco Bay Area</p>
 						<p>I've always pursued opportunities and challenges that have intrigued me. As a web developer, I use my obsessive attention to detail to create fast, beautiful, and intuitive websites.</p>
 						<p>I want to build things that solve real problems and make the world a better place.</p>
-						<a href="#profile" className="button big scrolly">Learn about what I do</a>
+						<a href="#profile" className="button big scrolly">Learn more about what I do</a>
 					</div>
 				</div>
 			</article>
