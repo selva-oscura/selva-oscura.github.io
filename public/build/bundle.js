@@ -20197,7 +20197,7 @@
 							_react2.default.createElement(
 								"section",
 								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-comments-o" }),
+								_react2.default.createElement("span", { className: "icon featured fa-user-circle" }),
 								_react2.default.createElement(
 									"h3",
 									null,
@@ -20226,7 +20226,7 @@
 							_react2.default.createElement(
 								"section",
 								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-camera-retro" }),
+								_react2.default.createElement("span", { className: "icon featured fa-server" }),
 								_react2.default.createElement(
 									"h3",
 									null,
@@ -20255,7 +20255,7 @@
 							_react2.default.createElement(
 								"section",
 								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-thumbs-o-up" }),
+								_react2.default.createElement("span", { className: "icon featured fa-cogs" }),
 								_react2.default.createElement(
 									"h3",
 									null,
@@ -20582,7 +20582,14 @@
 					_react2.default.createElement(
 						"p",
 						null,
-						props.project.text
+						props.project.text.map(function (para, i) {
+							return _react2.default.createElement(
+								"span",
+								{ key: i },
+								para,
+								_react2.default.createElement("br", null)
+							);
+						})
 					),
 					_react2.default.createElement(
 						"p",
@@ -20604,7 +20611,14 @@
 						props.project.web ? _react2.default.createElement(
 							"a",
 							{ href: props.project.web, target: props.project.target },
-							"Project Website"
+							_react2.default.createElement("span", { className: "icon featured fa-globe" }),
+							" Project Website"
+						) : " ",
+						props.project.codepen ? _react2.default.createElement(
+							"a",
+							{ href: props.project.codepen, target: props.project.target },
+							_react2.default.createElement("span", { className: "icon featured fa-codepen" }),
+							" Project Codepen"
 						) : " "
 					),
 					_react2.default.createElement(
@@ -20613,7 +20627,8 @@
 						props.project.git ? _react2.default.createElement(
 							"a",
 							{ href: props.project.git, target: props.project.target },
-							"Project Repo"
+							_react2.default.createElement("span", { className: "icon featured fa-github" }),
+							" Project Repo"
 						) : " "
 					)
 				)
@@ -20741,6 +20756,26 @@
 					"The game was built as a personal project while playing with JavaScript logic, delving into ES6, and learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
 				],
 				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
+			},
+			{
+				"src": "public/img/color-slider.png",
+				"name": "Color Slider",
+				"git": "https://github.com/selva-oscura/react-color-slider",
+				"web": "",
+				"codepen": "https://codepen.io/stlouis_c/pen/RKWRYK",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "color-slider",
+				"text": [
+					"React-based color slider.",
+					"Just an excuse to play with React, state, event handlers, code reuse with components, a little dabbling with Facebook's Jest testing framework, HTML5's range input, and the hsla way of depicting colors."
+				],
+				"technologies": "React.js, JavaScript/ES6, HTML5"
 			},
 			{
 				"src": "public/img/portcal.jpg",
