@@ -19,6 +19,7 @@ const ProjectFilters = (props) => {
 					key={i} 
 					filter={filter} 
 					setProjectFilters={props.setProjectFilters}
+					projectFilters={props.projectFilters}
 				/>
 				)) 
 			}
