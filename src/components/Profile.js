@@ -17,7 +17,7 @@ const Profile = () => {
 					<div className="row">
 						<div className="4u 12u(mobile)">
 							<section className="box style1">
-								<span className="icon featured fa-comments-o"></span>
+								<span className="icon featured fa-user-circle"></span>
 								<h3>Front-End</h3>
 								<p>
 									HTML5,<br />
@@ -31,7 +31,7 @@ const Profile = () => {
 						</div>
 						<div className="4u 12u(mobile)">
 							<section className="box style1">
-								<span className="icon featured fa-camera-retro"></span>
+								<span className="icon featured fa-server"></span>
 								<h3>Back-End</h3>
 								<p>
 									Node.js,<br />
@@ -45,7 +45,7 @@ const Profile = () => {
 						</div>
 						<div className="4u 12u(mobile)">
 							<section className="box style1">
-								<span className="icon featured fa-thumbs-o-up"></span>
+								<span className="icon featured fa-cogs"></span>
 								<h3>Sundry</h3>
 								<p>
 									Progressive Web Apps (PWAs),<br />
