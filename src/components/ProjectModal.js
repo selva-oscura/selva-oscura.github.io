@@ -24,15 +24,18 @@ const ProjectModal = (props) => {
 					<h2>{props.project.name}</h2>
 				</div>
 				<div className="modal-body">
-					<p>{props.project.text}</p>
+					<p>
+						{props.project.text.map((para, i) => (<span key={i}>{para}<br /></span>))}
+					</p>
 					<p><strong>Technologies: </strong>{props.project.technologies}</p> 
 				</div>
 				<div className="modal-footer">
 					<div className="half text-left">
-						{ props.project.web ? <a href={props.project.web} target={props.project.target}>Project Website</a> : " " }
+						{ props.project.web ? <a href={props.project.web} target={props.project.target}><span className="icon featured fa-globe"></span> Project Website</a> : " " }
+						{ props.project.codepen ? <a href={props.project.codepen} target={props.project.target}><span className="icon featured fa-codepen"></span> Project Codepen</a> : " " }
 					</div>
 					<div className="half text-right">
-						{ props.project.git ? <a href={props.project.git} target={props.project.target}>Project Repo</a> : " " }
+						{ props.project.git ? <a href={props.project.git} target={props.project.target}><span className="icon featured fa-github"></span> Project Repo</a> : " " }
 					</div>
 				</div>
 			</div>
