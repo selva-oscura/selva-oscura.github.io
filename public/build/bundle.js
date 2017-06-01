@@ -84,10 +84,12 @@
 					errors: [],
 					submitting: false
 				},
+				projectFilters: [],
 				selectedProject: ""
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
 			_this.submitMailForm = _this.submitMailForm.bind(_this);
+			_this.setProjectFilters = _this.setProjectFilters.bind(_this);
 			_this.selectProject = _this.selectProject.bind(_this);
 			_this.unselectProject = _this.unselectProject.bind(_this);
 			return _this;
@@ -153,6 +155,23 @@
 				console.log(this.state.form);
 			}
 		}, {
+			key: 'setProjectFilters',
+			value: function setProjectFilters(projectFilter) {
+				var projectFilters = this.state.projectFilters;
+				if (projectFilter[0] === "all") {
+					projectFilters = [];
+				} else {
+					if (projectFilters.includes(projectFilter[0])) {
+						projectFilters = projectFilters.filter(function (filterInState) {
+							return filterInState !== projectFilter[0];
+						});
+					} else {
+						projectFilters.push(projectFilter[0]);
+					}
+				}
+				this.setState({ projectFilters: projectFilters });
+			}
+		}, {
 			key: 'selectProject',
 			value: function selectProject(clickedProject) {
 				var selectedProject = this.state.selectedProject;
@@ -176,6 +195,8 @@
 					_react2.default.createElement(_index.Home, null),
 					_react2.default.createElement(_index.Profile, null),
 					_react2.default.createElement(_index.Portfolio, {
+						projectFilters: this.state.projectFilters,
+						setProjectFilters: this.setProjectFilters,
 						selectedProject: this.state.selectedProject,
 						selectProject: this.selectProject,
 						unselectProject: this.unselectProject
@@ -19963,7 +19984,7 @@
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Contact = __webpack_require__(167);
+	var _Contact = __webpack_require__(169);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
@@ -20293,26 +20314,30 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Project = __webpack_require__(164);
+	var _ProjectFilters = __webpack_require__(164);
+	
+	var _ProjectFilters2 = _interopRequireDefault(_ProjectFilters);
+	
+	var _Project = __webpack_require__(166);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
-	var _ProjectModal = __webpack_require__(165);
+	var _ProjectModal = __webpack_require__(167);
 	
 	var _ProjectModal2 = _interopRequireDefault(_ProjectModal);
 	
-	var _portfolio_data = __webpack_require__(166);
+	var _portfolio_data = __webpack_require__(168);
 	
 	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Portfolio = function Portfolio(props) {
-		var clientProjects = _portfolio_data2.default.projects.filter(function (project) {
-			return project.purpose === "client";
-		});
-		var personalProjects = _portfolio_data2.default.projects.filter(function (project) {
-			return project.purpose === "personal";
+		var projects = _portfolio_data2.default.projects;
+		props.projectFilters.forEach(function (projectFilter) {
+			projects = projects.filter(function (project) {
+				return project[projectFilter];
+			});
 		});
 		return _react2.default.createElement(
 			'div',
@@ -20332,7 +20357,11 @@
 						'p',
 						null,
 						'Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
-					)
+					),
+					_react2.default.createElement(_ProjectFilters2.default, {
+						projectFilters: props.projectFilters,
+						setProjectFilters: props.setProjectFilters
+					})
 				),
 				_react2.default.createElement(
 					'div',
@@ -20340,7 +20369,7 @@
 					_react2.default.createElement(
 						'div',
 						{ className: 'row' },
-						_portfolio_data2.default.projects.map(function (project, i) {
+						projects.map(function (project, i) {
 							return _react2.default.createElement(_Project2.default, {
 								key: i,
 								project: project,
@@ -20380,6 +20409,80 @@
 
 /***/ },
 /* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ProjectFilterButton = __webpack_require__(165);
+	
+	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ProjectFilters = function ProjectFilters(props) {
+		var filters = [{ 'all': 'All' }, { 'meteor': 'Meteor.js' }, { 'node': 'Node.js' }, { 'php': 'PHP' }, { 'lamp': 'PHP / MySQL' }, { 'pwa': 'Progressive Web App (PWA)' }, { 'react': 'React.js' }, { 'webrtc': 'WebRTC' }];
+		return _react2.default.createElement(
+			'div',
+			{ className: 'project-filters' },
+			filters.map(function (filter, i) {
+				return _react2.default.createElement(_ProjectFilterButton2.default, {
+					key: i,
+					filter: filter,
+					setProjectFilters: props.setProjectFilters,
+					projectFilters: props.projectFilters
+				});
+			})
+		);
+	};
+	
+	exports.default = ProjectFilters;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ProjectFilterButton = function ProjectFilterButton(props) {
+		var className = "";
+		if (props.projectFilters.includes(Object.keys(props.filter)[0]) || props.projectFilters.length === 0 && Object.keys(props.filter)[0] === "all") {
+			className = "alt";
+		}
+		var handleClick = function handleClick() {
+			props.setProjectFilters(Object.keys(props.filter));
+		};
+		return _react2.default.createElement(
+			"button",
+			{
+				onClick: handleClick,
+				className: className
+			},
+			Object.values(props.filter)
+		);
+	};
+	
+	exports.default = ProjectFilterButton;
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20424,7 +20527,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 165 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20521,7 +20624,7 @@
 	exports.default = ProjectModal;
 
 /***/ },
-/* 166 */
+/* 168 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -20596,7 +20699,8 @@
 				"purpose": "personal",
 				"target": "sudoku",
 				"text": [
-					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+					"Progressive Web App version of Sudoku.",
+					"The game was built as a personal project while learning React, the joy of data structures and algorithms (delving into all of the wonderful logic of how to make a filled-out Sudoku board, scramble the numbers a bit, and remove numbers albeit only to the extent that they can be deduced without need to resort to guessing), Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
 				],
 				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 			},
@@ -20614,7 +20718,8 @@
 				"purpose": "personal",
 				"target": "hangman",
 				"text": [
-					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+					"Progressive Web App version of the familiar word game Hangman, albeit with SAT words.",
+					"The game was built as a personal project while learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
 				],
 				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 			},
@@ -20632,7 +20737,8 @@
 				"purpose": "personal",
 				"target": "tic-tac-toe",
 				"text": [
-					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+					"Progressive Web App version of Tic-Tac-Toe.",
+					"The game was built as a personal project while playing with JavaScript logic, delving into ES6, and learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
 				],
 				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 			},
@@ -20646,6 +20752,7 @@
 				"meteor": true,
 				"react": false,
 				"pwa": false,
+				"webrtc": true,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "portcal",
@@ -20683,6 +20790,7 @@
 				"react": false,
 				"pwa": false,
 				"lamp": true,
+				"php": true,
 				"purpose": "client",
 				"target": "booksmart",
 				"text": [
@@ -20700,7 +20808,8 @@
 				"meteor": false,
 				"react": false,
 				"pwa": false,
-				"lamp": true,
+				"lamp": false,
+				"php": true,
 				"purpose": "client",
 				"target": "aloha",
 				"text": [
@@ -20712,7 +20821,7 @@
 	};
 
 /***/ },
-/* 167 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20725,23 +20834,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(168);
+	var _FormElement = __webpack_require__(170);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(169);
+	var _Messages = __webpack_require__(171);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(171);
+	var _Errors = __webpack_require__(173);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _FindMe = __webpack_require__(172);
+	var _FindMe = __webpack_require__(174);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
-	var _Copyright = __webpack_require__(173);
+	var _Copyright = __webpack_require__(175);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -20856,7 +20965,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 168 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20964,7 +21073,7 @@
 	// </div>
 
 /***/ },
-/* 169 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20977,7 +21086,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(170);
+	var _Message = __webpack_require__(172);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -21000,7 +21109,7 @@
 	exports.default = Messages;
 
 /***/ },
-/* 170 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21027,7 +21136,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 171 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21040,7 +21149,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(170);
+	var _Message = __webpack_require__(172);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -21063,7 +21172,7 @@
 	exports.default = Errors;
 
 /***/ },
-/* 172 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21194,7 +21303,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 173 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
