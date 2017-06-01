@@ -1348,7 +1348,7 @@
 
 /* Button */
 
-	input[type="button"],
+/*	input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
 	button,
@@ -1375,7 +1375,40 @@
 		overflow: hidden;
 		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.5), inset 0px 2px 1px 0px rgba(255, 255, 255, 0.75);
 		background-color: #43B3E0;
+	}*/
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+		-webkit-transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+		-ms-transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+		transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+		border: 2px solid #43bff0;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		letter-spacing: 0.125em;
+		text-align: center;
+		margin: 1.25em;
+		text-decoration: none;
+	/*	text-transform: uppercase;*/
+		/*white-space: nowrap;*/
+		font-size: 0.75rem;
+		/*max-width: 20rem;*/
+		/*height: 2.5em;*/
+		/*line-height: 3.75em;*/
+		border-radius: 2.5em;
+		padding: .75em 1.25em;
+/*		text-overflow: ellipsis;*/
+		overflow: hidden;
 	}
+
 
 		input[type="button"]:hover,
 		input[type="submit"]:hover,
@@ -1420,6 +1453,34 @@
 			.button.alt:active {
 				background-color: #3f3f3f;
 			}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			background-color: #000000;
+			box-shadow: none;
+			color: #ffffff !important;
+		}
+
+			input[type="submit"].special:hover,
+			input[type="reset"].special:hover,
+			input[type="button"].special:hover,
+			button.special:hover,
+			.button.special:hover {
+				background-color: #47D3E5;
+			}
+
+			input[type="submit"].special:active,
+			input[type="reset"].special:active,
+			input[type="button"].special:active,
+			button.special:active,
+			.button.special:active {
+				background-color: #1ebdd1;
+			}
+
+
 
 /* List */
 
@@ -1893,26 +1954,6 @@
 				margin: 0 0.5em 0 0.5em;
 			}
 
-		/* Button */
-
-			input[type="button"],
-			input[type="submit"],
-			input[type="reset"],
-			button,
-			.button {
-				padding: 1em 2.35em 1em 2.35em;
-				font-size: 1.1em;
-			}
-
-				input[type="button"].big,
-				input[type="submit"].big,
-				input[type="reset"].big,
-				button.big,
-				.button.big {
-					font-size: 1.5em;
-					letter-spacing: -0.025em;
-				}
-
 		/* Box */
 
 			.box {
@@ -2122,9 +2163,6 @@
 			button,
 			.button {
 				text-align: center;
-				font-size: 1.2em;
-				width: 100%;
-				padding: 1em 0 1em 0;
 			}
 
 		/* List */
