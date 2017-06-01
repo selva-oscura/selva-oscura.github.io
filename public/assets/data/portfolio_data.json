@@ -91,6 +91,22 @@
 			"text": ["Progressive Web App version of Tic-Tac-Toe.", "The game was built as a personal project while playing with JavaScript logic, delving into ES6, and learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 		},{
+			"src": "public/img/color-slider.png",
+			"name": "Color Slider",
+			"git": "https://github.com/selva-oscura/react-color-slider",
+			"web": "",
+			"codepen": "https://codepen.io/stlouis_c/pen/RKWRYK",
+			"internalProject": false,
+			"node": true,
+			"meteor": false,
+			"react": true,
+			"pwa": false,
+			"lamp": false,
+			"purpose": "personal",
+			"target": "color-slider",
+			"text": ["React-based color slider.", "Just an excuse to play with React, state, event handlers, code reuse with components, a little dabbling with Facebook's Jest testing framework, HTML5's range input, and the hsla way of depicting colors."],
+			"technologies": "React.js, JavaScript/ES6, HTML5"
+		},{
 			"src": "public/img/portcal.jpg",
 			"name": "PoRTCal",
 			"git": "https://github.com/selva-oscura/poRTCal",
