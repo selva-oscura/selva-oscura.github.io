@@ -1,6 +1,44 @@
 import React from 'react';
+import SkillArea from './SkillArea';
 
 const Profile = () => {
+	const skillAreas = [
+		{
+			icon: "fa-user-circle",
+			skillArea: "Front End",
+			skills: [
+				"HTML5,",
+				"CSS3,",
+				"JavaScript / ES6,",
+				"jQuery,",
+				"React,",
+				"CSS Libraries: Bootstrap, Material Design, HTML5UP",
+			]
+		},{
+			icon: "fa-server",
+			skillArea: "Back End",
+			skills: [
+				"Node.js,",
+				"Meteor.js,",
+				"Express,",
+				"MongoDB,",
+				"PHP,",
+				"MySQL,",
+				"limited exp.: Python, Ruby"
+			]
+		},{
+			icon: "fa-cogs",
+			skillArea: "Sundry",
+			skills: [
+				"Progressive Web Apps (PWAs),",
+				"Version Control: Git,",
+				"PaaS: Galaxy, Heroku,",
+				"DBaaS: mLab,",
+				"APIs: Facebook, Instagram, OpenWeather,",
+				"Wireframe: Balsamiq",
+			]
+		}
+	]
 	return (
 		<div className="wrapper style2">
 			<article id="profile">
@@ -15,48 +53,13 @@ const Profile = () => {
 				</header>
 				<div className="container">
 					<div className="row">
-						<div className="4u 12u(mobile)">
-							<section className="box style1">
-								<span className="icon featured fa-user-circle"></span>
-								<h3>Front-End</h3>
-								<p>
-									HTML5,<br />
-									CSS3,<br />
-									JavaScript / ES6,<br />
-									jQuery,<br />
-									React,<br />
-									Bootstrap, Material Design
-								</p>
-							</section>
-						</div>
-						<div className="4u 12u(mobile)">
-							<section className="box style1">
-								<span className="icon featured fa-server"></span>
-								<h3>Back-End</h3>
-								<p>
-									Node.js,<br />
-									Meteor.js<br />
-									Express,<br />
-									MongoDB, <br />
-									PHP,<br />
-									MySQL
-								</p>
-							</section>
-						</div>
-						<div className="4u 12u(mobile)">
-							<section className="box style1">
-								<span className="icon featured fa-cogs"></span>
-								<h3>Sundry</h3>
-								<p>
-									Progressive Web Apps (PWAs),<br />
-									Version Control: Git,<br />
-									PaaS: Galaxy, Heroku, <br />
-									DBaaS: mLab,<br />
-									APIs: Facebook, Instagram<br />
-									Wireframe: Balsamiq
-								</p>
-							</section>
-						</div>
+						{skillAreas.map((skillArea, i) => (
+								<SkillArea
+									key={i}
+									skillArea={skillArea}
+								/>
+							)
+						)}
 					</div>
 				</div>
 				<footer>
