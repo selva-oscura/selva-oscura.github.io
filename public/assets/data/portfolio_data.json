@@ -105,7 +105,7 @@
 			"purpose": "personal",
 			"target": "color-slider",
 			"text": ["React-based color slider.", "Just an excuse to play with React, state, event handlers, code reuse with components, a little dabbling with Facebook's Jest testing framework, HTML5's range input, and the hsla way of depicting colors."],
-			"technologies": "React.js, JavaScript/ES6, HTML5"
+			"technologies": "React.js, JavaScript, HTML5"
 		},{
 			"src": "public/img/portcal.jpg",
 			"name": "PoRTCal",
