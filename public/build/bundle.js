@@ -20146,7 +20146,7 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -20156,142 +20156,78 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _SkillArea = __webpack_require__(176);
+	
+	var _SkillArea2 = _interopRequireDefault(_SkillArea);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Profile = function Profile() {
+		var skillAreas = [{
+			icon: "fa-user-circle",
+			skillArea: "Front End",
+			skills: ["HTML5,", "CSS3,", "JavaScript / ES6,", "jQuery,", "React,", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
+		}, {
+			icon: "fa-server",
+			skillArea: "Back End",
+			skills: ["Node.js,", "Meteor.js,", "Express,", "MongoDB,", "PHP,", "MySQL,", "limited exp.: Python, Ruby"]
+		}, {
+			icon: "fa-cogs",
+			skillArea: "Sundry",
+			skills: ["Progressive Web Apps (PWAs),", "Version Control: Git,", "PaaS: Galaxy, Heroku,", "DBaaS: mLab,", "APIs: Facebook, Instagram, OpenWeather,", "Wireframe: Balsamiq"]
+		}];
 		return _react2.default.createElement(
-			"div",
-			{ className: "wrapper style2" },
+			'div',
+			{ className: 'wrapper style2' },
 			_react2.default.createElement(
-				"article",
-				{ id: "profile" },
+				'article',
+				{ id: 'profile' },
 				_react2.default.createElement(
-					"header",
+					'header',
 					null,
 					_react2.default.createElement(
-						"h2",
+						'h2',
 						null,
-						"Skills & Experience"
+						'Skills & Experience'
 					),
 					_react2.default.createElement(
-						"p",
+						'p',
 						null,
-						"My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).",
-						_react2.default.createElement("br", null),
-						"Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.",
-						_react2.default.createElement("br", null),
-						"Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).",
-						_react2.default.createElement("br", null),
-						"I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby."
+						'My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).',
+						_react2.default.createElement('br', null),
+						'Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.',
+						_react2.default.createElement('br', null),
+						'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).',
+						_react2.default.createElement('br', null),
+						'I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby.'
 					)
 				),
 				_react2.default.createElement(
-					"div",
-					{ className: "container" },
+					'div',
+					{ className: 'container' },
 					_react2.default.createElement(
-						"div",
-						{ className: "row" },
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"section",
-								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-user-circle" }),
-								_react2.default.createElement(
-									"h3",
-									null,
-									"Front-End"
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"HTML5,",
-									_react2.default.createElement("br", null),
-									"CSS3,",
-									_react2.default.createElement("br", null),
-									"JavaScript / ES6,",
-									_react2.default.createElement("br", null),
-									"jQuery,",
-									_react2.default.createElement("br", null),
-									"React,",
-									_react2.default.createElement("br", null),
-									"Bootstrap, Material Design"
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"section",
-								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-server" }),
-								_react2.default.createElement(
-									"h3",
-									null,
-									"Back-End"
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Node.js,",
-									_react2.default.createElement("br", null),
-									"Meteor.js",
-									_react2.default.createElement("br", null),
-									"Express,",
-									_react2.default.createElement("br", null),
-									"MongoDB, ",
-									_react2.default.createElement("br", null),
-									"PHP,",
-									_react2.default.createElement("br", null),
-									"MySQL"
-								)
-							)
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "4u 12u(mobile)" },
-							_react2.default.createElement(
-								"section",
-								{ className: "box style1" },
-								_react2.default.createElement("span", { className: "icon featured fa-cogs" }),
-								_react2.default.createElement(
-									"h3",
-									null,
-									"Sundry"
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									"Progressive Web Apps (PWAs),",
-									_react2.default.createElement("br", null),
-									"Version Control: Git,",
-									_react2.default.createElement("br", null),
-									"PaaS: Galaxy, Heroku, ",
-									_react2.default.createElement("br", null),
-									"DBaaS: mLab,",
-									_react2.default.createElement("br", null),
-									"APIs: Facebook, Instagram",
-									_react2.default.createElement("br", null),
-									"Wireframe: Balsamiq"
-								)
-							)
-						)
+						'div',
+						{ className: 'row' },
+						skillAreas.map(function (skillArea, i) {
+							return _react2.default.createElement(_SkillArea2.default, {
+								key: i,
+								skillArea: skillArea
+							});
+						})
 					)
 				),
 				_react2.default.createElement(
-					"footer",
+					'footer',
 					null,
 					_react2.default.createElement(
-						"p",
+						'p',
 						null,
-						"Lorem ipsum dolor sit sapien vestibulum ipsum primis?"
+						'Lorem ipsum dolor sit sapien vestibulum ipsum primis?'
 					),
 					_react2.default.createElement(
-						"a",
-						{ href: "#portfolio", className: "button big scrolly" },
-						"See some of my recent work"
+						'a',
+						{ href: '#portfolio', className: 'button big scrolly' },
+						'See some of my recent work'
 					)
 				)
 			)
@@ -20775,7 +20711,7 @@
 					"React-based color slider.",
 					"Just an excuse to play with React, state, event handlers, code reuse with components, a little dabbling with Facebook's Jest testing framework, HTML5's range input, and the hsla way of depicting colors."
 				],
-				"technologies": "React.js, JavaScript/ES6, HTML5"
+				"technologies": "React.js, JavaScript, HTML5"
 			},
 			{
 				"src": "public/img/portcal.jpg",
@@ -21380,6 +21316,54 @@
 	};
 	
 	exports.default = Copyright;
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SkillArea = function SkillArea(props) {
+		return _react2.default.createElement(
+			"div",
+			{ className: "4u 12u(mobile)" },
+			_react2.default.createElement(
+				"section",
+				{ className: "box style1" },
+				_react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
+				_react2.default.createElement(
+					"h3",
+					null,
+					props.skillArea.skillArea
+				),
+				_react2.default.createElement(
+					"p",
+					null,
+					props.skillArea.skills.map(function (skill, i) {
+						return _react2.default.createElement(
+							"span",
+							{ key: i },
+							skill,
+							" ",
+							_react2.default.createElement("br", null)
+						);
+					})
+				)
+			)
+		);
+	};
+	
+	exports.default = SkillArea;
 
 /***/ }
 /******/ ]);
