@@ -10,8 +10,10 @@ const Profile = () => {
 				"HTML5,",
 				"CSS3,",
 				"JavaScript / ES6,",
-				"jQuery,",
 				"React,",
+				"Redux,",
+				"jQuery,",
+				"Angular,",
 				"CSS Libraries: Bootstrap, Material Design, HTML5UP",
 			]
 		},{
@@ -19,22 +21,23 @@ const Profile = () => {
 			skillArea: "Back End",
 			skills: [
 				"Node.js,",
+				"MongoDB,",
 				"Meteor.js,",
 				"Express,",
-				"MongoDB,",
 				"PHP,",
 				"MySQL,",
-				"limited exp.: Python, Ruby"
+				"limited exp.: Python, Ruby, Golang, & Elm",
 			]
 		},{
 			icon: "fa-cogs",
 			skillArea: "Sundry",
 			skills: [
-				"Progressive Web Apps (PWAs),",
-				"Version Control: Git,",
-				"PaaS: Galaxy, Heroku,",
-				"DBaaS: mLab,",
-				"APIs: Facebook, Instagram, OpenWeather,",
+				"Package Management: npm, yarn",
+				"Version Control: git",
+				"Progressive Web Apps (PWAs)",
+				"PaaS: Galaxy, Heroku",
+				"DBaaS: mLab",
+				"APIs: Facebook, Instagram, & OpenWeather",
 				"Wireframe: Balsamiq",
 			]
 		}
@@ -42,16 +45,16 @@ const Profile = () => {
 	return (
 		<div className="wrapper style2">
 			<article id="profile">
-				<header>
-					<h2>Skills &amp; Experience</h2>
-					<p>
-						My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).<br />
-						Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.<br />
-						Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).<br />
-						I&rsquo;ve also dabbled in Elm, GoLang, Python, and Ruby.
-					</p>
-				</header>
 				<div className="container">
+					<header>
+						<h2>Skills &amp; Experience</h2>
+						<ul>
+							<li>My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).</li>
+							<li>Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.</li>
+							<li>Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).</li>
+							<li>I&rsquo;ve also dabbled in Elm, GoLang, Python, and Ruby.</li>
+						</ul>
+					</header>
 					<div className="row">
 						{skillAreas.map((skillArea, i) => (
 								<SkillArea
@@ -61,6 +64,8 @@ const Profile = () => {
 							)
 						)}
 					</div>
+				</div>
+				<div className="container">
 				</div>
 				<footer>
 					<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
