@@ -7,7 +7,7 @@ import Copyright from './Copyright';
 
 const Contact = (props) => {
 	return (
-		<div className="wrapper style4">
+		<div className="wrapper style1">
 			<article id="contact" className="container 75%">
 				<header>
 					<h2>Have me make stuff for you.</h2>
