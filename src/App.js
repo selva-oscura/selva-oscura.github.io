@@ -82,7 +82,7 @@ class App extends Component {
 	}
 	setProjectFilters(projectFilter){
 		let projectFilters = this.state.projectFilters;
-		if(projectFilter[0]==="all"){
+		if(projectFilter[0]==="all" || projectFilter[0]==="reset"){
 			projectFilters = [];
 		}else{
 			if(projectFilters.includes(projectFilter[0])){
