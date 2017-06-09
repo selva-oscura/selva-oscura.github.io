@@ -2,6 +2,7 @@ import React from 'react';
 import ProjectFilters from './ProjectFilters';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
+import ProjectFilterButton from './ProjectFilterButton';
 import data from '../../public/assets/data/portfolio_data.json';
 
 
@@ -10,6 +11,7 @@ const Portfolio = (props) => {
 	props.projectFilters.forEach((projectFilter) => {
 		projects = projects.filter((project) => {return project[projectFilter]});
 	});
+	let resetFilters = {"reset": "Reset All"};
 	return (
 		<div className="wrapper style3">
 			<article id="portfolio">
@@ -24,29 +26,38 @@ const Portfolio = (props) => {
 				<div className="container">
 					<div className="row">
 						{
-							projects.length>0 ? (
-								projects.map((project, i) => (
-									<Project
-										key={i}
-										project={project}
-										num={i}
-										selectProject={props.selectProject}
-									/>
-								))
-							):(
-								<p>No projects meeting your criteria. Reset your search critera.</p>
-							)
+							projects.map((project, i) => (
+								<Project
+									key={i}
+									project={project}
+									num={i}
+									selectProject={props.selectProject}
+								/>
+							))
 						}
 					</div>
 					{
-						projects.map((project, i) => (
-							<ProjectModal
-								key={i}
-								project={project}
-								selectedProject={props.selectedProject}
-								unselectProject={props.unselectProject}
-							/>
-						))
+						projects.length>0 ? (
+							projects.map((project, i) => (
+								<ProjectModal
+									key={i}
+									project={project}
+									selectedProject={props.selectedProject}
+									unselectProject={props.unselectProject}
+								/>
+							))
+						):(
+							<div>
+								<p>No projects meeting your criteria. <br />
+									De-select a filter or reset all search critera.
+								</p>
+								<ProjectFilterButton
+									filter={resetFilters} 
+									setProjectFilters={props.setProjectFilters}
+									projectFilters={props.projectFilters}
+								/>
+							</div>
+						)
 					}
 				</div>
 				<footer>
