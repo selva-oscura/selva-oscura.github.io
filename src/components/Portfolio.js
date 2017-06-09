@@ -23,23 +23,31 @@ const Portfolio = (props) => {
 				</header>
 				<div className="container">
 					<div className="row">
-						{projects.map((project, i) => (
-							<Project
-								key={i}
-								project={project}
-								num={i}
-								selectProject={props.selectProject}
-							/>
-						))}
-						{data.projects.map((project, i) => (
+						{
+							projects.length>0 ? (
+								projects.map((project, i) => (
+									<Project
+										key={i}
+										project={project}
+										num={i}
+										selectProject={props.selectProject}
+									/>
+								))
+							):(
+								<p>No projects meeting your criteria. Reset your search critera.</p>
+							)
+						}
+					</div>
+					{
+						projects.map((project, i) => (
 							<ProjectModal
 								key={i}
 								project={project}
 								selectedProject={props.selectedProject}
 								unselectProject={props.unselectProject}
 							/>
-						))}
-					</div>
+						))
+					}
 				</div>
 				<footer>
 					<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
