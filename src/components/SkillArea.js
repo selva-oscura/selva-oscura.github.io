@@ -6,12 +6,9 @@ const SkillArea = (props) => {
 			<section className="box style1">
 				<span className={`icon featured ${props.skillArea.icon}`}></span>
 				<h3>{props.skillArea.skillArea}</h3>
-				<p>
-					{props.skillArea.skills.map((skill, i) => (
-						<span key={i}>{skill} <br /></span>
-						)
-					)}
-				</p>
+				<ul>
+					{props.skillArea.skills.map((skill, i) => (<li key={i}>{skill}</li>))}
+				</ul>
 			</section>
 		</div>
 	)
