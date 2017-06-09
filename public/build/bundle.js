@@ -158,7 +158,7 @@
 			key: 'setProjectFilters',
 			value: function setProjectFilters(projectFilter) {
 				var projectFilters = this.state.projectFilters;
-				if (projectFilter[0] === "all") {
+				if (projectFilter[0] === "all" || projectFilter[0] === "reset") {
 					projectFilters = [];
 				} else {
 					if (projectFilters.includes(projectFilter[0])) {
@@ -19980,11 +19980,11 @@
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _Portfolio = __webpack_require__(163);
+	var _Portfolio = __webpack_require__(164);
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Contact = __webpack_require__(169);
+	var _Contact = __webpack_require__(170);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
@@ -20156,7 +20156,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _SkillArea = __webpack_require__(176);
+	var _SkillArea = __webpack_require__(163);
 	
 	var _SkillArea2 = _interopRequireDefault(_SkillArea);
 	
@@ -20166,15 +20166,15 @@
 		var skillAreas = [{
 			icon: "fa-user-circle",
 			skillArea: "Front End",
-			skills: ["HTML5,", "CSS3,", "JavaScript / ES6,", "jQuery,", "React,", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
+			skills: ["HTML5,", "CSS3,", "JavaScript / ES6,", "React,", "Redux,", "jQuery,", "Angular,", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
 		}, {
 			icon: "fa-server",
 			skillArea: "Back End",
-			skills: ["Node.js,", "Meteor.js,", "Express,", "MongoDB,", "PHP,", "MySQL,", "limited exp.: Python, Ruby"]
+			skills: ["Node.js,", "MongoDB,", "Meteor.js,", "Express,", "PHP,", "MySQL,", "limited exp.: Python, Ruby, Golang, & Elm"]
 		}, {
 			icon: "fa-cogs",
 			skillArea: "Sundry",
-			skills: ["Progressive Web Apps (PWAs),", "Version Control: Git,", "PaaS: Galaxy, Heroku,", "DBaaS: mLab,", "APIs: Facebook, Instagram, OpenWeather,", "Wireframe: Balsamiq"]
+			skills: ["Package Management: npm, yarn", "Version Control: git", "Progressive Web Apps (PWAs)", "PaaS: Galaxy, Heroku", "DBaaS: mLab", "APIs: Facebook, Instagram, & OpenWeather", "Wireframe: Balsamiq"]
 		}];
 		return _react2.default.createElement(
 			'div',
@@ -20183,28 +20183,41 @@
 				'article',
 				{ id: 'profile' },
 				_react2.default.createElement(
-					'header',
-					null,
-					_react2.default.createElement(
-						'h2',
-						null,
-						'Skills & Experience'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).',
-						_react2.default.createElement('br', null),
-						'Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.',
-						_react2.default.createElement('br', null),
-						'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).',
-						_react2.default.createElement('br', null),
-						'I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby.'
-					)
-				),
-				_react2.default.createElement(
 					'div',
 					{ className: 'container' },
+					_react2.default.createElement(
+						'header',
+						null,
+						_react2.default.createElement(
+							'h2',
+							null,
+							'Skills & Experience'
+						),
+						_react2.default.createElement(
+							'ul',
+							null,
+							_react2.default.createElement(
+								'li',
+								null,
+								'My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).'
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.'
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).'
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby.'
+							)
+						)
+					),
 					_react2.default.createElement(
 						'div',
 						{ className: 'row' },
@@ -20216,6 +20229,7 @@
 						})
 					)
 				),
+				_react2.default.createElement('div', { className: 'container' }),
 				_react2.default.createElement(
 					'footer',
 					null,
@@ -20240,6 +20254,52 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SkillArea = function SkillArea(props) {
+		return _react2.default.createElement(
+			"div",
+			{ className: "4u 12u(mobile)" },
+			_react2.default.createElement(
+				"section",
+				{ className: "box style1" },
+				_react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
+				_react2.default.createElement(
+					"h3",
+					null,
+					props.skillArea.skillArea
+				),
+				_react2.default.createElement(
+					"ul",
+					null,
+					props.skillArea.skills.map(function (skill, i) {
+						return _react2.default.createElement(
+							"li",
+							{ key: i },
+							skill
+						);
+					})
+				)
+			)
+		);
+	};
+	
+	exports.default = SkillArea;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -20250,19 +20310,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProjectFilters = __webpack_require__(164);
+	var _ProjectFilters = __webpack_require__(165);
 	
 	var _ProjectFilters2 = _interopRequireDefault(_ProjectFilters);
 	
-	var _Project = __webpack_require__(166);
+	var _Project = __webpack_require__(167);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
-	var _ProjectModal = __webpack_require__(167);
+	var _ProjectModal = __webpack_require__(168);
 	
 	var _ProjectModal2 = _interopRequireDefault(_ProjectModal);
 	
-	var _portfolio_data = __webpack_require__(168);
+	var _ProjectFilterButton = __webpack_require__(166);
+	
+	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
+	
+	var _portfolio_data = __webpack_require__(169);
 	
 	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
 	
@@ -20275,6 +20339,7 @@
 				return project[projectFilter];
 			});
 		});
+		var resetFilters = { "reset": "Reset All" };
 		return _react2.default.createElement(
 			'div',
 			{ className: 'wrapper style3' },
@@ -20312,14 +20377,29 @@
 								num: i,
 								selectProject: props.selectProject
 							});
-						}),
-						_portfolio_data2.default.projects.map(function (project, i) {
-							return _react2.default.createElement(_ProjectModal2.default, {
-								key: i,
-								project: project,
-								selectedProject: props.selectedProject,
-								unselectProject: props.unselectProject
-							});
+						})
+					),
+					projects.length > 0 ? projects.map(function (project, i) {
+						return _react2.default.createElement(_ProjectModal2.default, {
+							key: i,
+							project: project,
+							selectedProject: props.selectedProject,
+							unselectProject: props.unselectProject
+						});
+					}) : _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'p',
+							null,
+							'No projects meeting your criteria. ',
+							_react2.default.createElement('br', null),
+							'De-select a filter or reset all search critera.'
+						),
+						_react2.default.createElement(_ProjectFilterButton2.default, {
+							filter: resetFilters,
+							setProjectFilters: props.setProjectFilters,
+							projectFilters: props.projectFilters
 						})
 					)
 				),
@@ -20344,7 +20424,7 @@
 	exports.default = Portfolio;
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20357,7 +20437,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProjectFilterButton = __webpack_require__(165);
+	var _ProjectFilterButton = __webpack_require__(166);
 	
 	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
 	
@@ -20382,7 +20462,7 @@
 	exports.default = ProjectFilters;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20418,7 +20498,7 @@
 	exports.default = ProjectFilterButton;
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20463,7 +20543,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20545,26 +20625,38 @@
 						"div",
 						{ className: "half text-left" },
 						props.project.web ? _react2.default.createElement(
-							"a",
-							{ href: props.project.web, target: props.project.target },
-							_react2.default.createElement("span", { className: "icon featured fa-globe" }),
-							" Project Website"
+							"p",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: props.project.web, target: props.project.target },
+								_react2.default.createElement("span", { className: "icon featured fa-globe" }),
+								" Project Website"
+							)
 						) : " ",
 						props.project.codepen ? _react2.default.createElement(
-							"a",
-							{ href: props.project.codepen, target: props.project.target },
-							_react2.default.createElement("span", { className: "icon featured fa-codepen" }),
-							" Project Codepen"
+							"p",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: props.project.codepen, target: props.project.target },
+								_react2.default.createElement("span", { className: "icon featured fa-codepen" }),
+								" Project Codepen"
+							)
 						) : " "
 					),
 					_react2.default.createElement(
 						"div",
 						{ className: "half text-right" },
 						props.project.git ? _react2.default.createElement(
-							"a",
-							{ href: props.project.git, target: props.project.target },
-							_react2.default.createElement("span", { className: "icon featured fa-github" }),
-							" Project Repo"
+							"p",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: props.project.git, target: props.project.target },
+								_react2.default.createElement("span", { className: "icon featured fa-github" }),
+								" Project Repo"
+							)
 						) : " "
 					)
 				)
@@ -20575,7 +20667,7 @@
 	exports.default = ProjectModal;
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -20792,7 +20884,7 @@
 	};
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20805,23 +20897,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(170);
+	var _FormElement = __webpack_require__(171);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(171);
+	var _Messages = __webpack_require__(172);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(173);
+	var _Errors = __webpack_require__(174);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _FindMe = __webpack_require__(174);
+	var _FindMe = __webpack_require__(175);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
-	var _Copyright = __webpack_require__(175);
+	var _Copyright = __webpack_require__(176);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -20830,7 +20922,7 @@
 	var Contact = function Contact(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'wrapper style4' },
+			{ className: 'wrapper style1' },
 			_react2.default.createElement(
 				'article',
 				{ id: 'contact', className: 'container 75%' },
@@ -20936,7 +21028,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21044,7 +21136,7 @@
 	// </div>
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21057,7 +21149,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(172);
+	var _Message = __webpack_require__(173);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -21080,7 +21172,7 @@
 	exports.default = Messages;
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21107,7 +21199,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21120,7 +21212,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(172);
+	var _Message = __webpack_require__(173);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -21143,7 +21235,7 @@
 	exports.default = Errors;
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21274,7 +21366,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21316,54 +21408,6 @@
 	};
 	
 	exports.default = Copyright;
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var SkillArea = function SkillArea(props) {
-		return _react2.default.createElement(
-			"div",
-			{ className: "4u 12u(mobile)" },
-			_react2.default.createElement(
-				"section",
-				{ className: "box style1" },
-				_react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
-				_react2.default.createElement(
-					"h3",
-					null,
-					props.skillArea.skillArea
-				),
-				_react2.default.createElement(
-					"p",
-					null,
-					props.skillArea.skills.map(function (skill, i) {
-						return _react2.default.createElement(
-							"span",
-							{ key: i },
-							skill,
-							" ",
-							_react2.default.createElement("br", null)
-						);
-					})
-				)
-			)
-		);
-	};
-	
-	exports.default = SkillArea;
 
 /***/ }
 /******/ ]);
