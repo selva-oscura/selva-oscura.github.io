@@ -1695,7 +1695,7 @@
 		.wrapper.first{
 			box-shadow: none;
 			min-height: 100vh;
-		  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/banner.jpg);
+		  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/bay-by-night.jpg);
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
@@ -1704,6 +1704,17 @@
 		  background-repeat: no-repeat;
 		}
 
+		.wrapper.contact-wrapper{
+			box-shadow: none;
+			min-height: 100vh;
+		  background-image: -webkit-linear-gradient(top, rgba(255, 245, 225, 0.5), rgba(255, 245, 225, 0.5)), url(../../images/golden-gate-at-twilight.jpg);
+		  background-attachment: fixed;
+		  background-size: cover;
+		  text-align: center;
+		  padding: 12em 0px 10em;
+		  background-position: center center;
+		  background-repeat: no-repeat;
+		}
 /* Nav */
 
 	#nav {
