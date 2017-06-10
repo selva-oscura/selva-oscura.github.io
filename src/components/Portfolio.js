@@ -13,7 +13,7 @@ const Portfolio = (props) => {
 	});
 	let resetFilters = {"reset": "Reset All"};
 	return (
-		<div className="wrapper style3">
+		<div className="wrapper style1">
 			<article id="portfolio">
 				<header>
 					<h2>Projects</h2>
