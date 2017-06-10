@@ -20342,7 +20342,7 @@
 		var resetFilters = { "reset": "Reset All" };
 		return _react2.default.createElement(
 			'div',
-			{ className: 'wrapper style3' },
+			{ className: 'wrapper style1' },
 			_react2.default.createElement(
 				'article',
 				{ id: 'portfolio' },
@@ -20922,7 +20922,7 @@
 	var Contact = function Contact(props) {
 		return _react2.default.createElement(
 			'div',
-			{ className: 'wrapper style1' },
+			{ className: 'wrapper contact-wrapper' },
 			_react2.default.createElement(
 				'article',
 				{ id: 'contact', className: 'container 75%' },
