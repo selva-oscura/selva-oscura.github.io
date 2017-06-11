@@ -75,6 +75,3 @@ const FormElement = (props) => {
 }
 
 export default FormElement;
-					// <div className="buttons"
-					// >
-					// </div>
