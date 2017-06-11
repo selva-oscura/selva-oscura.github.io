@@ -2,8 +2,6 @@ import React from 'react';
 import FormElement from './FormElement';
 import Messages from './Messages';
 import Errors from './Errors';
-import FindMe from './FindMe';
-import Copyright from './Copyright';
 
 const Contact = (props) => {
 	return (
@@ -76,9 +74,7 @@ const Contact = (props) => {
 						</form>
 					</div>
 				</div>
-				<FindMe />
 			</article>
-			<Copyright />
 		</div>
 	)
 }
