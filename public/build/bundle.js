@@ -205,7 +205,8 @@
 						form: this.state.form,
 						updateFormState: this.updateFormState,
 						submitMailForm: this.submitMailForm
-					})
+					}),
+					_react2.default.createElement(_index.FindMe, null)
 				);
 			}
 		}]);
@@ -19966,7 +19967,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.Contact = exports.Portfolio = exports.Profile = exports.Home = exports.Nav = undefined;
+	exports.FindMe = exports.Contact = exports.Portfolio = exports.Profile = exports.Home = exports.Nav = undefined;
 	
 	var _Nav = __webpack_require__(160);
 	
@@ -19988,6 +19989,10 @@
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
+	var _FindMe = __webpack_require__(175);
+	
+	var _FindMe2 = _interopRequireDefault(_FindMe);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.Nav = _Nav2.default;
@@ -19995,6 +20000,7 @@
 	exports.Profile = _Profile2.default;
 	exports.Portfolio = _Portfolio2.default;
 	exports.Contact = _Contact2.default;
+	exports.FindMe = _FindMe2.default;
 
 /***/ },
 /* 160 */
@@ -20909,14 +20915,6 @@
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
-	var _FindMe = __webpack_require__(175);
-	
-	var _FindMe2 = _interopRequireDefault(_FindMe);
-	
-	var _Copyright = __webpack_require__(176);
-	
-	var _Copyright2 = _interopRequireDefault(_Copyright);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Contact = function Contact(props) {
@@ -21018,10 +21016,8 @@
 							)
 						)
 					)
-				),
-				_react2.default.createElement(_FindMe2.default, null)
-			),
-			_react2.default.createElement(_Copyright2.default, null)
+				)
+			)
 		);
 	};
 	
@@ -21131,9 +21127,6 @@
 	};
 	
 	exports.default = FormElement;
-	// <div className="buttons"
-	// >
-	// </div>
 
 /***/ },
 /* 172 */
@@ -21238,7 +21231,7 @@
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21248,118 +21241,116 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Copyright = __webpack_require__(176);
+	
+	var _Copyright2 = _interopRequireDefault(_Copyright);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var FindMe = function FindMe() {
 		return _react2.default.createElement(
-			"div",
-			{ className: "row" },
+			'div',
+			{ className: 'wrapper style4' },
 			_react2.default.createElement(
-				"div",
-				{ className: "12u" },
-				_react2.default.createElement("hr", null),
+				'article',
+				{ className: 'container' },
 				_react2.default.createElement(
-					"h3",
-					null,
-					"Find me on ..."
-				),
-				_react2.default.createElement(
-					"ul",
-					{ className: "social" },
+					'div',
+					{ className: 'row' },
 					_react2.default.createElement(
-						"li",
-						null,
+						'div',
+						{ className: '12u' },
 						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-twitter" },
-							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Twitter"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
+							'h3',
+							null,
+							'Find me on ...'
+						),
 						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-facebook" },
+							'ul',
+							{ className: 'social' },
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Facebook"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-dribbble" },
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-twitter' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Twitter'
+									)
+								)
+							),
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Dribbble"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-linkedin" },
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-facebook' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Facebook'
+									)
+								)
+							),
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"LinkedIn"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-tumblr" },
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-linkedin' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'LinkedIn'
+									)
+								)
+							),
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Tumblr"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-google-plus" },
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-tumblr' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Tumblr'
+									)
+								)
+							),
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Google+"
-							)
-						)
-					),
-					_react2.default.createElement(
-						"li",
-						null,
-						_react2.default.createElement(
-							"a",
-							{ href: "blah", className: "icon fa-github" },
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-google-plus' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Google+'
+									)
+								)
+							),
 							_react2.default.createElement(
-								"span",
-								{ className: "label" },
-								"Github"
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'blah', className: 'icon fa-github' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Github'
+									)
+								)
 							)
 						)
 					)
-				),
-				_react2.default.createElement("hr", null)
-			)
+				)
+			),
+			_react2.default.createElement(_Copyright2.default, null)
 		);
 	};
 	
