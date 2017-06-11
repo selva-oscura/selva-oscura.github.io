@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Nav, Home, Profile, Portfolio, Contact } from './components/index';
+import { Nav, Home, Profile, Portfolio, Contact, FindMe } from './components/index';
 
 class App extends Component {
 	constructor(props){
@@ -126,6 +126,8 @@ class App extends Component {
 					updateFormState={this.updateFormState}
 					submitMailForm={this.submitMailForm}
 				/>
+
+				<FindMe />
 
 			</div>
 		)
