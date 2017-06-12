@@ -2313,3 +2313,24 @@
 	line-height: 1.2em;
 	margin: 1em 0;
 }
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.flex-grid-thirds .col {
+  width: 32%;
+  background-color: white;
+  padding: 2em 1em 1em 1em;
+}
+
+@media (max-width: 600px) {
+  .flex-grid-thirds {
+    display: block;
+  }
+  .flex-grid-thirds .col {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
