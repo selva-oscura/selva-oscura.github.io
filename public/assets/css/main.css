@@ -1202,7 +1202,7 @@
 		-webkit-appearance: none;
 		display: block;
 		border: 0;
-		padding: 0.75em;
+		padding: 0.3em;
 		font-size: 1em;
 		border-radius: 8px;
 		border: solid 1px #ddd;
@@ -1231,10 +1231,6 @@
 		.button ::-moz-focus-inner{
 			border:0;
 		}
-
-	form textarea {
-		height: 15em;
-	}
 
 	form .formerize-placeholder {
 		color: #555 !important;
@@ -1684,11 +1680,11 @@
 		.wrapper.contact-wrapper{
 			box-shadow: none;
 			min-height: 100vh;
-		  background-image: -webkit-linear-gradient(top, rgba(255, 245, 225, 0.5), rgba(255, 245, 225, 0.5)), url(../../images/golden-gate-at-twilight.jpg);
+		  background-image: -webkit-linear-gradient(top, rgba(255, 245, 225, 0.5), rgba(255, 245, 225, 0.8)), url(../../images/golden-gate-at-twilight.jpg);
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
-		  /*padding: 6em 0px 4em;*/
+		  padding: 6em 0px 4em;
 		  background-position: center center;
 		  background-repeat: no-repeat;
 			font-size: 1.5em;
@@ -1712,6 +1708,7 @@
 				-moz-box-shadow: inset 0px 0px 27px -8px rgba(0,0,0,0.5);
 				box-shadow: inset 0px 0px 27px -8px rgba(0,0,0,0.5);
 				transition: all cubic-bezier(0.61, -0.04, 0.32, 1.28) 1s;
+				color: rgba(160, 50, 40, 1);
 			}
 
 			.wrapper.contact-wrapper input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -1742,13 +1739,22 @@
 			.wrapper.contact-wrapper form input[type=email]:focus,
 			.wrapper.contact-wrapper form input[type=password]:focus,
 			.wrapper.contact-wrapper form select:focus,
+			.wrapper.contact-wrapper button:focus,
+			.wrapper.contact-wrapper .button:focus,
 			.wrapper.contact-wrapper form textarea:focus {
 			  outline: none;
+			  border:0;
 				background: rgba(255, 241, 210, 0.9);
 				border: 2px solid rgba(240, 165, 150, 0.75);
 				-webkit-box-shadow: inset 0px 0px 27px -8px rgba(240,0,0,0.75);
 				-moz-box-shadow: inset 0px 0px 27px -8px rgba(240,0,0,0.75);
 				box-shadow: inset 0px 0px 27px -8px rgba(240,0,0,0.75);
+			}
+
+			.wrapper.contact-wrapper form input ::-moz-focus-inner,
+			.wrapper.contact-wrapper button ::-moz-focus-inner,
+			.wrapper.contact-wrapper .button ::-moz-focus-inner{
+				border:0;
 			}
 
 			.wrapper.contact-wrapper input[type=".wrapper.contact-wrapper button"], .wrapper.contact-wrapper input[type="submit"], .wrapper.contact-wrapper input[type="reset"], .wrapper.contact-wrapper button, .wrapper.contact-wrapper .button {
@@ -1967,7 +1973,7 @@
 			}
 
 			h2 {
-				font-size: 2em;
+				font-size: 2.5em;
 			}
 
 			h3 {
@@ -1983,6 +1989,10 @@
 			}
 
 				header > p {
+					font-size: 1.5em;
+					margin: 0;
+				}
+				header > ul li {
 					font-size: 1.25em;
 					margin: 0;
 				}
@@ -2121,11 +2131,11 @@
 
 			body {
 				min-width: 960px;
-				font-size: 12pt;
+				font-size: 12px;
 			}
 
 			input, textarea, select {
-				font-size: 12pt;
+				font-size: 12px;
 			}
 
 			header {
@@ -2309,9 +2319,10 @@
 	}
 
 /* PROFILE SECTION */
+
 #profile ul li{
-	line-height: 1.2em;
-	margin: 1em 0;
+	line-height: 1.25em;
+	margin: .75em .25em;
 }
 
 .flex-grid-thirds {
@@ -2333,4 +2344,12 @@
     width: 100%;
     margin: 0 0 10px 0;
   }
+}
+
+
+/*Errors*/
+.Errors{
+	padding: 2em 0em 0em 0em;
+	font-weight: bold;
+	text-shadow: 0px 0px 4px white;
 }
