@@ -1210,15 +1210,26 @@
 		color: #bbb;
 		box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
 		width: 100%;
+		outline:0;
 	}
+
 
 		form input[type=text]:focus,
 		form input[type=email]:focus,
 		form input[type=password]:focus,
 		form select:focus,
-		form textarea:focus {
+		form textarea:focus,
+		form input[type=select]:focus,
+		button:focus,
+		.button:focus{
+			outline: none;
 			background: #fafafa;
 			box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025), inset 0px 0px 2px 1px #43bff0;
+		}
+		form input ::-moz-focus-inner,
+		button ::-moz-focus-inner,
+		.button ::-moz-focus-inner{
+			border:0;
 		}
 
 	form textarea {
@@ -1341,6 +1352,7 @@
 	input[type="button"],
 	button,
 	.button {
+		background-color: white;
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -1364,13 +1376,12 @@
 		overflow: hidden;
 	}
 
-
 		input[type="button"]:hover,
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #43bff0;
+			background-color: #43bff0 !important;
 			color: #fff !important;
 		}
 
@@ -1399,7 +1410,7 @@
 			button.alt:hover,
 			.button.alt:hover {
 				color: #000 !important;
-				background-color: buttonface;
+				background-color: white !important;
 			}
 
 			input[type="button"].alt:active,
@@ -1666,6 +1677,10 @@
 		  background-repeat: no-repeat;
 		}
 
+		.wrapper.first input[type="button"], .wrapper.first input[type="submit"], .wrapper.first input[type="reset"], .wrapper.first button, .wrapper.first .button {
+			background-color: transparent;
+		}
+
 		.wrapper.contact-wrapper{
 			box-shadow: none;
 			min-height: 100vh;
@@ -1673,7 +1688,7 @@
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
-		  padding: 12em 0px 10em;
+		  /*padding: 6em 0px 4em;*/
 		  background-position: center center;
 		  background-repeat: no-repeat;
 			font-size: 1.5em;
@@ -1744,7 +1759,7 @@
 			}
 
 			.wrapper.contact-wrapper input[type=".wrapper.contact-wrapper button"]:hover, .wrapper.contact-wrapper input[type="submit"]:hover, .wrapper.contact-wrapper input[type="reset"]:hover, .wrapper.contact-wrapper button:hover, .wrapper.contact-wrapper .button:hover {
-			  background-color: rgba(160, 50, 40, 1);
+			  background-color: rgba(160, 50, 40, 1) !important;
 			  color: rgba(240, 165, 150, 1) !important;
 			}
 /* Nav */
