@@ -3,7 +3,7 @@ import Message from './Message';
 
 const Messages = (props) => {
 	return (
-		<div>
+		<div className="Messages">
 			<p>
 				{props.messages.map((message, i) => (<Message key={i} message={message} />))}
 			</p>
