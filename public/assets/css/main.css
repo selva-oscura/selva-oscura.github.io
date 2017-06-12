@@ -848,7 +848,7 @@
 	@media screen and (max-width: 736px) {
 
 		.row > * {
-			padding: 15px 0 0 15px;
+  		padding: 0px 15px 0px 30px;
 		}
 
 		.row {
@@ -927,6 +927,9 @@
 			margin: -3.75px 0 -1px -3.75px;
 		}
 
+		header {
+			padding: 0 15px 0 15px;
+		}
 		.\31 2u\28mobile\29, .\31 2u\24\28mobile\29 {
 			width: 100%;
 			clear: none;
