@@ -2347,7 +2347,17 @@
 }
 
 
+/*Messages*/
+
+.Messages{
+	padding: 2em 0em 0em 0em;
+	font-weight: bold;
+	text-shadow: 0px 0px 4px white;
+}
+
+
 /*Errors*/
+
 .Errors{
 	padding: 2em 0em 0em 0em;
 	font-weight: bold;
