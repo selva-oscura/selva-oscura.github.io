@@ -50,12 +50,12 @@ const Profile = () => {
 						<h2>Skills &amp; Experience</h2>
 						<ul>
 							<li>My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).</li>
-							<li>Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.</li>
 							<li>Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).</li>
+							<li>Personal and hackathon projects have focused on JavaScript technologies and include: Progressive Web App (PWA) games utilizing React, web workers, and local storage; Meteor-based hackathon apps that used WebRTC; a Meteor-based hackathon app  that used geolocation and search criteria to match would-be pet owners with adoptable animals.</li>
 							<li>I&rsquo;ve also dabbled in Elm, GoLang, Python, and Ruby.</li>
 						</ul>
 					</header>
-					<div className="row">
+					<div className="flex-grid-thirds">
 						{skillAreas.map((skillArea, i) => (
 								<SkillArea
 									key={i}

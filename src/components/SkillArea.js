@@ -2,8 +2,8 @@ import React from 'react';
 
 const SkillArea = (props) => {
 	return (
-		<div className="4u 12u(mobile)">
-			<section className="box style1">
+		<div className="col style1">
+			<section>
 				<span className={`icon featured ${props.skillArea.icon}`}></span>
 				<h3>{props.skillArea.skillArea}</h3>
 				<ul>
@@ -15,3 +15,4 @@ const SkillArea = (props) => {
 }
 
 export default SkillArea;
+			// <section className="box style1">
