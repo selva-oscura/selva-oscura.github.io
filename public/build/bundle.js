@@ -21273,33 +21273,7 @@
 								null,
 								_react2.default.createElement(
 									'a',
-									{ href: 'blah', className: 'icon fa-twitter' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Twitter'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'blah', className: 'icon fa-facebook' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Facebook'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'blah', className: 'icon fa-linkedin' },
+									{ href: 'https://www.linkedin.com/in/stlouisc/', className: 'icon fa-linkedin' },
 									_react2.default.createElement(
 										'span',
 										{ className: 'label' },
@@ -21312,37 +21286,37 @@
 								null,
 								_react2.default.createElement(
 									'a',
-									{ href: 'blah', className: 'icon fa-tumblr' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Tumblr'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'blah', className: 'icon fa-google-plus' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Google+'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'blah', className: 'icon fa-github' },
+									{ href: 'https://github.com/selva-oscura', className: 'icon fa-github' },
 									_react2.default.createElement(
 										'span',
 										{ className: 'label' },
 										'Github'
+									)
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://codepen.io/stlouis_c/', className: 'icon fa-codepen' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Codepen'
+									)
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://twitter.com/1_selva_oscura', className: 'icon fa-twitter' },
+									_react2.default.createElement(
+										'span',
+										{ className: 'label' },
+										'Twitter'
 									)
 								)
 							)
@@ -21382,17 +21356,35 @@
 				_react2.default.createElement(
 					"li",
 					null,
-					"\xA9 Untitled. All rights reserved."
+					"\xA9 Carol  St. Louis, 2017. All rights reserved."
 				),
 				_react2.default.createElement(
 					"li",
 					null,
-					"Design: ",
+					"Design: modified from ",
 					_react2.default.createElement(
 						"a",
 						{ href: "http://html5up.net" },
 						"HTML5 UP"
-					)
+					),
+					"\u2019s theme ",
+					_react2.default.createElement(
+						"a",
+						{ href: "https://html5up.net/miniport" },
+						"Miniport"
+					),
+					"."
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					"Images: ",
+					_react2.default.createElement(
+						"a",
+						{ href: "https://unsplash.com/" },
+						"Unsplash"
+					),
+					"."
 				)
 			)
 		);
