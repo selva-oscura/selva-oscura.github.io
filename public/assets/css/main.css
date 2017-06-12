@@ -93,12 +93,6 @@
 
 	@media screen and (min-width: 1200px) {
 
-/*		.container.\31 25\25 {
-			width: 100%;
-			max-width: 1500px;
-			min-width: 1200px;
-		}
-*/
 		.container.\37 5\25 {
 			width: 900px;
 		}
@@ -118,12 +112,6 @@
 	}
 
 	@media screen and (min-width: 960px) and (max-width: 1200px) {
-
-/*		.container.\31 25\25 {
-			width: 100%;
-			max-width: 1200px;
-			min-width: 960px;
-		}*/
 
 		.container.\37 5\25 {
 			width: 720px;
@@ -1370,14 +1358,9 @@
 		margin: 1.25em;
 		text-decoration: none;
 		text-transform: uppercase;
-		/*white-space: nowrap;*/
 		font-size: 1rem;
-		/*max-width: 20rem;*/
-		/*height: 2.5em;*/
-		/*line-height: 3.75em;*/
 		border-radius: 2.5em;
 		padding: .75em 1.25em;
-/*		text-overflow: ellipsis;*/
 		overflow: hidden;
 	}
 
@@ -1698,16 +1681,6 @@
 			.wrapper.contact-wrapper h1, .wrapper.contact-wrapper h2, .wrapper.contact-wrapper h3, .wrapper.contact-wrapper h4, .wrapper.contact-wrapper h5, .wrapper.contact-wrapper h6, .wrapper.contact-wrapper label, .wrapper.contact-wrapper p {
 				color: rgba(160, 50, 40, 1);
 			}
-/*input {
-    padding: 5px;
-    border-radius: 20px;
-    border: 1px solid #cccccc;
-}
-
-input:focus {
-    border: 1px solid #c0392b;
-    color: c0392b;
-}*/
 
 			.wrapper.contact-wrapper label, .wrapper.contact-wrapper label{
 				color: rgba(160, 50, 40, 1) !important;
