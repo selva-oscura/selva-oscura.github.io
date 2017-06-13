@@ -20849,6 +20849,43 @@
 				"technologies": "Meteor.js, MongoDB, Node.js, HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
 			},
 			{
+				"src": "public/img/chitter.jpg",
+				"name": "PoChitterRTCal",
+				"git": "https://github.com/selva-oscura/chitter",
+				"web": "",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": false,
+				"pwa": false,
+				"webrtc": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "chitter",
+				"text": [
+					"Chitter is just a basic chat app, as an opportunity to play with node, express.io, and the joy of sockets! Developed at Coding Dojo August 2014"
+				],
+				"technologies": "Node.js, express.io, websockets, HTML5, CSS3"
+			},
+			{
+				"src": "public/img/pounce.png",
+				"name": "Pounce",
+				"git": "https://github.com/selva-oscura/pounce",
+				"web": "",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": false,
+				"pwa": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "pounce",
+				"text": [
+					"Game - click the bouncing targets to destroy them -- Really just playing with JavaScript, jQuery, and D3.js. Developed at Coding Dojo July 2014."
+				],
+				"technologies": "HTML5, CSS3, D3"
+			},
+			{
 				"src": "public/img/booksmart.png",
 				"name": "Booksmart",
 				"git": "",
