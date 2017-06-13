@@ -4,13 +4,14 @@ import ProjectFilterButton from './ProjectFilterButton';
 const ProjectFilters = (props) => {
 	const filters = [
 		{'all': 'All'},
-		{'meteor': 'Meteor.js'},
 		{'node': 'Node.js'},
+		{'meteor': 'Meteor.js'},
+		{'react': 'React.js'},
+		{'pwa': 'Progressive Web App (PWA)'},
+		{'webrtc': 'WebRTC'},
+		{'d3': 'D3.js'},
 		{'php': 'PHP'},
 		{'lamp': 'PHP / MySQL'},
-		{'pwa': 'Progressive Web App (PWA)'},
-		{'react': 'React.js'},
-		{'webrtc': 'WebRTC'},
 	]
 	return (
 		<div className='project-filters'>
