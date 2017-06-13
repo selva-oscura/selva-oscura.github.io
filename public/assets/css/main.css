@@ -152,7 +152,8 @@
 		}
 
 		.container {
-			width: 100% !important;
+			width: 100%;
+			padding: 2%;
 		}
 
 	}
@@ -1825,7 +1826,6 @@
 
 /* Articles */
 
-
 	#home .image {
 		border-radius: 50%;
 	}
@@ -1836,6 +1836,7 @@
 
 	#home h1, #home p, #home h1 a , #home p a, strong {
 		color: #fff;
+		text-shadow: 0px 0px 8px #000;
 	}
 
 /* Copyright */
@@ -2300,6 +2301,7 @@
 
 			#home .image {
 				width: 70%;
+				max-width: 400px;
 				height: auto;
 				margin: 0 auto 1.75em auto;
 			}
