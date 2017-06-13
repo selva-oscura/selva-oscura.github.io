@@ -8,8 +8,8 @@ const Contact = (props) => {
 		<div className="wrapper contact-wrapper">
 			<article id="contact" className="container 75%">
 				<header>
-					<h2>Have me make stuff for you.</h2>
-					<p>Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.</p>
+						<h3>Interested in having me work for you?</h3>
+						<p>Please e-mail me and let&rsquo;s start a conversation about what I can do for your business.</p>
 				</header>
 				<div className="row">
 					<div className="12u">
@@ -53,6 +53,7 @@ const Contact = (props) => {
 										name="message"
 										id="message"
 										label="Message"
+										rows="4"
 										value={props.form.message}
 										updateFormState={props.updateFormState}
 									/>
