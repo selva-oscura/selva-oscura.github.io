@@ -20450,7 +20450,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProjectFilters = function ProjectFilters(props) {
-		var filters = [{ 'all': 'All' }, { 'meteor': 'Meteor.js' }, { 'node': 'Node.js' }, { 'php': 'PHP' }, { 'lamp': 'PHP / MySQL' }, { 'pwa': 'Progressive Web App (PWA)' }, { 'react': 'React.js' }, { 'webrtc': 'WebRTC' }];
+		var filters = [{ 'all': 'All' }, { 'node': 'Node.js' }, { 'meteor': 'Meteor.js' }, { 'react': 'React.js' }, { 'pwa': 'Progressive Web App (PWA)' }, { 'webrtc': 'WebRTC' }, { 'd3': 'D3.js' }, { 'php': 'PHP' }, { 'lamp': 'PHP / MySQL' }];
 		return _react2.default.createElement(
 			'div',
 			{ className: 'project-filters' },
@@ -20688,6 +20688,7 @@
 				"meteor": true,
 				"react": false,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "client",
 				"target": "shines",
@@ -20707,6 +20708,7 @@
 				"meteor": true,
 				"react": false,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "client",
 				"target": "zyrl",
@@ -20726,6 +20728,7 @@
 				"meteor": false,
 				"react": true,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "portfolio",
@@ -20744,6 +20747,7 @@
 				"meteor": false,
 				"react": true,
 				"pwa": true,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "sudoku",
@@ -20763,6 +20767,7 @@
 				"meteor": false,
 				"react": true,
 				"pwa": true,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "hangman",
@@ -20782,6 +20787,7 @@
 				"meteor": false,
 				"react": true,
 				"pwa": true,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "tic-tac-toe",
@@ -20802,6 +20808,7 @@
 				"meteor": false,
 				"react": true,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "color-slider",
@@ -20822,6 +20829,7 @@
 				"react": false,
 				"pwa": false,
 				"webrtc": true,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "portcal",
@@ -20840,6 +20848,7 @@
 				"meteor": true,
 				"react": false,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "animal_rescue",
@@ -20850,7 +20859,7 @@
 			},
 			{
 				"src": "public/img/chitter.jpg",
-				"name": "PoChitterRTCal",
+				"name": "Chitter",
 				"git": "https://github.com/selva-oscura/chitter",
 				"web": "",
 				"internalProject": false,
@@ -20859,6 +20868,7 @@
 				"react": false,
 				"pwa": false,
 				"webrtc": false,
+				"d3": false,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "chitter",
@@ -20877,13 +20887,14 @@
 				"meteor": false,
 				"react": false,
 				"pwa": false,
+				"d3": true,
 				"lamp": false,
 				"purpose": "personal",
 				"target": "pounce",
 				"text": [
 					"Game - click the bouncing targets to destroy them -- Really just playing with JavaScript, jQuery, and D3.js. Developed at Coding Dojo July 2014."
 				],
-				"technologies": "HTML5, CSS3, D3"
+				"technologies": "HTML5, CSS3, D3.js"
 			},
 			{
 				"src": "public/img/booksmart.png",
@@ -20895,6 +20906,7 @@
 				"meteor": false,
 				"react": false,
 				"pwa": false,
+				"d3": false,
 				"lamp": true,
 				"php": true,
 				"purpose": "client",
@@ -20914,6 +20926,7 @@
 				"meteor": false,
 				"react": false,
 				"pwa": false,
+				"d3": false,
 				"lamp": false,
 				"php": true,
 				"purpose": "client",
