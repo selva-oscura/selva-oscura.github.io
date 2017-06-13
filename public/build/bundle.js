@@ -20210,12 +20210,12 @@
 							_react2.default.createElement(
 								'li',
 								null,
-								'Personal projects have ranged from Progressive Web App (PWA) games utilizing React to Meteor-based hackathon apps that use WebRTC or that use geolocation and search criteria to match would-be pet owners with adoptable animals.'
+								'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).'
 							),
 							_react2.default.createElement(
 								'li',
 								null,
-								'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).'
+								'Personal and hackathon projects have focused on JavaScript technologies and include: Progressive Web App (PWA) games utilizing React, web workers, and local storage; Meteor-based hackathon apps that used WebRTC; a Meteor-based hackathon app  that used geolocation and search criteria to match would-be pet owners with adoptable animals.'
 							),
 							_react2.default.createElement(
 								'li',
@@ -20226,7 +20226,7 @@
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'row' },
+						{ className: 'flex-grid-thirds' },
 						skillAreas.map(function (skillArea, i) {
 							return _react2.default.createElement(_SkillArea2.default, {
 								key: i,
@@ -20275,10 +20275,10 @@
 	var SkillArea = function SkillArea(props) {
 		return _react2.default.createElement(
 			"div",
-			{ className: "4u 12u(mobile)" },
+			{ className: "col" },
 			_react2.default.createElement(
 				"section",
-				{ className: "box style1" },
+				null,
 				_react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
 				_react2.default.createElement(
 					"h3",
@@ -20928,14 +20928,14 @@
 					'header',
 					null,
 					_react2.default.createElement(
-						'h2',
+						'h3',
 						null,
-						'Have me make stuff for you.'
+						'Interested in having me work for you?'
 					),
 					_react2.default.createElement(
 						'p',
 						null,
-						'Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.'
+						'Please e-mail me and let\u2019s start a conversation about what I can do for your business.'
 					)
 				),
 				_react2.default.createElement(
@@ -20994,6 +20994,7 @@
 										name: 'message',
 										id: 'message',
 										label: 'Message',
+										rows: '4',
 										value: props.form.message,
 										updateFormState: props.updateFormState
 									})
@@ -21151,7 +21152,7 @@
 	var Messages = function Messages(props) {
 		return _react2.default.createElement(
 			'div',
-			null,
+			{ className: 'Messages' },
 			_react2.default.createElement(
 				'p',
 				null,
@@ -21214,7 +21215,7 @@
 	var Errors = function Errors(props) {
 		return _react2.default.createElement(
 			'div',
-			{ style: { "color": "red" } },
+			{ className: 'Errors', style: { "color": "red" } },
 			_react2.default.createElement(
 				'p',
 				null,
