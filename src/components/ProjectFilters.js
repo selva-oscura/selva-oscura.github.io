@@ -10,6 +10,7 @@ const ProjectFilters = (props) => {
 		{'pwa': 'Progressive Web App (PWA)'},
 		{'webrtc': 'WebRTC'},
 		{'d3': 'D3.js'},
+		{'svg': 'svg'},
 		{'php': 'PHP'},
 		{'lamp': 'PHP / MySQL'},
 	]
