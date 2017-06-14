@@ -7,6 +7,7 @@ const ProjectFilters = (props) => {
 		{'node': 'Node.js'},
 		{'meteor': 'Meteor.js'},
 		{'react': 'React.js'},
+		{'angular': 'Angular.js'},
 		{'pwa': 'Progressive Web App (PWA)'},
 		{'webrtc': 'WebRTC'},
 		{'d3': 'D3.js'},
