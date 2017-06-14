@@ -5,6 +5,7 @@ const ProjectFilters = (props) => {
 	const filters = [
 		{'all': 'All'},
 		{'node': 'Node.js'},
+		{'mongo': 'MongoDB'},
 		{'meteor': 'Meteor.js'},
 		{'react': 'React.js'},
 		{'angular': 'Angular.js'},
