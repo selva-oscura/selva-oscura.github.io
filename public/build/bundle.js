@@ -22224,7 +22224,6 @@
 									})
 								),
 								props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
-								props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses }),
 								_react2.default.createElement(
 									'div',
 									{ className: 'row 200%' },
@@ -22237,7 +22236,8 @@
 										disabled: props.form.submitting,
 										submitMailForm: props.submitMailForm
 									})
-								)
+								),
+								props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses })
 							)
 						)
 					)
