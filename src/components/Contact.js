@@ -59,7 +59,6 @@ const Contact = (props) => {
 									/>
 								</div>
 								{props.form.errors.length>0 && <Errors errors={props.form.errors} />}
-								{props.form.responses.length>0 && <Messages messages={props.form.responses} />}
 								<div className="row 200%">
 									<FormElement
 										layout="12u"
@@ -71,6 +70,7 @@ const Contact = (props) => {
 										submitMailForm={props.submitMailForm}
 									/>
 								</div>
+								{props.form.responses.length>0 && <Messages messages={props.form.responses} />}
 							</div>
 						</form>
 					</div>
