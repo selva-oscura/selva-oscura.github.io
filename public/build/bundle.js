@@ -159,14 +159,10 @@
 				var _this2 = this;
 	
 				var form = this.state.form;
-				var data = {
+				_axios2.default.post('https://formspree.io/stlouis_c@yahoo.com', {
 					from: form.name + ' (' + form.email + ')',
 					subject: form.subject,
 					message: form.message
-				};
-				console.log('getting ready to send:\n', data);
-				_axios2.default.post('https://formspree.io/stlouis_c@yahoo.com', {
-					data: data
 				}).then(function (res) {
 					console.log('res', res);
 					form.name = "";
