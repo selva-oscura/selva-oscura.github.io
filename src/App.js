@@ -78,14 +78,10 @@ class App extends Component {
 	}
 	sendMail(){
 		let form = this.state.form;
-		const data = {
+		axios.post('https://formspree.io/stlouis_c@yahoo.com',{
 			from: `${form.name} (${form.email})`,
 			subject: form.subject,
-			message: form.message,
-		}
-		console.log('getting ready to send:\n', data);
-		axios.post('https://formspree.io/stlouis_c@yahoo.com',{
-			data
+			message: form.message
 		}).then((res) => {
 			console.log('res', res);
 			form.name = "";
