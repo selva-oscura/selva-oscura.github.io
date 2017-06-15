@@ -170,17 +170,17 @@
 					form.message = "";
 					form.subject = "";
 					form.submitting = false;
-					form.responses.push("Message sent.  I'll contact you soon.");
+					form.responses = ["Message successfully sent", "I'll contact you soon."];
 					_this2.setState({ form: form });
 					setTimeout(function () {
 						var form = _this2.state.form;
 						form.responses = [];
 						_this2.setState({ form: form });
-					}, 5000);
+					}, 10000);
 				}).catch(function (err) {
 					console.log('err', err);
 					form.submitting = false;
-					form.errors.push("I'm sorry.  There was an error sending the message.  Please feel free to contact me directly at stlouisc@gmail.com");
+					form.errors = ["I'm sorry.  There was an error sending the message.", "Please feel free to contact me directly at stlouisc@gmail.com"];
 					_this2.setState({ form: form });
 				});
 			}
