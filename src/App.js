@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 import { Nav, Home, Profile, Portfolio, Contact, FindMe } from './components/index';
 
@@ -26,7 +27,6 @@ class App extends Component {
 		this.unselectProject = this.unselectProject.bind(this);
 	}
 	updateFormState(e){
-		console.log('change detected')
 		let form = this.state.form;
 		if(e.target.type === "checkbox"){
 			form[e.target.id]=!form[e.target.id];
@@ -38,10 +38,8 @@ class App extends Component {
 		form.responses=[];
 		form.errors=[];
 		this.setState({form});
-		console.log(this.state.form)
 	}
-	submitMailForm(e){
-		e.preventDefault();
+	validateMail(e){
 		let form = this.state.form;
 		form.errors = [];
 		let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -60,25 +58,34 @@ class App extends Component {
 			form.errors.push("Missing Message");
 		}
 		if(form.errors.length===0){
+			// no errors
 			form.errors = [];
-			form.responses.push("Submitting....");
-			form.responses.push(`Name: ${form.name}`);
-			form.responses.push(`E-Mail: ${form.email}`);
-			form.responses.push(`Message: ${form.message}`);
-			form.name = "";
-			form.email = "";
-			form.message = "";
-			form.subject = "";
 			form.submitting = true;
-		}else{
+			this.setState({form});
+			return true;
+		}else{		
+			// errors
 			if(form.errors.length===1){
+				// singular 
 				form.errors.unshift("Can Not Submit the Form, Due to the Following Problem:");
-			}else{
+			}else{			
+				// plural
 				form.errors.unshift("Can Not Submit the Form, Due to the Following Problems:");
 			}
+			this.setState({form});
+			return false
 		}
-		this.setState({form});
-		console.log(this.state.form)
+	}
+	sendMail(){
+		let form = this.state.form;
+		console.log('would be sending', form)
+	}
+	submitMailForm(e){
+		e.preventDefault();
+		let validated = this.validateMail(e);
+		if(validated){
+			this.sendMail();
+		}
 	}
 	setProjectFilters(projectFilter){
 		let projectFilters = this.state.projectFilters;
