@@ -78,7 +78,34 @@ class App extends Component {
 	}
 	sendMail(){
 		let form = this.state.form;
-		console.log('would be sending', form)
+		const data = {
+			from: `${form.name} (${form.email})`,
+			subject: form.subject,
+			message: form.message,
+		}
+		console.log('getting ready to send:\n', data);
+		axios.post('https://formspree.io/stlouis_c@yahoo.com',{
+			data
+		}).then((res) => {
+			console.log('res', res);
+			form.name = "";
+			form.email = "";
+			form.message = "";
+			form.subject = "";
+			form.submitting = false;
+			form.responses.push("Message sent.  I'll contact you soon.");
+			this.setState({form});
+			setTimeout(()=> {
+				let form = this.state.form;
+				form.responses = [];
+				this.setState({form});
+			}, 5000);
+		}).catch((err) => {
+			console.log('err', err);
+			form.submitting = false;
+			form.errors.push("I'm sorry.  There was an error sending the message.  Please feel free to contact me directly at stlouisc@gmail.com");
+			this.setState({form});
+		});
 	}
 	submitMailForm(e){
 		e.preventDefault();
