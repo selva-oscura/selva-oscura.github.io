@@ -89,7 +89,8 @@
 					submitting: false
 				},
 				projectFilters: [],
-				selectedProject: ""
+				selectedProject: "",
+				deselectedProject: false
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
 			_this.submitMailForm = _this.submitMailForm.bind(_this);
@@ -220,9 +221,20 @@
 		}, {
 			key: 'unselectProject',
 			value: function unselectProject() {
-				var selectedProject = this.state.selectedProject;
-				selectedProject = "";
-				this.setState({ selectedProject: selectedProject });
+				var _this3 = this;
+	
+				var deselectedProject = this.state.deselectedProject;
+				deselectedProject = true;
+				this.setState({ deselectedProject: deselectedProject });
+				setTimeout(function () {
+					var _state = _this3.state;
+					var selectedProject = _state.selectedProject;
+					var deselectedProject = _state.deselectedProject;
+	
+					selectedProject = "";
+					deselectedProject = false;
+					_this3.setState({ selectedProject: selectedProject, deselectedProject: deselectedProject });
+				}, 400);
 			}
 		}, {
 			key: 'render',
@@ -238,7 +250,8 @@
 						setProjectFilters: this.setProjectFilters,
 						selectedProject: this.state.selectedProject,
 						selectProject: this.selectProject,
-						unselectProject: this.unselectProject
+						unselectProject: this.unselectProject,
+						deselectedProject: this.state.deselectedProject
 					}),
 					_react2.default.createElement(_index.Contact, {
 						form: this.state.form,
@@ -21449,7 +21462,7 @@
 					_react2.default.createElement(
 						'p',
 						null,
-						'Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
+						'Proin odio consequat sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
 					),
 					_react2.default.createElement(_ProjectFilters2.default, {
 						projectFilters: props.projectFilters,
@@ -21476,7 +21489,8 @@
 							key: i,
 							project: project,
 							selectedProject: props.selectedProject,
-							unselectProject: props.unselectProject
+							unselectProject: props.unselectProject,
+							deselectedProject: props.deselectedProject
 						});
 					}) : _react2.default.createElement(
 						'div',
@@ -21651,11 +21665,18 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProjectModal = function ProjectModal(props) {
+	
 		var handleClick = function handleClick(e) {
 			if (e.target.className === "modal") {
 				props.unselectProject();
 			}
 		};
+	
+		var modalContent = "modal-content";
+		if (props.selectedProject === props.project.target && props.deselectedProject) {
+			modalContent = "modal-out";
+		}
+	
 		return _react2.default.createElement(
 			"div",
 			{
@@ -21666,7 +21687,7 @@
 			},
 			_react2.default.createElement(
 				"div",
-				{ className: "modal-content" },
+				{ className: modalContent },
 				_react2.default.createElement(
 					"div",
 					{ className: "modal-header" },
