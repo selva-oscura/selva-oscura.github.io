@@ -1884,8 +1884,23 @@
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.modal-out {
+  position: relative;
+  z-index: 6;
+  background-color: #fefefe;
+  margin: 15% auto;
+  border: 1px solid #444444;
+  width: 80%;
+  max-width:960px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.1);
+  -webkit-animation-name: animateout;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animateout;
   animation-duration: 0.4s
 }
+
 /* Modal Header */
 .modal-header {
   padding: 2px 16px;
@@ -1954,6 +1969,15 @@
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
+}
+@-webkit-keyframes animateout {
+  from {top: 0; opacity: 1}
+  to {top: -300px; opacity: 0}
+}
+
+@keyframes animateout {
+  from {top: 0; opacity: 1}
+  to {top: -300px; opacity: 0}
 }/*End of Project Modal*/
 
 
