@@ -96,6 +96,25 @@
 			"text": ["Progressive Web App version of the familiar word game Hangman, albeit with SAT words.", "The game was built as a personal project while learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
 		},{
+			"src": "public/img/weather.png",
+			"name": "Weather",
+			"git": "https://github.com/selva-oscura/react-weather-spa",
+			"web": "https://selva-oscura.github.io/react-weather-spa",
+			"internalProject": false,
+			"node": true,
+			"meteor": false,
+			"react": true,
+			"angular": false,
+			"mongo": false,
+			"pwa": true,
+			"d3": false, 
+			"svg": false, 
+			"lamp": false,
+			"purpose": "personal",
+			"target": "weather",
+			"text": ["Progressive Web App Weather App.", "Built as a personal project while delving into ES6, learning React and how it handles API calls, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
+			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage, axios, OpenWeather API"
+		},{
 			"src": "public/img/tic-tac-toe.png",
 			"name": "Tic-Tac-Toe",
 			"git": "https://github.com/selva-oscura/react-tic-tac-toe",
