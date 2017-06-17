@@ -17,7 +17,7 @@ const Portfolio = (props) => {
 			<article id="portfolio">
 				<header>
 					<h2>Projects</h2>
-					<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
+					<p>Proin odio consequat sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
 					<ProjectFilters 
 						projectFilters={props.projectFilters}
 						setProjectFilters={props.setProjectFilters}
@@ -44,6 +44,7 @@ const Portfolio = (props) => {
 									project={project}
 									selectedProject={props.selectedProject}
 									unselectProject={props.unselectProject}
+									deselectedProject={props.deselectedProject}
 								/>
 							))
 						):(
