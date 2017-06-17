@@ -1,11 +1,18 @@
 import React from 'react';
 
 const ProjectModal = (props) => {
+
 	const handleClick = (e) => {
 		if(e.target.className==="modal"){
 			props.unselectProject()
 		}
 	}
+
+	let modalContent = "modal-content";
+	if(props.selectedProject===props.project.target && props.deselectedProject){
+		modalContent = "modal-out";
+	}
+
 	return (
 		<div
 			className="modal"
@@ -13,7 +20,7 @@ const ProjectModal = (props) => {
 			style={ props.selectedProject===props.project.target ? {'display':'block'} : {'display':'none'}}
 			onClick={handleClick}
 		>
-			<div className="modal-content">
+			<div className={modalContent}>
 				<div className="modal-header">
 					<span 
 						className="modal-close"
