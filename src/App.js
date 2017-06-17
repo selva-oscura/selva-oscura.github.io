@@ -19,6 +19,7 @@ class App extends Component {
 			},
 			projectFilters: [],
 			selectedProject: "",
+			deselectedProject: false,
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
@@ -129,9 +130,15 @@ class App extends Component {
 		this.setState({selectedProject})
 	}
 	unselectProject(){
-		let selectedProject = this.state.selectedProject;
-		selectedProject = "";
-		this.setState({selectedProject})
+		let deselectedProject = this.state.deselectedProject;
+		deselectedProject = true;
+		this.setState({deselectedProject});
+		setTimeout(() => {
+			let {selectedProject, deselectedProject} = this.state;
+			selectedProject = "";
+			deselectedProject = false;
+			this.setState({selectedProject, deselectedProject});
+		}, 400)
 	}
 	render(){
 		return(
@@ -149,6 +156,7 @@ class App extends Component {
 					selectedProject={this.state.selectedProject}
 					selectProject={this.selectProject}
 					unselectProject={this.unselectProject}
+					deselectedProject={this.state.deselectedProject}
 				/>
 
 				<Contact
