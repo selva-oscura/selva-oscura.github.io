@@ -21304,17 +21304,52 @@
 							_react2.default.createElement(
 								'li',
 								null,
-								'My more recent client projects are Node.js full-stack, usually using Meteor.js or MERN (MongoDB, Express.js, React, and Node.js).'
+								'I\'m a full-stack web developer with 4 years of experience.  I specialize in developing websites which are fast, easy-to-use, and beautiful.'
 							),
 							_react2.default.createElement(
 								'li',
 								null,
-								'Older client projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP).'
+								'JavaScript / ECMAScript is my favorite language for web development, courtesy of its flexibility and the incredible development of powerful libraries and frameworks in recent years.  My most recent projects are Node.js full-stack, using Meteor.js, the MERN stack (MongoDB, Express.js, React, and Node.js) or the MEAN stack (MongoDB, Express.js, Angular, and Node.js).'
 							),
 							_react2.default.createElement(
 								'li',
 								null,
-								'Personal and hackathon projects have focused on JavaScript technologies and include: Progressive Web App (PWA) games utilizing React, web workers, and local storage; Meteor-based hackathon apps that used WebRTC; a Meteor-based hackathon app  that used geolocation and search criteria to match would-be pet owners with adoptable animals.'
+								'For client projects, I have automated server-side cron jobs on Node.js that allow automation of notifications and clearing of holds for uncompleted transactions (see Door-to-Door Shines below or ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://www.doortodoorshines.com', target: 'shines' },
+									'live'
+								),
+								'), and updating of data that clients are monitoring (see Zyrl below)'
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'In my personal projects and at hackathons, I\'ve enjoyed exploring HTML5\'s new APIs, new JS libraries, and the ever greater browser capabilities that make it possible:'
+							),
+							_react2.default.createElement(
+								'ul',
+								null,
+								_react2.default.createElement(
+									'li',
+									null,
+									'to use React, web workers, and local storage on the client to make Progressive Web App games (see Sudoku, Hangman, and Tic-Tac-Toe below),'
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									'use Meteor.js, MongoDB, Materialize.css (an adaptation of Google\'s Material Design), and PeerJS to implement a Portal-themed WebRTC live video chat site (PoRTCal),'
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									'use Meteor.js, TwitterBootstrap, MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see Animal Rescue below).'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'Older clients projects and bootcamp projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP) and Ruby on Rails.'
 							),
 							_react2.default.createElement(
 								'li',
@@ -21553,7 +21588,7 @@
 		var filters = [{ 'all': 'All' }, { 'node': 'Node.js' }, { 'mongo': 'MongoDB' }, { 'meteor': 'Meteor.js' }, { 'react': 'React.js' }, { 'angular': 'Angular.js' }, { 'pwa': 'Progressive Web App (PWA)' }, { 'webrtc': 'WebRTC' }, { 'd3': 'D3.js' }, { 'svg': 'svg' }, { 'php': 'PHP' }, { 'lamp': 'PHP / MySQL' }];
 		return _react2.default.createElement(
 			'div',
-			{ className: 'project-filters' },
+			{ className: 'container project-filters' },
 			filters.map(function (filter, i) {
 				return _react2.default.createElement(_ProjectFilterButton2.default, {
 					key: i,
@@ -21898,6 +21933,29 @@
 					"The game was built as a personal project while learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
 				],
 				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
+			},
+			{
+				"src": "public/img/weather.png",
+				"name": "Weather",
+				"git": "https://github.com/selva-oscura/react-weather-spa",
+				"web": "https://selva-oscura.github.io/react-weather-spa",
+				"internalProject": false,
+				"node": true,
+				"meteor": false,
+				"react": true,
+				"angular": false,
+				"mongo": false,
+				"pwa": true,
+				"d3": false,
+				"svg": false,
+				"lamp": false,
+				"purpose": "personal",
+				"target": "weather",
+				"text": [
+					"Progressive Web App Weather App.",
+					"Built as a personal project while delving into ES6, learning React and how it handles API calls, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."
+				],
+				"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage, axios, OpenWeather API"
 			},
 			{
 				"src": "public/img/tic-tac-toe.png",
@@ -22624,7 +22682,7 @@
 				_react2.default.createElement(
 					"li",
 					null,
-					"Images: ",
+					"Background Images: ",
 					_react2.default.createElement(
 						"a",
 						{ href: "https://unsplash.com/" },
