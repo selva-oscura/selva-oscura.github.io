@@ -17,7 +17,7 @@ const ProjectFilters = (props) => {
 		{'lamp': 'PHP / MySQL'},
 	]
 	return (
-		<div className='project-filters'>
+		<div className='container project-filters'>
 			{ filters.map((filter, i)=>(
 				<ProjectFilterButton 
 					key={i} 
