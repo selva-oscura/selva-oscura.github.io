@@ -21391,8 +21391,12 @@
 									{ href: 'https://www.doortodoorshines.com', target: 'shines' },
 									'live'
 								),
-								'), and updating of data that clients are monitoring (see Zyrl ',
-								_react2.default.createElement(_LinkToProject2.default, { text: 'below', target: 'zyrl', selectProject: 'selectProject' }),
+								'), and updating of data that clients are monitoring (see Zyrl',
+								_react2.default.createElement(_LinkToProject2.default, {
+									text: 'below',
+									target: 'zyrl',
+									selectProject: props.selectProject
+								}),
 								')'
 							),
 							_react2.default.createElement(
@@ -21965,7 +21969,7 @@
 				"target": "zyrl",
 				"text": [
 					"Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.",
-					"As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilding the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranging site and database hosting. I then managed the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."
+					"As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilt the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranged site and database hosting. I then the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."
 				],
 				"technologies": "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
 			},
@@ -22803,7 +22807,7 @@
 /* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -22820,10 +22824,13 @@
 			props.selectProject(props.target);
 		};
 		return _react2.default.createElement(
-			'a',
+			"a",
 			{
-				onClick: props.handleClick
+				href: "#portfolio",
+				className: "scrolly",
+				onClick: handleClick
 			},
+			"\xA0",
 			props.text
 		);
 	};
