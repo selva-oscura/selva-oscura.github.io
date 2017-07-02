@@ -148,7 +148,9 @@ class App extends Component {
 
 				<Home />
 
-				<Profile />
+				<Profile 
+					selectProject={this.selectProject}
+				/>
 
 				<Portfolio
 					projectFilters={this.state.projectFilters}
