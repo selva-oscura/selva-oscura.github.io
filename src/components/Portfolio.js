@@ -62,7 +62,7 @@ const Portfolio = (props) => {
 					}
 				</div>
 				<footer>
-					<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+					<p>Interested in having me work for you?</p>
 					<a href="#contact" className="button big scrolly">Get in touch with me</a>
 				</footer>
 			</article>
