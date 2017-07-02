@@ -6,9 +6,11 @@ const LinkToProject = (props) => {
 	}
 	return (
 		 <a 
-		 	onClick={props.handleClick}
+			href="#portfolio" 
+			className="scrolly" 
+			onClick={handleClick}
 		 >
-		 	{props.text}
+			&nbsp;{props.text}
 		 </a>
 	)
 }
