@@ -244,7 +244,9 @@
 					null,
 					_react2.default.createElement(_index.Nav, null),
 					_react2.default.createElement(_index.Home, null),
-					_react2.default.createElement(_index.Profile, null),
+					_react2.default.createElement(_index.Profile, {
+						selectProject: this.selectProject
+					}),
 					_react2.default.createElement(_index.Portfolio, {
 						projectFilters: this.state.projectFilters,
 						setProjectFilters: this.setProjectFilters,
@@ -21261,13 +21263,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _LinkToProject = __webpack_require__(194);
+	
+	var _LinkToProject2 = _interopRequireDefault(_LinkToProject);
+	
 	var _SkillArea = __webpack_require__(180);
 	
 	var _SkillArea2 = _interopRequireDefault(_SkillArea);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Profile = function Profile() {
+	var Profile = function Profile(props) {
 		var skillAreas = [{
 			icon: "fa-user-circle",
 			skillArea: "Front End",
@@ -21299,33 +21305,100 @@
 							'Skills & Experience'
 						),
 						_react2.default.createElement(
-							'ul',
-							null,
+							'div',
+							{ id: 'summary' },
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
 								'I\'m a full-stack web developer with 4 years of experience.  I specialize in developing websites which are fast, easy-to-use, and beautiful.'
 							),
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
-								'JavaScript / ECMAScript is my favorite language for web development, courtesy of its flexibility and the incredible development of powerful libraries and frameworks in recent years.  My most recent projects are Node.js full-stack, using Meteor.js, the MERN stack (MongoDB, Express.js, React, and Node.js) or the MEAN stack (MongoDB, Express.js, Angular, and Node.js).'
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://en.wikipedia.org/wiki/JavaScript', target: 'javascript' },
+									'JavaScript'
+								),
+								' / ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://en.wikipedia.org/wiki/ECMAScript', target: 'ecmascript' },
+									'ECMAScript'
+								),
+								' is my favorite language for web development because of its flexibility and the incredible pace of development of powerful libraries and frameworks in recent years.  My most recent projects are Node.js full-stack, using ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://www.meteor.com/', target: 'meteor' },
+									'Meteor.js'
+								),
+								', the MERN stack (',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://www.mongodb.com/', target: 'mongodb' },
+									'MongoDB'
+								),
+								', ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://expressjs.com/', target: 'express' },
+									'Express.js'
+								),
+								', ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://facebook.github.io/react/', target: 'react' },
+									'React'
+								),
+								'and ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://nodejs.org/en/', target: 'node' },
+									'Node.js'
+								),
+								'), or the MEAN stack (',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://www.mongodb.com/', target: 'mongodb' },
+									'MongoDB'
+								),
+								', ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://expressjs.com/', target: 'express' },
+									'Express.js'
+								),
+								', ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://angular.io/', target: 'angular' },
+									'Angular'
+								),
+								', and ',
+								_react2.default.createElement(
+									'a',
+									{ href: 'https://nodejs.org/en/', target: 'node' },
+									'Node.js'
+								),
+								').'
 							),
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
-								'For client projects, I have automated server-side cron jobs on Node.js that allow automation of notifications and clearing of holds for uncompleted transactions (see Door-to-Door Shines below or ',
+								'For two recent client projects, I used Meteor\'s reactive programming framework to develop fast, secure websites, backed by MongoDB\'s databases, and automated Node.js server-side cron jobs that automated notifications and clearing of holds for uncompleted transactions (see Door-to-Door Shines below or ',
 								_react2.default.createElement(
 									'a',
 									{ href: 'https://www.doortodoorshines.com', target: 'shines' },
 									'live'
 								),
-								'), and updating of data that clients are monitoring (see Zyrl below)'
+								'), and updating of data that clients are monitoring (see Zyrl ',
+								_react2.default.createElement(_LinkToProject2.default, { text: 'below', target: 'zyrl', selectProject: 'selectProject' }),
+								')'
 							),
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
-								'In my personal projects and at hackathons, I\'ve enjoyed exploring HTML5\'s new APIs, new JS libraries, and the ever greater browser capabilities that make it possible:'
+								'In my personal projects and at hackathons, I\'ve enjoyed exploring HTML5\'s new APIs, the myriad JS libraries & frameworks, and the ever greater browser capabilities:'
 							),
 							_react2.default.createElement(
 								'ul',
@@ -21333,26 +21406,56 @@
 								_react2.default.createElement(
 									'li',
 									null,
-									'to use React, web workers, and local storage on the client to make Progressive Web App games (see Sudoku, Hangman, and Tic-Tac-Toe below),'
+									'to use React, web workers, and local storage on the client to make ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'https://developers.google.com/web/progressive-web-apps/', target: 'pwa' },
+										'Progressive Web App'
+									),
+									' games (see Sudoku, Hangman, and Tic-Tac-Toe below),'
 								),
 								_react2.default.createElement(
 									'li',
 									null,
-									'use Meteor.js, MongoDB, Materialize.css (an adaptation of Google\'s Material Design), and PeerJS to implement a Portal-themed WebRTC live video chat site (PoRTCal),'
+									'to use Meteor.js, MongoDB, ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'http://materializecss.com/', target: 'materialize' },
+										'Materialize.css'
+									),
+									' (an adaptation of Google\'s Material Design), and ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'http://peerjs.com/', target: 'peerjs' },
+										'PeerJS'
+									),
+									' to implement a Portal-themed ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'https://webrtc.org/', target: 'webrtc' },
+										'WebRTC'
+									),
+									' live video chat site (see PoRTCal below),'
 								),
 								_react2.default.createElement(
 									'li',
 									null,
-									'use Meteor.js, TwitterBootstrap, MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see Animal Rescue below).'
+									'to use Meteor.js, ',
+									_react2.default.createElement(
+										'a',
+										{ href: 'https://v4-alpha.getbootstrap.com/', target: 'bootstrap' },
+										'TwitterBootstrap'
+									),
+									', MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see Animal Rescue below).'
 								)
 							),
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
 								'Older clients projects and bootcamp projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP) and Ruby on Rails.'
 							),
 							_react2.default.createElement(
-								'li',
+								'p',
 								null,
 								'I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby.'
 							)
@@ -21376,12 +21479,12 @@
 					_react2.default.createElement(
 						'p',
 						null,
-						'Lorem ipsum dolor sit sapien vestibulum ipsum primis?'
+						'Want to learn more?'
 					),
 					_react2.default.createElement(
 						'a',
 						{ href: '#portfolio', className: 'button big scrolly' },
-						'See some of my recent work'
+						'Check out some of my recent work'
 					)
 				)
 			)
@@ -21550,7 +21653,7 @@
 					_react2.default.createElement(
 						'p',
 						null,
-						'Lorem ipsum dolor sit sapien vestibulum ipsum primis?'
+						'Interested in having me work for you?'
 					),
 					_react2.default.createElement(
 						'a',
@@ -22695,6 +22798,37 @@
 	};
 	
 	exports.default = Copyright;
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LinkToProject = function LinkToProject(props) {
+		var handleClick = function handleClick() {
+			props.selectProject(props.target);
+		};
+		return _react2.default.createElement(
+			'a',
+			{
+				onClick: props.handleClick
+			},
+			props.text
+		);
+	};
+	
+	exports.default = LinkToProject;
 
 /***/ }
 /******/ ]);
