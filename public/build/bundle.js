@@ -21082,15 +21082,15 @@
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _Portfolio = __webpack_require__(181);
+	var _Portfolio = __webpack_require__(182);
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Contact = __webpack_require__(187);
+	var _Contact = __webpack_require__(188);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _FindMe = __webpack_require__(192);
+	var _FindMe = __webpack_require__(193);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
@@ -21263,11 +21263,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _LinkToProject = __webpack_require__(194);
+	var _LinkToProject = __webpack_require__(180);
 	
 	var _LinkToProject2 = _interopRequireDefault(_LinkToProject);
 	
-	var _SkillArea = __webpack_require__(180);
+	var _SkillArea = __webpack_require__(181);
 	
 	var _SkillArea2 = _interopRequireDefault(_SkillArea);
 	
@@ -21350,7 +21350,7 @@
 									{ href: 'https://facebook.github.io/react/', target: 'react' },
 									'React'
 								),
-								'and ',
+								', and ',
 								_react2.default.createElement(
 									'a',
 									{ href: 'https://nodejs.org/en/', target: 'node' },
@@ -21385,15 +21385,21 @@
 							_react2.default.createElement(
 								'p',
 								null,
-								'For two recent client projects, I used Meteor\'s reactive programming framework to develop fast, secure websites, backed by MongoDB\'s databases, and automated Node.js server-side cron jobs that automated notifications and clearing of holds for uncompleted transactions (see Door-to-Door Shines below or ',
+								'For two recent client projects, I used Meteor\'s reactive programming framework to develop fast, secure websites, backed by MongoDB\'s databases, and utilized Node.js server-side cron jobs to automate notifications \xA0 reports and to clear holds for uncompleted transactions (see Door-to-Door Shines',
+								_react2.default.createElement(_LinkToProject2.default, {
+									text: 'description',
+									target: 'shines',
+									selectProject: props.selectProject
+								}),
+								'\xA0or ',
 								_react2.default.createElement(
 									'a',
 									{ href: 'https://www.doortodoorshines.com', target: 'shines' },
 									'live'
 								),
-								'), and updating of data that clients are monitoring (see Zyrl',
+								'), and to update data that clients are monitoring (see',
 								_react2.default.createElement(_LinkToProject2.default, {
-									text: 'below',
+									text: 'Zyrl',
 									target: 'zyrl',
 									selectProject: props.selectProject
 								}),
@@ -21416,7 +21422,25 @@
 										{ href: 'https://developers.google.com/web/progressive-web-apps/', target: 'pwa' },
 										'Progressive Web App'
 									),
-									' games (see Sudoku, Hangman, and Tic-Tac-Toe below),'
+									' games (see',
+									_react2.default.createElement(_LinkToProject2.default, {
+										text: 'Sudoku',
+										target: 'sudoku',
+										selectProject: props.selectProject
+									}),
+									',',
+									_react2.default.createElement(_LinkToProject2.default, {
+										text: 'Hangman',
+										target: 'hangman',
+										selectProject: props.selectProject
+									}),
+									', and',
+									_react2.default.createElement(_LinkToProject2.default, {
+										text: 'Tic-Tac-Toe',
+										target: 'tic-tac-toe',
+										selectProject: props.selectProject
+									}),
+									'),'
 								),
 								_react2.default.createElement(
 									'li',
@@ -21439,7 +21463,13 @@
 										{ href: 'https://webrtc.org/', target: 'webrtc' },
 										'WebRTC'
 									),
-									' live video chat site (see PoRTCal below),'
+									' live video chat site (see',
+									_react2.default.createElement(_LinkToProject2.default, {
+										text: 'PoRTCal',
+										target: 'portcal',
+										selectProject: props.selectProject
+									}),
+									'),'
 								),
 								_react2.default.createElement(
 									'li',
@@ -21450,7 +21480,13 @@
 										{ href: 'https://v4-alpha.getbootstrap.com/', target: 'bootstrap' },
 										'TwitterBootstrap'
 									),
-									', MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see Animal Rescue below).'
+									', MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see',
+									_react2.default.createElement(_LinkToProject2.default, {
+										text: 'Animal Rescue',
+										target: 'animal_rescue',
+										selectProject: props.selectProject
+									}),
+									').'
 								)
 							),
 							_react2.default.createElement(
@@ -21513,6 +21549,40 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var LinkToProject = function LinkToProject(props) {
+		var handleClick = function handleClick() {
+			props.selectProject(props.target);
+		};
+		return _react2.default.createElement(
+			"a",
+			{
+				href: "#portfolio",
+				className: "scrolly",
+				onClick: handleClick
+			},
+			"\xA0",
+			props.text
+		);
+	};
+	
+	exports.default = LinkToProject;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	var SkillArea = function SkillArea(props) {
 		return _react2.default.createElement(
 			"div",
@@ -21544,7 +21614,7 @@
 	exports.default = SkillArea;
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21557,23 +21627,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProjectFilters = __webpack_require__(182);
+	var _ProjectFilters = __webpack_require__(183);
 	
 	var _ProjectFilters2 = _interopRequireDefault(_ProjectFilters);
 	
-	var _Project = __webpack_require__(184);
+	var _Project = __webpack_require__(185);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
-	var _ProjectModal = __webpack_require__(185);
+	var _ProjectModal = __webpack_require__(186);
 	
 	var _ProjectModal2 = _interopRequireDefault(_ProjectModal);
 	
-	var _ProjectFilterButton = __webpack_require__(183);
+	var _ProjectFilterButton = __webpack_require__(184);
 	
 	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
 	
-	var _portfolio_data = __webpack_require__(186);
+	var _portfolio_data = __webpack_require__(187);
 	
 	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
 	
@@ -21630,6 +21700,7 @@
 						return _react2.default.createElement(_ProjectModal2.default, {
 							key: i,
 							project: project,
+							num: i,
 							selectedProject: props.selectedProject,
 							unselectProject: props.unselectProject,
 							deselectedProject: props.deselectedProject
@@ -21672,7 +21743,7 @@
 	exports.default = Portfolio;
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21685,7 +21756,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProjectFilterButton = __webpack_require__(183);
+	var _ProjectFilterButton = __webpack_require__(184);
 	
 	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
 	
@@ -21710,7 +21781,7 @@
 	exports.default = ProjectFilters;
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21746,7 +21817,7 @@
 	exports.default = ProjectFilterButton;
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21791,7 +21862,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21851,26 +21922,35 @@
 					"div",
 					{ className: "modal-body" },
 					_react2.default.createElement(
-						"p",
-						null,
-						props.project.text.map(function (para, i) {
-							return _react2.default.createElement(
-								"span",
-								{ key: i },
-								para,
-								_react2.default.createElement("br", null)
-							);
-						})
+						"div",
+						{ className: "modal-half" },
+						_react2.default.createElement("img", { src: "./public/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
 					),
 					_react2.default.createElement(
-						"p",
-						null,
+						"div",
+						{ className: "modal-half" },
 						_react2.default.createElement(
-							"strong",
+							"p",
 							null,
-							"Technologies: "
+							props.project.text.map(function (para, i) {
+								return _react2.default.createElement(
+									"span",
+									{ key: i },
+									para,
+									_react2.default.createElement("br", null)
+								);
+							})
 						),
-						props.project.technologies
+						_react2.default.createElement(
+							"p",
+							null,
+							_react2.default.createElement(
+								"strong",
+								null,
+								"Technologies: "
+							),
+							props.project.technologies
+						)
 					)
 				),
 				_react2.default.createElement(
@@ -21922,7 +22002,7 @@
 	exports.default = ProjectModal;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -22175,8 +22255,8 @@
 				"purpose": "personal",
 				"target": "elementaryBuddies",
 				"text": [
-					"An educational app to introduce students to chemistry and the periodic table. Later merged with the group's repository at github.com/pkianmajd/chem",
-					"All code written at and for LinkedIn's DevelopHer Hackathon, 14-15 November 2014."
+					"As a group project with Poema Cavalcanti, Jameela Huq, and Parisa Kianmajd for LinkedIn's DevelopHer Hackathon, 14-15 November 2014, my team created an educational app to introduce students to chemistry and the periodic table.",
+					"(The project repository can also be found at https://github.com/pkianmajd/chem)"
 				],
 				"technologies": "HTML5, CSS3, MEAN (MongoDB, Express, Angular, Node.js)"
 			},
@@ -22300,7 +22380,7 @@
 	};
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22313,15 +22393,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(188);
+	var _FormElement = __webpack_require__(189);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(189);
+	var _Messages = __webpack_require__(190);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(191);
+	var _Errors = __webpack_require__(192);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
@@ -22435,7 +22515,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22540,7 +22620,7 @@
 	exports.default = FormElement;
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22553,7 +22633,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(190);
+	var _Message = __webpack_require__(191);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -22576,7 +22656,7 @@
 	exports.default = Messages;
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22603,7 +22683,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22616,7 +22696,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(190);
+	var _Message = __webpack_require__(191);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -22639,7 +22719,7 @@
 	exports.default = Errors;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22652,7 +22732,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Copyright = __webpack_require__(193);
+	var _Copyright = __webpack_require__(194);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -22742,7 +22822,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22802,40 +22882,6 @@
 	};
 	
 	exports.default = Copyright;
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var LinkToProject = function LinkToProject(props) {
-		var handleClick = function handleClick() {
-			props.selectProject(props.target);
-		};
-		return _react2.default.createElement(
-			"a",
-			{
-				href: "#portfolio",
-				className: "scrolly",
-				onClick: handleClick
-			},
-			"\xA0",
-			props.text
-		);
-	};
-	
-	exports.default = LinkToProject;
 
 /***/ }
 /******/ ]);
