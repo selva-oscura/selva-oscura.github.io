@@ -42,6 +42,7 @@ const Portfolio = (props) => {
 								<ProjectModal
 									key={i}
 									project={project}
+									num={i}
 									selectedProject={props.selectedProject}
 									unselectProject={props.unselectProject}
 									deselectedProject={props.deselectedProject}
