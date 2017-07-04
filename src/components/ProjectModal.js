@@ -31,10 +31,15 @@ const ProjectModal = (props) => {
 					<h2>{props.project.name}</h2>
 				</div>
 				<div className="modal-body">
-					<p>
-						{props.project.text.map((para, i) => (<span key={i}>{para}<br /></span>))}
-					</p>
-					<p><strong>Technologies: </strong>{props.project.technologies}</p> 
+					<div className="modal-half">
+							<img src={`./public/images/pic0${props.num%4+1}.jpg`} alt={`screenshot of ${props.project.name}`} />
+					</div>
+					<div className="modal-half">
+						<p>
+							{props.project.text.map((para, i) => (<span key={i}>{para}<br /></span>))}
+						</p>
+						<p><strong>Technologies: </strong>{props.project.technologies}</p>
+					</div>
 				</div>
 				<div className="modal-footer">
 					<div className="half text-left">
