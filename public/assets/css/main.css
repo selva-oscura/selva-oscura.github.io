@@ -1914,10 +1914,20 @@
 }
 /* Modal Body */
 .modal-body {
+	font-size: 1.5em;
+	text-align: left;
 	padding: 2px 16px;
 	background-color: #ffffff;
 	color: #000000;
 }
+@media screen and (min-width: 959px) {
+	.modal-half{
+		display: inline-block;
+		width: 49%;
+		vertical-align: top;
+	}
+}
+
 /* Modal Footer */
 .modal-footer {
   padding: 2px 16px;
