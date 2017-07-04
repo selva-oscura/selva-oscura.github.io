@@ -209,7 +209,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "elementaryBuddies",
-			"text": ["An educational app to introduce students to chemistry and the periodic table. Later merged with the group's repository at github.com/pkianmajd/chem", "All code written at and for LinkedIn's DevelopHer Hackathon, 14-15 November 2014."],
+			"text": ["As a group project with Poema Cavalcanti, Jameela Huq, and Parisa Kianmajd for LinkedIn's DevelopHer Hackathon, 14-15 November 2014, my team created an educational app to introduce students to chemistry and the periodic table.", "(The project repository can also be found at https://github.com/pkianmajd/chem)"],
 			"technologies": "HTML5, CSS3, MEAN (MongoDB, Express, Angular, Node.js)"
 		},{
 			"src": "public/img/chitter.jpg",
