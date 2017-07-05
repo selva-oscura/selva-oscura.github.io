@@ -21277,15 +21277,15 @@
 		var skillAreas = [{
 			icon: "fa-user-circle",
 			skillArea: "Front End",
-			skills: ["HTML5,", "CSS3,", "JavaScript / ES6,", "React,", "Redux,", "jQuery,", "Angular,", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
+			skills: ["HTML5", "CSS3", "JavaScript / ES6", "React", "Redux", "jQuery", "Angular", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
 		}, {
 			icon: "fa-server",
 			skillArea: "Back End",
-			skills: ["Node.js,", "MongoDB,", "Meteor.js,", "Express,", "PHP,", "MySQL,", "limited exp.: Python, Ruby, Golang, & Elm"]
+			skills: ["Node.js", "MongoDB", "Meteor.js", "Express", "PHP", "MySQL", "limited exp.: Python, Ruby, Golang, & Elm"]
 		}, {
 			icon: "fa-cogs",
 			skillArea: "Sundry",
-			skills: ["Package Management: npm, yarn", "Version Control: git", "Progressive Web Apps (PWAs)", "PaaS: Galaxy, Heroku", "DBaaS: mLab", "APIs: Facebook, Instagram, & OpenWeather", "Wireframe: Balsamiq"]
+			skills: ["Package Management: npm, yarn", "Version Control: git", "Progressive Web Apps (PWAs)", "PaaS: Galaxy, Heroku", "DBaaS: mLab", "APIs: Facebook, Instagram, OpenWeather, Stripe, & many more", "Wireframe: Balsamiq"]
 		}];
 		return _react2.default.createElement(
 			'div',
@@ -21497,7 +21497,7 @@
 							_react2.default.createElement(
 								'p',
 								null,
-								'I\u2019ve also dabbled in Elm, GoLang, Python, and Ruby.'
+								'I\u2019ve also dabbled in Elm, GoLang, and Python.'
 							)
 						)
 					),
@@ -21833,6 +21833,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Project = function Project(props) {
+		console.log(props.project);
 		var handleClick = function handleClick() {
 			props.selectProject(props.project.target);
 		};
@@ -21847,8 +21848,8 @@
 				},
 				_react2.default.createElement(
 					"div",
-					{ className: "image featured" },
-					_react2.default.createElement("img", { src: "./public/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
+					{ className: "image featured project-screenshot" },
+					_react2.default.createElement("img", { src: "./public/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
 				),
 				_react2.default.createElement(
 					"h3",
