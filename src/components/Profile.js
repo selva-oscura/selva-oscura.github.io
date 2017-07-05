@@ -8,25 +8,25 @@ const Profile = (props) => {
 			icon: "fa-user-circle",
 			skillArea: "Front End",
 			skills: [
-				"HTML5,",
-				"CSS3,",
-				"JavaScript / ES6,",
-				"React,",
-				"Redux,",
-				"jQuery,",
-				"Angular,",
+				"HTML5",
+				"CSS3",
+				"JavaScript / ES6",
+				"React",
+				"Redux",
+				"jQuery",
+				"Angular",
 				"CSS Libraries: Bootstrap, Material Design, HTML5UP",
 			]
 		},{
 			icon: "fa-server",
 			skillArea: "Back End",
 			skills: [
-				"Node.js,",
-				"MongoDB,",
-				"Meteor.js,",
-				"Express,",
-				"PHP,",
-				"MySQL,",
+				"Node.js",
+				"MongoDB",
+				"Meteor.js",
+				"Express",
+				"PHP",
+				"MySQL",
 				"limited exp.: Python, Ruby, Golang, & Elm",
 			]
 		},{
@@ -38,7 +38,7 @@ const Profile = (props) => {
 				"Progressive Web Apps (PWAs)",
 				"PaaS: Galaxy, Heroku",
 				"DBaaS: mLab",
-				"APIs: Facebook, Instagram, & OpenWeather",
+				"APIs: Facebook, Instagram, OpenWeather, Stripe, & many more",
 				"Wireframe: Balsamiq",
 			]
 		}
@@ -103,7 +103,7 @@ const Profile = (props) => {
 										).</li>
 									</ul>
 							<p>Older clients projects and bootcamp projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP) and Ruby on Rails.</p>
-							<p>I&rsquo;ve also dabbled in Elm, GoLang, Python, and Ruby.</p>
+							<p>I&rsquo;ve also dabbled in Elm, GoLang, and Python.</p>
 						</div>
 					</header>
 					<div className="flex-grid-thirds">
