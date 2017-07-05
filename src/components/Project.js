@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Project = (props) => {
+	console.log(props.project)
 	const handleClick = () => {
 		props.selectProject(props.project.target)
 	}
@@ -10,8 +11,8 @@ const Project = (props) => {
 				className="box style2"
 				onClick={handleClick}
 			>
-				<div className="image featured">
-					<img src={`./public/images/pic0${props.num%4+1}.jpg`} alt={`screenshot of ${props.project.name}`} />
+				<div className="image featured project-screenshot">
+					<img src={`./public/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
 				</div>
 				<h3>{props.project.name}</h3>
 			</article>
