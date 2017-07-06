@@ -21921,18 +21921,23 @@
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "modal-body" },
+					{ className: "modal-body flex-grid-halves" },
 					_react2.default.createElement(
 						"div",
-						{ className: "modal-half" },
+						{ className: "col" },
 						_react2.default.createElement("img", { src: "./public/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "modal-half" },
+						{ className: "col" },
 						_react2.default.createElement(
 							"p",
 							null,
+							_react2.default.createElement(
+								"strong",
+								null,
+								"Projects: "
+							),
 							props.project.text.map(function (para, i) {
 								return _react2.default.createElement(
 									"span",
