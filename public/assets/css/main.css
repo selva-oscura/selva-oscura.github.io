@@ -1836,7 +1836,7 @@
 			border-radius: 50%;
 		}
 
-	#home h1, #home p, #home h1 a , #home p a, strong {
+	#home h1, #home p, #home h1 a , #home p a, #home strong {
 		color: #fff;
 		text-shadow: 0px 0px 8px #000;
 	}
@@ -1913,6 +1913,12 @@
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
+
+.modal-content strong{
+	color: #43B3E0;
+}
+
+/*animation for closure of modal to mirror modal opening*/
 .modal-out {
   position: relative;
   z-index: 6;
@@ -1941,18 +1947,10 @@
 .modal-body {
 	font-size: 1.5em;
 	text-align: left;
-	padding: 2px 16px;
+	padding: 0;
 	background-color: #ffffff;
 	color: #000000;
 }
-@media screen and (min-width: 959px) {
-	.modal-half{
-		display: inline-block;
-		width: 49%;
-		vertical-align: top;
-	}
-}
-
 /* Modal Footer */
 .modal-footer {
   padding: 2px 16px;
@@ -2421,6 +2419,28 @@
     margin: 0 0 10px 0;
   }
 }
+
+.flex-grid-halves {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.flex-grid-halves .col {
+  width: 49%;
+  background-color: white;
+  padding: 2em 1em 1em 1em;
+}
+
+@media (max-width: 600px) {
+  .flex-grid-halves {
+    display: block;
+  }
+  .flex-grid-halves .col {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
 
 
 /*Messages*/
