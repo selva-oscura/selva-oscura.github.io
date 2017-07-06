@@ -3,6 +3,7 @@ import ProjectFilters from './ProjectFilters';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
 import ProjectFilterButton from './ProjectFilterButton';
+import ScreenShotsModal from './ScreenShotsModal';
 import data from '../../public/assets/data/portfolio_data.json';
 
 
@@ -33,6 +34,19 @@ const Portfolio = (props) => {
 									num={i}
 									selectProject={props.selectProject}
 								/>
+							))
+						}
+						{
+							projects.map((project, i) => (
+								project.screenshots && project.screenshots.length ? (
+									<ScreenShotsModal
+										key={i}
+										project={project}
+										screenshots={project.screenshots}
+										selectedProjectScreenshots={props.selectedProjectScreenshots}
+										unselectProjectScreenshots={props.unselectProjectScreenshots}
+										deselectedProjectScreenshots={props.deselectedProjectScreenshots}
+									/>) : null
 							))
 						}
 					</div>
