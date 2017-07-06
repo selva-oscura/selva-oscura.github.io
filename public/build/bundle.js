@@ -64,6 +64,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -90,13 +92,17 @@
 				},
 				projectFilters: [],
 				selectedProject: "",
-				deselectedProject: false
+				deselectedProject: false,
+				selectedProjectScreenshots: "",
+				deselectedProjectScreenshots: false
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
 			_this.submitMailForm = _this.submitMailForm.bind(_this);
 			_this.setProjectFilters = _this.setProjectFilters.bind(_this);
 			_this.selectProject = _this.selectProject.bind(_this);
 			_this.unselectProject = _this.unselectProject.bind(_this);
+			_this.selectedProjectScreenshots = _this.selectedProjectScreenshots.bind(_this);
+			_this.unselectProjectScreenshots = _this.unselectProjectScreenshots.bind(_this);
 			return _this;
 		}
 	
@@ -237,8 +243,35 @@
 				}, 400);
 			}
 		}, {
+			key: 'selectedProjectScreenshots',
+			value: function selectedProjectScreenshots(clickedProject) {
+				var selectedProjectScreenshots = this.state.selectedProjectScreenshots;
+				selectedProjectScreenshots = clickedProject;
+				this.setState({ selectedProjectScreenshots: selectedProjectScreenshots });
+			}
+		}, {
+			key: 'unselectProjectScreenshots',
+			value: function unselectProjectScreenshots() {
+				var _this4 = this;
+	
+				var deselectedProjectScreenshots = this.state.deselectedProjectScreenshots;
+				deselectedProjectScreenshots = true;
+				this.setState({ deselectedProjectScreenshots: deselectedProjectScreenshots });
+				setTimeout(function () {
+					var _state2 = _this4.state;
+					var selectedProjectScreenshots = _state2.selectedProjectScreenshots;
+					var deselectedProjectScreenshots = _state2.deselectedProjectScreenshots;
+	
+					selectedProjectScreenshots = "";
+					deselectedProjectScreenshots = false;
+					_this4.setState({ selectedProjectScreenshots: selectedProjectScreenshots, deselectedProjectScreenshots: deselectedProjectScreenshots });
+				}, 400);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var _React$createElement;
+	
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -247,14 +280,15 @@
 					_react2.default.createElement(_index.Profile, {
 						selectProject: this.selectProject
 					}),
-					_react2.default.createElement(_index.Portfolio, {
+					_react2.default.createElement(_index.Portfolio, (_React$createElement = {
 						projectFilters: this.state.projectFilters,
 						setProjectFilters: this.setProjectFilters,
 						selectedProject: this.state.selectedProject,
 						selectProject: this.selectProject,
 						unselectProject: this.unselectProject,
-						deselectedProject: this.state.deselectedProject
-					}),
+						deselectedProject: this.state.deselectedProject,
+						selectedProjectScreenshots: this.state.selectedProjectScreenshots
+					}, _defineProperty(_React$createElement, 'selectProject', this.selectedProjectScreenshots), _defineProperty(_React$createElement, 'unselectProjectScreenshots', this.unselectProjectScreenshots), _defineProperty(_React$createElement, 'deselectedProjectScreenshots', this.state.deselectedProjectScreenshots), _React$createElement)),
 					_react2.default.createElement(_index.Contact, {
 						form: this.state.form,
 						updateFormState: this.updateFormState,
@@ -21643,6 +21677,10 @@
 	
 	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
 	
+	var _ScreenShotsModal = __webpack_require__(195);
+	
+	var _ScreenShotsModal2 = _interopRequireDefault(_ScreenShotsModal);
+	
 	var _portfolio_data = __webpack_require__(187);
 	
 	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
@@ -21694,6 +21732,16 @@
 								num: i,
 								selectProject: props.selectProject
 							});
+						}),
+						projects.map(function (project, i) {
+							return project.screenshots && project.screenshots.length ? _react2.default.createElement(_ScreenShotsModal2.default, {
+								key: i,
+								project: project,
+								screenshots: project.screenshots,
+								selectedProjectScreenshots: props.selectedProjectScreenshots,
+								unselectProjectScreenshots: props.unselectProjectScreenshots,
+								deselectedProjectScreenshots: props.deselectedProjectScreenshots
+							}) : null;
 						})
 					),
 					projects.length > 0 ? projects.map(function (project, i) {
@@ -22053,6 +22101,13 @@
 				"lamp": false,
 				"purpose": "client",
 				"target": "zyrl",
+				"screenshots": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
 				"text": [
 					"Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.",
 					"As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilt the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranged site and database hosting. I then the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."
@@ -22888,6 +22943,91 @@
 	};
 	
 	exports.default = Copyright;
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ScreenShotsModal = function ScreenShotsModal(props) {
+	
+		var handleClick = function handleClick(e) {
+			if (e.target.className === "modal") {
+				props.unselectProjectScreenshots();
+			}
+		};
+	
+		// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
+		var modalContent = "modal-content";
+		if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
+			modalContent = "modal-out";
+		}
+	
+		return _react2.default.createElement(
+			"div",
+			{
+				className: "modal",
+				id: "screenshots" + props.project.target,
+				onClick: handleClick
+			},
+			_react2.default.createElement(
+				"div",
+				{ className: modalContent },
+				_react2.default.createElement(
+					"div",
+					{ className: "modal-header" },
+					_react2.default.createElement(
+						"span",
+						{
+							className: "modal-close",
+							onClick: props.unselectProjectScreenshots
+						},
+						"x"
+					),
+					_react2.default.createElement(
+						"h2",
+						null,
+						props.project.name
+					)
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "screenshots-body flex-grid-uneven-thirds" },
+					_react2.default.createElement(
+						"div",
+						{ className: "col screenshot-nav previous" },
+						"Previous"
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "col main" },
+						_react2.default.createElement("img", {
+							className: "screenshot",
+							src: "./public/images/pic00.jpg"
+						})
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "col screenshot-nav next" },
+						"Next"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = ScreenShotsModal;
 
 /***/ }
 /******/ ]);
