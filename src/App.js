@@ -20,12 +20,16 @@ class App extends Component {
 			projectFilters: [],
 			selectedProject: "",
 			deselectedProject: false,
+			selectedProjectScreenshots: "",
+			deselectedProjectScreenshots: false,
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
 		this.setProjectFilters = this.setProjectFilters.bind(this);
 		this.selectProject = this.selectProject.bind(this);
 		this.unselectProject = this.unselectProject.bind(this);
+		this.selectedProjectScreenshots = this.selectedProjectScreenshots.bind(this);
+		this.unselectProjectScreenshots = this.unselectProjectScreenshots.bind(this);
 	}
 	updateFormState(e){
 		let form = this.state.form;
@@ -140,6 +144,22 @@ class App extends Component {
 			this.setState({selectedProject, deselectedProject});
 		}, 400)
 	}
+	selectedProjectScreenshots(clickedProject){
+		let selectedProjectScreenshots = this.state.selectedProjectScreenshots;
+		selectedProjectScreenshots = clickedProject;
+		this.setState({selectedProjectScreenshots})
+	}
+	unselectProjectScreenshots(){
+		let deselectedProjectScreenshots = this.state.deselectedProjectScreenshots;
+		deselectedProjectScreenshots = true;
+		this.setState({deselectedProjectScreenshots});
+		setTimeout(() => {
+			let {selectedProjectScreenshots, deselectedProjectScreenshots} = this.state;
+			selectedProjectScreenshots = "";
+			deselectedProjectScreenshots = false;
+			this.setState({selectedProjectScreenshots, deselectedProjectScreenshots});
+		}, 400)
+	}
 	render(){
 		return(
 			<div>
@@ -159,6 +179,10 @@ class App extends Component {
 					selectProject={this.selectProject}
 					unselectProject={this.unselectProject}
 					deselectedProject={this.state.deselectedProject}
+					selectedProjectScreenshots={this.state.selectedProjectScreenshots}
+					selectProject={this.selectedProjectScreenshots}
+					unselectProjectScreenshots={this.unselectProjectScreenshots}
+					deselectedProjectScreenshots={this.state.deselectedProjectScreenshots}
 				/>
 
 				<Contact
