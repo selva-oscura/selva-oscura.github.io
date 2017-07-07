@@ -15,7 +15,7 @@ const ScreenShotsModal = (props) => {
 		props.updateScreenshotNum('decrement');
 	}
 
-
+	let screenshotNum = props.screenshotNum % props.project.screenshots.length;
 
 			// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
 	let modalContent = "modal-content";
@@ -49,7 +49,7 @@ const ScreenShotsModal = (props) => {
 					<div className="col main">
 						<img 
 							className="screenshot"
-							src={`./public/assets/images/pic00.jpg`}
+							src={`./public/assets/images/pic0${screenshotNum}.jpg`}
 						/>
 					</div>
 					<div
