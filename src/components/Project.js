@@ -12,7 +12,7 @@ const Project = (props) => {
 				onClick={handleClick}
 			>
 				<div className="image featured project-screenshot">
-					<img src={`./public/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
+					<img src={`./public/assets/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
 				</div>
 				<h3>{props.project.name}</h3>
 			</article>
