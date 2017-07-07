@@ -8,12 +8,10 @@ const ScreenShotsModal = (props) => {
 		}
 	}
 	const handleNextClick = () => {
-		console.log('clicked');
 		props.updateScreenshotNum('increment');
 	}
 
 	const handlePreviousClick = () => {
-		console.log('clicked');
 		props.updateScreenshotNum('decrement');
 	}
 
@@ -42,7 +40,7 @@ const ScreenShotsModal = (props) => {
 					<h2>{props.project.name}</h2>
 				</div>
 				<div className="screenshots-body flex-grid-uneven-thirds">
-					<div 
+					<div
 						className="col screenshot-nav previous"
 						onClick={handlePreviousClick}
 					>
@@ -54,7 +52,7 @@ const ScreenShotsModal = (props) => {
 							src={`./public/assets/images/pic00.jpg`}
 						/>
 					</div>
-					<div 
+					<div
 						className="col screenshot-nav next"
 						onClick={handleNextClick}
 					>

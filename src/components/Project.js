@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Project = (props) => {
-	console.log(props.project)
 	const handleClick = () => {
 		props.selectProject(props.project.target)
 	}
