@@ -2,11 +2,22 @@ import React from 'react';
 
 const ScreenShotsModal = (props) => {
 
-	const handleClick = (e) => {
+	const handleCloseClick = (e) => {
 		if(e.target.className==="modal"){
 			props.unselectProjectScreenshots()
 		}
 	}
+	const handleNextClick = () => {
+		console.log('clicked');
+		props.updateScreenshotNum('increment');
+	}
+
+	const handlePreviousClick = () => {
+		console.log('clicked');
+		props.updateScreenshotNum('decrement');
+	}
+
+
 
 			// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
 	let modalContent = "modal-content";
@@ -18,7 +29,7 @@ const ScreenShotsModal = (props) => {
 		<div
 			className="modal"
 			id={`screenshots${props.project.target}`}
-			onClick={handleClick}
+			onClick={handleCloseClick}
 		>
 			<div className={modalContent}>
 				<div className="modal-header">
@@ -31,7 +42,10 @@ const ScreenShotsModal = (props) => {
 					<h2>{props.project.name}</h2>
 				</div>
 				<div className="screenshots-body flex-grid-uneven-thirds">
-					<div className="col screenshot-nav previous">
+					<div 
+						className="col screenshot-nav previous"
+						onClick={handlePreviousClick}
+					>
 						Previous
 					</div>
 					<div className="col main">
@@ -40,7 +54,10 @@ const ScreenShotsModal = (props) => {
 							src={`./public/assets/images/pic00.jpg`}
 						/>
 					</div>
-					<div className="col screenshot-nav next">
+					<div 
+						className="col screenshot-nav next"
+						onClick={handleNextClick}
+					>
 						Next
 					</div>
 				</div>
