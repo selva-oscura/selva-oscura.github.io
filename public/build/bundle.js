@@ -94,7 +94,8 @@
 				selectedProject: "",
 				deselectedProject: false,
 				selectedProjectScreenshots: "",
-				deselectedProjectScreenshots: false
+				deselectedProjectScreenshots: false,
+				screenshotNum: 0
 			};
 			_this.updateFormState = _this.updateFormState.bind(_this);
 			_this.submitMailForm = _this.submitMailForm.bind(_this);
@@ -103,6 +104,7 @@
 			_this.unselectProject = _this.unselectProject.bind(_this);
 			_this.selectedProjectScreenshots = _this.selectedProjectScreenshots.bind(_this);
 			_this.unselectProjectScreenshots = _this.unselectProjectScreenshots.bind(_this);
+			_this.updateScreenshotNum = _this.updateScreenshotNum.bind(_this);
 			return _this;
 		}
 	
@@ -261,11 +263,24 @@
 					var _state2 = _this4.state;
 					var selectedProjectScreenshots = _state2.selectedProjectScreenshots;
 					var deselectedProjectScreenshots = _state2.deselectedProjectScreenshots;
+					var screenshotNum = _state2.screenshotNum;
 	
 					selectedProjectScreenshots = "";
 					deselectedProjectScreenshots = false;
+					screenshotNum = 0;
 					_this4.setState({ selectedProjectScreenshots: selectedProjectScreenshots, deselectedProjectScreenshots: deselectedProjectScreenshots });
 				}, 400);
+			}
+		}, {
+			key: 'updateScreenshotNum',
+			value: function updateScreenshotNum(change) {
+				var screenshotNum = this.state.screenshotNum;
+				if (change === "increment") {
+					screenshotNum = screenshotNum + 1;
+				} else {
+					screenshotNum = screenshotNum - 1;
+				}
+				this.setState({ screenshotNum: screenshotNum });
 			}
 		}, {
 			key: 'render',
@@ -288,7 +303,7 @@
 						unselectProject: this.unselectProject,
 						deselectedProject: this.state.deselectedProject,
 						selectedProjectScreenshots: this.state.selectedProjectScreenshots
-					}, _defineProperty(_React$createElement, 'selectProject', this.selectedProjectScreenshots), _defineProperty(_React$createElement, 'unselectProjectScreenshots', this.unselectProjectScreenshots), _defineProperty(_React$createElement, 'deselectedProjectScreenshots', this.state.deselectedProjectScreenshots), _React$createElement)),
+					}, _defineProperty(_React$createElement, 'selectProject', this.selectedProjectScreenshots), _defineProperty(_React$createElement, 'unselectProjectScreenshots', this.unselectProjectScreenshots), _defineProperty(_React$createElement, 'deselectedProjectScreenshots', this.state.deselectedProjectScreenshots), _defineProperty(_React$createElement, 'screenshotNum', this.state.screenshotNum), _defineProperty(_React$createElement, 'updateScreenshotNum', this.updateScreenshotNum), _React$createElement)),
 					_react2.default.createElement(_index.Contact, {
 						form: this.state.form,
 						updateFormState: this.updateFormState,
@@ -21120,11 +21135,11 @@
 	
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 	
-	var _Contact = __webpack_require__(188);
+	var _Contact = __webpack_require__(189);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _FindMe = __webpack_require__(193);
+	var _FindMe = __webpack_require__(194);
 	
 	var _FindMe2 = _interopRequireDefault(_FindMe);
 	
@@ -21234,7 +21249,7 @@
 						_react2.default.createElement(
 							"span",
 							{ className: "image fit" },
-							_react2.default.createElement("img", { src: "./public/images/pic00.jpg", alt: "" })
+							_react2.default.createElement("img", { src: "./public/assets/images/pic00.jpg", alt: "" })
 						)
 					),
 					_react2.default.createElement(
@@ -21677,11 +21692,11 @@
 	
 	var _ProjectFilterButton2 = _interopRequireDefault(_ProjectFilterButton);
 	
-	var _ScreenShotsModal = __webpack_require__(195);
+	var _ScreenShotsModal = __webpack_require__(187);
 	
 	var _ScreenShotsModal2 = _interopRequireDefault(_ScreenShotsModal);
 	
-	var _portfolio_data = __webpack_require__(187);
+	var _portfolio_data = __webpack_require__(188);
 	
 	var _portfolio_data2 = _interopRequireDefault(_portfolio_data);
 	
@@ -21740,7 +21755,9 @@
 								screenshots: project.screenshots,
 								selectedProjectScreenshots: props.selectedProjectScreenshots,
 								unselectProjectScreenshots: props.unselectProjectScreenshots,
-								deselectedProjectScreenshots: props.deselectedProjectScreenshots
+								deselectedProjectScreenshots: props.deselectedProjectScreenshots,
+								screenshotNum: props.screenshotNum,
+								updateScreenshotNum: props.updateScreenshotNum
 							}) : null;
 						})
 					),
@@ -21881,7 +21898,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Project = function Project(props) {
-		console.log(props.project);
 		var handleClick = function handleClick() {
 			props.selectProject(props.project.target);
 		};
@@ -21897,7 +21913,7 @@
 				_react2.default.createElement(
 					"div",
 					{ className: "image featured project-screenshot" },
-					_react2.default.createElement("img", { src: "./public/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
+					_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
 				),
 				_react2.default.createElement(
 					"h3",
@@ -21973,7 +21989,7 @@
 					_react2.default.createElement(
 						"div",
 						{ className: "col" },
-						_react2.default.createElement("img", { src: "./public/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
+						_react2.default.createElement("img", { src: "./public/assets/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
 					),
 					_react2.default.createElement(
 						"div",
@@ -22057,6 +22073,104 @@
 
 /***/ },
 /* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ScreenShotsModal = function ScreenShotsModal(props) {
+	
+		var handleCloseClick = function handleCloseClick(e) {
+			if (e.target.className === "modal") {
+				props.unselectProjectScreenshots();
+			}
+		};
+		var handleNextClick = function handleNextClick() {
+			props.updateScreenshotNum('increment');
+		};
+	
+		var handlePreviousClick = function handlePreviousClick() {
+			props.updateScreenshotNum('decrement');
+		};
+	
+		// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
+		var modalContent = "modal-content";
+		if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
+			modalContent = "modal-out";
+		}
+	
+		return _react2.default.createElement(
+			'div',
+			{
+				className: 'modal',
+				id: 'screenshots' + props.project.target,
+				onClick: handleCloseClick
+			},
+			_react2.default.createElement(
+				'div',
+				{ className: modalContent },
+				_react2.default.createElement(
+					'div',
+					{ className: 'modal-header' },
+					_react2.default.createElement(
+						'span',
+						{
+							className: 'modal-close',
+							onClick: props.unselectProjectScreenshots
+						},
+						'x'
+					),
+					_react2.default.createElement(
+						'h2',
+						null,
+						props.project.name
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'screenshots-body flex-grid-uneven-thirds' },
+					_react2.default.createElement(
+						'div',
+						{
+							className: 'col screenshot-nav previous',
+							onClick: handlePreviousClick
+						},
+						'Previous'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'col main' },
+						_react2.default.createElement('img', {
+							className: 'screenshot',
+							src: './public/assets/images/pic00.jpg'
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{
+							className: 'col screenshot-nav next',
+							onClick: handleNextClick
+						},
+						'Next'
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = ScreenShotsModal;
+
+/***/ },
+/* 188 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -22441,7 +22555,7 @@
 	};
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22454,15 +22568,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FormElement = __webpack_require__(189);
+	var _FormElement = __webpack_require__(190);
 	
 	var _FormElement2 = _interopRequireDefault(_FormElement);
 	
-	var _Messages = __webpack_require__(190);
+	var _Messages = __webpack_require__(191);
 	
 	var _Messages2 = _interopRequireDefault(_Messages);
 	
-	var _Errors = __webpack_require__(192);
+	var _Errors = __webpack_require__(193);
 	
 	var _Errors2 = _interopRequireDefault(_Errors);
 	
@@ -22576,7 +22690,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22681,7 +22795,7 @@
 	exports.default = FormElement;
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22694,7 +22808,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(191);
+	var _Message = __webpack_require__(192);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -22717,7 +22831,7 @@
 	exports.default = Messages;
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22744,7 +22858,7 @@
 	exports.default = Message;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22757,7 +22871,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Message = __webpack_require__(191);
+	var _Message = __webpack_require__(192);
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
@@ -22780,7 +22894,7 @@
 	exports.default = Errors;
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22793,7 +22907,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Copyright = __webpack_require__(194);
+	var _Copyright = __webpack_require__(195);
 	
 	var _Copyright2 = _interopRequireDefault(_Copyright);
 	
@@ -22883,7 +22997,7 @@
 	exports.default = FindMe;
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22943,91 +23057,6 @@
 	};
 	
 	exports.default = Copyright;
-
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var ScreenShotsModal = function ScreenShotsModal(props) {
-	
-		var handleClick = function handleClick(e) {
-			if (e.target.className === "modal") {
-				props.unselectProjectScreenshots();
-			}
-		};
-	
-		// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
-		var modalContent = "modal-content";
-		if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
-			modalContent = "modal-out";
-		}
-	
-		return _react2.default.createElement(
-			"div",
-			{
-				className: "modal",
-				id: "screenshots" + props.project.target,
-				onClick: handleClick
-			},
-			_react2.default.createElement(
-				"div",
-				{ className: modalContent },
-				_react2.default.createElement(
-					"div",
-					{ className: "modal-header" },
-					_react2.default.createElement(
-						"span",
-						{
-							className: "modal-close",
-							onClick: props.unselectProjectScreenshots
-						},
-						"x"
-					),
-					_react2.default.createElement(
-						"h2",
-						null,
-						props.project.name
-					)
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "screenshots-body flex-grid-uneven-thirds" },
-					_react2.default.createElement(
-						"div",
-						{ className: "col screenshot-nav previous" },
-						"Previous"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "col main" },
-						_react2.default.createElement("img", {
-							className: "screenshot",
-							src: "./public/images/pic00.jpg"
-						})
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "col screenshot-nav next" },
-						"Next"
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = ScreenShotsModal;
 
 /***/ }
 /******/ ]);
