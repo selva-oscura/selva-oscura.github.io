@@ -37,7 +37,7 @@ const ScreenShotsModal = (props) => {
 					<div className="col main">
 						<img 
 							className="screenshot"
-							src={`./public/images/pic00.jpg`}
+							src={`./public/assets/images/pic00.jpg`}
 						/>
 					</div>
 					<div className="col screenshot-nav next">
