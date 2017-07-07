@@ -46,6 +46,8 @@ const Portfolio = (props) => {
 										selectedProjectScreenshots={props.selectedProjectScreenshots}
 										unselectProjectScreenshots={props.unselectProjectScreenshots}
 										deselectedProjectScreenshots={props.deselectedProjectScreenshots}
+										screenshotNum={props.screenshotNum}
+										updateScreenshotNum={props.updateScreenshotNum}
 									/>) : null
 							))
 						}
