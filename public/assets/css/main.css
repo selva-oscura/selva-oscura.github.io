@@ -1685,7 +1685,7 @@
 		.wrapper.contact-wrapper{
 			box-shadow: none;
 			min-height: 100vh;
-		  background-image: -webkit-linear-gradient(top, rgba(255, 245, 225, 0.5), rgba(255, 245, 225, 0.8)), url(../../images/golden-gate-at-twilight.jpg);
+		  background-image: -webkit-linear-gradient(top, rgba(255, 245, 225, 0.5), rgba(255, 245, 225, 0.8)), url(../../assets/images/golden-gate-at-twilight.jpg);
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
