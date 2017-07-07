@@ -6,7 +6,7 @@ const Home = () => {
 			<article className="container" id="home">
 				<div className="row">
 					<div className="4u 12u(mobile)">
-						<span className="image fit"><img src="./public/images/pic00.jpg" alt="" /></span>
+						<span className="image fit"><img src="./public/assets/images/pic00.jpg" alt="" /></span>
 					</div>
 					<div className="8u 12u(mobile)">
 						<header>
