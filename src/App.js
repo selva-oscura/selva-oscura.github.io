@@ -22,6 +22,7 @@ class App extends Component {
 			deselectedProject: false,
 			selectedProjectScreenshots: "",
 			deselectedProjectScreenshots: false,
+			screenshotNum: 0,
 		}
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
@@ -30,6 +31,7 @@ class App extends Component {
 		this.unselectProject = this.unselectProject.bind(this);
 		this.selectedProjectScreenshots = this.selectedProjectScreenshots.bind(this);
 		this.unselectProjectScreenshots = this.unselectProjectScreenshots.bind(this);
+		this.updateScreenshotNum = this.updateScreenshotNum.bind(this);
 	}
 	updateFormState(e){
 		let form = this.state.form;
@@ -154,11 +156,21 @@ class App extends Component {
 		deselectedProjectScreenshots = true;
 		this.setState({deselectedProjectScreenshots});
 		setTimeout(() => {
-			let {selectedProjectScreenshots, deselectedProjectScreenshots} = this.state;
+			let {selectedProjectScreenshots, deselectedProjectScreenshots, screenshotNum} = this.state;
 			selectedProjectScreenshots = "";
 			deselectedProjectScreenshots = false;
+			screenshotNum = 0;
 			this.setState({selectedProjectScreenshots, deselectedProjectScreenshots});
 		}, 400)
+	}
+	updateScreenshotNum(change){
+		let screenshotNum = this.state.screenshotNum;
+		if(change === "increment"){
+			screenshotNum = screenshotNum+1;
+		}else{
+			screenshotNum = screenshotNum - 1;
+		}
+		this.setState({screenshotNum});
 	}
 	render(){
 		return(
@@ -183,6 +195,8 @@ class App extends Component {
 					selectProject={this.selectedProjectScreenshots}
 					unselectProjectScreenshots={this.unselectProjectScreenshots}
 					deselectedProjectScreenshots={this.state.deselectedProjectScreenshots}
+					screenshotNum={this.state.screenshotNum}
+					updateScreenshotNum={this.updateScreenshotNum}
 				/>
 
 				<Contact
