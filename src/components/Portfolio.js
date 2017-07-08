@@ -62,6 +62,8 @@ const Portfolio = (props) => {
 									selectedProject={props.selectedProject}
 									unselectProject={props.unselectProject}
 									deselectedProject={props.deselectedProject}
+									selectedProjectScreenshots={props.selectedProjectScreenshots}
+									selectProjectScreenshots={props.selectProjectScreenshots}
 								/>
 							))
 						):(
