@@ -2016,7 +2016,17 @@
 
 
 /* Screenshots */
+
+.modal.modal-screenshots {
+  z-index: 300; /* Sit on top */
+}
+/* Modal Content */
+.modal.modal-screenshots .modal-content {
+	z-index: 301;
+}
 /* Screenshots Body */
+
+
 .screenshots-body{
 	font-size: 1.5em;
 	text-align: left;
