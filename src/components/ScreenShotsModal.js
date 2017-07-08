@@ -3,7 +3,7 @@ import React from 'react';
 const ScreenShotsModal = (props) => {
 
 	const handleCloseClick = (e) => {
-		if(e.target.className==="modal"){
+		if(e.target.className==="modal modal-screenshots"){
 			props.unselectProjectScreenshots()
 		}
 	}
@@ -28,11 +28,11 @@ const ScreenShotsModal = (props) => {
 		modalContent = "modal-out";
 	}
 
-			// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
 	return (
 		<div
-			className="modal"
+			className="modal modal-screenshots"
 			id={`screenshots${props.project.target}`}
+			style={ props.selectedProjectScreenshots===`screenshots${props.project.target}` ? {'display':'block'} : {'display':'none'}}
 			onClick={handleCloseClick}
 		>
 			<div className={modalContent}>
