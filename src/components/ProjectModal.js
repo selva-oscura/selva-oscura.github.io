@@ -2,10 +2,13 @@ import React from 'react';
 
 const ProjectModal = (props) => {
 
-	const handleClick = (e) => {
+	const handleCloseClick = (e) => {
 		if(e.target.className==="modal"){
 			props.unselectProject()
 		}
+	}
+	const handleScreenshotsClick = () => {
+		props.selectProjectScreenshots(`screenshots${props.project.target}`);
 	}
 
 	let modalContent = "modal-content";
@@ -17,8 +20,8 @@ const ProjectModal = (props) => {
 		<div
 			className="modal"
 			id={props.project.target}
-			style={ props.selectedProject===props.project.target ? {'display':'block'} : {'display':'none'}}
-			onClick={handleClick}
+			style={ props.selectedProject===props.project.target && !props.selectedProjectScreenshots ? {'display':'block'} : {'display':'none'}}
+			onClick={handleCloseClick}
 		>
 			<div className={modalContent}>
 				<div className="modal-header">
@@ -48,6 +51,7 @@ const ProjectModal = (props) => {
 					</div>
 					<div className="half text-right">
 						{ props.project.git ? <p><a href={props.project.git} target={props.project.target}><span className="icon featured fa-github"></span> Project Repo</a></p> : " " }
+						{ props.project.screenshots ? <p><a target={`screenshots$${props.project.target}`} onClick={handleScreenshotsClick}>Project Screenshots</a></p> : " " }
 					</div>
 				</div>
 			</div>
