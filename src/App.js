@@ -29,7 +29,7 @@ class App extends Component {
 		this.setProjectFilters = this.setProjectFilters.bind(this);
 		this.selectProject = this.selectProject.bind(this);
 		this.unselectProject = this.unselectProject.bind(this);
-		this.selectedProjectScreenshots = this.selectedProjectScreenshots.bind(this);
+		this.selectProjectScreenshots = this.selectProjectScreenshots.bind(this);
 		this.unselectProjectScreenshots = this.unselectProjectScreenshots.bind(this);
 		this.updateScreenshotNum = this.updateScreenshotNum.bind(this);
 	}
@@ -146,7 +146,7 @@ class App extends Component {
 			this.setState({selectedProject, deselectedProject});
 		}, 400)
 	}
-	selectedProjectScreenshots(clickedProject){
+	selectProjectScreenshots(clickedProject){
 		let selectedProjectScreenshots = this.state.selectedProjectScreenshots;
 		selectedProjectScreenshots = clickedProject;
 		this.setState({selectedProjectScreenshots})
@@ -192,7 +192,7 @@ class App extends Component {
 					unselectProject={this.unselectProject}
 					deselectedProject={this.state.deselectedProject}
 					selectedProjectScreenshots={this.state.selectedProjectScreenshots}
-					selectProject={this.selectedProjectScreenshots}
+					selectProjectScreenshots={this.selectProjectScreenshots}
 					unselectProjectScreenshots={this.unselectProjectScreenshots}
 					deselectedProjectScreenshots={this.state.deselectedProjectScreenshots}
 					screenshotNum={this.state.screenshotNum}
