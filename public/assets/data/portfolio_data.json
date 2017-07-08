@@ -36,7 +36,8 @@
 			"lamp": false,
 			"purpose": "client",
 			"target": "zyrl",
-			"screenshots": [0,1,2,3,4],
+			"screenshots": ["zyrl_index.png", "zyrl_influencers.png", "zyrl_brand.png", "zyrl_about_us.png"],
+			"screenshotCaptions": ["Zyrl | Home Page", "Zyrl | Influencers", "Zyrl | Brands", "Zyl | About Us"],
 			"text": ["Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.", "As a freelancer for Zyrl, I converted the site from WordPress to Meteor, rebuilt the app's front-end and back-end (sign-up and communications for influencers, merchants, and potential employees) and arranged site and database hosting. I then the Facebook and Instagram permissions process, designed and developed the internal APIs & the management of data from Facebook and Instagram's APIs, and designed the admin dashboard for managing influencers/merchants, admin permissions, and display of analytics of  influencers' Facebook and Instagram profiles and posts data."],
 			"technologies": "Meteor.js, MongoDB, Node.js, JavaScript/ES6, jQuery, HTML5, CSS3, Bootstrap, Facebook Graph API, Instagram API"
 		},{
