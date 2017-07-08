@@ -64,8 +64,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -102,7 +100,7 @@
 			_this.setProjectFilters = _this.setProjectFilters.bind(_this);
 			_this.selectProject = _this.selectProject.bind(_this);
 			_this.unselectProject = _this.unselectProject.bind(_this);
-			_this.selectedProjectScreenshots = _this.selectedProjectScreenshots.bind(_this);
+			_this.selectProjectScreenshots = _this.selectProjectScreenshots.bind(_this);
 			_this.unselectProjectScreenshots = _this.unselectProjectScreenshots.bind(_this);
 			_this.updateScreenshotNum = _this.updateScreenshotNum.bind(_this);
 			return _this;
@@ -245,8 +243,8 @@
 				}, 400);
 			}
 		}, {
-			key: 'selectedProjectScreenshots',
-			value: function selectedProjectScreenshots(clickedProject) {
+			key: 'selectProjectScreenshots',
+			value: function selectProjectScreenshots(clickedProject) {
 				var selectedProjectScreenshots = this.state.selectedProjectScreenshots;
 				selectedProjectScreenshots = clickedProject;
 				this.setState({ selectedProjectScreenshots: selectedProjectScreenshots });
@@ -285,8 +283,6 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var _React$createElement;
-	
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -295,15 +291,20 @@
 					_react2.default.createElement(_index.Profile, {
 						selectProject: this.selectProject
 					}),
-					_react2.default.createElement(_index.Portfolio, (_React$createElement = {
+					_react2.default.createElement(_index.Portfolio, {
 						projectFilters: this.state.projectFilters,
 						setProjectFilters: this.setProjectFilters,
 						selectedProject: this.state.selectedProject,
 						selectProject: this.selectProject,
 						unselectProject: this.unselectProject,
 						deselectedProject: this.state.deselectedProject,
-						selectedProjectScreenshots: this.state.selectedProjectScreenshots
-					}, _defineProperty(_React$createElement, 'selectProject', this.selectedProjectScreenshots), _defineProperty(_React$createElement, 'unselectProjectScreenshots', this.unselectProjectScreenshots), _defineProperty(_React$createElement, 'deselectedProjectScreenshots', this.state.deselectedProjectScreenshots), _defineProperty(_React$createElement, 'screenshotNum', this.state.screenshotNum), _defineProperty(_React$createElement, 'updateScreenshotNum', this.updateScreenshotNum), _React$createElement)),
+						selectedProjectScreenshots: this.state.selectedProjectScreenshots,
+						selectProjectScreenshots: this.selectProjectScreenshots,
+						unselectProjectScreenshots: this.unselectProjectScreenshots,
+						deselectedProjectScreenshots: this.state.deselectedProjectScreenshots,
+						screenshotNum: this.state.screenshotNum,
+						updateScreenshotNum: this.updateScreenshotNum
+					}),
 					_react2.default.createElement(_index.Contact, {
 						form: this.state.form,
 						updateFormState: this.updateFormState,
@@ -21768,7 +21769,9 @@
 							num: i,
 							selectedProject: props.selectedProject,
 							unselectProject: props.unselectProject,
-							deselectedProject: props.deselectedProject
+							deselectedProject: props.deselectedProject,
+							selectedProjectScreenshots: props.selectedProjectScreenshots,
+							selectProjectScreenshots: props.selectProjectScreenshots
 						});
 					}) : _react2.default.createElement(
 						'div',
@@ -21944,10 +21947,13 @@
 	
 	var ProjectModal = function ProjectModal(props) {
 	
-		var handleClick = function handleClick(e) {
+		var handleCloseClick = function handleCloseClick(e) {
 			if (e.target.className === "modal") {
 				props.unselectProject();
 			}
+		};
+		var handleScreenshotsClick = function handleScreenshotsClick() {
+			props.selectProjectScreenshots("screenshots" + props.project.target);
 		};
 	
 		var modalContent = "modal-content";
@@ -21960,8 +21966,8 @@
 			{
 				className: "modal",
 				id: props.project.target,
-				style: props.selectedProject === props.project.target ? { 'display': 'block' } : { 'display': 'none' },
-				onClick: handleClick
+				style: props.selectedProject === props.project.target && !props.selectedProjectScreenshots ? { 'display': 'block' } : { 'display': 'none' },
+				onClick: handleCloseClick
 			},
 			_react2.default.createElement(
 				"div",
@@ -22062,6 +22068,15 @@
 								_react2.default.createElement("span", { className: "icon featured fa-github" }),
 								" Project Repo"
 							)
+						) : " ",
+						props.project.screenshots ? _react2.default.createElement(
+							"p",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ target: "screenshots$" + props.project.target, onClick: handleScreenshotsClick },
+								"Project Screenshots"
+							)
 						) : " "
 					)
 				)
@@ -22090,7 +22105,7 @@
 	var ScreenShotsModal = function ScreenShotsModal(props) {
 	
 		var handleCloseClick = function handleCloseClick(e) {
-			if (e.target.className === "modal") {
+			if (e.target.className === "modal modal-screenshots") {
 				props.unselectProjectScreenshots();
 			}
 		};
@@ -22102,7 +22117,14 @@
 			props.updateScreenshotNum('decrement');
 		};
 	
-		// style={ props.selectedProjectScreenshots===props.project.target ? {'display':'block'} : {'display':'none'}}
+		var screenshotNum = props.screenshotNum % props.project.screenshots.length;
+		var screenshot = {
+			"backgroundImage": 'url(./public/assets/images/' + props.project.screenshots[screenshotNum] + ')',
+			"backgroundSize": "contain",
+			"backgroundRepeat": "no-repeat",
+			"backgroundPosition": "center"
+		};
+	
 		var modalContent = "modal-content";
 		if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
 			modalContent = "modal-out";
@@ -22111,8 +22133,9 @@
 		return _react2.default.createElement(
 			'div',
 			{
-				className: 'modal',
+				className: 'modal modal-screenshots',
 				id: 'screenshots' + props.project.target,
+				style: props.selectedProjectScreenshots === 'screenshots' + props.project.target ? { 'display': 'block' } : { 'display': 'none' },
 				onClick: handleCloseClick
 			},
 			_react2.default.createElement(
@@ -22130,7 +22153,7 @@
 						'x'
 					),
 					_react2.default.createElement(
-						'h2',
+						'h3',
 						null,
 						props.project.name
 					)
@@ -22144,23 +22167,63 @@
 							className: 'col screenshot-nav previous',
 							onClick: handlePreviousClick
 						},
-						'Previous'
+						_react2.default.createElement('p', { className: 'icon fa-chevron-left' })
 					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'col main' },
-						_react2.default.createElement('img', {
-							className: 'screenshot',
-							src: './public/assets/images/pic00.jpg'
-						})
-					),
+					_react2.default.createElement('div', { className: 'col main', style: screenshot }),
 					_react2.default.createElement(
 						'div',
 						{
 							className: 'col screenshot-nav next',
 							onClick: handleNextClick
 						},
-						'Next'
+						_react2.default.createElement('p', { className: 'icon fa-chevron-right' })
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'modal-footer screenshot-caption' },
+					_react2.default.createElement(
+						'p',
+						null,
+						props.project.screenshotCaptions[screenshotNum]
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'half text-left' },
+						props.project.web ? _react2.default.createElement(
+							'p',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ href: props.project.web, target: props.project.target },
+								_react2.default.createElement('span', { className: 'icon featured fa-globe' }),
+								' Project Website'
+							)
+						) : " ",
+						props.project.codepen ? _react2.default.createElement(
+							'p',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ href: props.project.codepen, target: props.project.target },
+								_react2.default.createElement('span', { className: 'icon featured fa-codepen' }),
+								' Project Codepen'
+							)
+						) : " "
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'half text-right' },
+						props.project.git ? _react2.default.createElement(
+							'p',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ href: props.project.git, target: props.project.target },
+								_react2.default.createElement('span', { className: 'icon featured fa-github' }),
+								' Project Repo'
+							)
+						) : " "
 					)
 				)
 			)
@@ -22216,11 +22279,16 @@
 				"purpose": "client",
 				"target": "zyrl",
 				"screenshots": [
-					0,
-					1,
-					2,
-					3,
-					4
+					"zyrl_index.png",
+					"zyrl_influencers.png",
+					"zyrl_brand.png",
+					"zyrl_about_us.png"
+				],
+				"screenshotCaptions": [
+					"Zyrl | Home Page",
+					"Zyrl | Influencers",
+					"Zyrl | Brands",
+					"Zyl | About Us"
 				],
 				"text": [
 					"Zyrl is an app for connecting social media influencers and the merchants whose products and services they love.",
