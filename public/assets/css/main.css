@@ -1669,7 +1669,7 @@
 		.wrapper.first{
 			box-shadow: none;
 			min-height: 100vh;
-		  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/bay-by-night.jpg);
+		  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/bay-by-night.jpg);
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
@@ -1904,7 +1904,7 @@
 	z-index: 201;
 	font-size: 1.5em;
 	background-color: #fefefe;
-	margin: 60px auto;
+	margin: 40px auto 0;
 	border: 1px solid #444444;
 	width: 80%;
 	max-width:960px;
@@ -1940,9 +1940,9 @@
   padding: 2px 16px;
   background-color: #000000;
 }
-.modal-header h2{
+.modal-header h2, .modal-header h3{
 	color: #43B3E0;
-	margin: 1em 0em;
+	margin: 24px 0em;
 }
 /* Modal Body */
 .modal-body {
@@ -2033,16 +2033,24 @@
 
 .flex-grid-uneven-thirds .col.main{
 	width: calc(100% - 150px);
-}
-
-.flex-grid-uneven-thirds .screenshot{
-	width:100%;
-	/*max-height: 40vw;*/
+	height: 80vh;
 }
 
 .flex-grid-uneven-thirds .col.screenshot-nav{
 	width:75px;
-	background-color: red;
+	background-color: rgba(20, 20, 20, 0.85);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-shadow: 2px 3px 0px rgba(0,0,0,0.15), 6px 4px 0px #666;
+	-moz-transition: text-shadow .2s ease-in-out;
+	-webkit-transition: text-shadow .2s ease-in-out;
+	-ms-transition: text-shadow .2s ease-in-out;
+	transition: text-shadow .2s ease-in-out;
+}
+
+.flex-grid-uneven-thirds .col.screenshot-nav:hover{
+	text-shadow: 2px 3px 0px rgba(0,0,0,0.45), 8px 4px 0px #ccc;
 }
 
 .flex-grid-thirds .col {
@@ -2059,6 +2067,11 @@
     width: 100%;
     margin: 0 0 10px 0;
   }
+}
+
+.modal-footer.screenshot-caption p{
+	font-size: 1em;
+	color:#fff; 
 }
 
 
