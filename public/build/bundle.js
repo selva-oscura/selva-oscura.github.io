@@ -21766,7 +21766,6 @@
 						return _react2.default.createElement(_ProjectModal2.default, {
 							key: i,
 							project: project,
-							num: i,
 							selectedProject: props.selectedProject,
 							unselectProject: props.unselectProject,
 							deselectedProject: props.deselectedProject,
@@ -21995,7 +21994,7 @@
 					_react2.default.createElement(
 						"div",
 						{ className: "col" },
-						_react2.default.createElement("img", { src: "./public/assets/images/pic0" + (props.num % 4 + 1) + ".jpg", alt: "screenshot of " + props.project.name })
+						_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
 					),
 					_react2.default.createElement(
 						"div",
