@@ -35,7 +35,7 @@ const ProjectModal = (props) => {
 				</div>
 				<div className="modal-body flex-grid-halves">
 					<div className="col">
-							<img src={`./public/assets/images/pic0${props.num%4+1}.jpg`} alt={`screenshot of ${props.project.name}`} />
+						<img src={`./public/assets/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
 					</div>
 					<div className="col">
 						<p><strong>Projects: </strong>
