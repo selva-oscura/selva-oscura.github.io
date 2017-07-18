@@ -57,7 +57,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "portfolio",
-			"text": ["This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."],
+			"text": ["This is the portfolio page at which you are currently looking. As of 7/17/2017, it is a work in progress. Starting as a vanilla html site (based on the Free Code Camp portfolio project), the project has undergone repeated iterations as it was converted to React, had its theme changed, had animations and new sections added....and yet more changes coming."],
 			"technologies": "React.js, JavaScript/ES6, jQuery, HTML5, CSS3, HTML5Up"
 		},{
 			"src": "public/img/sudoku.png",
