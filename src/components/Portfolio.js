@@ -6,7 +6,6 @@ import ProjectFilterButton from './ProjectFilterButton';
 import ScreenShotsModal from './ScreenShotsModal';
 import data from '../../public/assets/data/portfolio_data.json';
 
-
 const Portfolio = (props) => {
 	let projects = data.projects;
 	props.projectFilters.forEach((projectFilter) => {
@@ -25,13 +24,12 @@ const Portfolio = (props) => {
 					/>
 				</header>
 				<div className="container">
-					<div className="row">
+					<div className="flex-grid-thirds">
 						{
 							projects.map((project, i) => (
 								<Project
 									key={i}
 									project={project}
-									num={i}
 									selectProject={props.selectProject}
 								/>
 							))
@@ -51,6 +49,7 @@ const Portfolio = (props) => {
 									/>) : null
 							))
 						}
+
 					</div>
 					{
 						projects.length>0 ? (
