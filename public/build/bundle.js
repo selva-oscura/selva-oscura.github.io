@@ -21740,12 +21740,11 @@
 					{ className: 'container' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'row' },
+						{ className: 'flex-grid-thirds' },
 						projects.map(function (project, i) {
 							return _react2.default.createElement(_Project2.default, {
 								key: i,
 								project: project,
-								num: i,
 								selectProject: props.selectProject
 							});
 						}),
@@ -21905,22 +21904,22 @@
 		};
 		return _react2.default.createElement(
 			"div",
-			{ className: "4u 12u(mobile)" },
+			{ className: "col" },
 			_react2.default.createElement(
-				"article",
+				"figure",
 				{
-					className: "box style2",
+					className: "project",
 					onClick: handleClick
 				},
+				_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name }),
 				_react2.default.createElement(
-					"div",
-					{ className: "image featured project-screenshot" },
-					_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
-				),
-				_react2.default.createElement(
-					"h3",
+					"figcaption",
 					null,
-					props.project.name
+					_react2.default.createElement(
+						"label",
+						null,
+						props.project.name
+					)
 				)
 			)
 		);
@@ -22313,7 +22312,7 @@
 				"purpose": "personal",
 				"target": "portfolio",
 				"text": [
-					"This is the portfolio page at which you are currently looking. As of 10/13/2016, it is a work in progress, starting as a vanilla html site (based on the Free Code Camp portfolio project).  It is undergoing repeated iterations as it is converted to React, given routes....and yet more changes coming."
+					"This is the portfolio page at which you are currently looking. As of 7/17/2017, it is a work in progress. Starting as a vanilla html site (based on the Free Code Camp portfolio project), the project has undergone repeated iterations as it was converted to React, had its theme changed, had animations and new sections added....and yet more changes coming."
 				],
 				"technologies": "React.js, JavaScript/ES6, jQuery, HTML5, CSS3, HTML5Up"
 			},
