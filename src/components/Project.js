@@ -5,16 +5,16 @@ const Project = (props) => {
 		props.selectProject(props.project.target)
 	}
 	return (
-		<div className="4u 12u(mobile)">
-			<article
-				className="box style2"
+		<div className="col">
+			<figure
+				className="project"
 				onClick={handleClick}
 			>
-				<div className="image featured project-screenshot">
-					<img src={`./public/assets/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
-				</div>
-				<h3>{props.project.name}</h3>
-			</article>
+				<img src={`./public/assets/images/${props.project.target}.png`} alt={`screenshot of ${props.project.name}`} />
+				<figcaption>
+					<label>{props.project.name}</label>
+				</figcaption>
+			</figure>
 		</div>
 	)
 }
