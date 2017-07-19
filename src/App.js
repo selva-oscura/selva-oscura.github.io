@@ -23,7 +23,7 @@ class App extends Component {
 			selectedProjectScreenshots: "",
 			deselectedProjectScreenshots: false,
 			screenshotNum: 0,
-		}
+		};
 		this.updateFormState = this.updateFormState.bind(this);
 		this.submitMailForm = this.submitMailForm.bind(this);
 		this.setProjectFilters = this.setProjectFilters.bind(this);
@@ -36,35 +36,35 @@ class App extends Component {
 	updateFormState(e){
 		let form = this.state.form;
 		if(e.target.type === "checkbox"){
-			form[e.target.id]=!form[e.target.id];
-		}else if(e.target.type==="radio"){
-			form[e.target.name]=e.target.id;
+			form[e.target.id] =! form[e.target.id];
+		}else if(e.target.type === "radio"){
+			form[e.target.name] = e.target.id;
 		}else{
-			form[e.target.id]=e.target.value;
+			form[e.target.id] = e.target.value;
 		}
-		form.responses=[];
-		form.errors=[];
+		form.responses = [];
+		form.errors = [];
 		this.setState({form});
 	}
-	validateMail(e){
+	validateMail(){
 		let form = this.state.form;
 		form.errors = [];
 		let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if(form.name.length===0){
+		if(form.name.length === 0){
 			form.errors.push("Missing Name");
 		}
-		if(form.email.length===0){
+		if(form.email.length === 0){
 			form.errors.push("Missing E-Mail Address");
 		}else if(!form.email.match(emailRegex)){
 			form.errors.push("Improperly-Formatted E-Mail Address");
 		}
-		if(form.subject.length===0){
+		if(form.subject.length === 0){
 			form.errors.push("Missing Subject");
 		}
-		if(form.message.length===0){
+		if(form.message.length === 0){
 			form.errors.push("Missing Message");
 		}
-		if(form.errors.length===0){
+		if(form.errors.length === 0){
 			// no errors
 			form.errors = [];
 			form.submitting = true;
@@ -72,7 +72,7 @@ class App extends Component {
 			return true;
 		}else{		
 			// errors
-			if(form.errors.length===1){
+			if(form.errors.length === 1){
 				// singular 
 				form.errors.unshift("Can Not Submit the Form, Due to the Following Problem:");
 			}else{			
@@ -80,7 +80,7 @@ class App extends Component {
 				form.errors.unshift("Can Not Submit the Form, Due to the Following Problems:");
 			}
 			this.setState({form});
-			return false
+			return false;
 		}
 	}
 	sendMail(){
@@ -119,13 +119,13 @@ class App extends Component {
 	}
 	setProjectFilters(projectFilter){
 		let projectFilters = this.state.projectFilters;
-		if(projectFilter[0]==="all" || projectFilter[0]==="reset"){
+		if(projectFilter[0] === "all" || projectFilter[0] === "reset"){
 			projectFilters = [];
 		}else{
 			if(projectFilters.includes(projectFilter[0])){
 				projectFilters = projectFilters.filter((filterInState) => ( filterInState !==projectFilter[0] ));
 			}else{
-				projectFilters.push(projectFilter[0])
+				projectFilters.push(projectFilter[0]);
 			}
 		}
 		this.setState({projectFilters});
@@ -133,7 +133,7 @@ class App extends Component {
 	selectProject(clickedProject){
 		let selectedProject = this.state.selectedProject;
 		selectedProject = clickedProject;
-		this.setState({selectedProject})
+		this.setState({selectedProject});
 	}
 	unselectProject(){
 		let deselectedProject = this.state.deselectedProject;
@@ -144,24 +144,20 @@ class App extends Component {
 			selectedProject = "";
 			deselectedProject = false;
 			this.setState({selectedProject, deselectedProject});
-		}, 400)
+		}, 400);
 	}
 	selectProjectScreenshots(clickedProject){
 		let selectedProjectScreenshots = this.state.selectedProjectScreenshots;
 		selectedProjectScreenshots = clickedProject;
-		this.setState({selectedProjectScreenshots})
+		this.setState({selectedProjectScreenshots});
 	}
 	unselectProjectScreenshots(){
 		let deselectedProjectScreenshots = this.state.deselectedProjectScreenshots;
 		deselectedProjectScreenshots = true;
 		this.setState({deselectedProjectScreenshots});
 		setTimeout(() => {
-			let {selectedProjectScreenshots, deselectedProjectScreenshots, screenshotNum} = this.state;
-			selectedProjectScreenshots = "";
-			deselectedProjectScreenshots = false;
-			screenshotNum = 0;
-			this.setState({selectedProjectScreenshots, deselectedProjectScreenshots});
-		}, 400)
+			this.setState({selectedProjectScreenshots: '', deselectedProjectScreenshots: false, screenshotNum: 0});
+		}, 400);
 	}
 	updateScreenshotNum(change){
 		let screenshotNum = this.state.screenshotNum;
@@ -180,7 +176,7 @@ class App extends Component {
 
 				<Home />
 
-				<Profile 
+				<Profile
 					selectProject={this.selectProject}
 				/>
 
@@ -213,4 +209,3 @@ class App extends Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('App'));
- 
