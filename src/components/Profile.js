@@ -36,6 +36,7 @@ const Profile = props => {
       skillArea: 'Sundry',
       skills: [
         'Package Management: npm, yarn',
+        'Linting: jshint, eslint, prettier',
         'Version Control: git',
         'Progressive Web Apps (PWAs)',
         'PaaS: Galaxy, Heroku',
