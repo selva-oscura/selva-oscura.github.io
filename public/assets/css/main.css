@@ -2151,7 +2151,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 			}
 
 			h1 {
-				font-size: 3.25em;
+				font-size: 3em;
 			}
 
 			h1 strong{
@@ -2159,10 +2159,10 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 			}
 
 			h2 {
-				font-size: 2.5em;
+				font-size: 2em;
 			}
 
-			h3 {
+			h3, p {
 				font-size: 1.5em;
 			}
 
@@ -2520,6 +2520,12 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 	font-size: 1.25em;
 	line-height: 1.25em;
 	margin: 0em 2em 1em;
+}
+
+#profile .flex-grid-thirds ul li{
+	font-size: 1.25em;
+	line-height: 1.25em;
+	margin: 0em .25em 1em;
 }
 
 .flex-grid-thirds {
