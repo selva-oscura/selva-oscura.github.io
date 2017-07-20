@@ -21320,7 +21320,7 @@
 	  }, {
 	    icon: 'fa-cogs',
 	    skillArea: 'Sundry',
-	    skills: ['Package Management: npm, yarn', 'Version Control: git', 'Progressive Web Apps (PWAs)', 'PaaS: Galaxy, Heroku', 'DBaaS: mLab', 'APIs: Facebook, Instagram, OpenWeather, Stripe, & many more', 'Wireframe: Balsamiq']
+	    skills: ['Package Management: npm, yarn', 'Linting: jshint, eslint, prettier', 'Version Control: git', 'Progressive Web Apps (PWAs)', 'PaaS: Galaxy, Heroku', 'DBaaS: mLab', 'APIs: Facebook, Instagram, OpenWeather, Stripe, & many more', 'Wireframe: Balsamiq']
 	  }];
 	  return _react2.default.createElement(
 	    'div',
