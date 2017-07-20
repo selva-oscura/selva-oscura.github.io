@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -71,266 +71,245 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var App = function (_Component) {
-		_inherits(App, _Component);
+	  _inherits(App, _Component);
 	
-		function App(props) {
-			_classCallCheck(this, App);
+	  function App(props) {
+	    _classCallCheck(this, App);
 	
-			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-			_this.state = {
-				form: {
-					name: "",
-					email: "",
-					subject: "",
-					message: "",
-					responses: [],
-					errors: [],
-					submitting: false
-				},
-				projectFilters: [],
-				selectedProject: "",
-				deselectedProject: false,
-				selectedProjectScreenshots: "",
-				deselectedProjectScreenshots: false,
-				screenshotNum: 0
-			};
-			_this.updateFormState = _this.updateFormState.bind(_this);
-			_this.submitMailForm = _this.submitMailForm.bind(_this);
-			_this.setProjectFilters = _this.setProjectFilters.bind(_this);
-			_this.selectProject = _this.selectProject.bind(_this);
-			_this.unselectProject = _this.unselectProject.bind(_this);
-			_this.selectProjectScreenshots = _this.selectProjectScreenshots.bind(_this);
-			_this.unselectProjectScreenshots = _this.unselectProjectScreenshots.bind(_this);
-			_this.updateScreenshotNum = _this.updateScreenshotNum.bind(_this);
-			return _this;
-		}
+	    _this.state = {
+	      form: {
+	        name: '',
+	        email: '',
+	        subject: '',
+	        message: '',
+	        responses: [],
+	        errors: [],
+	        submitting: false
+	      },
+	      projectFilters: [],
+	      selectedProject: '',
+	      deselectedProject: false,
+	      selectedProjectScreenshots: '',
+	      deselectedProjectScreenshots: false,
+	      screenshotNum: 0
+	    };
+	    _this.updateFormState = _this.updateFormState.bind(_this);
+	    _this.submitMailForm = _this.submitMailForm.bind(_this);
+	    _this.setProjectFilters = _this.setProjectFilters.bind(_this);
+	    _this.selectProject = _this.selectProject.bind(_this);
+	    _this.unselectProject = _this.unselectProject.bind(_this);
+	    _this.selectProjectScreenshots = _this.selectProjectScreenshots.bind(_this);
+	    _this.unselectProjectScreenshots = _this.unselectProjectScreenshots.bind(_this);
+	    _this.updateScreenshotNum = _this.updateScreenshotNum.bind(_this);
+	    return _this;
+	  }
 	
-		_createClass(App, [{
-			key: 'updateFormState',
-			value: function updateFormState(e) {
-				var form = this.state.form;
-				if (e.target.type === "checkbox") {
-					form[e.target.id] = !form[e.target.id];
-				} else if (e.target.type === "radio") {
-					form[e.target.name] = e.target.id;
-				} else {
-					form[e.target.id] = e.target.value;
-				}
-				form.responses = [];
-				form.errors = [];
-				this.setState({ form: form });
-			}
-		}, {
-			key: 'validateMail',
-			value: function validateMail(e) {
-				var form = this.state.form;
-				form.errors = [];
-				var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-				if (form.name.length === 0) {
-					form.errors.push("Missing Name");
-				}
-				if (form.email.length === 0) {
-					form.errors.push("Missing E-Mail Address");
-				} else if (!form.email.match(emailRegex)) {
-					form.errors.push("Improperly-Formatted E-Mail Address");
-				}
-				if (form.subject.length === 0) {
-					form.errors.push("Missing Subject");
-				}
-				if (form.message.length === 0) {
-					form.errors.push("Missing Message");
-				}
-				if (form.errors.length === 0) {
-					// no errors
-					form.errors = [];
-					form.submitting = true;
-					this.setState({ form: form });
-					return true;
-				} else {
-					// errors
-					if (form.errors.length === 1) {
-						// singular 
-						form.errors.unshift("Can Not Submit the Form, Due to the Following Problem:");
-					} else {
-						// plural
-						form.errors.unshift("Can Not Submit the Form, Due to the Following Problems:");
-					}
-					this.setState({ form: form });
-					return false;
-				}
-			}
-		}, {
-			key: 'sendMail',
-			value: function sendMail() {
-				var _this2 = this;
+	  _createClass(App, [{
+	    key: 'updateFormState',
+	    value: function updateFormState(e) {
+	      var form = this.state.form;
+	      if (e.target.type === 'checkbox') {
+	        form[e.target.id] = !form[e.target.id];
+	      } else if (e.target.type === 'radio') {
+	        form[e.target.name] = e.target.id;
+	      } else {
+	        form[e.target.id] = e.target.value;
+	      }
+	      form.responses = [];
+	      form.errors = [];
+	      this.setState({ form: form });
+	    }
+	  }, {
+	    key: 'validateMail',
+	    value: function validateMail() {
+	      var form = this.state.form;
+	      form.errors = [];
+	      var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	      if (form.name.length === 0) {
+	        form.errors.push('Missing Name');
+	      }
+	      if (form.email.length === 0) {
+	        form.errors.push('Missing E-Mail Address');
+	      } else if (!form.email.match(emailRegex)) {
+	        form.errors.push('Improperly-Formatted E-Mail Address');
+	      }
+	      if (form.subject.length === 0) {
+	        form.errors.push('Missing Subject');
+	      }
+	      if (form.message.length === 0) {
+	        form.errors.push('Missing Message');
+	      }
+	      if (form.errors.length === 0) {
+	        // no errors
+	        form.errors = [];
+	        form.submitting = true;
+	        this.setState({ form: form });
+	        return true;
+	      }
+	      // errors
+	      if (form.errors.length === 1) {
+	        // singular
+	        form.errors.unshift('Can Not Submit the Form, Due to the Following Problem:');
+	      } else {
+	        // plural
+	        form.errors.unshift('Can Not Submit the Form, Due to the Following Problems:');
+	      }
+	      this.setState({ form: form });
+	      return false;
+	    }
+	  }, {
+	    key: 'sendMail',
+	    value: function sendMail() {
+	      var _this2 = this;
 	
-				var form = this.state.form;
-				_axios2.default.post('https://formspree.io/stlouis_c@yahoo.com', {
-					from: form.name + ' (' + form.email + ')',
-					subject: form.subject,
-					message: form.message
-				}).then(function (res) {
-					console.log('res', res);
-					form.name = "";
-					form.email = "";
-					form.message = "";
-					form.subject = "";
-					form.submitting = false;
-					form.responses = ["Message successfully sent", "I'll contact you soon."];
-					_this2.setState({ form: form });
-					setTimeout(function () {
-						var form = _this2.state.form;
-						form.responses = [];
-						_this2.setState({ form: form });
-					}, 10000);
-				}).catch(function (err) {
-					console.log('err', err);
-					form.submitting = false;
-					form.errors = ["I'm sorry.  There was an error sending the message.", "Please feel free to contact me directly at stlouisc@gmail.com"];
-					_this2.setState({ form: form });
-				});
-			}
-		}, {
-			key: 'submitMailForm',
-			value: function submitMailForm(e) {
-				e.preventDefault();
-				var validated = this.validateMail(e);
-				if (validated) {
-					this.sendMail();
-				}
-			}
-		}, {
-			key: 'setProjectFilters',
-			value: function setProjectFilters(projectFilter) {
-				var projectFilters = this.state.projectFilters;
-				if (projectFilter[0] === "all" || projectFilter[0] === "reset") {
-					projectFilters = [];
-				} else {
-					if (projectFilters.includes(projectFilter[0])) {
-						projectFilters = projectFilters.filter(function (filterInState) {
-							return filterInState !== projectFilter[0];
-						});
-					} else {
-						projectFilters.push(projectFilter[0]);
-					}
-				}
-				this.setState({ projectFilters: projectFilters });
-			}
-		}, {
-			key: 'selectProject',
-			value: function selectProject(clickedProject) {
-				var selectedProject = this.state.selectedProject;
-				selectedProject = clickedProject;
-				this.setState({ selectedProject: selectedProject });
-			}
-		}, {
-			key: 'unselectProject',
-			value: function unselectProject() {
-				var _this3 = this;
+	      var form = this.state.form;
+	      _axios2.default.post('https://formspree.io/stlouis_c@yahoo.com', {
+	        from: form.name + ' (' + form.email + ')',
+	        subject: form.subject,
+	        message: form.message
+	      }).then(function (res) {
+	        console.log('res', res);
+	        form.name = '';
+	        form.email = '';
+	        form.message = '';
+	        form.subject = '';
+	        form.submitting = false;
+	        form.responses = ['Message successfully sent', "I'll contact you soon."];
+	        _this2.setState({ form: form });
+	        setTimeout(function () {
+	          form = _this2.state.form;
+	          form.responses = [];
+	          _this2.setState({ form: form });
+	        }, 10000);
+	      }).catch(function (err) {
+	        console.log('err', err);
+	        form.submitting = false;
+	        form.errors = ["I'm sorry.  There was an error sending the message.", 'Please feel free to contact me directly at stlouisc@gmail.com'];
+	        _this2.setState({ form: form });
+	      });
+	    }
+	  }, {
+	    key: 'submitMailForm',
+	    value: function submitMailForm(e) {
+	      e.preventDefault();
+	      var validated = this.validateMail(e);
+	      if (validated) {
+	        this.sendMail();
+	      }
+	    }
+	  }, {
+	    key: 'setProjectFilters',
+	    value: function setProjectFilters(projectFilter) {
+	      var projectFilters = this.state.projectFilters;
+	      if (projectFilter[0] === 'all' || projectFilter[0] === 'reset') {
+	        projectFilters = [];
+	      } else {
+	        if (projectFilters.includes(projectFilter[0])) {
+	          projectFilters = projectFilters.filter(function (stateFilter) {
+	            return stateFilter !== projectFilter[0];
+	          });
+	        } else {
+	          projectFilters.push(projectFilter[0]);
+	        }
+	      }
+	      this.setState({ projectFilters: projectFilters });
+	    }
+	  }, {
+	    key: 'selectProject',
+	    value: function selectProject(clickedProject) {
+	      this.setState({ selectedProject: clickedProject });
+	    }
+	  }, {
+	    key: 'unselectProject',
+	    value: function unselectProject() {
+	      var _this3 = this;
 	
-				var deselectedProject = this.state.deselectedProject;
-				deselectedProject = true;
-				this.setState({ deselectedProject: deselectedProject });
-				setTimeout(function () {
-					var _state = _this3.state;
-					var selectedProject = _state.selectedProject;
-					var deselectedProject = _state.deselectedProject;
+	      this.setState({ deselectedProject: true });
+	      setTimeout(function () {
+	        _this3.setState({ selectedProject: '', deselectedProject: false });
+	      }, 400);
+	    }
+	  }, {
+	    key: 'selectProjectScreenshots',
+	    value: function selectProjectScreenshots(clickedProject) {
+	      this.setState({ selectedProjectScreenshots: clickedProject });
+	    }
+	  }, {
+	    key: 'unselectProjectScreenshots',
+	    value: function unselectProjectScreenshots() {
+	      var _this4 = this;
 	
-					selectedProject = "";
-					deselectedProject = false;
-					_this3.setState({ selectedProject: selectedProject, deselectedProject: deselectedProject });
-				}, 400);
-			}
-		}, {
-			key: 'selectProjectScreenshots',
-			value: function selectProjectScreenshots(clickedProject) {
-				var selectedProjectScreenshots = this.state.selectedProjectScreenshots;
-				selectedProjectScreenshots = clickedProject;
-				this.setState({ selectedProjectScreenshots: selectedProjectScreenshots });
-			}
-		}, {
-			key: 'unselectProjectScreenshots',
-			value: function unselectProjectScreenshots() {
-				var _this4 = this;
+	      this.setState({ deselectedProjectScreenshots: true });
+	      setTimeout(function () {
+	        _this4.setState({
+	          selectedProjectScreenshots: '',
+	          deselectedProjectScreenshots: false,
+	          screenshotNum: 0
+	        });
+	      }, 400);
+	    }
+	  }, {
+	    key: 'updateScreenshotNum',
+	    value: function updateScreenshotNum(change) {
+	      var screenshotNum = this.state.screenshotNum;
+	      if (change === 'increment') {
+	        screenshotNum = screenshotNum + 1;
+	      } else {
+	        screenshotNum = screenshotNum - 1;
+	      }
+	      this.setState({ screenshotNum: screenshotNum });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_index.Nav, null),
+	        _react2.default.createElement(_index.Home, null),
+	        _react2.default.createElement(_index.Profile, { selectProject: this.selectProject }),
+	        _react2.default.createElement(_index.Portfolio, {
+	          projectFilters: this.state.projectFilters,
+	          setProjectFilters: this.setProjectFilters,
+	          selectedProject: this.state.selectedProject,
+	          selectProject: this.selectProject,
+	          unselectProject: this.unselectProject,
+	          deselectedProject: this.state.deselectedProject,
+	          selectedProjectScreenshots: this.state.selectedProjectScreenshots,
+	          selectProjectScreenshots: this.selectProjectScreenshots,
+	          unselectProjectScreenshots: this.unselectProjectScreenshots,
+	          deselectedProjectScreenshots: this.state.deselectedProjectScreenshots,
+	          screenshotNum: this.state.screenshotNum,
+	          updateScreenshotNum: this.updateScreenshotNum
+	        }),
+	        _react2.default.createElement(_index.Contact, {
+	          form: this.state.form,
+	          updateFormState: this.updateFormState,
+	          submitMailForm: this.submitMailForm
+	        }),
+	        _react2.default.createElement(_index.FindMe, null)
+	      );
+	    }
+	  }]);
 	
-				var deselectedProjectScreenshots = this.state.deselectedProjectScreenshots;
-				deselectedProjectScreenshots = true;
-				this.setState({ deselectedProjectScreenshots: deselectedProjectScreenshots });
-				setTimeout(function () {
-					var _state2 = _this4.state;
-					var selectedProjectScreenshots = _state2.selectedProjectScreenshots;
-					var deselectedProjectScreenshots = _state2.deselectedProjectScreenshots;
-					var screenshotNum = _state2.screenshotNum;
-	
-					selectedProjectScreenshots = "";
-					deselectedProjectScreenshots = false;
-					screenshotNum = 0;
-					_this4.setState({ selectedProjectScreenshots: selectedProjectScreenshots, deselectedProjectScreenshots: deselectedProjectScreenshots });
-				}, 400);
-			}
-		}, {
-			key: 'updateScreenshotNum',
-			value: function updateScreenshotNum(change) {
-				var screenshotNum = this.state.screenshotNum;
-				if (change === "increment") {
-					screenshotNum = screenshotNum + 1;
-				} else {
-					screenshotNum = screenshotNum - 1;
-				}
-				this.setState({ screenshotNum: screenshotNum });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_index.Nav, null),
-					_react2.default.createElement(_index.Home, null),
-					_react2.default.createElement(_index.Profile, {
-						selectProject: this.selectProject
-					}),
-					_react2.default.createElement(_index.Portfolio, {
-						projectFilters: this.state.projectFilters,
-						setProjectFilters: this.setProjectFilters,
-						selectedProject: this.state.selectedProject,
-						selectProject: this.selectProject,
-						unselectProject: this.unselectProject,
-						deselectedProject: this.state.deselectedProject,
-						selectedProjectScreenshots: this.state.selectedProjectScreenshots,
-						selectProjectScreenshots: this.selectProjectScreenshots,
-						unselectProjectScreenshots: this.unselectProjectScreenshots,
-						deselectedProjectScreenshots: this.state.deselectedProjectScreenshots,
-						screenshotNum: this.state.screenshotNum,
-						updateScreenshotNum: this.updateScreenshotNum
-					}),
-					_react2.default.createElement(_index.Contact, {
-						form: this.state.form,
-						updateFormState: this.updateFormState,
-						submitMailForm: this.submitMailForm
-					}),
-					_react2.default.createElement(_index.FindMe, null)
-				);
-			}
-		}]);
-	
-		return App;
+	  return App;
 	}(_react.Component);
 	
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('App'));
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	module.exports = __webpack_require__(2);
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -373,9 +352,9 @@
 	
 	module.exports = React;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -471,9 +450,9 @@
 	module.exports = React;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -642,6 +621,12 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+	
+	process.listeners = function (name) {
+	    return [];
+	};
 	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -657,9 +642,9 @@
 	    return 0;
 	};
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -693,9 +678,9 @@
 	
 	module.exports = ReactCurrentOwner;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -826,9 +811,9 @@
 	module.exports = ReactDOMTextComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -961,9 +946,9 @@
 	module.exports = DOMChildrenOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1112,9 +1097,9 @@
 	module.exports = Danger;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1153,9 +1138,9 @@
 	
 	module.exports = ExecutionEnvironment;
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1243,9 +1228,9 @@
 	module.exports = createNodesFromMarkup;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1335,9 +1320,9 @@
 	
 	module.exports = createArrayFromMixed;
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1400,9 +1385,9 @@
 	module.exports = toArray;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1456,9 +1441,9 @@
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1557,9 +1542,9 @@
 	module.exports = getMarkupWrap;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1600,9 +1585,9 @@
 	
 	module.exports = emptyFunction;
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1637,9 +1622,9 @@
 	
 	module.exports = ReactMultiChildUpdateTypes;
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1691,9 +1676,9 @@
 	module.exports = keyMirror;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1794,9 +1779,9 @@
 	module.exports = ReactPerf;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1889,9 +1874,9 @@
 	
 	module.exports = setInnerHTML;
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1934,9 +1919,9 @@
 	
 	module.exports = setTextContent;
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -1977,9 +1962,9 @@
 	
 	module.exports = escapeTextContentForBrowser;
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2208,9 +2193,9 @@
 	module.exports = DOMPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2448,9 +2433,9 @@
 	module.exports = DOMProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2479,9 +2464,9 @@
 	
 	module.exports = quoteAttributeValueForBrowser;
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -2542,9 +2527,9 @@
 	module.exports = warning;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2588,9 +2573,9 @@
 	
 	module.exports = ReactComponentBrowserEnvironment;
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -2688,9 +2673,9 @@
 	module.exports = ReactDOMIDOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3544,9 +3529,9 @@
 	module.exports = ReactMount;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3873,9 +3858,9 @@
 	
 	module.exports = ReactBrowserEventEmitter;
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -3970,9 +3955,9 @@
 	
 	module.exports = EventConstants;
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4257,9 +4242,9 @@
 	module.exports = EventPluginHub;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4483,9 +4468,9 @@
 	module.exports = EventPluginRegistry;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4691,9 +4676,9 @@
 	module.exports = EventPluginUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4774,9 +4759,9 @@
 	module.exports = ReactErrorUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -4839,9 +4824,9 @@
 	module.exports = accumulateInto;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4874,9 +4859,9 @@
 	
 	module.exports = forEachAccumulated;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4917,9 +4902,9 @@
 	
 	module.exports = ReactEventEmitterMixin;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -4949,9 +4934,9 @@
 	
 	module.exports = ViewportMetrics;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -5001,9 +4986,9 @@
 	
 	module.exports = assign;
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5066,9 +5051,9 @@
 	
 	module.exports = isEventSupported;
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5089,9 +5074,9 @@
 	
 	module.exports = ReactDOMFeatureFlags;
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -5344,9 +5329,9 @@
 	module.exports = ReactElement;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5374,9 +5359,9 @@
 	module.exports = canDefineProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -5428,9 +5413,9 @@
 	
 	module.exports = ReactEmptyComponentRegistry;
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5736,9 +5721,9 @@
 	module.exports = ReactInstanceHandles;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5770,9 +5755,9 @@
 	
 	module.exports = ReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 47 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5823,9 +5808,9 @@
 	
 	module.exports = ReactInstanceMap;
 
-/***/ },
+/***/ }),
 /* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5873,9 +5858,9 @@
 	
 	module.exports = ReactMarkupChecksum;
 
-/***/ },
+/***/ }),
 /* 49 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -5920,9 +5905,9 @@
 	
 	module.exports = adler32;
 
-/***/ },
+/***/ }),
 /* 50 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6032,9 +6017,9 @@
 	
 	module.exports = ReactReconciler;
 
-/***/ },
+/***/ }),
 /* 51 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6115,9 +6100,9 @@
 	
 	module.exports = ReactRef;
 
-/***/ },
+/***/ }),
 /* 52 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6212,9 +6197,9 @@
 	module.exports = ReactOwner;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 53 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -6475,9 +6460,9 @@
 	module.exports = ReactUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 54 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6704,9 +6689,9 @@
 	module.exports = ReactUpdates;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 55 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6803,9 +6788,9 @@
 	module.exports = CallbackQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 56 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -6928,9 +6913,9 @@
 	module.exports = PooledClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7165,9 +7150,9 @@
 	module.exports = Transaction;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 58 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7191,9 +7176,9 @@
 	module.exports = emptyObject;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 59 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7251,9 +7236,9 @@
 	
 	module.exports = containsNode;
 
-/***/ },
+/***/ }),
 /* 60 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7281,9 +7266,9 @@
 	
 	module.exports = isTextNode;
 
-/***/ },
+/***/ }),
 /* 61 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7311,9 +7296,9 @@
 	
 	module.exports = isNode;
 
-/***/ },
+/***/ }),
 /* 62 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7431,9 +7416,9 @@
 	module.exports = instantiateReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 63 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7814,7 +7799,7 @@
 	          // This is intentionally an invariant that gets caught. It's the same
 	          // behavior as without this statement except with a better message.
 	          !(typeof propTypes[propName] === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually ' + 'from React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-	          error = propTypes[propName](props, propName, componentName, location);
+	          error = propTypes[propName](props, propName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	        } catch (ex) {
 	          error = ex;
 	        }
@@ -8133,9 +8118,9 @@
 	module.exports = ReactCompositeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 64 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -8190,9 +8175,9 @@
 	module.exports = ReactComponentEnvironment;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 65 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8217,9 +8202,9 @@
 	
 	module.exports = ReactPropTypeLocations;
 
-/***/ },
+/***/ }),
 /* 66 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8247,9 +8232,9 @@
 	module.exports = ReactPropTypeLocationNames;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 67 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8298,9 +8283,9 @@
 	
 	module.exports = shouldUpdateReactComponent;
 
-/***/ },
+/***/ }),
 /* 68 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -8358,9 +8343,9 @@
 	
 	module.exports = ReactEmptyComponent;
 
-/***/ },
+/***/ }),
 /* 69 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -8458,9 +8443,9 @@
 	module.exports = ReactNativeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -8827,9 +8812,9 @@
 	module.exports = validateDOMNesting;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 71 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8930,9 +8915,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 72 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015 Facebook, Inc.
@@ -9342,9 +9327,9 @@
 	
 	module.exports = BeforeInputEventPlugin;
 
-/***/ },
+/***/ }),
 /* 73 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9483,9 +9468,9 @@
 	module.exports = EventPropagators;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 74 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9583,9 +9568,9 @@
 	
 	module.exports = FallbackCompositionState;
 
-/***/ },
+/***/ }),
 /* 75 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9621,9 +9606,9 @@
 	
 	module.exports = getTextContentAccessor;
 
-/***/ },
+/***/ }),
 /* 76 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9663,9 +9648,9 @@
 	
 	module.exports = SyntheticCompositionEvent;
 
-/***/ },
+/***/ }),
 /* 77 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9849,9 +9834,9 @@
 	module.exports = SyntheticEvent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 78 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9892,9 +9877,9 @@
 	
 	module.exports = SyntheticInputEvent;
 
-/***/ },
+/***/ }),
 /* 79 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9932,9 +9917,9 @@
 	
 	module.exports = keyOf;
 
-/***/ },
+/***/ }),
 /* 80 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10258,9 +10243,9 @@
 	
 	module.exports = ChangeEventPlugin;
 
-/***/ },
+/***/ }),
 /* 81 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10293,9 +10278,9 @@
 	
 	module.exports = getEventTarget;
 
-/***/ },
+/***/ }),
 /* 82 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10339,9 +10324,9 @@
 	
 	module.exports = isTextInputElement;
 
-/***/ },
+/***/ }),
 /* 83 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10367,9 +10352,9 @@
 	
 	module.exports = ClientReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 84 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10399,9 +10384,9 @@
 	
 	module.exports = DefaultEventPluginOrder;
 
-/***/ },
+/***/ }),
 /* 85 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10528,9 +10513,9 @@
 	
 	module.exports = EnterLeaveEventPlugin;
 
-/***/ },
+/***/ }),
 /* 86 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10606,9 +10591,9 @@
 	
 	module.exports = SyntheticMouseEvent;
 
-/***/ },
+/***/ }),
 /* 87 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10671,9 +10656,9 @@
 	
 	module.exports = SyntheticUIEvent;
 
-/***/ },
+/***/ }),
 /* 88 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10720,9 +10705,9 @@
 	
 	module.exports = getEventModifierState;
 
-/***/ },
+/***/ }),
 /* 89 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10955,9 +10940,9 @@
 	
 	module.exports = HTMLDOMPropertyConfig;
 
-/***/ },
+/***/ }),
 /* 90 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10997,9 +10982,9 @@
 	module.exports = ReactBrowserComponentMixin;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 91 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11052,9 +11037,9 @@
 	module.exports = findDOMNode;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 92 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11124,9 +11109,9 @@
 	
 	module.exports = ReactDefaultBatchingStrategy;
 
-/***/ },
+/***/ }),
 /* 93 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12094,9 +12079,9 @@
 	module.exports = ReactDOMComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 94 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12135,9 +12120,9 @@
 	
 	module.exports = AutoFocusUtils;
 
-/***/ },
+/***/ }),
 /* 95 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12167,9 +12152,9 @@
 	
 	module.exports = focusNode;
 
-/***/ },
+/***/ }),
 /* 96 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12348,9 +12333,9 @@
 	module.exports = CSSPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 97 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12493,9 +12478,9 @@
 	
 	module.exports = CSSProperty;
 
-/***/ },
+/***/ }),
 /* 98 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12538,9 +12523,9 @@
 	
 	module.exports = camelizeStyleName;
 
-/***/ },
+/***/ }),
 /* 99 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12575,9 +12560,9 @@
 	
 	module.exports = camelize;
 
-/***/ },
+/***/ }),
 /* 100 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12635,9 +12620,9 @@
 	
 	module.exports = dangerousStyleValue;
 
-/***/ },
+/***/ }),
 /* 101 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12679,9 +12664,9 @@
 	
 	module.exports = hyphenateStyleName;
 
-/***/ },
+/***/ }),
 /* 102 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12717,9 +12702,9 @@
 	
 	module.exports = hyphenate;
 
-/***/ },
+/***/ }),
 /* 103 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12754,9 +12739,9 @@
 	
 	module.exports = memoizeStringOnly;
 
-/***/ },
+/***/ }),
 /* 104 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12809,9 +12794,9 @@
 	
 	module.exports = ReactDOMButton;
 
-/***/ },
+/***/ }),
 /* 105 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12968,9 +12953,9 @@
 	module.exports = ReactDOMInput;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 106 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13050,7 +13035,7 @@
 	  checkPropTypes: function checkPropTypes(tagName, props, owner) {
 	    for (var propName in propTypes) {
 	      if (propTypes.hasOwnProperty(propName)) {
-	        var error = propTypes[propName](props, propName, tagName, ReactPropTypeLocations.prop);
+	        var error = propTypes[propName](props, propName, tagName, ReactPropTypeLocations.prop, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      }
 	      if (error instanceof Error && !(error.message in loggedTypeFailures)) {
 	        // Only monitor this failure once because there tends to be a lot of the
@@ -13108,9 +13093,9 @@
 	module.exports = LinkedValueUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 107 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13253,7 +13238,7 @@
 	      return new Error('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
 	    }
 	    for (var i = 0; i < propValue.length; i++) {
-	      var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']');
+	      var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      if (error instanceof Error) {
 	        return error;
 	      }
@@ -13319,7 +13304,7 @@
 	    }
 	    for (var key in propValue) {
 	      if (propValue.hasOwnProperty(key)) {
-	        var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key);
+	        var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	        if (error instanceof Error) {
 	          return error;
 	        }
@@ -13340,7 +13325,7 @@
 	  function validate(props, propName, componentName, location, propFullName) {
 	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
 	      var checker = arrayOfTypeCheckers[i];
-	      if (checker(props, propName, componentName, location, propFullName) == null) {
+	      if (checker(props, propName, componentName, location, propFullName, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED') == null) {
 	        return null;
 	      }
 	    }
@@ -13375,7 +13360,7 @@
 	      if (!checker) {
 	        continue;
 	      }
-	      var error = checker(propValue, key, componentName, location, propFullName + '.' + key);
+	      var error = checker(propValue, key, componentName, location, propFullName + '.' + key, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      if (error) {
 	        return error;
 	      }
@@ -13471,9 +13456,9 @@
 	
 	module.exports = ReactPropTypes;
 
-/***/ },
+/***/ }),
 /* 108 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13517,9 +13502,9 @@
 	
 	module.exports = getIteratorFn;
 
-/***/ },
+/***/ }),
 /* 109 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13612,9 +13597,9 @@
 	module.exports = ReactDOMOption;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 110 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13799,9 +13784,9 @@
 	
 	module.exports = ReactChildren;
 
-/***/ },
+/***/ }),
 /* 111 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13996,9 +13981,9 @@
 	module.exports = traverseAllChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 112 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14190,9 +14175,9 @@
 	module.exports = ReactDOMSelect;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 113 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14309,9 +14294,9 @@
 	module.exports = ReactDOMTextarea;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 114 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14811,9 +14796,9 @@
 	module.exports = ReactMultiChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 115 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -14939,9 +14924,9 @@
 	module.exports = ReactChildReconciler;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 116 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14993,9 +14978,9 @@
 	module.exports = flattenChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 117 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15050,9 +15035,9 @@
 	
 	module.exports = shallowEqual;
 
-/***/ },
+/***/ }),
 /* 118 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15266,9 +15251,9 @@
 	
 	module.exports = ReactEventListener;
 
-/***/ },
+/***/ }),
 /* 119 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15356,9 +15341,9 @@
 	module.exports = EventListener;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 120 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15400,9 +15385,9 @@
 	
 	module.exports = getUnboundedScrollPosition;
 
-/***/ },
+/***/ }),
 /* 121 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -15443,9 +15428,9 @@
 	
 	module.exports = ReactInjection;
 
-/***/ },
+/***/ }),
 /* 122 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16222,9 +16207,9 @@
 	module.exports = ReactClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 123 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16352,9 +16337,9 @@
 	module.exports = ReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 124 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -16476,9 +16461,9 @@
 	module.exports = ReactNoopUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 125 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16632,9 +16617,9 @@
 	
 	module.exports = ReactReconcileTransaction;
 
-/***/ },
+/***/ }),
 /* 126 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16761,9 +16746,9 @@
 	
 	module.exports = ReactInputSelection;
 
-/***/ },
+/***/ }),
 /* 127 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -16978,9 +16963,9 @@
 	
 	module.exports = ReactDOMSelection;
 
-/***/ },
+/***/ }),
 /* 128 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17057,9 +17042,9 @@
 	
 	module.exports = getNodeForCharacterOffset;
 
-/***/ },
+/***/ }),
 /* 129 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17097,9 +17082,9 @@
 	
 	module.exports = getActiveElement;
 
-/***/ },
+/***/ }),
 /* 130 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17303,9 +17288,9 @@
 	
 	module.exports = SelectEventPlugin;
 
-/***/ },
+/***/ }),
 /* 131 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17338,9 +17323,9 @@
 	
 	module.exports = ServerReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 132 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17931,9 +17916,9 @@
 	module.exports = SimpleEventPlugin;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 133 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -17975,9 +17960,9 @@
 	
 	module.exports = SyntheticClipboardEvent;
 
-/***/ },
+/***/ }),
 /* 134 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18017,9 +18002,9 @@
 	
 	module.exports = SyntheticFocusEvent;
 
-/***/ },
+/***/ }),
 /* 135 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18107,9 +18092,9 @@
 	
 	module.exports = SyntheticKeyboardEvent;
 
-/***/ },
+/***/ }),
 /* 136 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18163,9 +18148,9 @@
 	
 	module.exports = getEventCharCode;
 
-/***/ },
+/***/ }),
 /* 137 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18271,9 +18256,9 @@
 	
 	module.exports = getEventKey;
 
-/***/ },
+/***/ }),
 /* 138 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18313,9 +18298,9 @@
 	
 	module.exports = SyntheticDragEvent;
 
-/***/ },
+/***/ }),
 /* 139 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18364,9 +18349,9 @@
 	
 	module.exports = SyntheticTouchEvent;
 
-/***/ },
+/***/ }),
 /* 140 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18424,9 +18409,9 @@
 	
 	module.exports = SyntheticWheelEvent;
 
-/***/ },
+/***/ }),
 /* 141 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18556,9 +18541,9 @@
 	
 	module.exports = SVGDOMPropertyConfig;
 
-/***/ },
+/***/ }),
 /* 142 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -18800,9 +18785,9 @@
 	
 	module.exports = ReactDefaultPerf;
 
-/***/ },
+/***/ }),
 /* 143 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19006,9 +18991,9 @@
 	
 	module.exports = ReactDefaultPerfAnalysis;
 
-/***/ },
+/***/ }),
 /* 144 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19045,9 +19030,9 @@
 	
 	module.exports = performanceNow;
 
-/***/ },
+/***/ }),
 /* 145 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19073,9 +19058,9 @@
 	
 	module.exports = performance || {};
 
-/***/ },
+/***/ }),
 /* 146 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19090,11 +19075,11 @@
 	
 	'use strict';
 	
-	module.exports = '0.14.8';
+	module.exports = '0.14.9';
 
-/***/ },
+/***/ }),
 /* 147 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19113,9 +19098,9 @@
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
-/***/ },
+/***/ }),
 /* 148 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19144,9 +19129,9 @@
 	
 	module.exports = ReactDOMServer;
 
-/***/ },
+/***/ }),
 /* 149 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19233,9 +19218,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 150 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -19261,9 +19246,9 @@
 	
 	module.exports = ReactServerBatchingStrategy;
 
-/***/ },
+/***/ }),
 /* 151 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -19353,9 +19338,9 @@
 	
 	module.exports = ReactServerRenderingTransaction;
 
-/***/ },
+/***/ }),
 /* 152 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19433,9 +19418,9 @@
 	module.exports = React;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 153 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19616,9 +19601,9 @@
 	module.exports = ReactDOMFactories;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 154 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -19799,7 +19784,7 @@
 	        // This is intentionally an invariant that gets caught. It's the same
 	        // behavior as without this statement except with a better message.
 	        !(typeof propTypes[propName] === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-	        error = propTypes[propName](props, propName, componentName, location);
+	        error = propTypes[propName](props, propName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	      } catch (ex) {
 	        error = ex;
 	      }
@@ -19905,9 +19890,9 @@
 	module.exports = ReactElementValidator;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 155 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -19961,9 +19946,9 @@
 	
 	module.exports = mapObject;
 
-/***/ },
+/***/ }),
 /* 156 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -20000,9 +19985,9 @@
 	module.exports = onlyChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 157 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -20054,25 +20039,25 @@
 	module.exports = deprecated;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 158 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	module.exports = __webpack_require__(3);
 
-/***/ },
+/***/ }),
 /* 159 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	module.exports = __webpack_require__(160);
 
-/***/ },
+/***/ }),
 /* 160 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20184,9 +20169,9 @@
 	  axios[method] = bind(Axios.prototype[method], defaultInstance);
 	});
 
-/***/ },
+/***/ }),
 /* 161 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20252,9 +20237,9 @@
 	  xsrfHeaderName: 'X-XSRF-TOKEN'
 	};
 
-/***/ },
+/***/ }),
 /* 162 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -20499,9 +20484,9 @@
 	  trim: trim
 	};
 
-/***/ },
+/***/ }),
 /* 163 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -20539,9 +20524,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
+/***/ }),
 /* 164 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20665,9 +20650,9 @@
 	  request.send(requestData);
 	};
 
-/***/ },
+/***/ }),
 /* 165 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20729,9 +20714,9 @@
 	  return url;
 	};
 
-/***/ },
+/***/ }),
 /* 166 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20773,9 +20758,9 @@
 	  return parsed;
 	};
 
-/***/ },
+/***/ }),
 /* 167 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20798,9 +20783,9 @@
 	  return data;
 	};
 
-/***/ },
+/***/ }),
 /* 168 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20866,9 +20851,9 @@
 	  };
 	}();
 
-/***/ },
+/***/ }),
 /* 169 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -20906,9 +20891,9 @@
 	
 	module.exports = btoa;
 
-/***/ },
+/***/ }),
 /* 170 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20964,9 +20949,9 @@
 	  };
 	}();
 
-/***/ },
+/***/ }),
 /* 171 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -21021,9 +21006,9 @@
 	
 	module.exports = InterceptorManager;
 
-/***/ },
+/***/ }),
 /* 172 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21042,9 +21027,9 @@
 	  );
 	};
 
-/***/ },
+/***/ }),
 /* 173 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21060,9 +21045,9 @@
 	  return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
 	};
 
-/***/ },
+/***/ }),
 /* 174 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21076,9 +21061,9 @@
 	  };
 	};
 
-/***/ },
+/***/ }),
 /* 175 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21109,14 +21094,14 @@
 	  };
 	};
 
-/***/ },
+/***/ }),
 /* 176 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	exports.FindMe = exports.Contact = exports.Portfolio = exports.Profile = exports.Home = exports.Nav = undefined;
 	
@@ -21153,14 +21138,14 @@
 	exports.Contact = _Contact2.default;
 	exports.FindMe = _FindMe2.default;
 
-/***/ },
+/***/ }),
 /* 177 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21170,62 +21155,62 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Nav = function Nav() {
-		return _react2.default.createElement(
-			"nav",
-			{ id: "nav" },
-			_react2.default.createElement(
-				"ul",
-				{ className: "container" },
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "#home" },
-						"Home"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "#profile" },
-						"Skills"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "#portfolio" },
-						"Portfolio"
-					)
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					_react2.default.createElement(
-						"a",
-						{ href: "#contact" },
-						"Contact Me"
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    "nav",
+	    { id: "nav" },
+	    _react2.default.createElement(
+	      "ul",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        _react2.default.createElement(
+	          "a",
+	          { href: "#home" },
+	          "Home"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        _react2.default.createElement(
+	          "a",
+	          { href: "#profile" },
+	          "Skills"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        _react2.default.createElement(
+	          "a",
+	          { href: "#portfolio" },
+	          "Portfolio"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        _react2.default.createElement(
+	          "a",
+	          { href: "#contact" },
+	          "Contact Me"
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Nav;
 
-/***/ },
+/***/ }),
 /* 178 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21235,78 +21220,78 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Home = function Home() {
-		return _react2.default.createElement(
-			"div",
-			{ className: "wrapper first" },
-			_react2.default.createElement(
-				"article",
-				{ className: "container", id: "home" },
-				_react2.default.createElement(
-					"div",
-					{ className: "row" },
-					_react2.default.createElement(
-						"div",
-						{ className: "4u 12u(mobile)" },
-						_react2.default.createElement(
-							"span",
-							{ className: "image fit" },
-							_react2.default.createElement("img", { src: "./public/assets/images/pic00.jpg", alt: "" })
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "8u 12u(mobile)" },
-						_react2.default.createElement(
-							"header",
-							null,
-							_react2.default.createElement(
-								"h1",
-								null,
-								"Hi. I'm ",
-								_react2.default.createElement(
-									"strong",
-									null,
-									" Carol\u2002St.\xA0Louis"
-								),
-								"."
-							)
-						),
-						_react2.default.createElement(
-							"p",
-							null,
-							"Freelance Full-Stack Web Developer, living in the San Francisco Bay Area"
-						),
-						_react2.default.createElement(
-							"p",
-							null,
-							"I've always pursued opportunities and challenges that have intrigued me. As a web developer, I use my obsessive attention to detail to create fast, beautiful, and intuitive websites."
-						),
-						_react2.default.createElement(
-							"p",
-							null,
-							"I want to build things that solve real problems and make the world a better place."
-						),
-						_react2.default.createElement(
-							"a",
-							{ href: "#profile", className: "button big scrolly" },
-							"Learn more about what I do"
-						)
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "wrapper first" },
+	    _react2.default.createElement(
+	      "article",
+	      { className: "container", id: "home" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "4u 12u(mobile)" },
+	          _react2.default.createElement(
+	            "span",
+	            { className: "image fit" },
+	            _react2.default.createElement("img", { src: "./public/assets/images/pic00.jpg", alt: "" })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "8u 12u(mobile)" },
+	          _react2.default.createElement(
+	            "header",
+	            null,
+	            _react2.default.createElement(
+	              "h1",
+	              null,
+	              "Hi. I'm ",
+	              _react2.default.createElement(
+	                "strong",
+	                null,
+	                " Carol\u2002St.\xA0Louis"
+	              ),
+	              "."
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Freelance Full-Stack Web Developer, living in the San Francisco Bay Area"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "I've always pursued opportunities and challenges that have intrigued me. As a web developer, I use my obsessive attention to detail to create fast, beautiful, and intuitive websites."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "I want to build things that solve real problems and make the world a better place."
+	          ),
+	          _react2.default.createElement(
+	            "a",
+	            { href: "#profile", className: "button big scrolly" },
+	            "Learn more about what I do"
+	          )
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Home;
 
-/***/ },
+/***/ }),
 /* 179 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21324,273 +21309,308 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Profile = function Profile(props) {
-		var skillAreas = [{
-			icon: "fa-user-circle",
-			skillArea: "Front End",
-			skills: ["HTML5", "CSS3", "JavaScript / ES6", "React", "Redux", "jQuery", "Angular", "CSS Libraries: Bootstrap, Material Design, HTML5UP"]
-		}, {
-			icon: "fa-server",
-			skillArea: "Back End",
-			skills: ["Node.js", "MongoDB", "Meteor.js", "Express", "PHP", "MySQL", "limited exp.: Python, Ruby, Golang, & Elm"]
-		}, {
-			icon: "fa-cogs",
-			skillArea: "Sundry",
-			skills: ["Package Management: npm, yarn", "Version Control: git", "Progressive Web Apps (PWAs)", "PaaS: Galaxy, Heroku", "DBaaS: mLab", "APIs: Facebook, Instagram, OpenWeather, Stripe, & many more", "Wireframe: Balsamiq"]
-		}];
-		return _react2.default.createElement(
-			'div',
-			{ className: 'wrapper style2' },
-			_react2.default.createElement(
-				'article',
-				{ id: 'profile' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'container' },
-					_react2.default.createElement(
-						'header',
-						null,
-						_react2.default.createElement(
-							'h2',
-							null,
-							'Skills & Experience'
-						),
-						_react2.default.createElement(
-							'div',
-							{ id: 'summary' },
-							_react2.default.createElement(
-								'p',
-								null,
-								'I\'m a full-stack web developer with 4 years of experience.  I specialize in developing websites which are fast, easy-to-use, and beautiful.'
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://en.wikipedia.org/wiki/JavaScript', target: 'javascript' },
-									'JavaScript'
-								),
-								' / ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://en.wikipedia.org/wiki/ECMAScript', target: 'ecmascript' },
-									'ECMAScript'
-								),
-								' is my favorite language for web development because of its flexibility and the incredible pace of development of powerful libraries and frameworks in recent years.  My most recent projects are Node.js full-stack, using ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://www.meteor.com/', target: 'meteor' },
-									'Meteor.js'
-								),
-								', the MERN stack (',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://www.mongodb.com/', target: 'mongodb' },
-									'MongoDB'
-								),
-								', ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://expressjs.com/', target: 'express' },
-									'Express.js'
-								),
-								', ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://facebook.github.io/react/', target: 'react' },
-									'React'
-								),
-								', and ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://nodejs.org/en/', target: 'node' },
-									'Node.js'
-								),
-								'), or the MEAN stack (',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://www.mongodb.com/', target: 'mongodb' },
-									'MongoDB'
-								),
-								', ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://expressjs.com/', target: 'express' },
-									'Express.js'
-								),
-								', ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://angular.io/', target: 'angular' },
-									'Angular'
-								),
-								', and ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://nodejs.org/en/', target: 'node' },
-									'Node.js'
-								),
-								').'
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'For two recent client projects, I used Meteor\'s reactive programming framework to develop fast, secure websites, backed by MongoDB\'s databases, and utilized Node.js server-side cron jobs to automate notifications \xA0 reports and to clear holds for uncompleted transactions (see Door-to-Door Shines',
-								_react2.default.createElement(_LinkToProject2.default, {
-									text: 'description',
-									target: 'shines',
-									selectProject: props.selectProject
-								}),
-								'\xA0or ',
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://www.doortodoorshines.com', target: 'shines' },
-									'live'
-								),
-								'), and to update data that clients are monitoring (see',
-								_react2.default.createElement(_LinkToProject2.default, {
-									text: 'Zyrl',
-									target: 'zyrl',
-									selectProject: props.selectProject
-								}),
-								')'
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'In my personal projects and at hackathons, I\'ve enjoyed exploring HTML5\'s new APIs, the myriad JS libraries & frameworks, and the ever greater browser capabilities:'
-							),
-							_react2.default.createElement(
-								'ul',
-								null,
-								_react2.default.createElement(
-									'li',
-									null,
-									'to use React, web workers, and local storage on the client to make ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'https://developers.google.com/web/progressive-web-apps/', target: 'pwa' },
-										'Progressive Web App'
-									),
-									' games (see',
-									_react2.default.createElement(_LinkToProject2.default, {
-										text: 'Sudoku',
-										target: 'sudoku',
-										selectProject: props.selectProject
-									}),
-									',',
-									_react2.default.createElement(_LinkToProject2.default, {
-										text: 'Hangman',
-										target: 'hangman',
-										selectProject: props.selectProject
-									}),
-									', and',
-									_react2.default.createElement(_LinkToProject2.default, {
-										text: 'Tic-Tac-Toe',
-										target: 'tic-tac-toe',
-										selectProject: props.selectProject
-									}),
-									'),'
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									'to use Meteor.js, MongoDB, ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'http://materializecss.com/', target: 'materialize' },
-										'Materialize.css'
-									),
-									' (an adaptation of Google\'s Material Design), and ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'http://peerjs.com/', target: 'peerjs' },
-										'PeerJS'
-									),
-									' to implement a Portal-themed ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'https://webrtc.org/', target: 'webrtc' },
-										'WebRTC'
-									),
-									' live video chat site (see',
-									_react2.default.createElement(_LinkToProject2.default, {
-										text: 'PoRTCal',
-										target: 'portcal',
-										selectProject: props.selectProject
-									}),
-									'),'
-								),
-								_react2.default.createElement(
-									'li',
-									null,
-									'to use Meteor.js, ',
-									_react2.default.createElement(
-										'a',
-										{ href: 'https://v4-alpha.getbootstrap.com/', target: 'bootstrap' },
-										'TwitterBootstrap'
-									),
-									', MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see',
-									_react2.default.createElement(_LinkToProject2.default, {
-										text: 'Animal Rescue',
-										target: 'animal_rescue',
-										selectProject: props.selectProject
-									}),
-									').'
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'Older clients projects and bootcamp projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP) and Ruby on Rails.'
-							),
-							_react2.default.createElement(
-								'p',
-								null,
-								'I\u2019ve also dabbled in Elm, GoLang, and Python.'
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'flex-grid-thirds' },
-						skillAreas.map(function (skillArea, i) {
-							return _react2.default.createElement(_SkillArea2.default, {
-								key: i,
-								skillArea: skillArea
-							});
-						})
-					)
-				),
-				_react2.default.createElement('div', { className: 'container' }),
-				_react2.default.createElement(
-					'footer',
-					null,
-					_react2.default.createElement(
-						'p',
-						null,
-						'Want to learn more?'
-					),
-					_react2.default.createElement(
-						'a',
-						{ href: '#portfolio', className: 'button big scrolly' },
-						'Check out some of my recent work'
-					)
-				)
-			)
-		);
+	  var skillAreas = [{
+	    icon: 'fa-user-circle',
+	    skillArea: 'Front End',
+	    skills: ['HTML5', 'CSS3', 'JavaScript / ES6', 'React', 'Redux', 'jQuery', 'Angular', 'CSS Libraries: Bootstrap, Material Design, HTML5UP']
+	  }, {
+	    icon: 'fa-server',
+	    skillArea: 'Back End',
+	    skills: ['Node.js', 'MongoDB', 'Meteor.js', 'Express', 'PHP', 'MySQL', 'limited exp.: Python, Ruby, Golang, & Elm']
+	  }, {
+	    icon: 'fa-cogs',
+	    skillArea: 'Sundry',
+	    skills: ['Package Management: npm, yarn', 'Version Control: git', 'Progressive Web Apps (PWAs)', 'PaaS: Galaxy, Heroku', 'DBaaS: mLab', 'APIs: Facebook, Instagram, OpenWeather, Stripe, & many more', 'Wireframe: Balsamiq']
+	  }];
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'wrapper style2' },
+	    _react2.default.createElement(
+	      'article',
+	      { id: 'profile' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'header',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Skills & Experience'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'summary' },
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'I\'m a full-stack web developer with 4 years of experience. I specialize in developing websites which are fast, easy-to-use, and beautiful.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://en.wikipedia.org/wiki/JavaScript',
+	                  target: 'javascript'
+	                },
+	                'JavaScript'
+	              ),
+	              ' ',
+	              '/',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://en.wikipedia.org/wiki/ECMAScript',
+	                  target: 'ecmascript'
+	                },
+	                'ECMAScript'
+	              ),
+	              ' ',
+	              'is my favorite language for web development because of its flexibility and the incredible pace of development of powerful libraries and frameworks in recent years. My most recent projects are Node.js full-stack, using',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.meteor.com/', target: 'meteor' },
+	                'Meteor.js'
+	              ),
+	              ', the MERN stack (',
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://www.mongodb.com/',
+	                  target: 'mongodb'
+	                },
+	                'MongoDB'
+	              ),
+	              ',',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://expressjs.com/', target: 'express' },
+	                'Express.js'
+	              ),
+	              ',',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://facebook.github.io/react/', target: 'react' },
+	                'React'
+	              ),
+	              ', and',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://nodejs.org/en/', target: 'node' },
+	                'Node.js'
+	              ),
+	              '), or the MEAN stack (',
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://www.mongodb.com/',
+	                  target: 'mongodb'
+	                },
+	                'MongoDB'
+	              ),
+	              ',',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://expressjs.com/', target: 'express' },
+	                'Express.js'
+	              ),
+	              ',',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://angular.io/', target: 'angular' },
+	                'Angular'
+	              ),
+	              ', and',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://nodejs.org/en/', target: 'node' },
+	                'Node.js'
+	              ),
+	              ').'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'For two recent client projects, I used Meteor\'s reactive programming framework to develop fast, secure websites, backed by MongoDB\'s databases, and utilized Node.js server-side cron jobs to automate notifications \xA0 reports and to clear holds for uncompleted transactions (see Door-to-Door Shines',
+	              _react2.default.createElement(_LinkToProject2.default, {
+	                text: 'description',
+	                target: 'shines',
+	                selectProject: props.selectProject
+	              }),
+	              '\xA0or',
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.doortodoorshines.com', target: 'shines' },
+	                'live'
+	              ),
+	              '), and to update data that clients are monitoring (see',
+	              _react2.default.createElement(_LinkToProject2.default, {
+	                text: 'Zyrl',
+	                target: 'zyrl',
+	                selectProject: props.selectProject
+	              }),
+	              ')'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'In my personal projects and at hackathons, I\'ve enjoyed exploring HTML5\'s new APIs, the myriad JS libraries & frameworks, and the ever greater browser capabilities:'
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'to use React, web workers, and local storage on the client to make',
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  {
+	                    href: 'https://developers.google.com/web/progressive-web-apps/',
+	                    target: 'pwa'
+	                  },
+	                  'Progressive Web App'
+	                ),
+	                ' ',
+	                'games (see',
+	                _react2.default.createElement(_LinkToProject2.default, {
+	                  text: 'Sudoku',
+	                  target: 'sudoku',
+	                  selectProject: props.selectProject
+	                }),
+	                ',',
+	                _react2.default.createElement(_LinkToProject2.default, {
+	                  text: 'Hangman',
+	                  target: 'hangman',
+	                  selectProject: props.selectProject
+	                }),
+	                ', and',
+	                _react2.default.createElement(_LinkToProject2.default, {
+	                  text: 'Tic-Tac-Toe',
+	                  target: 'tic-tac-toe',
+	                  selectProject: props.selectProject
+	                }),
+	                '),'
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'to use Meteor.js, MongoDB,',
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'http://materializecss.com/', target: 'materialize' },
+	                  'Materialize.css'
+	                ),
+	                ' ',
+	                '(an adaptation of Google\'s Material Design), and',
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'http://peerjs.com/', target: 'peerjs' },
+	                  'PeerJS'
+	                ),
+	                ' ',
+	                'to implement a Portal-themed',
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'https://webrtc.org/', target: 'webrtc' },
+	                  'WebRTC'
+	                ),
+	                ' ',
+	                'live video chat site (see',
+	                _react2.default.createElement(_LinkToProject2.default, {
+	                  text: 'PoRTCal',
+	                  target: 'portcal',
+	                  selectProject: props.selectProject
+	                }),
+	                '),'
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                'to use Meteor.js,',
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  {
+	                    href: 'https://v4-alpha.getbootstrap.com/',
+	                    target: 'bootstrap'
+	                  },
+	                  'TwitterBootstrap'
+	                ),
+	                ', MongoDB, and geolocation & search criteria to match would-be pet owners with adoptable animals (see',
+	                _react2.default.createElement(_LinkToProject2.default, {
+	                  text: 'Animal Rescue',
+	                  target: 'animal_rescue',
+	                  selectProject: props.selectProject
+	                }),
+	                ').'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Older clients projects and bootcamp projects utilized the LAMP stack (Linux, Apache server, MySQL, and PHP) and Ruby on Rails.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'I\u2019ve also dabbled in Elm, GoLang, and Python.'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'flex-grid-thirds' },
+	          skillAreas.map(function (skillArea, i) {
+	            return _react2.default.createElement(_SkillArea2.default, { key: i, skillArea: skillArea });
+	          })
+	        )
+	      ),
+	      _react2.default.createElement('div', { className: 'container' }),
+	      _react2.default.createElement(
+	        'footer',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Want to learn more?'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#portfolio', className: 'button big scrolly' },
+	          'Check out some of my recent work'
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Profile;
 
-/***/ },
+/***/ }),
 /* 180 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21600,31 +21620,27 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var LinkToProject = function LinkToProject(props) {
-		var handleClick = function handleClick() {
-			props.selectProject(props.target);
-		};
-		return _react2.default.createElement(
-			"a",
-			{
-				href: "#portfolio",
-				className: "scrolly",
-				onClick: handleClick
-			},
-			"\xA0",
-			props.text
-		);
+	  var handleClick = function handleClick() {
+	    props.selectProject(props.target);
+	  };
+	  return _react2.default.createElement(
+	    "a",
+	    { href: "#portfolio", className: "scrolly", onClick: handleClick },
+	    "\xA0",
+	    props.text
+	  );
 	};
 	
 	exports.default = LinkToProject;
 
-/***/ },
+/***/ }),
 /* 181 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21634,43 +21650,43 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var SkillArea = function SkillArea(props) {
-		return _react2.default.createElement(
-			"div",
-			{ className: "col" },
-			_react2.default.createElement(
-				"section",
-				null,
-				_react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
-				_react2.default.createElement(
-					"h3",
-					null,
-					props.skillArea.skillArea
-				),
-				_react2.default.createElement(
-					"ul",
-					null,
-					props.skillArea.skills.map(function (skill, i) {
-						return _react2.default.createElement(
-							"li",
-							{ key: i },
-							skill
-						);
-					})
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "col" },
+	    _react2.default.createElement(
+	      "section",
+	      null,
+	      _react2.default.createElement("span", { className: "icon featured " + props.skillArea.icon }),
+	      _react2.default.createElement(
+	        "h3",
+	        null,
+	        props.skillArea.skillArea
+	      ),
+	      _react2.default.createElement(
+	        "ul",
+	        null,
+	        props.skillArea.skills.map(function (skill, i) {
+	          return _react2.default.createElement(
+	            "li",
+	            { key: i },
+	            skill
+	          );
+	        })
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = SkillArea;
 
-/***/ },
+/***/ }),
 /* 182 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21704,118 +21720,118 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Portfolio = function Portfolio(props) {
-		var projects = _portfolio_data2.default.projects;
-		props.projectFilters.forEach(function (projectFilter) {
-			projects = projects.filter(function (project) {
-				return project[projectFilter];
-			});
-		});
-		var resetFilters = { "reset": "Reset All" };
-		return _react2.default.createElement(
-			'div',
-			{ className: 'wrapper style1' },
-			_react2.default.createElement(
-				'article',
-				{ id: 'portfolio' },
-				_react2.default.createElement(
-					'header',
-					null,
-					_react2.default.createElement(
-						'h2',
-						null,
-						'Projects'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Proin odio consequat sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
-					),
-					_react2.default.createElement(_ProjectFilters2.default, {
-						projectFilters: props.projectFilters,
-						setProjectFilters: props.setProjectFilters
-					})
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'container' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'flex-grid-thirds' },
-						projects.map(function (project, i) {
-							return _react2.default.createElement(_Project2.default, {
-								key: i,
-								project: project,
-								selectProject: props.selectProject
-							});
-						}),
-						projects.map(function (project, i) {
-							return project.screenshots && project.screenshots.length ? _react2.default.createElement(_ScreenShotsModal2.default, {
-								key: i,
-								project: project,
-								screenshots: project.screenshots,
-								selectedProjectScreenshots: props.selectedProjectScreenshots,
-								unselectProjectScreenshots: props.unselectProjectScreenshots,
-								deselectedProjectScreenshots: props.deselectedProjectScreenshots,
-								screenshotNum: props.screenshotNum,
-								updateScreenshotNum: props.updateScreenshotNum
-							}) : null;
-						})
-					),
-					projects.length > 0 ? projects.map(function (project, i) {
-						return _react2.default.createElement(_ProjectModal2.default, {
-							key: i,
-							project: project,
-							selectedProject: props.selectedProject,
-							unselectProject: props.unselectProject,
-							deselectedProject: props.deselectedProject,
-							selectedProjectScreenshots: props.selectedProjectScreenshots,
-							selectProjectScreenshots: props.selectProjectScreenshots
-						});
-					}) : _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'p',
-							null,
-							'No projects meeting your criteria. ',
-							_react2.default.createElement('br', null),
-							'De-select a filter or reset all search critera.'
-						),
-						_react2.default.createElement(_ProjectFilterButton2.default, {
-							filter: resetFilters,
-							setProjectFilters: props.setProjectFilters,
-							projectFilters: props.projectFilters
-						})
-					)
-				),
-				_react2.default.createElement(
-					'footer',
-					null,
-					_react2.default.createElement(
-						'p',
-						null,
-						'Interested in having me work for you?'
-					),
-					_react2.default.createElement(
-						'a',
-						{ href: '#contact', className: 'button big scrolly' },
-						'Get in touch with me'
-					)
-				)
-			)
-		);
+	  var projects = _portfolio_data2.default.projects;
+	  props.projectFilters.forEach(function (projectFilter) {
+	    projects = projects.filter(function (project) {
+	      return project[projectFilter];
+	    });
+	  });
+	  var resetFilters = { reset: 'Reset All' };
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'wrapper style1' },
+	    _react2.default.createElement(
+	      'article',
+	      { id: 'portfolio' },
+	      _react2.default.createElement(
+	        'header',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Projects'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Proin odio consequat sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.'
+	        ),
+	        _react2.default.createElement(_ProjectFilters2.default, {
+	          projectFilters: props.projectFilters,
+	          setProjectFilters: props.setProjectFilters
+	        })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'flex-grid-thirds' },
+	          projects.map(function (project, i) {
+	            return _react2.default.createElement(_Project2.default, {
+	              key: i,
+	              project: project,
+	              selectProject: props.selectProject
+	            });
+	          }),
+	          projects.map(function (project, i) {
+	            return project.screenshots && project.screenshots.length ? _react2.default.createElement(_ScreenShotsModal2.default, {
+	              key: i,
+	              project: project,
+	              screenshots: project.screenshots,
+	              selectedProjectScreenshots: props.selectedProjectScreenshots,
+	              unselectProjectScreenshots: props.unselectProjectScreenshots,
+	              deselectedProjectScreenshots: props.deselectedProjectScreenshots,
+	              screenshotNum: props.screenshotNum,
+	              updateScreenshotNum: props.updateScreenshotNum
+	            }) : null;
+	          })
+	        ),
+	        projects.length > 0 ? projects.map(function (project, i) {
+	          return _react2.default.createElement(_ProjectModal2.default, {
+	            key: i,
+	            project: project,
+	            selectedProject: props.selectedProject,
+	            unselectProject: props.unselectProject,
+	            deselectedProject: props.deselectedProject,
+	            selectedProjectScreenshots: props.selectedProjectScreenshots,
+	            selectProjectScreenshots: props.selectProjectScreenshots
+	          });
+	        }) : _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'No projects meeting your criteria. ',
+	            _react2.default.createElement('br', null),
+	            'De-select a filter or reset all search critera.'
+	          ),
+	          _react2.default.createElement(_ProjectFilterButton2.default, {
+	            filter: resetFilters,
+	            setProjectFilters: props.setProjectFilters,
+	            projectFilters: props.projectFilters
+	          })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'footer',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Interested in having me work for you?'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#contact', className: 'button big scrolly' },
+	          'Get in touch with me'
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Portfolio;
 
-/***/ },
+/***/ }),
 /* 183 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21829,31 +21845,31 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProjectFilters = function ProjectFilters(props) {
-		var filters = [{ 'all': 'All' }, { 'node': 'Node.js' }, { 'mongo': 'MongoDB' }, { 'meteor': 'Meteor.js' }, { 'react': 'React.js' }, { 'angular': 'Angular.js' }, { 'pwa': 'Progressive Web App (PWA)' }, { 'webrtc': 'WebRTC' }, { 'd3': 'D3.js' }, { 'svg': 'svg' }, { 'php': 'PHP' }, { 'lamp': 'PHP / MySQL' }];
-		return _react2.default.createElement(
-			'div',
-			{ className: 'container project-filters' },
-			filters.map(function (filter, i) {
-				return _react2.default.createElement(_ProjectFilterButton2.default, {
-					key: i,
-					filter: filter,
-					setProjectFilters: props.setProjectFilters,
-					projectFilters: props.projectFilters
-				});
-			})
-		);
+	  var filters = [{ all: 'All' }, { node: 'Node.js' }, { mongo: 'MongoDB' }, { meteor: 'Meteor.js' }, { react: 'React.js' }, { angular: 'Angular.js' }, { pwa: 'Progressive Web App (PWA)' }, { webrtc: 'WebRTC' }, { d3: 'D3.js' }, { svg: 'svg' }, { php: 'PHP' }, { lamp: 'PHP / MySQL' }];
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'container project-filters' },
+	    filters.map(function (filter, i) {
+	      return _react2.default.createElement(_ProjectFilterButton2.default, {
+	        key: i,
+	        filter: filter,
+	        setProjectFilters: props.setProjectFilters,
+	        projectFilters: props.projectFilters
+	      });
+	    })
+	  );
 	};
 	
 	exports.default = ProjectFilters;
 
-/***/ },
+/***/ }),
 /* 184 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21863,33 +21879,30 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProjectFilterButton = function ProjectFilterButton(props) {
-		var className = "";
-		if (props.projectFilters.includes(Object.keys(props.filter)[0]) || props.projectFilters.length === 0 && Object.keys(props.filter)[0] === "all") {
-			className = "alt";
-		}
-		var handleClick = function handleClick() {
-			props.setProjectFilters(Object.keys(props.filter));
-		};
-		return _react2.default.createElement(
-			"button",
-			{
-				onClick: handleClick,
-				className: className
-			},
-			Object.values(props.filter)
-		);
+	  var className = '';
+	  if (props.projectFilters.includes(Object.keys(props.filter)[0]) || props.projectFilters.length === 0 && Object.keys(props.filter)[0] === 'all') {
+	    className = 'alt';
+	  }
+	  var handleClick = function handleClick() {
+	    props.setProjectFilters(Object.keys(props.filter));
+	  };
+	  return _react2.default.createElement(
+	    'button',
+	    { onClick: handleClick, className: className },
+	    Object.values(props.filter)
+	  );
 	};
 	
 	exports.default = ProjectFilterButton;
 
-/***/ },
+/***/ }),
 /* 185 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21899,42 +21912,42 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Project = function Project(props) {
-		var handleClick = function handleClick() {
-			props.selectProject(props.project.target);
-		};
-		return _react2.default.createElement(
-			"div",
-			{ className: "col" },
-			_react2.default.createElement(
-				"figure",
-				{
-					className: "project",
-					onClick: handleClick
-				},
-				_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name }),
-				_react2.default.createElement(
-					"figcaption",
-					null,
-					_react2.default.createElement(
-						"label",
-						null,
-						props.project.name
-					)
-				)
-			)
-		);
+	  var handleClick = function handleClick() {
+	    props.selectProject(props.project.target);
+	  };
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "col" },
+	    _react2.default.createElement(
+	      "figure",
+	      { className: "project", onClick: handleClick },
+	      _react2.default.createElement("img", {
+	        src: "./public/assets/images/" + props.project.target + ".png",
+	        alt: "screenshot of " + props.project.name
+	      }),
+	      _react2.default.createElement(
+	        "figcaption",
+	        null,
+	        _react2.default.createElement(
+	          "label",
+	          null,
+	          props.project.name
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Project;
 
-/***/ },
+/***/ }),
 /* 186 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -21944,154 +21957,156 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProjectModal = function ProjectModal(props) {
+	  var handleCloseClick = function handleCloseClick(e) {
+	    if (e.target.className === 'modal') {
+	      props.unselectProject();
+	    }
+	  };
+	  var handleScreenshotsClick = function handleScreenshotsClick() {
+	    props.selectProjectScreenshots('screenshots' + props.project.target);
+	  };
 	
-		var handleCloseClick = function handleCloseClick(e) {
-			if (e.target.className === "modal") {
-				props.unselectProject();
-			}
-		};
-		var handleScreenshotsClick = function handleScreenshotsClick() {
-			props.selectProjectScreenshots("screenshots" + props.project.target);
-		};
+	  var modalContent = 'modal-content';
+	  if (props.selectedProject === props.project.target && props.deselectedProject) {
+	    modalContent = 'modal-out';
+	  }
 	
-		var modalContent = "modal-content";
-		if (props.selectedProject === props.project.target && props.deselectedProject) {
-			modalContent = "modal-out";
-		}
-	
-		return _react2.default.createElement(
-			"div",
-			{
-				className: "modal",
-				id: props.project.target,
-				style: props.selectedProject === props.project.target && !props.selectedProjectScreenshots ? { 'display': 'block' } : { 'display': 'none' },
-				onClick: handleCloseClick
-			},
-			_react2.default.createElement(
-				"div",
-				{ className: modalContent },
-				_react2.default.createElement(
-					"div",
-					{ className: "modal-header" },
-					_react2.default.createElement(
-						"span",
-						{
-							className: "modal-close",
-							onClick: props.unselectProject
-						},
-						"x"
-					),
-					_react2.default.createElement(
-						"h2",
-						null,
-						props.project.name
-					)
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "modal-body flex-grid-halves" },
-					_react2.default.createElement(
-						"div",
-						{ className: "col" },
-						_react2.default.createElement("img", { src: "./public/assets/images/" + props.project.target + ".png", alt: "screenshot of " + props.project.name })
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "col" },
-						_react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"strong",
-								null,
-								"Projects: "
-							),
-							props.project.text.map(function (para, i) {
-								return _react2.default.createElement(
-									"span",
-									{ key: i },
-									para,
-									_react2.default.createElement("br", null)
-								);
-							})
-						),
-						_react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"strong",
-								null,
-								"Technologies: "
-							),
-							props.project.technologies
-						)
-					)
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "modal-footer" },
-					_react2.default.createElement(
-						"div",
-						{ className: "half text-left" },
-						props.project.web ? _react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: props.project.web, target: props.project.target },
-								_react2.default.createElement("span", { className: "icon featured fa-globe" }),
-								" Project Website"
-							)
-						) : " ",
-						props.project.codepen ? _react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: props.project.codepen, target: props.project.target },
-								_react2.default.createElement("span", { className: "icon featured fa-codepen" }),
-								" Project Codepen"
-							)
-						) : " "
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "half text-right" },
-						props.project.git ? _react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: props.project.git, target: props.project.target },
-								_react2.default.createElement("span", { className: "icon featured fa-github" }),
-								" Project Repo"
-							)
-						) : " ",
-						props.project.screenshots ? _react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ target: "screenshots$" + props.project.target, onClick: handleScreenshotsClick },
-								"Project Screenshots"
-							)
-						) : " "
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    {
+	      className: 'modal',
+	      id: props.project.target,
+	      style: props.selectedProject === props.project.target && !props.selectedProjectScreenshots ? { display: 'block' } : { display: 'none' },
+	      onClick: handleCloseClick
+	    },
+	    _react2.default.createElement(
+	      'div',
+	      { className: modalContent },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'modal-close', onClick: props.unselectProject },
+	          'x'
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          props.project.name
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-body flex-grid-halves' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col' },
+	          _react2.default.createElement('img', {
+	            src: './public/assets/images/' + props.project.target + '.png',
+	            alt: 'screenshot of ' + props.project.name
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Project: '
+	            ),
+	            props.project.text.map(function (para, i) {
+	              return _react2.default.createElement(
+	                'span',
+	                { key: i },
+	                para,
+	                _react2.default.createElement('br', null)
+	              );
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Technologies: '
+	            ),
+	            props.project.technologies
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-footer' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'half text-left' },
+	          props.project.web ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.web, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-globe' }),
+	              ' Project Website'
+	            )
+	          ) : ' ',
+	          props.project.codepen ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.codepen, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-codepen' }),
+	              ' Project Codepen'
+	            )
+	          ) : ' '
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'half text-right' },
+	          props.project.git ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.git, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-github' }),
+	              ' Project Repo'
+	            )
+	          ) : ' ',
+	          props.project.screenshots ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              {
+	                target: 'screenshots$' + props.project.target,
+	                onClick: handleScreenshotsClick
+	              },
+	              'Project Screenshots'
+	            )
+	          ) : ' '
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = ProjectModal;
 
-/***/ },
+/***/ }),
 /* 187 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22101,138 +22116,134 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ScreenShotsModal = function ScreenShotsModal(props) {
+	  var handleCloseClick = function handleCloseClick(e) {
+	    if (e.target.className === 'modal modal-screenshots') {
+	      props.unselectProjectScreenshots();
+	    }
+	  };
+	  var handleNextClick = function handleNextClick() {
+	    props.updateScreenshotNum('increment');
+	  };
 	
-		var handleCloseClick = function handleCloseClick(e) {
-			if (e.target.className === "modal modal-screenshots") {
-				props.unselectProjectScreenshots();
-			}
-		};
-		var handleNextClick = function handleNextClick() {
-			props.updateScreenshotNum('increment');
-		};
+	  var handlePreviousClick = function handlePreviousClick() {
+	    props.updateScreenshotNum('decrement');
+	  };
 	
-		var handlePreviousClick = function handlePreviousClick() {
-			props.updateScreenshotNum('decrement');
-		};
+	  var screenshotNum = props.screenshotNum % props.project.screenshots.length;
+	  var screenshot = {
+	    backgroundImage: 'url(./public/assets/images/' + props.project.screenshots[screenshotNum] + ')',
+	    backgroundSize: 'contain',
+	    backgroundRepeat: 'no-repeat',
+	    backgroundPosition: 'center'
+	  };
 	
-		var screenshotNum = props.screenshotNum % props.project.screenshots.length;
-		var screenshot = {
-			"backgroundImage": 'url(./public/assets/images/' + props.project.screenshots[screenshotNum] + ')',
-			"backgroundSize": "contain",
-			"backgroundRepeat": "no-repeat",
-			"backgroundPosition": "center"
-		};
+	  var modalContent = 'modal-content';
+	  if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
+	    modalContent = 'modal-out';
+	  }
 	
-		var modalContent = "modal-content";
-		if (props.selectedProjectScreenshots === props.project.target && props.deselectedProjectScreenshots) {
-			modalContent = "modal-out";
-		}
-	
-		return _react2.default.createElement(
-			'div',
-			{
-				className: 'modal modal-screenshots',
-				id: 'screenshots' + props.project.target,
-				style: props.selectedProjectScreenshots === 'screenshots' + props.project.target ? { 'display': 'block' } : { 'display': 'none' },
-				onClick: handleCloseClick
-			},
-			_react2.default.createElement(
-				'div',
-				{ className: modalContent },
-				_react2.default.createElement(
-					'div',
-					{ className: 'modal-header' },
-					_react2.default.createElement(
-						'span',
-						{
-							className: 'modal-close',
-							onClick: props.unselectProjectScreenshots
-						},
-						'x'
-					),
-					_react2.default.createElement(
-						'h3',
-						null,
-						props.project.name
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'screenshots-body flex-grid-uneven-thirds' },
-					_react2.default.createElement(
-						'div',
-						{
-							className: 'col screenshot-nav previous',
-							onClick: handlePreviousClick
-						},
-						_react2.default.createElement('p', { className: 'icon fa-chevron-left' })
-					),
-					_react2.default.createElement('div', { className: 'col main', style: screenshot }),
-					_react2.default.createElement(
-						'div',
-						{
-							className: 'col screenshot-nav next',
-							onClick: handleNextClick
-						},
-						_react2.default.createElement('p', { className: 'icon fa-chevron-right' })
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'modal-footer screenshot-caption' },
-					_react2.default.createElement(
-						'p',
-						null,
-						props.project.screenshotCaptions[screenshotNum]
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'half text-left' },
-						props.project.web ? _react2.default.createElement(
-							'p',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: props.project.web, target: props.project.target },
-								_react2.default.createElement('span', { className: 'icon featured fa-globe' }),
-								' Project Website'
-							)
-						) : " ",
-						props.project.codepen ? _react2.default.createElement(
-							'p',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: props.project.codepen, target: props.project.target },
-								_react2.default.createElement('span', { className: 'icon featured fa-codepen' }),
-								' Project Codepen'
-							)
-						) : " "
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'half text-right' },
-						props.project.git ? _react2.default.createElement(
-							'p',
-							null,
-							_react2.default.createElement(
-								'a',
-								{ href: props.project.git, target: props.project.target },
-								_react2.default.createElement('span', { className: 'icon featured fa-github' }),
-								' Project Repo'
-							)
-						) : " "
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    {
+	      className: 'modal modal-screenshots',
+	      id: 'screenshots' + props.project.target,
+	      style: props.selectedProjectScreenshots === 'screenshots' + props.project.target ? { display: 'block' } : { display: 'none' },
+	      onClick: handleCloseClick
+	    },
+	    _react2.default.createElement(
+	      'div',
+	      { className: modalContent },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-header' },
+	        _react2.default.createElement(
+	          'span',
+	          {
+	            className: 'modal-close',
+	            onClick: props.unselectProjectScreenshots
+	          },
+	          'x'
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          props.project.name
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'screenshots-body flex-grid-uneven-thirds' },
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            className: 'col screenshot-nav previous',
+	            onClick: handlePreviousClick
+	          },
+	          _react2.default.createElement('p', { className: 'icon fa-chevron-left' })
+	        ),
+	        _react2.default.createElement('div', { className: 'col main', style: screenshot }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col screenshot-nav next', onClick: handleNextClick },
+	          _react2.default.createElement('p', { className: 'icon fa-chevron-right' })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'modal-footer screenshot-caption' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          props.project.screenshotCaptions[screenshotNum]
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'half text-left' },
+	          props.project.web ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.web, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-globe' }),
+	              ' Project Website'
+	            )
+	          ) : ' ',
+	          props.project.codepen ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.codepen, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-codepen' }),
+	              ' Project Codepen'
+	            )
+	          ) : ' '
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'half text-right' },
+	          props.project.git ? _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: props.project.git, target: props.project.target },
+	              _react2.default.createElement('span', { className: 'icon featured fa-github' }),
+	              ' Project Repo'
+	            )
+	          ) : ' '
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = ScreenShotsModal;
 
-/***/ },
+/***/ }),
 /* 188 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = {
 		"projects": [
@@ -22620,14 +22631,14 @@
 		]
 	};
 
-/***/ },
+/***/ }),
 /* 189 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22649,120 +22660,120 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Contact = function Contact(props) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'wrapper contact-wrapper' },
-			_react2.default.createElement(
-				'article',
-				{ id: 'contact', className: 'container 75%' },
-				_react2.default.createElement(
-					'header',
-					null,
-					_react2.default.createElement(
-						'h3',
-						null,
-						'Interested in having me work for you?'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Please e-mail me and let\u2019s start a conversation about what I can do for your business.'
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: '12u' },
-						_react2.default.createElement(
-							'form',
-							{ method: 'post', action: '#' },
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement(
-									'div',
-									{ className: 'row' },
-									_react2.default.createElement(_FormElement2.default, {
-										layout: '6u 12u(mobile)',
-										type: 'text',
-										name: 'name',
-										id: 'name',
-										label: 'Name',
-										value: props.form.name,
-										updateFormState: props.updateFormState
-									}),
-									_react2.default.createElement(_FormElement2.default, {
-										layout: '6u 12u(mobile)',
-										type: 'email',
-										name: 'email',
-										id: 'email',
-										label: 'E-Mail',
-										value: props.form.email,
-										updateFormState: props.updateFormState
-									})
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'row' },
-									_react2.default.createElement(_FormElement2.default, {
-										layout: '12u',
-										type: 'text',
-										name: 'subject',
-										id: 'subject',
-										label: 'Subject',
-										value: props.form.subject,
-										updateFormState: props.updateFormState
-									})
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'row' },
-									_react2.default.createElement(_FormElement2.default, {
-										layout: '12u',
-										type: 'textarea',
-										name: 'message',
-										id: 'message',
-										label: 'Message',
-										rows: '4',
-										value: props.form.message,
-										updateFormState: props.updateFormState
-									})
-								),
-								props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
-								_react2.default.createElement(
-									'div',
-									{ className: 'row 200%' },
-									_react2.default.createElement(_FormElement2.default, {
-										layout: '12u',
-										type: 'submit',
-										name: 'submit',
-										id: 'submit',
-										label: 'Send Message',
-										disabled: props.form.submitting,
-										submitMailForm: props.submitMailForm
-									})
-								),
-								props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses })
-							)
-						)
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'wrapper contact-wrapper' },
+	    _react2.default.createElement(
+	      'article',
+	      { id: 'contact', className: 'container 75%' },
+	      _react2.default.createElement(
+	        'header',
+	        null,
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Interested in having me work for you?'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Please e-mail me and let\u2019s start a conversation about what I can do for your business.'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: '12u' },
+	          _react2.default.createElement(
+	            'form',
+	            { method: 'post', action: '#' },
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(_FormElement2.default, {
+	                  layout: '6u 12u(mobile)',
+	                  type: 'text',
+	                  name: 'name',
+	                  id: 'name',
+	                  label: 'Name',
+	                  value: props.form.name,
+	                  updateFormState: props.updateFormState
+	                }),
+	                _react2.default.createElement(_FormElement2.default, {
+	                  layout: '6u 12u(mobile)',
+	                  type: 'email',
+	                  name: 'email',
+	                  id: 'email',
+	                  label: 'E-Mail',
+	                  value: props.form.email,
+	                  updateFormState: props.updateFormState
+	                })
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(_FormElement2.default, {
+	                  layout: '12u',
+	                  type: 'text',
+	                  name: 'subject',
+	                  id: 'subject',
+	                  label: 'Subject',
+	                  value: props.form.subject,
+	                  updateFormState: props.updateFormState
+	                })
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(_FormElement2.default, {
+	                  layout: '12u',
+	                  type: 'textarea',
+	                  name: 'message',
+	                  id: 'message',
+	                  label: 'Message',
+	                  rows: '4',
+	                  value: props.form.message,
+	                  updateFormState: props.updateFormState
+	                })
+	              ),
+	              props.form.errors.length > 0 && _react2.default.createElement(_Errors2.default, { errors: props.form.errors }),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row 200%' },
+	                _react2.default.createElement(_FormElement2.default, {
+	                  layout: '12u',
+	                  type: 'submit',
+	                  name: 'submit',
+	                  id: 'submit',
+	                  label: 'Send Message',
+	                  disabled: props.form.submitting,
+	                  submitMailForm: props.submitMailForm
+	                })
+	              ),
+	              props.form.responses.length > 0 && _react2.default.createElement(_Messages2.default, { messages: props.form.responses })
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Contact;
 
-/***/ },
+/***/ }),
 /* 190 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22772,102 +22783,102 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var FormElement = function FormElement(props) {
-		switch (props.type) {
-			case "text":
-			case "number":
-			case "password":
-			case "email":
-				return _react2.default.createElement(
-					"div",
-					{ className: props.layout },
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: props.id },
-						props.label
-					),
-					_react2.default.createElement("input", {
-						type: props.type,
-						name: props.id,
-						id: props.id,
-						placeholder: props.label,
-						onChange: props.updateFormState,
-						value: props.value
-					})
-				);
-			case "textarea":
-				var rows = props.rows || 6;
-				return _react2.default.createElement(
-					"div",
-					{ className: props.layout },
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: props.id },
-						props.label
-					),
-					_react2.default.createElement("textarea", {
-						name: props.id,
-						id: props.id,
-						placeholder: props.label,
-						rows: rows,
-						onChange: props.updateFormState,
-						value: props.value
-					})
-				);
-			case "submit":
-				var label = void 0;
-				props.disabled ? label = 'Sending....' : label = props.label;
-				return _react2.default.createElement(
-					"footer",
-					null,
-					_react2.default.createElement("input", {
-						type: props.type,
-						id: props.id,
-						className: "button big",
-						onClick: props.disabled ? null : props.submitMailForm,
-						value: label
-					})
-				);
-			case "radio":
-			case "checkbox":
-			case "select":
-			case "color":
-			case "date":
-			case "datetime-local":
-			case "month":
-			case "number":
-			case "range":
-			case "search":
-			case "tel":
-			case "time":
-			case "url":
-			case "week":
-				return _react2.default.createElement(
-					"div",
-					{ className: props.layout },
-					_react2.default.createElement(
-						"p",
-						null,
-						"time to get around to making the ",
-						props.type,
-						" element"
-					)
-				);
-			default:
-				console.log("ERROR ON FORM ELEMENT", props);
-				return null;
-		}
+	  switch (props.type) {
+	    case 'text':
+	    case 'number':
+	    case 'password':
+	    case 'email':
+	      return _react2.default.createElement(
+	        'div',
+	        { className: props.layout },
+	        _react2.default.createElement(
+	          'label',
+	          { htmlFor: props.id },
+	          props.label
+	        ),
+	        _react2.default.createElement('input', {
+	          type: props.type,
+	          name: props.id,
+	          id: props.id,
+	          placeholder: props.label,
+	          onChange: props.updateFormState,
+	          value: props.value
+	        })
+	      );
+	    case 'textarea':
+	      var rows = props.rows || 6;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: props.layout },
+	        _react2.default.createElement(
+	          'label',
+	          { htmlFor: props.id },
+	          props.label
+	        ),
+	        _react2.default.createElement('textarea', {
+	          name: props.id,
+	          id: props.id,
+	          placeholder: props.label,
+	          rows: rows,
+	          onChange: props.updateFormState,
+	          value: props.value
+	        })
+	      );
+	    case 'submit':
+	      var label = void 0;
+	      props.disabled ? label = 'Sending....' : label = props.label;
+	      return _react2.default.createElement(
+	        'footer',
+	        null,
+	        _react2.default.createElement('input', {
+	          type: props.type,
+	          id: props.id,
+	          className: 'button big',
+	          onClick: props.disabled ? null : props.submitMailForm,
+	          value: label
+	        })
+	      );
+	    case 'radio':
+	    case 'checkbox':
+	    case 'select':
+	    case 'color':
+	    case 'date':
+	    case 'datetime-local':
+	    case 'month':
+	    case 'number':
+	    case 'range':
+	    case 'search':
+	    case 'tel':
+	    case 'time':
+	    case 'url':
+	    case 'week':
+	      return _react2.default.createElement(
+	        'div',
+	        { className: props.layout },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'time to get around to making the ',
+	          props.type,
+	          ' element'
+	        )
+	      );
+	    default:
+	      console.log('ERROR ON FORM ELEMENT', props);
+	      return null;
+	  }
 	};
 	
 	exports.default = FormElement;
 
-/***/ },
+/***/ }),
 /* 191 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22881,29 +22892,29 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Messages = function Messages(props) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'Messages' },
-			_react2.default.createElement(
-				'p',
-				null,
-				props.messages.map(function (message, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: message });
-				})
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'Messages' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      props.messages.map(function (message, i) {
+	        return _react2.default.createElement(_Message2.default, { key: i, message: message });
+	      })
+	    )
+	  );
 	};
 	
 	exports.default = Messages;
 
-/***/ },
+/***/ }),
 /* 192 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22913,24 +22924,24 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Message = function Message(props) {
-		return _react2.default.createElement(
-			'span',
-			null,
-			props.message,
-			_react2.default.createElement('br', null)
-		);
+	  return _react2.default.createElement(
+	    'span',
+	    null,
+	    props.message,
+	    _react2.default.createElement('br', null)
+	  );
 	};
 	
 	exports.default = Message;
 
-/***/ },
+/***/ }),
 /* 193 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22944,29 +22955,29 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Errors = function Errors(props) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'Errors', style: { "color": "red" } },
-			_react2.default.createElement(
-				'p',
-				null,
-				props.errors.map(function (error, i) {
-					return _react2.default.createElement(_Message2.default, { key: i, message: error });
-				})
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'Errors', style: { color: 'red' } },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      props.errors.map(function (error, i) {
+	        return _react2.default.createElement(_Message2.default, { key: i, message: error });
+	      })
+	    )
+	  );
 	};
 	
 	exports.default = Errors;
 
-/***/ },
+/***/ }),
 /* 194 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -22980,96 +22991,108 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var FindMe = function FindMe() {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'wrapper style4' },
-			_react2.default.createElement(
-				'article',
-				{ className: 'container' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'row' },
-					_react2.default.createElement(
-						'div',
-						{ className: '12u' },
-						_react2.default.createElement(
-							'h3',
-							null,
-							'Find me on ...'
-						),
-						_react2.default.createElement(
-							'ul',
-							{ className: 'social' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://www.linkedin.com/in/stlouisc/', className: 'icon fa-linkedin' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'LinkedIn'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://github.com/selva-oscura', className: 'icon fa-github' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Github'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://codepen.io/stlouis_c/', className: 'icon fa-codepen' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Codepen'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: 'https://twitter.com/1_selva_oscura', className: 'icon fa-twitter' },
-									_react2.default.createElement(
-										'span',
-										{ className: 'label' },
-										'Twitter'
-									)
-								)
-							)
-						)
-					)
-				)
-			),
-			_react2.default.createElement(_Copyright2.default, null)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'wrapper style4' },
+	    _react2.default.createElement(
+	      'article',
+	      { className: 'container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: '12u' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Find me on ...'
+	          ),
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'social' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://www.linkedin.com/in/stlouisc/',
+	                  className: 'icon fa-linkedin'
+	                },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'label' },
+	                  'LinkedIn'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://github.com/selva-oscura',
+	                  className: 'icon fa-github'
+	                },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'label' },
+	                  'Github'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://codepen.io/stlouis_c/',
+	                  className: 'icon fa-codepen'
+	                },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'label' },
+	                  'Codepen'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                {
+	                  href: 'https://twitter.com/1_selva_oscura',
+	                  className: 'icon fa-twitter'
+	                },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'label' },
+	                  'Twitter'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(_Copyright2.default, null)
+	  );
 	};
 	
 	exports.default = FindMe;
 
-/***/ },
+/***/ }),
 /* 195 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -23079,51 +23102,51 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Copyright = function Copyright() {
-		return _react2.default.createElement(
-			"footer",
-			null,
-			_react2.default.createElement(
-				"ul",
-				{ id: "copyright" },
-				_react2.default.createElement(
-					"li",
-					null,
-					"\xA9 Carol  St. Louis, 2017. All rights reserved."
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					"Design: modified from ",
-					_react2.default.createElement(
-						"a",
-						{ href: "http://html5up.net" },
-						"HTML5 UP"
-					),
-					"\u2019s theme ",
-					_react2.default.createElement(
-						"a",
-						{ href: "https://html5up.net/miniport" },
-						"Miniport"
-					),
-					"."
-				),
-				_react2.default.createElement(
-					"li",
-					null,
-					"Background Images: ",
-					_react2.default.createElement(
-						"a",
-						{ href: "https://unsplash.com/" },
-						"Unsplash"
-					),
-					"."
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    "footer",
+	    null,
+	    _react2.default.createElement(
+	      "ul",
+	      { id: "copyright" },
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "\xA9 Carol St. Louis, 2017. All rights reserved."
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Design: modified from ",
+	        _react2.default.createElement(
+	          "a",
+	          { href: "http://html5up.net" },
+	          "HTML5 UP"
+	        ),
+	        "\u2019s theme ",
+	        _react2.default.createElement(
+	          "a",
+	          { href: "https://html5up.net/miniport" },
+	          "Miniport"
+	        ),
+	        "."
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Background Images: ",
+	        _react2.default.createElement(
+	          "a",
+	          { href: "https://unsplash.com/" },
+	          "Unsplash"
+	        ),
+	        "."
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Copyright;
 
-/***/ }
+/***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.map
