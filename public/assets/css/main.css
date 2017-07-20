@@ -1891,7 +1891,7 @@ figure.project img {
 
 figure.project figcaption {
 	position: absolute;
-	top: calc(50% - 1em);
+	top: calc(50% - 1.5em);
 	left: 30px;
 	right: 30px;
 }
@@ -1907,9 +1907,13 @@ figure.project label {
 	text-align: center;
 }
 
-figure.project:hover figcaption,figure.project.hover figcaption {
+figure.project:hover figcaption{
 	-webkit-transform: rotate(-50deg) translateY(-50%) scale(0.9);
 	transform: rotate(-50deg) translateY(-50%) scale(0.9);
+}
+
+figure.project:hover label{
+	color: #43bff0;
 }
 
 figure.project figcaption:before,figure.project figcaption:after {
@@ -1945,6 +1949,7 @@ figure.project:hover img,figure.project.hover img {
 
 figure.project:hover figcaption:before,figure.project.hover figcaption:before,figure.project:hover figcaption:after,figure.project.hover figcaption:after {
 	width: 120%;
+	background-color: #43bff0;
 }
 
 
@@ -2552,12 +2557,15 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 	background-color: white;
 	padding: 2em 1em 1em 1em;
 }
+.flex-grid-halves .col img{
+	width: 100%;
+}
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.modal-content{
-		width: 95%;
+		width: 98%;
   	margin: 2.5% auto;
 	}
 
