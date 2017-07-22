@@ -7,7 +7,7 @@ const Home = () => {
         <div className="row">
           <div className="4u 12u(mobile)">
             <span className="image fit">
-              <img src="./public/assets/images/pic00.jpg" alt="" />
+              <img src="./public/assets/images/profile_pic.png" alt="" />
             </span>
           </div>
           <div className="8u 12u(mobile)">
