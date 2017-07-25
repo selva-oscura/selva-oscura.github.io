@@ -21251,7 +21251,7 @@
 	              _react2.default.createElement(
 	                "strong",
 	                null,
-	                " Carol\u2002St.\xA0Louis"
+	                " Carol \xA0St.\xA0Louis"
 	              ),
 	              "."
 	            )
