@@ -1874,9 +1874,7 @@ figure.project {
 	-webkit-margin-after: 0;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-/*-webkit-transform: rotate(0);
--moz-transform: rotate(0);
-transform: rotate(0);*/
+  overflow: hidden;
 }
 
 figure.project img {
@@ -1908,8 +1906,8 @@ figure.project label {
 }
 
 figure.project:hover figcaption{
-	-webkit-transform: rotate(-50deg) translateY(-50%) scale(0.9);
-	transform: rotate(-50deg) translateY(-50%) scale(0.9);
+	-webkit-transform: rotate(-50deg) translateY(0%) scale(0.9);
+	transform: rotate(-50deg) translateY(0%) scale(0.9);
 }
 
 figure.project:hover label{
@@ -1928,27 +1926,31 @@ figure.project figcaption:before,figure.project figcaption:after {
 }
 
 figure.project figcaption:before {
-	left: 0;
+	right: 0;
 	top: 0;
 }
 
 figure.project figcaption:after {
 	bottom: 0;
-	right: 0;
+	left: 0;
 }
 
 figure.project:hover img,figure.project.hover img {
 	opacity: 1;
 	-webkit-backface-visibility: hidden;  /* fix for Chrome opacity pixel-shift bug */
-/*
-	-webkit-transform: rotate(0);
-	-moz-transform: rotate(0);
-	transform: rotate(0);
-*/
 }
 
+figure.project:hover figcaption:before {
+	right: -25%;
+}
+
+figure.project:hover figcaption:after {
+  left: -25%;
+}
+
+
 figure.project:hover figcaption:before,figure.project.hover figcaption:before,figure.project:hover figcaption:after,figure.project.hover figcaption:after {
-	width: 120%;
+	width: 200%;
 	background-color: #43bff0;
 }
 
@@ -2136,7 +2138,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 
 .modal-footer.screenshot-caption p{
 	font-size: 1em;
-	color:#fff; 
+	color:#fff;
 }
 
 
