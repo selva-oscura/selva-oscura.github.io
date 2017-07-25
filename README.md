@@ -10,4 +10,4 @@
 
 <p>Viewable at <a href="https://selva-oscura.github.io/">https://selva-oscura.github.io/</a></p>
 
-![Portfolio for Carol  St. Louis](https://github.com/selva-oscura/selva-oscura.github.io//blob/master/portfolio_screenshot.png)
+![Portfolio for Carol  St. Louis](https://github.com/selva-oscura/selva-oscura.github.io/blob/master/portfolio_screenshot.png)
