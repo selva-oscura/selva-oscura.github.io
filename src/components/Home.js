@@ -21,7 +21,7 @@ const Home = () => {
               Bay Area
             </p>
             <p>
-              I've always pursued opportunities and challenges that have
+              I&apos;ve always pursued opportunities and challenges that have
               intrigued me. As a web developer, I use my obsessive attention to
               detail to create fast, beautiful, and intuitive websites.
             </p>
