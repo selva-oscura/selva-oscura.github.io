@@ -21235,7 +21235,7 @@
 	          _react2.default.createElement(
 	            "span",
 	            { className: "image fit" },
-	            _react2.default.createElement("img", { src: "./public/assets/images/pic00.jpg", alt: "" })
+	            _react2.default.createElement("img", { src: "./public/assets/images/profile_pic.png", alt: "" })
 	          )
 	        ),
 	        _react2.default.createElement(
