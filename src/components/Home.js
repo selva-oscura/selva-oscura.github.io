@@ -13,7 +13,7 @@ const Home = () => {
           <div className="8u 12u(mobile)">
             <header>
               <h1>
-                Hi. I'm <strong> Carol&ensp;St.&nbsp;Louis</strong>.
+                Hi. I&apos;m <strong> Carol &nbsp;St.&nbsp;Louis</strong>.
               </h1>
             </header>
             <p>
