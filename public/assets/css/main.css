@@ -1169,7 +1169,7 @@
 	}
 
 	p, ul, ol, dl, table {
-		margin-bottom: 2em;
+		margin-bottom: 1.5em;
 	}
 
 	.half{
@@ -1673,7 +1673,7 @@
 		  background-attachment: fixed;
 		  background-size: cover;
 		  text-align: center;
-		  padding: 12em 0px 10em;
+		  padding: 12em 0px 6em;
 		  background-position: center center;
 		  background-repeat: no-repeat;
 		}
@@ -2013,7 +2013,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 }
 .modal-header h2, .modal-header h3{
 	color: #43B3E0;
-	margin: 24px 0em;
+	margin: 12px 0em;
 }
 /* Modal Body */
 .modal-body {
@@ -2021,7 +2021,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 	padding: 0;
 	background-color: #ffffff;
 	color: #000000;
-  max-height: 90vh;
+  max-height: calc(90vh - 60px);
   overflow-y: auto; /* Enable scroll if needed */
 
 }
@@ -2032,7 +2032,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 }
 .modal-footer p{
 	margin: .2em 0;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 .modal-footer a{
 	color:#43B3E0;
@@ -2283,7 +2283,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 
 				#home p {
 					font-size: 1.5em;
-					line-height: 1.75em;
+					line-height: 1.5em;
 				}
 
 			#contact footer {
@@ -2367,7 +2367,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 
 			body, input, textarea, select {
 				line-height: 1.75em;
-				font-size: 10pt;
+				font-size: 12pt;
 				letter-spacing: 0;
 			}
 
@@ -2416,6 +2416,16 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 			.button {
 				text-align: center;
 			}
+
+		.project-filters button{
+			padding: 8px 12px;
+			margin: 6px;
+		}
+		.project-filters button .span{
+			font-size: 10px;
+		}
+
+
 
 		/* List */
 
@@ -2487,7 +2497,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 		/* Articles */
 
 			#home .image {
-				width: 70%;
+				width: 50%;
 				max-width: 400px;
 				height: auto;
 				margin: 0 auto 1.75em auto;
@@ -2578,6 +2588,7 @@ figure.project:hover figcaption:before,figure.project.hover figcaption:before,fi
 	.modal-content{
 		width: 98%;
   	margin: 2.5% auto;
+    font-size: 1em;
 	}
 
   .flex-grid-halves {
