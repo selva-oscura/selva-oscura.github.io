@@ -187,7 +187,6 @@ class App extends Component {
   render() {
     return (
       <div>
-
         <Nav />
 
         <Home />
@@ -216,7 +215,6 @@ class App extends Component {
         />
 
         <FindMe />
-
       </div>
     );
   }
