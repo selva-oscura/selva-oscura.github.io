@@ -128,7 +128,7 @@ const Profile = props => {
                   target="zyrl"
                   selectProject={props.selectProject}
                 />
-                )
+                ).
               </p>
               <p>
                 In my personal projects and at hackathons, I've enjoyed
@@ -215,14 +215,13 @@ const Profile = props => {
               <SkillArea key={i} skillArea={skillArea} />
             )}
           </div>
+          <footer>
+            <p>Want to learn more?</p>
+            <a href="#portfolio" className="button big scrolly">
+              Check out some of my recent work
+            </a>
+          </footer>
         </div>
-        <div className="container" />
-        <footer>
-          <p>Want to learn more?</p>
-          <a href="#portfolio" className="button big scrolly">
-            Check out some of my recent work
-          </a>
-        </footer>
       </article>
     </div>
   );
