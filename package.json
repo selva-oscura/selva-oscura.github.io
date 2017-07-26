@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack -w",
     "build": "webpack",
-    "test": "prettier --single-quote --trailing-comma es5 --write src/App.js src/components/*.js",
+    "prestart": "prettier --single-quote --trailing-comma es5 --write src/App.js src/components/*.js && prettier-css public/assets/css/main.css",
     "stats": "webpack --profile --json > stats.json"
   },
   "repository": {
@@ -47,6 +47,7 @@
     "mocha": "^2.4.5",
     "nyc": "^6.0.0",
     "prettier": "^1.5.3",
+    "prettier-css": "0.0.7",
     "react-addons-test-utils": "^0.14.7",
     "sinon": "^1.17.3",
     "webpack": "^1.12.13"
