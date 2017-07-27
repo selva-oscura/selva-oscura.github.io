@@ -2222,6 +2222,12 @@ figure.project.hover figcaption:after {
  The Modal (background)
  */
 
+html.is-locked {
+  overflow: hidden;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
 .modal {
   position: fixed;
   /* Stay in place */
@@ -2229,16 +2235,20 @@ figure.project.hover figcaption:after {
   /* Sit on top */
   left: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   /* Full width */
   min-height: 100vh;
   /* Full height */
-  overflow-y: initial;
+  overflow: auto;
   background-color: rgb(0,0,0);
   /* Fallback color */
   background-color: rgba(0,0,0,0.4);
   /* Black w/ opacity */
   text-shadow: 1px 1px 0px rgba(127, 127, 127, .25);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /*
@@ -2250,10 +2260,10 @@ figure.project.hover figcaption:after {
   z-index: 201;
   font-size: 1.5em;
   background-color: #fefefe;
-  margin: 40px auto 0;
+  margin: 0px auto 0;
   border: 1px solid #444444;
   width: 80%;
-  max-width: 960px;
+  max-width: 720px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.1);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -2308,8 +2318,8 @@ figure.project.hover figcaption:after {
   padding: 0;
   background-color: #ffffff;
   color: #000000;
-  max-height: calc(90vh - 60px);
-  overflow-y: auto;
+  /* max-height: calc(90vh - 60px);
+  overflow-y: auto; */
   /* Enable scroll if needed */
 }
 
