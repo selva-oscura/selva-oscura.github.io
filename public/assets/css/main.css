@@ -2318,9 +2318,6 @@ html.is-locked {
   padding: 0;
   background-color: #ffffff;
   color: #000000;
-  /* max-height: calc(90vh - 60px);
-  overflow-y: auto; */
-  /* Enable scroll if needed */
 }
 
 /*
