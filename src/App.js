@@ -154,11 +154,13 @@ class App extends Component {
     this.setState({ projectFilters });
   }
   selectProject(clickedProject) {
+    document.getElementById('html').className = 'is-locked';
     this.setState({ selectedProject: clickedProject });
   }
   unselectProject() {
     this.setState({ deselectedProject: true });
     setTimeout(() => {
+      document.getElementById('html').className = '';
       this.setState({ selectedProject: '', deselectedProject: false });
     }, 400);
   }
@@ -184,6 +186,7 @@ class App extends Component {
     }
     this.setState({ screenshotNum });
   }
+
   render() {
     return (
       <div>
