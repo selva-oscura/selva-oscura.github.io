@@ -8,6 +8,7 @@ const ProjectFilters = props => {
     { mongo: 'MongoDB' },
     { meteor: 'Meteor' },
     { react: 'React' },
+    { redux: 'Redux' },
     { angular: 'Angular' },
     { pwa: 'Progressive Web App (PWA)' },
     { webrtc: 'WebRTC' },
