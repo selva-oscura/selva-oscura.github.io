@@ -2117,6 +2117,15 @@ ol.default li {
  Project
  */
 
+.project-filters button {
+  padding: 10px 15px;
+  margin: 20px 8px 0px;
+}
+
+.project-filters button .span {
+  font-size: 12px;
+}
+
 figure.project * {
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
@@ -2263,7 +2272,7 @@ html.is-locked {
   margin: 0px auto 0;
   border: 1px solid #444444;
   width: 80%;
-  max-width: 720px;
+  max-width: 960px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.1);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -2307,6 +2316,23 @@ html.is-locked {
 .modal-header h3 {
   color: #43B3E0;
   margin: 12px 0em;
+}
+
+.modal-content p {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+@media screen and (min-width: 737px) {
+  .modal-content h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .modal-content p {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 /*
@@ -2367,11 +2393,16 @@ html.is-locked {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-top: 6px;
+  -moz-transition: color .5s ease-in-out;
+  -webkit-transition: color .5s ease-in-out;
+  -ms-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
 }
 
 .modal-close:hover,
 .modal-close:focus {
-  color: black;
+  color: #eee;
   text-decoration: none;
   cursor: pointer;
 }
@@ -2509,7 +2540,7 @@ html.is-locked {
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
   }
 
   h1 strong {
@@ -2522,7 +2553,7 @@ html.is-locked {
 
   h3,
   p {
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
   }
 
   h1,
@@ -2764,15 +2795,6 @@ html.is-locked {
     text-align: center;
   }
 
-  .project-filters button {
-    padding: 8px 12px;
-    margin: 6px;
-  }
-
-  .project-filters button .span {
-    font-size: 10px;
-  }
-
   ul.social {
     padding: 1em 0.5em 0 0.5em;
   }
@@ -2924,8 +2946,8 @@ html.is-locked {
 
 @media (max-width: 900px) {
   .modal-content {
-    width: 98%;
-    margin: 2.5% auto;
+    width: 100%;
+    margin: 1% auto;
     font-size: 1em;
   }
 
@@ -2978,4 +3000,13 @@ html.is-locked {
 .Errors p {
   color: rgba(160, 50, 40, 1) !important;
   margin-bottom: 0em;
+}
+
+.project-filters button {
+  padding: 10px 15px;
+  margin: 20px 8px 0px;
+}
+
+.project-filters button .span {
+  font-size: 12px;
 }
