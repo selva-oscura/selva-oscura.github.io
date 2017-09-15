@@ -120,7 +120,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "gitup",
-			"text": ["Progressive Web App for checking top and trending repositories on GitHub (with options to search by language and keywords.", "Built as a personal project mostly as an excuse to play with React, Redux, API calls, and progressive Web Apps (PWAs), service workers, storage of state and the app shell in the browser, and Lighthouse."],
+			"text": ["Progressive Web App for checking top and trending repositories on GitHub (with options to search by language and keywords).", "Built as a personal project, mostly as an excuse to play with React, Redux, API calls, and progressive Web Apps (PWAs), service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, Redux, JavaScript/ES6, API call (to GitHub), Progressive Web App (PWA), Service Workers and local storage"
 		},{
 			"src": "public/img/hangman.png",
