@@ -45,7 +45,7 @@
 		},{
 			"src": "public/img/portfolio.png",
 			"name": "Portfolio Page",
-			"git": "https://github.com/selva-oscura/selva-oscura",
+			"git": "https://github.com/selva-oscura/selva-oscura.github.io",
 			"web": "https://selva-oscura.github.io/",
 			"internalProject": false,
 			"node": true,
@@ -60,7 +60,7 @@
 			"lamp": false,
 			"purpose": "personal",
 			"target": "portfolio",
-			"text": ["This is the portfolio page at which you are currently looking. As of 7/25/2017, it is a work in progress. Starting as a vanilla html site (based on the Free Code Camp portfolio project), the project has undergone repeated iterations as it was converted to React, had its theme changed, had animations and new sections added....and yet more changes coming."],
+			"text": ["This is the portfolio page at which you are currently looking. As of 8/25/2017, it remains a work in progress. Starting as a vanilla html site (based on the Free Code Camp portfolio project), the project has undergone repeated iterations: conversion to React, multiple theme changes, addition of animations and new sections....."],
 			"technologies": "React.js, JavaScript/ES6, jQuery, HTML5, CSS3, HTML5Up"
 		},{
 			"src": "public/img/sudoku.png",
@@ -245,6 +245,27 @@
 			"text": ["Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap.", "This project was developed and won 2nd place at the Women Who Code Silicon Valley hackathon at Paypal in April 2015."],
 			"technologies": "Meteor.js, MongoDB, Node.js, HTML5, CSS3, Bootstrap, MapQuest Geolocation API"
 		},{
+			"src":"public/img/booksmart.png",
+			"name":"Booksmart",
+			"git": "",
+			"web": "http://booksmartapp.com",
+			"internalProject": false,
+			"node": false,
+			"meteor": false,
+			"react": false,
+			"redux": false,
+			"angular": false,
+			"mongo": false,
+			"pwa": false,
+			"d3": false,
+			"svg": false,
+			"lamp": true,
+			"php": true,
+			"purpose": "client",
+			"target": "booksmart",
+			"text": ["Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted."],
+			"technologies": "HTM5, CSS3, Bootstrap, PHP, MySQL, JavaScript, AJAX, jQuery, Campusbooks API"
+		},{
 			"src":"public/img/elementaryBuddies.png",
 			"name":"Elementary Buddies",
 			"git": "https://github.com/selva-oscura/elementaryBuddies",
@@ -325,27 +346,6 @@
 			"target": "raindrops",
 			"text": ["Non-interactive graphics - circles appear, spread and fade, and ultimately disappear -- Really just playing with JavaScript, jQuery, and svg.", "Developed at Coding Dojo July 2014."],
 			"technologies": "HTML5, CSS3, JavaScript, jQuery"
-		},{
-			"src":"public/img/booksmart.png",
-			"name":"Booksmart",
-			"git": "",
-			"web": "http://booksmartapp.com",
-			"internalProject": false,
-			"node": false,
-			"meteor": false,
-			"react": false,
-			"redux": false,
-			"angular": false,
-			"mongo": false,
-			"pwa": false,
-			"d3": false,
-			"svg": false,
-			"lamp": true,
-			"php": true,
-			"purpose": "client",
-			"target": "booksmart",
-			"text": ["Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted."],
-			"technologies": "HTM5, CSS3, Bootstrap, PHP, MySQL, JavaScript, AJAX, jQuery, Campusbooks API"
 		},{
 			"src":"public/img/aloha_fun_zone.png",
 			"name":"Aloha Fun Zone",
