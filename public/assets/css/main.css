@@ -1568,8 +1568,8 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background-color: #43bff0 !important;
-  color: #fff !important;
+  background-color: rgba(67, 191,240, 0.3) !important;
+  /* color: #fff !important; */
 }
 
 input[type="button"]:active,
@@ -1586,7 +1586,7 @@ input[type="submit"].alt,
 input[type="reset"].alt,
 button.alt,
 .button.alt {
-  background-color: #43bff0;
+  background-color: rgba(67, 191,240, 1);
   color: #fff;
   box-shadow: inset 0px 0px 0px 1px #43bff0, inset 0px 2px 1px 0px rgba(67, 182, 240, 0.2);
 }
@@ -1596,8 +1596,8 @@ input[type="submit"].alt:hover,
 input[type="reset"].alt:hover,
 button.alt:hover,
 .button.alt:hover {
-  color: #000 !important;
-  background-color: white !important;
+  /* color: #fff !important; */
+  background-color: rgba(67, 191,240, 0.7) !important;
 }
 
 input[type="button"].alt:active,
@@ -1605,7 +1605,8 @@ input[type="submit"].alt:active,
 input[type="reset"].alt:active,
 button.alt:active,
 .button.alt:active {
-  background-color: #3f3f3f;
+  /* color: #f !important; */
+  background-color: rgba(67, 191,240, 0.7) !important;
 }
 
 input[type="submit"].special,
@@ -2668,6 +2669,7 @@ html.is-locked {
   }
 
   #contact footer {
+    margin-top: 18px;
     font-size: 0.9em;
   }
 
