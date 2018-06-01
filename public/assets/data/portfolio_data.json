@@ -19,9 +19,9 @@
 			"lamp": false,
 			"purpose": "client",
 			"target": "localmajority",
-			"screenshots": ["localmajority_index.png", "local_majority_candidates.png", "localmajority_reports.png", "localmajority_about_us.png","localmajority_take-action.png"
+			"screenshots": ["localmajority_index.png", "localmajority_candidates.png", "localmajority_candidate.png", "localmajority_states.png", "localmajority_reports.png", "localmajority_about_us.png"
 			],
-			"screenshotCaptions": ["Local Majority | Home Page", "Local Majority | Candidates", "Local Majority | Reports", "Local Majority | About Us","Local Majority | Take Action"],
+			"screenshotCaptions": ["Local Majority | Home Page", "Local Majority | Candidates", "Local Majority | Candidate", "Local Majority | States", "Local Majority | Reports", "Local Majority | About Us"],
 			"text": ["Local Majority (in development) will a app for providing state-level election, voting, and issues information to progressive voters. The project includes a public-facing website for providing voters with information, an internal website for updating the database, and a shared database.", "My work on the project was focused on designing and developing the public-facing website, using React and GraphQL, to provide profiles on state-level candidates, articles about local and state issues, and information regarding voting registration, deadlines, and calls to action to be involved in mobilizing other voters."],
 			"technologies": "React, Node.js, JavaScript/ES6, GraphQL, HTML5, CSS3, Bootstrap, Material-UI"
 		},{
