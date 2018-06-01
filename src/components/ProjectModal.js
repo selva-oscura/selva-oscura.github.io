@@ -79,15 +79,6 @@ const ProjectModal = props => {
                   </a>
                 </p>
               : ' '}
-          </div>
-          <div className="half text-right">
-            {props.project.git
-              ? <p>
-                  <a href={props.project.git} target={props.project.target}>
-                    <span className="icon featured fa-github" /> Project Repo
-                  </a>
-                </p>
-              : ' '}
             {props.project.screenshots
               ? <p>
                   <a
@@ -95,6 +86,15 @@ const ProjectModal = props => {
                     onClick={handleScreenshotsClick}
                   >
                     Project Screenshots
+                  </a>
+                </p>
+              : ' '}
+          </div>
+          <div className="half text-right">
+            {props.project.git
+              ? <p>
+                  <a href={props.project.git} target={props.project.target}>
+                    <span className="icon featured fa-github" /> Project Repo
                   </a>
                 </p>
               : ' '}
