@@ -2171,7 +2171,7 @@ ul.social li a:before {
   -webkit-transition: all .2s ease-in-out;
   -ms-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-  background-color: #444;
+  background-color: #888;
   border-radius: 6px;
   box-shadow: inset 0px 0px 0px 1px #282828, inset 0px 2px 1px 0px rgba(255, 255, 255, 0.1);
   color: #2E2E2E;
@@ -2191,7 +2191,7 @@ ul.social li a.fa-linkedin {
 }
 
 ul.social li a.fa-github {
-  background-color: #FAFAFA;
+  background-color: #24292E;
 }
 
 ul.social li a.fa-codepen {
