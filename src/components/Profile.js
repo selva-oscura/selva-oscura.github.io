@@ -15,7 +15,8 @@ const Profile = props => {
         'Redux',
         'jQuery',
         'Angular',
-        'CSS Libraries: Bootstrap, Material Design, HTML5UP',
+        'Progressive Web Apps (PWAs)',
+        'CSS Libraries: Bootstrap, Material Design, Material-UI, HTML5UP',
       ],
     },
     {
@@ -35,10 +36,10 @@ const Profile = props => {
       icon: 'fa-cogs',
       skillArea: 'Sundry',
       skills: [
+        'Interfaces: GraphQL',
         'Package Management: npm, yarn',
-        'Linting: jshint, eslint, prettier',
+        'Linting: eslint, jshint, prettier',
         'Version Control: git',
-        'Progressive Web Apps (PWAs)',
         'PaaS: Galaxy, Heroku',
         'DBaaS: mLab',
         'APIs: Facebook, Instagram, OpenWeather, Stripe, & many more',
@@ -109,10 +110,19 @@ const Profile = props => {
                 </a>).
               </p>
               <p>
+                Currently I am using React and GraphQL, connecting to a PostgreSQL database, to develop a public-facing website for Local Majority, a grassroots organization seeking to mobilize voters. While the project is very much still in development, screenshots &mdash; admittedly with some lorem ipsum text and placekitten images &mdash; are available (see
+                  <LinkToProject
+                    text="Local Majority"
+                    target="localmajority"
+                    selectProject={props.selectProject}
+                  />
+                  )
+              </p>
+              <p>
                 For two recent client projects, I used Meteor's reactive
                 programming framework to develop fast, secure websites, backed
                 by MongoDB's databases, and utilized Node.js server-side cron
-                jobs to automate notifications &nbsp; reports and to clear holds
+                jobs to automate notifications &amp; reports and to clear holds
                 for uncompleted transactions (see Door-to-Door Shines
                 <LinkToProject
                   text="description"
@@ -133,7 +143,7 @@ const Profile = props => {
               <p>
                 In my personal projects and at hackathons, I've enjoyed
                 exploring HTML5's new APIs, the myriad JS libraries &
-                frameworks, and the ever greater browser capabilities:
+                frameworks, and browsers&apos; ever greater capabilities:
               </p>
               <ul>
                 <li>
