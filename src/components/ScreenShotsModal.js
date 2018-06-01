@@ -58,13 +58,13 @@ const ScreenShotsModal = props => {
         </div>
         <div className="screenshots-body flex-grid-uneven-thirds">
           <div
-            className="col screenshot-nav previous"
+            className="screenshot-nav previous"
             onClick={handlePreviousClick}
           >
             <p className="icon fa-chevron-left" />
           </div>
-          <div className="col main" style={screenshot} />
-          <div className="col screenshot-nav next" onClick={handleNextClick}>
+          <div className="main" style={screenshot} />
+          <div className="screenshot-nav next" onClick={handleNextClick}>
             <p className="icon fa-chevron-right" />
           </div>
         </div>
