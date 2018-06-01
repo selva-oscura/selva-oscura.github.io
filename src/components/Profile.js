@@ -116,23 +116,20 @@ const Profile = props => {
                     target="localmajority"
                     selectProject={props.selectProject}
                   />
-                  )
+                  ).
               </p>
               <p>
-                For two recent client projects, I used Meteor's reactive
+                For two other recent client projects, I used Meteor's reactive
                 programming framework to develop fast, secure websites, backed
                 by MongoDB's databases, and utilized Node.js server-side cron
                 jobs to automate notifications &amp; reports and to clear holds
-                for uncompleted transactions (see Door-to-Door Shines
+                for uncompleted transactions (see
                 <LinkToProject
-                  text="description"
+                  text="Door-to-Door Shines"
                   target="shines"
                   selectProject={props.selectProject}
                 />
-                &nbsp;or{' '}
-                <a href="https://www.doortodoorshines.com" target="shines">
-                  live
-                </a>), and to update data that clients are monitoring (see
+                ), and to update data that clients are monitoring (see
                 <LinkToProject
                   text="Zyrl"
                   target="zyrl"
