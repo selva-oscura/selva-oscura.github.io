@@ -29,7 +29,7 @@ const Home = () => {
               I want to build things that solve real problems and make the world
               a better place.
             </p>
-            <a href="#profile" className="button big scrolly">
+            <a href="#profile" className="button big scrolly home">
               Learn more about what I do
             </a>
           </div>
