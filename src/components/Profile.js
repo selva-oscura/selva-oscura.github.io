@@ -110,13 +110,18 @@ const Profile = props => {
                 </a>).
               </p>
               <p>
-                Currently I am using React and GraphQL, connecting to a PostgreSQL database, to develop a public-facing website for Local Majority, a grassroots organization seeking to mobilize voters. While the project is very much still in development, screenshots &mdash; admittedly with some lorem ipsum text and placekitten images &mdash; are available (see
-                  <LinkToProject
-                    text="Local Majority"
-                    target="localmajority"
-                    selectProject={props.selectProject}
-                  />
-                  ).
+                Currently I am using React and GraphQL, connecting to a
+                PostgreSQL database, to develop a public-facing website for
+                Local Majority, a grassroots organization seeking to mobilize
+                voters. While the project is very much still in development,
+                screenshots &mdash; admittedly with some lorem ipsum text and
+                placekitten images &mdash; are available (see
+                <LinkToProject
+                  text="Local Majority"
+                  target="localmajority"
+                  selectProject={props.selectProject}
+                />
+                ).
               </p>
               <p>
                 For two other recent client projects, I used Meteor's reactive

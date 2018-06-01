@@ -8,9 +8,7 @@ const Copyright = () => {
         <li>
           Design: modified from <a href="http://html5up.net">
             HTML5 UP
-          </a>&rsquo;s theme <a href="https://html5up.net/miniport">
-            Miniport
-          </a>
+          </a>&rsquo;s theme <a href="https://html5up.net/miniport">Miniport</a>
         </li>
         <li>
           Background Images: <a href="https://unsplash.com/">Unsplash</a>

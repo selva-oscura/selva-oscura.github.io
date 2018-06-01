@@ -9,7 +9,7 @@ const ProjectFilters = props => {
     { meteor: 'Meteor' },
     { react: 'React' },
     { redux: 'Redux' },
-    { graphQL: 'GraphQL'},
+    { graphQL: 'GraphQL' },
     { angular: 'Angular' },
     { pwa: 'Progressive Web App (PWA)' },
     { webrtc: 'WebRTC' },
