@@ -1,2 +1,9 @@
 node_modules
 npm-debug.log
+
+# dev only
+html5-miniport
+public/html5-miniport
+public/html5up-twenty
+src_old
+src_twenty
