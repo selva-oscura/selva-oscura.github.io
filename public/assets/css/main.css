@@ -125,6 +125,7 @@ section {
 
 body {
   line-height: 1;
+  overflow-y: scroll;
 }
 
 ol,
@@ -2756,6 +2757,8 @@ html.is-locked {
   text-shadow: 1px 1px 0px rgba(127, 127, 127, .25);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  /* always show scrollbar */
+  overflow-y: scroll;
 }
 
 /*
