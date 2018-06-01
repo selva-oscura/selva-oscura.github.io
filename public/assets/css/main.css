@@ -2997,12 +2997,12 @@ html.is-locked {
   width: 100%;
 }
 
-.flex-grid-uneven-thirds .col.main {
+.flex-grid-uneven-thirds .main {
   width: calc(100% - 150px);
   height: 80vh;
 }
 
-.flex-grid-uneven-thirds .col.screenshot-nav {
+.flex-grid-uneven-thirds .screenshot-nav {
   width: 75px;
   background-color: rgba(20, 20, 20, 0.85);
   display: flex;
@@ -3015,7 +3015,7 @@ html.is-locked {
   transition: text-shadow .2s ease-in-out;
 }
 
-.flex-grid-uneven-thirds .col.screenshot-nav:hover {
+.flex-grid-uneven-thirds .screenshot-nav:hover {
   text-shadow: 2px 3px 0px rgba(0,0,0,0.45), 8px 4px 0px #ccc;
 }
 
@@ -3410,7 +3410,7 @@ html.is-locked {
 
 .flex-grid-thirds .col {
   display: flex;
-  flex-basis: 33%;
+  flex-basis: 32%;
   flex-direction: column;
   background-color: white;
   padding: 1em .5em .5em .5em;
