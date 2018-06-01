@@ -163,7 +163,13 @@ const Profile = props => {
                     target="tic-tac-toe"
                     selectProject={props.selectProject}
                   />
-                  ),
+                  ) a cryptocurrency exchange tracker (see
+                  <LinkToProject
+                    text="CryptoGlance"
+                    target="cryptoglance"
+                    selectProject={props.selectProject}
+                  />
+                  )
                 </li>
                 <li>
                   to use Meteor.js, MongoDB,{' '}
