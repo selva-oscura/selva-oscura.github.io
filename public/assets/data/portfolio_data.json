@@ -176,27 +176,7 @@
 			"target": "hangman",
 			"text": ["Progressive Web App version of the familiar word game Hangman, albeit with SAT words.", "The game was built as a personal project while learning React, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
 			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage"
-		},{
-			"src": "public/img/weather.png",
-			"name": "Weather",
-			"git": "https://github.com/selva-oscura/react-weather-spa",
-			"web": "https://selva-oscura.github.io/react-weather-spa",
-			"internalProject": false,
-			"node": true,
-			"meteor": false,
-			"react": true,
-			"redux": false,
-			"angular": false,
-			"mongo": false,
-			"graphQL": false,
-			"pwa": true,
-			"d3": false,
-			"svg": false,
-			"lamp": false,
-			"purpose": "personal",
-			"target": "weather",
-			"text": ["Progressive Web App Weather App.", "Built as a personal project while delving into ES6, learning React and how it handles API calls, Progressive Web Apps, service workers, storage of state and the app shell in the browser, and Lighthouse."],
-			"technologies": "React.js, JavaScript/ES6, Progressive Web App (PWA), Service Workers and local storage, axios, OpenWeather API"
+
 		},{
 			"src": "public/img/tic-tac-toe.png",
 			"name": "Tic-Tac-Toe",
@@ -306,6 +286,28 @@
 			"text": ["Sole developer and lead maintainer of the web platform for a web, iOS, and Android project, created in collaboration with a team of mobile app developers to help students (1) contact other students at their university to buy or sell textbooks with one another and (2) buy from or sell to online vendors for students at universities where the app is not yet broadly adopted."],
 			"technologies": "HTM5, CSS3, Bootstrap, PHP, MySQL, JavaScript, AJAX, jQuery, Campusbooks API"
 		},{
+			"src":"public/img/tropical_hawaii_tours.png",
+			"name":"Tropical Hawaii Tours",
+			"web": "http://tropicalhawaiitours.com",
+			"git": "",
+			"internalProject": false,
+			"node": false,
+			"meteor": false,
+			"react": false,
+			"redux": false,
+			"angular": false,
+			"mongo": false,
+			"graphQL": false,
+			"pwa": false,
+			"d3": false,
+			"svg": false,
+			"lamp": false,
+			"php": true,
+			"purpose": "client",
+			"target": "tropical_hawaii_tours",
+			"text": ["Sole developer and maintainer of Tropical Hawaii Tours website, which displays the tours available from the company."],
+			"technologies": "HTM5, CSS3, PHP, JavaScript, AJAX, jQuery"
+		},{
 			"src":"public/img/elementaryBuddies.png",
 			"name":"Elementary Buddies",
 			"git": "https://github.com/selva-oscura/elementaryBuddies",
@@ -390,28 +392,6 @@
 			"target": "raindrops",
 			"text": ["Non-interactive graphics - circles appear, spread and fade, and ultimately disappear -- Really just playing with JavaScript, jQuery, and svg.", "Developed at Coding Dojo July 2014."],
 			"technologies": "HTML5, CSS3, JavaScript, jQuery"
-		},{
-			"src":"public/img/aloha_fun_zone.png",
-			"name":"Aloha Fun Zone",
-			"web": "http://alohafunzone.com",
-			"git": "",
-			"internalProject": false,
-			"node": false,
-			"meteor": false,
-			"react": false,
-			"redux": false,
-			"angular": false,
-			"mongo": false,
-			"graphQL": false,
-			"pwa": false,
-			"d3": false,
-			"svg": false,
-			"lamp": false,
-			"php": true,
-			"purpose": "client",
-			"target": "aloha",
-			"text": ["Sole developer and maintainer of Aloha Fun Zone website, which displays the tours available from the company."],
-			"technologies": "HTM5, CSS3, PHP, JavaScript, AJAX, jQuery"
 		}
 	]
 }
