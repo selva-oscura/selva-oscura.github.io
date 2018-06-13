@@ -2754,6 +2754,8 @@ html.is-locked {
   backface-visibility: hidden;
   /* always show scrollbar */
   overflow-y: scroll;
+  /* Prevents Chrome-on-Android swallowing modal footer */
+  padding-bottom: 50px;
 }
 
 /*
